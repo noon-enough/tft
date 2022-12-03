@@ -1,0 +1,33 @@
+<l-tab-bar text-color="#8a8a8a" text-selected-color="#2c2c2c" list="{{list}}" />
+<view class="container">
+    <l-tabs l-class-header-line="header-line" hasLine="{{true}}" scrollable>
+        <l-tabpanel tab="英雄" key="hero" slot="hero">
+            <view class="tab-content">
+                <l-search-bar placeholder="搜索" show-cancel="{{false}}"/>
+                <hero-table/>
+            </view>
+        </l-tabpanel>
+        <l-tabpanel tab="装备" key="2" slot="2">
+            <view class="tab-content">卧室</view>
+        </l-tabpanel>
+        <l-tabpanel tab="羁绊" key="fetters" slot="fetters">
+            <view class="tab-content">
+                e sh
+            </view>
+        </l-tabpanel>
+        <l-tabpanel tab="强化符文" key="4" slot="4">
+            <l-tabs hasLine="{{false}}">
+                <l-tabpanel tab="银色" key="silver" slot="silver">
+                    <view class="tab-content">客厅</view>
+                </l-tabpanel>
+                <l-tabpanel tab="金色" key="gold" slot="gold">
+                    <view class="tab-content">卧室</view>
+                </l-tabpanel>
+                <l-tabpanel tab="彩色" key="colorful" slot="colorful">
+                    <view class="tab-content">
+                    </view>
+                </l-tabpanel>
+            </l-tabs>
+        </l-tabpanel>
+    </l-tabs>
+</view>

@@ -1,0 +1,20 @@
+export default [
+    {
+        pagePath:"/pages/home/index",
+        text:"攻略区",
+        iconPath:"/assets/icons/sword.png",
+        selectedIconPath:"/assets/icons/sword-selected.png"
+    },
+    {
+        pagePath:"/pages/database/index",
+        text:"资料库",
+        iconPath:"/assets/icons/tft.png",
+        selectedIconPath:"/assets/icons/tft-selected.png"
+    },
+    {
+        pagePath:"/pages/mine/index",
+        text:"我的",
+        iconPath:"/assets/icons/option.png",
+        selectedIconPath:"/assets/icons/index-selected.png"
+    }
+]

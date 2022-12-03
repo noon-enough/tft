@@ -1,0 +1,3 @@
+<l-tab-bar text-color="#8a8a8a" text-selected-color="#2c2c2c" list="{{list}}" />
+<view class="container">
+</view>

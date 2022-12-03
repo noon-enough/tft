@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/index/index",
+    "pages/database/index",
+    "pages/mine/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "TFT金铲铲助手",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#2c2c2c",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "custom": true,
+    "list": [
+      {
+        "pagePath":"pages/home/index",
+        "text":"攻略区",
+        "iconPath":"assets/icons/home.png",
+        "selectedIconPath":"assets/icons/home-selected.png"
+      },
+      {
+        "pagePath":"pages/database/index",
+        "text":"资料库",
+        "iconPath":"assets/icons/home.png",
+        "selectedIconPath":"assets/icons/home-selected.png"
+      },
+      {
+        "pagePath":"pages/mine/index",
+        "text":"我的",
+        "iconPath":"assets/icons/home.png",
+        "selectedIconPath":"assets/icons/home-selected.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "usingComponents" : {
+    "l-tabs": "/miniprogram_npm/lin-ui/tabs/index",
+    "l-tab-bar":"/miniprogram_npm/lin-ui/tab-bar/index",
+    "l-tabpanel": "/miniprogram_npm/lin-ui/tabpanel/index",
+    "l-search-bar": "/miniprogram_npm/lin-ui/search-bar/index",
+    "hero-table": "./components/hero-table/index"
+  },
+  "sitemapLocation": "sitemap.json",
+  "subpackages": []
+}

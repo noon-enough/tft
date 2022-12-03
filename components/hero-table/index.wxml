@@ -1,0 +1,18 @@
+<view class="table-wrapper">
+    <view class="table-item">
+        <text class="table-title">英雄</text>
+        <text class="table-title">种族</text>
+        <text class="table-title">职业</text>
+        <text class="table-title">费用</text>
+    </view>
+    <view class="table-item">
+        <text class="table-content">能量(kcal)</text>
+        <text class="table-content">0.00</text>
+        <text class="table-content">0.00</text>
+    </view>
+    <view class="table-item">
+        <text class="table-content">能量(kcal)</text>
+        <text class="table-content">0.00</text>
+        <text class="table-content">0.00</text>
+    </view>
+ </view>
