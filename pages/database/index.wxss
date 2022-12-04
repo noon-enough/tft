@@ -1,3 +1,26 @@
+/**app.wxss**/
+@import "/assets/style/weui.wxss";
+
 .tab-content {
     margin: 20rpx;
+}
+
+.page__bd .page__bd_spacing {
+    padding: 20rpx;
+}
+
+.page {
+    margin: 20rpx;
+}
+
+
+.title {
+    padding: 10rpx;
+    color: rgba(44, 49, 68, 0.60);
+    background: #EAEBED;
+    box-shadow: inset 2rpx 2rpx 0 0 rgba(0, 0, 0, 0.10), inset 0 -2rpx 0 0 rgba(0, 0, 0, 0.10);
+}
+
+.placeholder {
+    text-align: center;
 }

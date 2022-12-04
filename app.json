@@ -48,7 +48,10 @@
     "l-tab-bar":"/miniprogram_npm/lin-ui/tab-bar/index",
     "l-tabpanel": "/miniprogram_npm/lin-ui/tabpanel/index",
     "l-search-bar": "/miniprogram_npm/lin-ui/search-bar/index",
-    "hero-table": "./components/hero-table/index"
+    "l-avatar": "/miniprogram_npm/lin-ui/avatar/index",
+    "hero-table": "./components/hero-table/index",
+    "l-grid": "/miniprogram_npm/lin-ui/grid/index",
+    "l-grid-item": "/miniprogram_npm/lin-ui/grid-item/index"
   },
   "sitemapLocation": "sitemap.json",
   "subpackages": []

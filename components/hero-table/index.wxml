@@ -1,18 +1,43 @@
-<view class="table-wrapper">
-    <view class="table-item">
-        <text class="table-title">英雄</text>
-        <text class="table-title">种族</text>
-        <text class="table-title">职业</text>
-        <text class="table-title">费用</text>
+<!-- <view class="table-wrapper">
+        <view class="table-item">
+            <text class="table-title">英雄</text>
+            <text class="table-title">种族</text>
+            <text class="table-title">职业</text>
+            <text class="table-title">费用</text>
+        </view>
+        <view class="table-item">
+            <view class="table-content">
+                <l-avatar
+                        size="100"
+                        shape="square"
+                        src="https://game.gtimg.cn/images/lol/act/img/tft/champions/776.png" text="索姆" placement="right"></l-avatar>
+            </view>
+            <view class="table-content">
+                <l-avatar size="30"
+                          shape="square"
+                          src="https://game.gtimg.cn/images/lol/act/img/tft/origins/7116.png" text="碧波龙"></l-avatar>
+            </view>
+            <view class="table-content">0.00</view>
+            <view class="table-content">1</view>
+        </view>
+     </view>-->
+
+
+<view class="container">
+    <view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+        <view class="page__bd page__bd_spacing">
+            <view class="weui-flex title">
+                <view class="weui-flex__item"><view class="placeholder">英雄</view></view>
+                <view class="weui-flex__item"><view class="placeholder">种族</view></view>
+                <view class="weui-flex__item"><view class="placeholder">职业</view></view>
+                <view class="weui-flex__item"><view class="placeholder">费用</view></view>
+            </view>
+            <view class="weui-flex">
+                <view class="weui-flex__item"><view class="placeholder">英雄</view></view>
+                <view class="weui-flex__item"><view class="placeholder">种族</view></view>
+                <view class="weui-flex__item"><view class="placeholder">职业</view></view>
+                <view class="weui-flex__item"><view class="placeholder">费用</view></view>
+            </view>
+        </view>
     </view>
-    <view class="table-item">
-        <text class="table-content">能量(kcal)</text>
-        <text class="table-content">0.00</text>
-        <text class="table-content">0.00</text>
-    </view>
-    <view class="table-item">
-        <text class="table-content">能量(kcal)</text>
-        <text class="table-content">0.00</text>
-        <text class="table-content">0.00</text>
-    </view>
- </view>
+</view>
