@@ -1,0 +1,60 @@
+.tag-main {
+    display: flex;
+    margin-top: 10rpx;
+}
+
+.tag-num {
+    background-color: #7f4f3e;
+    padding: 8rpx;
+    width: 40rpx;
+    text-align: center;
+    color: #fff5e0;
+}
+
+.tag-info {
+    margin-left: 10rpx;
+    padding: 8rpx;
+}
+
+.tag-num-level-1 {
+    border-color: #a5644a;
+    background: #7f4f3e;
+}
+
+.tag-num-level-2 {
+    border-color: #a5644a;
+    background: #7f4f3e;
+}
+
+.tag-num-level-3 {
+    border-color: #a7a399;
+    background: #818181;
+}
+
+.tag-num-level-4 {
+    border-color: #a7a399;
+    background: #818181;
+}
+
+.tag-num-level-5 {
+    border-color: #c6aa4f;
+    background: #ae8b42;
+}
+
+.tag-num-level-6 {
+    border-color: #60dace;
+    background: #d4f6f1;
+    color: #1c1c1c;
+}
+
+.tag-num-level-7 {
+    border-color: #60dace;
+    background: #d4f6f1;
+    color: #1c1c1c;
+}
+
+.tag-num-level-8 {
+    border-color: #60dace;
+    background: #d4f6f1;
+    color: #1c1c1c;
+}

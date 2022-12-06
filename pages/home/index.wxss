@@ -1,0 +1,265 @@
+.lineup-item {
+    position: relative;
+    margin: 0 0 20rpx;
+    border-radius: 8rpx;
+    -webkit-transition: height .3s,border-color .3s;
+    -moz-transition: height .3s,border-color .3s;
+    -o-transition: height .3s,border-color .3s;
+    transition: height .3s,border-color .3s;
+}
+
+.lineup-item .lineup-name {
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    /*color: #fcf0f4;*/
+    width: 100%;
+    padding: 20rpx 20rpx 0 20rpx;
+}
+
+.lineup-item .lineup-name .lineup-quality {
+    color: #FF9036;
+    font-size: 40rpx;
+    font-weight: 700;
+    line-height: 50rpx;
+    text-align: center;
+    margin: 0 0 0 10rpx;
+}
+
+.lineup-item .lineup-name .line-name {
+    font-size: 32rpx;
+    width: 75%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.lineup-item .lineup-info {
+    position: relative;
+    /*background: #283661;*/
+    display: flex;
+    display: -webkit-flex;
+    align-items: end;
+    justify-content: space-between;
+    height: 120rpx;
+    padding: 20rpx;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+
+.lineup-item .lineup-info .lineup-champions {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    display: -webkit-flex;
+    padding-right: 4.6%;
+    line-height: 180rpx;
+    /*border-bottom: 1rpx solid gray;*/
+}
+
+.lineup-item .lineup-info .lineup-champions .swiper-container {
+    width: 100%;
+}
+
+.swiper-container {
+    margin: 0 auto;
+    position: relative;
+    /*overflow: hidden;*/
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: -webkit-transform;
+    -o-transition-property: transform;
+    transition-property: transform;
+    transition-property: transform,-webkit-transform;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.swiper-container-free-mode>.swiper-wrapper {
+    -webkit-transition-timing-function: ease-out;
+    -o-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    margin: 0 auto;
+}
+
+.lineup-item .lineup-info .lineup-champions .champion-wrap {
+    height: 100%;
+    line-height: 1.3rem;
+    position: relative;
+    width: 18%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.swiper-slide {
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: -webkit-transform;
+    -o-transition-property: transform;
+    transition-property: transform;
+    transition-property: transform,-webkit-transform;
+}
+
+.component-champion {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.component-champion .champion-pic {
+    position: relative;
+    overflow: hidden;
+    border: 4rpx solid #c1a25f;
+    margin: 0 auto;
+}
+
+.lineup-info .lineup-champions .component-champion.cost6 .champion-pic, .page-lineup .lineup-info .lineup-champions .component-champion.cost7 .champion-pic {
+    border-color: transparent;
+}
+
+.component-champion.cost8 .champion-pic {
+    border: 2px solid #cca329;
+}
+
+.component-champion.cost7 .champion-pic {
+    border: 2px solid #cc29cc;
+}
+
+.component-champion.cost5 .champion-pic {
+    border: 2px solid #cca329;
+}
+
+.component-champion.cost4 .champion-pic {
+    border: 2px solid #cc29cc;
+}
+
+.component-champion.cost3 .champion-pic {
+    border: 2px solid #297acc;
+}
+
+.component-champion.cost2 .champion-pic {
+    border: 2px solid #5fcc29;
+}
+
+.component-champion.cost1 .champion-pic {
+    border: 2px solid #999;
+}
+
+.lineup-info .lineup-champions .component-champion.cost6 .champion-stars, .page-lineup .lineup-info .lineup-champions .component-champion.cost6 .icon-carry, .page-lineup .lineup-info .lineup-champions .component-champion.cost7 .champion-stars, .page-lineup .lineup-info .lineup-champions .component-champion.cost7 .icon-carry {
+    z-index: 1;
+}
+
+.component-champion .champion-stars {
+    position: absolute;
+    top: -20rpx;
+    left: -4rpx;
+    width: 100%;
+}
+
+.component-champion .icon-carry {
+    background: url(//game.gtimg.cn/images/lol/tft/content-site/icon-carry-hero.png) no-repeat center/100%;
+    width: 38rpx;
+    height: 38rpx;
+    position: absolute;
+    top: 50%;
+    margin-top: -30rpx;
+    left: -15rpx;
+    pointer-events: none;
+}
+
+.lineup-item .lineup-info .lineup-champions .equipment-list {
+    position: absolute;
+    top: 50%;
+    left: 12rpx;
+    margin: 20rpx 0 0;
+    width: 100%;
+    text-align: center;
+    line-height: 1;
+    display: flex;
+}
+
+.component-equipment {
+    display: inline-block;
+    vertical-align: middle;
+    width: 30rpx;
+    height: 30rpx;
+    border: 1px solid #313537;
+    background: #000;
+    position: relative;
+    cursor: pointer;
+    -webkit-transition: border-color,.3s;
+    -moz-transition: border-color,.3s;
+    -o-transition: border-color,.3s;
+    transition: border-color,.3s;
+    z-index: 100;
+}
+
+.lineup-item .lineup-info .lineup-champions .equipment-list > l-avatar {
+    display: inline-block;
+    position: relative;
+}
+
+
+.lineup-item .lineup-hex {
+    display: flex;
+    display: -webkit-flex;
+    /*color: #fcf0f4;*/
+    width: 100%;
+    height: 80rpx;
+    padding: 0 20rpx;
+}
+
+.lineup-item .lineup-hex .lineup-tag-txt {
+    display: inline-block;
+    vertical-align: middle;
+    /*color: #b0bbdb;*/
+    font-size: 28rpx;
+    line-height: 80rpx;
+    color: gray;
+}
+
+.lineup-item .lineup-hex .lineup-races {
+    width: 80%;
+    text-align: end;
+    line-height: 100rpx;
+}
+
+.lineup-item .lineup-line {
+    height: 10rpx;
+    background-color: #e7e7e7;
+}
+
+.avatar-default {
+    display: inline-block;
+    vertical-align: middle;
+    width: 30rpx;
+    height: 30rpx;
+    background: white;
+    -webkit-transition: border-color,.3s;
+    -moz-transition: border-color,.3s;
+    -o-transition: border-color,.3s;
+    transition: border-color,.3s;
+    z-index: 100;
+    margin-right: 10rpx;
+}

@@ -1,0 +1,48 @@
+<view class="tab-content">
+    <l-tabs hasLine="{{false}}">
+        <l-tabpanel tab="一级强化符文" key="silver" slot="silver">
+            <view class="tab-content">
+                <l-search-bar placeholder="搜索" show-cancel="{{false}}"/>
+                <view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+                    <view class="page__bd page__bd_spacing">
+                        <view class="weui-flex item">
+                            <view class="weui-flex__item" style="text-align: left;">
+                                <l-avatar
+                                        size="80"
+                                        shape="square"
+                                        placement="right"
+                                        text="开摆"
+                                        src="https://game.gtimg.cn/images/lol/act/img/tft/hex/20220531155500HEX6295c9d41fbf3.PNG"/>
+                            </view>
+                            <view class="weui-flex__item">
+                                <view class="placeholder">你在接下来的3回合里无法采取任何行动。在此之后，获得20金币。</view>
+                            </view>
+                        </view>
+                        <view class="weui-flex item">
+                            <view class="weui-flex__item" style="text-align: left;">
+                                <l-avatar
+                                        l-class="l-avatar-class"
+                                        size="80"
+                                        shape="square"
+                                        placement="right"
+                                        text="刺客之心"
+                                        src="https://game.gtimg.cn/images/lol/act/img/tft/hex/20220531160128HEX6295cb58aabb5.PNG"/>
+                            </view>
+                            <view class="weui-flex__item">
+                                <view class="placeholder">你的队伍会被视为拥有1名额外的【刺客】。提供1个【奇亚娜】。</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+
+            </view>
+        </l-tabpanel>
+        <l-tabpanel tab="二级强化符文" key="gold" slot="gold">
+            <view class="tab-content">卧室</view>
+        </l-tabpanel>
+        <l-tabpanel tab="三级强化符文" key="colorful" slot="colorful">
+            <view class="tab-content">
+            </view>
+        </l-tabpanel>
+    </l-tabs>
+</view>

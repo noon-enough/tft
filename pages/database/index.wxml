@@ -2,54 +2,21 @@
 <view class="container">
     <l-tabs l-class-header-line="header-line" hasLine="{{true}}" scrollable>
         <l-tabpanel tab="英雄" key="hero" slot="hero">
-            <view style="margin-top: 20rpx;">
-                <l-search-bar placeholder="搜索" show-cancel="{{false}}"/>
-                <view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
-                    <view class="page__bd page__bd_spacing">
-                        <view class="weui-flex title">
-                            <view class="weui-flex__item"><view class="placeholder">英雄</view></view>
-                            <view class="weui-flex__item"><view class="placeholder">种族</view></view>
-                            <view class="weui-flex__item"><view class="placeholder">职业</view></view>
-                            <view class="weui-flex__item"><view class="placeholder">费用</view></view>
-                        </view>
-                        <view class="weui-flex">
-                            <view class="weui-flex__item">
-                                <l-avatar
-                                        size="80"
-                                        shape="square"
-                                        placement="right"
-                                        text="生化魔人 扎克"
-                                        src="https://game.gtimg.cn/images/lol/act/img/tft/champions/781.png"></l-avatar>
-                            </view>
-                            <view class="weui-flex__item"><view class="placeholder">种族</view></view>
-                            <view class="weui-flex__item"><view class="placeholder">职业</view></view>
-                            <view class="weui-flex__item"><view class="placeholder">费用</view></view>
-                        </view>
-                    </view>
-                </view>
-            </view>
-        </l-tabpanel>
-        <l-tabpanel tab="装备" key="2" slot="2">
-            <view class="tab-content">卧室</view>
-        </l-tabpanel>
-        <l-tabpanel tab="羁绊" key="fetters" slot="fetters">
             <view class="tab-content">
-                e sh
+                <l-search-bar placeholder="搜索" show-cancel="{{false}}"/>
+                <hero-table/>
             </view>
         </l-tabpanel>
-        <l-tabpanel tab="强化符文" key="4" slot="4">
-            <l-tabs hasLine="{{false}}">
-                <l-tabpanel tab="银色" key="silver" slot="silver">
-                    <view class="tab-content">客厅</view>
-                </l-tabpanel>
-                <l-tabpanel tab="金色" key="gold" slot="gold">
-                    <view class="tab-content">卧室</view>
-                </l-tabpanel>
-                <l-tabpanel tab="彩色" key="colorful" slot="colorful">
-                    <view class="tab-content">
-                    </view>
-                </l-tabpanel>
-            </l-tabs>
+        <l-tabpanel tab="装备" key="equipment" slot="equipment">
+            <equipment-table/>
+        </l-tabpanel>
+        <l-tabpanel tab="羁绊" key="synergy" slot="synergy">
+            <view class="tab-content">
+                <synergy-table/>
+            </view>
+        </l-tabpanel>
+        <l-tabpanel tab="强化符文" key="hex" slot="hex">
+            <hex-table/>
         </l-tabpanel>
     </l-tabs>
 </view>

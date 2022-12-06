@@ -1,0 +1,21 @@
+@import "/assets/style/weui.wxss";
+
+.tab-content {
+    margin: 20rpx;
+}
+
+.page {
+    margin-top: 20rpx;
+}
+
+.placeholder {
+    text-align: left;
+    vertical-align: middle;
+    color: #45526b;
+    /*line-height: 40px;*/
+    font-size: 28rpx;
+}
+
+.weui-flex__item {
+    margin-top: 20rpx;
+}

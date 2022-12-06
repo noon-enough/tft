@@ -1,0 +1,51 @@
+<view>
+    <l-tabs hasLine="{{false}}">
+        <l-tabpanel tab="种族" key="race" slot="race">
+            <view class="main">
+                <view class="main-left">
+                    <l-avatar
+                            shape="square"
+                            size="100"
+                            src="https://game.gtimg.cn/images/lol/act/img/tft/origins/7103.png"/>
+                    <view class="avatars">
+                        <l-avatar
+                                shape="square"
+                                size="60"
+                                src="https://game.gtimg.cn/images/lol/act/img/tft/champions/734.png"/>
+                        <l-avatar
+                                shape="square"
+                                size="60"
+                                src="https://game.gtimg.cn/images/lol/act/img/tft/champions/751.png"/>
+                        <l-avatar
+                                shape="square"
+                                size="60"
+                                src="https://game.gtimg.cn/images/lol/act/img/tft/champions/764.png"/>
+                        <l-avatar
+                                shape="square"
+                                size="60"
+                                src="https://game.gtimg.cn/images/lol/act/img/tft/champions/706.png"/>
+                        <l-avatar
+                                shape="square"
+                                size="60"
+                                src="https://game.gtimg.cn/images/lol/act/img/tft/champions/783.png"/>
+                    </view>
+                </view>
+                <view class="main-right">
+                    <view class="title">冒险家</view>
+                    <view class="info">
+                        <text>供一个独特加成给你的队伍； \n【冒险家】们获得双倍数额的加成。场上的每个【冒险家】都会提升这个加成！\n 【瑟庄妮】：+130生命值 \n【图奇】：+11%攻击速度 \n【呲呲】：+8护甲和魔抗 \n【杰斯】：+5攻击力和法术强度 \n【巴德】：+2普攻法力回复 \n【纹章】：+3%全能吸血</text>
+                        <tag info="100%【冒险者】加成" level="1"></tag>
+                        <tag info="110%【冒险者】加成" level="2"></tag>
+                        <tag info="120%【冒险者】加成" level="3"></tag>
+                        <tag info="130%【冒险者】加成" level="4"></tag>
+                        <tag info="140%【冒险者】加成" level="5"></tag>
+                        <tag info="150%【冒险者】加成" level="6"></tag>
+                        <tag info="160%【冒险者】加成" level="7"></tag>
+                        <tag info="175%【冒险者】加成" level="8"></tag>
+                    </view>
+                </view>
+            </view>
+        </l-tabpanel>
+        <l-tabpanel tab="职业" key="job" slot="job"></l-tabpanel>
+    </l-tabs>
+</view>

@@ -4,3 +4,20 @@ page{
     /*background-color: #f3f3f3;*/
     background-color: white;
 }
+
+.ml20 {
+    margin-left: 20rpx;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.l-avatar-class {
+    flex: 1;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    /* background: #ccc; */
+    overflow: hidden;
+}

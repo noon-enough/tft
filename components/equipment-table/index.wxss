@@ -1,0 +1,126 @@
+.normal-equip-list {
+    margin: 20rpx;
+    display: flex;
+}
+
+.equipment-combination-head {
+    display: flex;
+    height: 40rpx;
+    line-height: 40rpx;
+    background-color: #1e2a51;
+    border: 2rpx solid #243261;
+    border-bottom-width: 0;
+    padding: 20rpx;
+    text-align: center;
+}
+
+.equipment-combination-head view {
+    display: inline-block;
+    vertical-align: middle;
+    color: #959db9;
+    font-size: 28rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.equipment-combination-body {
+
+}
+
+.equipment-item {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 10rpx;
+    padding: 10rpx 20rpx;
+    background: #0b1536;
+    height: auto;
+    max-height: 150px;
+}
+
+.equipment-item > view {
+    flex-shrink: 0;
+}
+.equipment-item:first-child {
+    margin-top: 0;
+}
+
+.equipment-item .equip-formula {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.equipment-item .equip-formula .equip-formula-flex {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    text-align: center;
+}
+
+.equipment-item .equip-formula {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+l-avatar .component-equipment {
+    margin-right: 20rpx;
+}
+
+.component-equipment {
+    display: inline-block;
+    vertical-align: middle;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #313537;
+    background: #000;
+    position: relative;
+    cursor: pointer;
+    -webkit-transition: border-color,.3s;
+    -moz-transition: border-color,.3s;
+    -o-transition: border-color,.3s;
+    transition: border-color,.3s;
+    z-index: 1;
+}
+
+.equipment-item .component-equipment {
+    margin: 0;
+    width: 60px;
+    height: 60px;
+}
+
+.symbol  {
+    display: inline-block;
+    vertical-align: middle;
+    color: #f0e6d2;
+    font-size: 30rpx;
+    margin: 0 30rpx;
+    font-weight: 700;
+    flex-grow: 1;
+}
+
+.equipment-item .equip-after {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.equipment-item .equip-txt {
+    display: inline-block;
+    margin-left: 10rpx;
+    vertical-align: top;
+}
+
+.equipment-item .equip-txt .equip-name {
+    color: #b59758;
+    font-size: 32rpx;
+    margin: 0 0 .04rem;
+}
+
+.equipment-item .equip-txt .equip-desc {
+    color: #72788e;
+    font-size: 28rpx;
+    align-content: space-around;
+    flex-wrap: initial;
+    word-break: break-all;
+    width: 55%;
+}

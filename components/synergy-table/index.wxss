@@ -1,0 +1,37 @@
+@import "/assets/style/weui.wxss";
+
+.main {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: flex-start;
+}
+
+.main-left {
+    text-align: center;
+    margin-top: 20rpx;
+}
+
+.avatars {
+    width: 140rpx;
+}
+
+.main-right {
+    flex: 1;
+    text-align: left;
+    margin-left: 20rpx ;
+    margin-top: 20rpx;
+}
+
+.title {
+    font-size: 40rpx;
+}
+
+.info {
+    font-size: 26rpx;
+    padding: 20rpx;
+    background-color: #f5f6f7;
+    color: grey;
+}

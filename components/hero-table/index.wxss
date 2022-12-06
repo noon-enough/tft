@@ -1,3 +1,5 @@
+@import "/assets/style/weui.wxss";
+
 .table-wrapper {
     border-right: 2rpx solid rgba(0, 0, 0, 0.10);
     border-top: 2rpx solid rgba(0, 0, 0, 0.10);
@@ -42,5 +44,46 @@
     border-radius: 16rpx;
     margin: 16rpx 0 80rpx;
     box-shadow: inset 2rpx 2rpx 0 0 rgba(0, 0, 0, 0.10), inset 0 -2rpx 0 0 rgba(0, 0, 0, 0.10);
+    text-align: center;
+}
+
+
+.tab-content {
+    margin: 20rpx;
+}
+
+.page__bd .page__bd_spacing {
+    padding: 20rpx;
+}
+
+.page {
+    margin: 20rpx;
+}
+
+
+.title {
+    padding: 10rpx;
+    color: rgba(44, 49, 68, 0.60);
+    background: #EAEBED;
+    /*box-shadow: inset 2rpx 2rpx 0 0 rgba(0, 0, 0, 0.10), inset 0 -2rpx 0 0 rgba(0, 0, 0, 0.10);*/
+}
+
+.item {
+    margin-top: 10rpx;
+}
+
+.placeholder {
+    text-align: center;
+    vertical-align: middle;
+    color: #45526b;
+    line-height: 40px;
+    font-size: 28rpx;
+}
+
+.weui-flex__item {
+    text-align: center;
+}
+
+.weui-flex view {
     text-align: center;
 }

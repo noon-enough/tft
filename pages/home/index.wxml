@@ -1,3 +1,91 @@
 <l-tab-bar text-color="#8a8a8a" text-selected-color="#2c2c2c" list="{{list}}" />
 <view class="container">
+    <view class="lineup-list">
+        <view class="lineup-item">
+            <view class="lineup-name">
+                <l-tag>新手推荐</l-tag>
+                <view class="lineup-quality">S</view>
+                <view class="line-name">【护卫迭嘉】S7世界赛热门阵容</view>
+            </view>
+            <view class="lineup-info">
+                <view class="lineup-champions">
+                    <view class="swiper-container swiper-container-horizontal swiper-container-free-mode">
+                        <view class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                            <view class="champion-wrap swiper-slide swiper-slide-active">
+                                <view class="component-champion cost7 champion-main">
+                                    <l-avatar
+                                            shape="square"
+                                            size="90"
+                                            l-class="champion-pic"
+                                            src="https://game.gtimg.cn/images/lol/act/img/tft/champions/709.png"/>
+                                    <view class="champion-stars">
+                                        <l-rate size="30" active-color="#FF9036" score="3" count="3"/>
+                                    </view>
+                                    <view class="icon-carry"></view>
+                                </view>
+                                <view class="equipment-list">
+                                    <l-avatar
+                                            l-class="component-equipment"
+                                            size="30"
+                                            src="https://game.gtimg.cn/images/lol/act/img/tft/equip/GuinsoosRageblade.png"/>
+                                    <l-avatar
+                                            l-class="component-equipment"
+                                            size="30"
+                                            src="https://game.gtimg.cn/images/lol/act/img/tft/equip/Hextech_Gunblade.png"/>
+                                    <l-avatar
+                                            l-class="component-equipment"
+                                            size="30"
+                                            src="https://game.gtimg.cn/images/lol/act/img/tft/equip/ArchangelsStaff.png"/>
+                                </view>
+                            </view>
+                            <view class="champion-wrap swiper-slide swiper-slide-active">
+                                <view class="component-champion cost7 champion-main">
+                                    <l-avatar
+                                            shape="square"
+                                            size="90"
+                                            l-class="champion-pic"
+                                            src="https://game.gtimg.cn/images/lol/act/img/tft/champions/716.png"/>
+                                    <view class="champion-stars star-3"></view>
+<!--                                    <view class="icon-carry"></view>-->
+                                </view>
+                                <view class="equipment-list">
+                                    <l-avatar
+                                            l-class="component-equipment"
+                                            size="30"
+                                            src="https://game.gtimg.cn/images/lol/act/img/tft/equip/WarmogsArmor.png"/>
+                                    <l-avatar
+                                            l-class="component-equipment"
+                                            size="30"
+                                            src="https://game.gtimg.cn/images/lol/act/img/tft/equip/GargoyleStoneplate.png"/>
+                                    <l-avatar
+                                            l-class="component-equipment"
+                                            size="30"
+                                            src="https://game.gtimg.cn/images/lol/act/img/tft/equip/Dragons_Claw.png"/>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="lineup-hex">
+                <view class="author"></view>
+                <view class="lineup-tag-txt">稳健运营</view>
+                <view class="lineup-races">
+                    <l-avatar
+                            l-class="avatar-default"
+                            size="50"
+                            src="https://game.gtimg.cn/images/lol/act/img/tft/hex/20220531174128HEX6295e2c82b56f.PNG"/>
+                    <l-avatar
+                            l-class="avatar-default"
+                            size="50"
+                            src="https://game.gtimg.cn/images/lol/act/img/tft/hex/20220531201947HEX629607e33f4a2.PNG"/>
+                    <l-avatar
+                            l-class="avatar-default"
+                            size="50"
+                            src="https://game.gtimg.cn/images/lol/act/img/tft/hex/20220901155243HEX631064cbe3a64.png"/>
+                </view>
+            </view>
+            <view class="lineup-line"></view>
+        </view>
+    </view>
 </view>

@@ -50,8 +50,14 @@
     "l-search-bar": "/miniprogram_npm/lin-ui/search-bar/index",
     "l-avatar": "/miniprogram_npm/lin-ui/avatar/index",
     "hero-table": "./components/hero-table/index",
+    "hex-table": "./components/hex-table/index",
+    "synergy-table": "./components/synergy-table/index",
+    "equipment-table": "./components/equipment-table/index",
     "l-grid": "/miniprogram_npm/lin-ui/grid/index",
-    "l-grid-item": "/miniprogram_npm/lin-ui/grid-item/index"
+    "l-grid-item": "/miniprogram_npm/lin-ui/grid-item/index",
+    "l-tag": "/miniprogram_npm/lin-ui/tag/index",
+    "l-rate": "/miniprogram_npm/lin-ui/rate/index",
+    "tag": "./components/tag/index"
   },
   "sitemapLocation": "sitemap.json",
   "subpackages": []
