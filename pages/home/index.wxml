@@ -89,8 +89,6 @@
             <view class="lineup-line"></view>
         </view>
         </block>
-        <view class="weui-loadmore weui-loadmore_line">
-            <text class="weui-loadmore__tips">暂无数据</text>
-        </view>
+        <mp-laoding type="circle" tips="暂无数据"/>
     </view>
 </view>

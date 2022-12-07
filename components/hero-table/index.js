@@ -8,5 +8,11 @@ Component({
      * 组件的方法列表
      */
     methods: {
+        heroDetail: function(e){
+            wx.navigateTo({
+                url: "/pages/detail/index"
+            })
+        }
     }
+
 })

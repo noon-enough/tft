@@ -4,6 +4,7 @@
             <view class="main">
                 <view class="main-left">
                     <l-avatar
+                            l-class="synergy-pic"
                             shape="square"
                             size="100"
                             src="https://game.gtimg.cn/images/lol/act/img/tft/origins/7103.png"/>

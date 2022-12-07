@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/lineup/index",
     "pages/home/index",
     "pages/index/index",
     "pages/database/index",
     "pages/mine/index",
-    "pages/detail/index"
+    "pages/detail/index",
+    "pages/lineup/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -65,7 +65,9 @@
     "champion": "./components/champion/index",
     "location-champion": "./components/location-champion/index",
     "synergy": "./components/synergy/index",
-    "location": "./components/location/index"
+    "location": "./components/location/index",
+
+    "mp-laoding": "/miniprogram_npm/weui-miniprogram/loading/loading"
   },
   "sitemapLocation": "sitemap.json",
   "subpackages": []

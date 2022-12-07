@@ -51,7 +51,7 @@
     width: 128rpx;
     height: 128rpx;
     line-height: 128rpx;
-    border: .01rem solid rgba(181,151,88,.15);
+    /*border: .01rem solid rgba(181,151,88,.15);*/
     border-radius: 50%;
     margin: 40rpx auto 0;
     cursor: default;

@@ -1,26 +1,21 @@
-@import "/assets/style/weui.wxss";
-
-
 .tab-content {
     margin: 20rpx;
 }
 
-.weui-flex view {
-    text-align: center;
-}
 
 .synergy-list-head {
     height: 100rpx;
     line-height: 100rpx;
-    background-color: #1e2a51;
-    border: 1px solid #232e46;
+    /*background-color: #1e2a51;*/
+    /*border: 1px solid #232e46;*/
     padding: 0 40rpx;
 }
 
 .synergy-list-head>text {
     display: inline-block;
     vertical-align: middle;
-    color: #959db9;
+    /*color: #959db9;*/
+    color: black;
     font-size: 28rpx;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -49,13 +44,13 @@
 }
 
 .synergy-list-body {
-    background: #0b1536;
+    /*background: #0b1536;*/
 }
 
 .synergy-item {
     display: flex;
     align-items: stretch;
-    border-top: 1px solid #192446;
+    /*border-top: 1px solid #192446;*/
     margin: 0 20rpx;
 }
 
@@ -63,12 +58,26 @@
     border-top: none;
 }
 
-.synergy-money{
+.synergy-money {
     line-height: 3;
-    color: #72788e;
+    color: black;
     font-size: 28rpx;
 }
 
 .synergy {
     line-height: 1;
+}
+
+.synergy-list-body .synergy-item .synergy-race .hero-pic,
+.synergy-list-body .synergy-item .synergy-job .hero-pic  {
+    height: 40rpx;
+    width: 40rpx;
+    background: none;
+    color: black;
+}
+
+.synergy-list-body .synergy-item .synergy-race .hero-pic-text,
+.synergy-list-body .synergy-item .synergy-job .hero-pic-text {
+    color: black;
+    font-size: 26rpx;
 }

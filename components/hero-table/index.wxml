@@ -12,6 +12,7 @@
         <view class="synergy-item">
             <view class="synergy">
                 <l-avatar
+                        bind:lintap="heroDetail"
                         size="80"
                         shape="square"
                         placement="right"
@@ -19,21 +20,25 @@
                         src="https://game.gtimg.cn/images/lol/act/img/tft/champions/781.png"/>
             </view>
             <view class="synergy-race">
-                <l-avatar size="30"
+                <l-avatar size="40"
+                          l-text-class="hero-pic-text"
+                          l-class="hero-pic"
                           shape="square"
-                          src="https://game.gtimg.cn/images/lol/act/img/tft/origins/7116.png" text="碧波龙"/>
+                          placement="right"
+                          src="https://game.gtimg.cn/images/lol/act/img/tft/origins/7116.png"
+                          text="碧波龙"/>
             </view>
             <view class="synergy-job">
                 <l-avatar
-                        size="30"
+                        size="40"
                         shape="square"
+                        l-text-class="hero-pic-text"
+                        l-class="hero-pic"
                         placement="right"
                         text="护卫"
                         src="https://game.gtimg.cn/images/lol/act/img/tft/classes/7008.png"/>
             </view>
-            <view class="synergy-money">
-                1
-            </view>
+            <view class="synergy-money">1</view>
         </view>
     </view>
 </view>

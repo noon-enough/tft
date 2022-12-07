@@ -227,7 +227,7 @@
     vertical-align: middle;
     width: 30rpx;
     height: 30rpx;
-    background: white;
+    background: none;
     -webkit-transition: border-color,.3s;
     -moz-transition: border-color,.3s;
     -o-transition: border-color,.3s;
