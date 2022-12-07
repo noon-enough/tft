@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "攻略详情",
+  "component": true,
+  "usingComponents": {
+  }
+}

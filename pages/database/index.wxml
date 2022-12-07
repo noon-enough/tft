@@ -2,10 +2,7 @@
 <view class="container">
     <l-tabs l-class-header-line="header-line" hasLine="{{true}}" scrollable>
         <l-tabpanel tab="英雄" key="hero" slot="hero">
-            <view class="tab-content">
-                <l-search-bar placeholder="搜索" show-cancel="{{false}}"/>
-                <hero-table/>
-            </view>
+            <hero-table/>
         </l-tabpanel>
         <l-tabpanel tab="装备" key="equipment" slot="equipment">
             <equipment-table/>

@@ -1,0 +1,7 @@
+<view class="lineup-stage-location-wrap">
+    <view class="lineup-location">
+        <view class="location-champion position2-7">
+            <view class="bg-img" style="background-image: url('https://game.gtimg.cn/images/lol/act/img/tft/champions/719.png');"></view>
+        </view>
+    </view>
+</view>

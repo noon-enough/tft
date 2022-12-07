@@ -13,11 +13,56 @@ page{
     text-align: left;
 }
 
-.l-avatar-class {
+
+.component-champion.cost8 .champion-pic {
+    border: 2px solid #cca329;
+}
+
+.component-champion.cost7 .champion-pic {
+    border: 2px solid #cc29cc;
+}
+
+.component-champion.cost5 .champion-pic {
+    border: 2px solid #cca329;
+}
+
+.component-champion.cost4 .champion-pic {
+    border: 2px solid #cc29cc;
+}
+
+.component-champion.cost3 .champion-pic {
+    border: 2px solid #297acc;
+}
+
+.component-champion.cost2 .champion-pic {
+    border: 2px solid #5fcc29;
+}
+
+.component-champion.cost1 .champion-pic {
+    border: 2px solid #999;
+}
+
+.l-avatar-image {
     flex: 1;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    /* background: #ccc; */
+    background: none;
     overflow: hidden;
+}
+
+.component-equipment {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100rpx;
+    height: 100rpx;
+    border: 1px solid #313537;
+    background: #000;
+    position: relative;
+    cursor: pointer;
+    -webkit-transition: border-color,.3s;
+    -moz-transition: border-color,.3s;
+    -o-transition: border-color,.3s;
+    transition: border-color,.3s;
+    z-index: 1;
 }

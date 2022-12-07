@@ -1,0 +1,22 @@
+<view class="champion-wrap">
+    <view class="component-champion cost{{cost}} champion-main">
+        <l-avatar
+                shape="square"
+                size="{{size}}"
+                l-class="champion-pic"
+                src="{{avatar}}"/>
+        <view class="champion-stars" wx:if="{{star > 1 && showStar}}">
+            <l-rate size="30" active-color="#FF9036" score="{{star}}" count="{{star}}"/>
+        </view>
+        <view wx:if="{{isCarry}}" class="icon-carry"></view>
+        <view wx:if="{{showName}}" class="champion-name">{{name}}</view>
+    </view>
+    <view class="equipment-list" wx:if="{{equipments.lenght}}">
+        <block wx:for="{{equipments}}" wx:for-index="idx" wx:for-item="item">
+            <l-avatar
+                    l-class="component-equipment"
+                    size="30"
+                    src="{{item}}"/>
+        </block>
+    </view>
+</view>

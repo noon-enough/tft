@@ -1,0 +1,331 @@
+.page-lineup-detail {
+    /*margin: 20rpx 0 0;*/
+    display: flex;
+    flex-direction: column;
+}
+
+.page-lineup-detail .lineup-detail-left {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+.page-lineup-detail .lineup-detail-content {
+    position: relative;
+    padding: 20rpx 30rpx;
+    background: #0b1536;
+    overflow: hidden;
+    margin: 10rpx 0 0;
+}
+
+.page-lineup-detail .lineup-detail-content:first-child {
+    margin: 0;
+}
+
+.page-lineup-detail .lineup-title {
+    color: #fcf0f4;
+    font-size: 32rpx;
+    display: inline-block;
+    width: 100%;
+}
+
+.page-lineup-detail .lineup-feature {
+    color: #c29e54;
+    font-size: 24rpx;
+    margin: 0 0 10rpx;
+    line-height: 1.2;
+}
+
+.page-lineup-detail .lineup-author {
+    margin: 10rpx 0 10rpx;
+}
+
+.page-lineup-detail .lineup-tag {
+    width: 160rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    position: absolute;
+    top: 190rpx;
+    right: 20rpx;
+    color: #c29e54;
+    font-size: 28rpx;
+    text-align: center;
+    border: 1px solid #272e48;
+    background: #0a1435;
+}
+
+.lineup-quality {
+    float: left;
+    color: #FF9036;
+    font-size: 50rpx;
+    font-weight: bold;
+    line-height: 50rpx;
+    text-align: left;
+    /*margin: 0 10rpx 0 0;*/
+    /*width:40rpx;*/
+}
+
+.page-lineup-detail .lineup-champions {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: .35rem 0 .19rem 0;
+    border-top: 1px solid #141e3f;
+    border-bottom: 1px solid #141e3f;
+}
+
+.page-lineup-detail .lineup-synergy {
+    margin: 20rpx 0 20rpx;
+}
+
+.lineup-synergy {
+    line-height: 1;
+    flex-grow: 1;
+}
+
+.page-lineup-detail .lineup-hex-analyse {
+    padding-top: 10rpx;
+    margin-top: 10rpx;
+    border-top: 1px solid #141e3f;
+}
+
+.page-lineup-detail .lineup-detail-content .content-title {
+    color: #fcf0f4;
+    font-size: 28rpx;
+    font-weight: 700;
+    margin: 0 0 10rpx;
+}
+
+.page-lineup-detail .lineup-detail-content .content-desc {
+    color: #72788e;
+    font-size: 26rpx;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+.page-lineup-detail .lineup-hex-priority {
+    display: flex;
+    align-items: center;
+    padding-top: 10rpx;
+    border-top: 1px solid #141e3f;
+}
+
+.page-lineup-detail .lineup-hex-priority .lineup-hex-title {
+    display: inline-block;
+    vertical-align: middle;
+    color: #fcf0f4;
+    font-size: 28rpx;
+    font-weight: 700;
+    margin-right: 0;
+}
+
+.page-lineup-detail .lineup-hex-priority .lineup-hex-list {
+    display: flex;
+    align-items: center;
+}
+
+.page-lineup-detail .lineup-hex-priority .lineup-hex-list .excellent, .page-lineup-detail .lineup-hex-priority .lineup-hex-list .second-rate {
+    display: flex;
+    align-items: center;
+}
+
+.page-lineup-detail .lineup-hex-priority .lineup-hex-list .excellent>text, .page-lineup-detail .lineup-hex-priority .lineup-hex-list .second-rate>text {
+    font-size: 26rpx;
+    color: #6b7188;
+    margin: 0 20rpx 0 40rpx;
+}
+
+.component-hex {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.component-hex .component-pic {
+    width: 80rpx;
+    height: 80rpx;
+    /* background: url(//game.gtimg.cn/images/lol/tft/content-site/bg-hex.png) no-repeat center; */
+    margin: 0 auto;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-lineup-detail .lineup-hex-priority .lineup-hex-list .excellent .component-hex, .page-lineup-detail .lineup-hex-priority .lineup-hex-list .second-rate .component-hex {
+    margin-left: 10rpx;
+}
+
+.page-lineup-detail .content-title+.content-desc+.lineup-stage {
+    margin-top: 20rpx;
+}
+
+
+.page-lineup-detail .lineup-stage .lineup-stage-name {
+    display: inline-block;
+    vertical-align: middle;
+    color: #fcf0f4;
+    font-size: 28rpx;
+    font-weight: 700;
+    width: 100rpx;
+}
+
+.page-lineup-detail .lineup-stage .lineup-stage-name:after {
+    content: ">";
+    width: 10rpx;
+    height: 20rpx;
+    display: inline-block;
+    margin-left: 10rpx;
+}
+
+.page-lineup-detail .lineup-stage .lineup-stage-list {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+}
+
+.page-lineup-detail .lineup-stage .lineup-stage-synergy {
+    display: inline-block;
+    vertical-align: middle;
+    width: 35%;
+    /*margin-left: 15%;*/
+}
+
+.component-champion {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.page-lineup-detail .lineup-stage .component-champion {
+    margin: 10rpx;
+}
+
+.page-lineup-detail .lineup-stage-location-equip {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 60rpx;
+}
+
+.page-lineup-detail .lineup-stage-location-equip .lineup-stage-location-wrap {
+    margin: 0 .6rem;
+}
+
+.page-lineup-detail .lineup-equipment-title {
+    display: inline-block;
+    vertical-align: middle;
+    color: #fcf0f4;
+    font-size: 26rpx;
+    margin-right: 20rpx;
+}
+
+.page-lineup-detail .lineup-equipment-list {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.page-lineup-detail .lineup-equipment-priority .lineup-equipment-list {
+    margin: 10rpx 0;
+}
+
+.page-lineup-detail .lineup-equipment-priority .lineup-equipment-list .icon-lineup-arrow-right {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10rpx;
+    font-size: 30rpx;
+    font-weight: 500;
+    color: white;
+}
+
+
+.page-lineup-detail .lineup-equip-desc {
+    color: #72788e;
+    font-size: 26rpx;
+    line-height: 1.5;
+    padding: 20rpx 0 10rpx;
+    border-top: 1px solid #141e3f;
+    white-space: pre-wrap;
+}
+
+.page-lineup-detail .lineup-equipment-champion {
+    display: flex;
+    display: -webkit-flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.page-lineup-detail .lineup-equipment-carry {
+    width: 100%;
+}
+
+.page-lineup-detail .lineup-equipment-title {
+    display: inline-block;
+    vertical-align: middle;
+    color: #fcf0f4;
+    font-size: 26rpx;
+    margin-right: 20rpx;
+}
+
+.page-lineup-detail .lineup-equipment-carry .carry-champion,  .page-lineup-detail .lineup-equipment-other .other-champion{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20rpx;
+}
+
+.page-lineup-detail .lineup-equipment-carry .carry-champion-equip {
+    vertical-align: middle;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    flex-direction: column;
+}
+
+.page-lineup-detail .lineup-equipment-carry .carry-champion-equip view .lineup-equipment-title {
+    color: #72788e;
+}
+
+.page-lineup-detail .lineup-equipment-carry .carry-champion-equip view>.lineup-equipment-list {
+    text-align: center;
+    margin: 20rpx 0;
+}
+
+.page-lineup-detail .lineup-equipment-carry .carry-champion-equip view >.lineup-equipment-list .component-equipment,
+.page-lineup-detail .lineup-equipment-other .other-equip .component-equipment {
+    margin-right: 20rpx;
+}
+
+.page-lineup-detail .lineup-equipment-other {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+}
+
+.page-lineup-detail .lineup-equipment-other .other-equip-title {
+    color: #72788e;
+    font-size: 26rpx;
+    margin-right: 20rpx;
+    flex-shrink: 0;
+}
+
+.page-lineup-detail .lineup-equipment-other .other-equip-list {
+    margin: 10rpx 0;
+    vertical-align: middle;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    flex-direction: column;
+}
+
+.page-lineup-detail .lineup-equipment-other .other-equip {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10rpx 20rpx 10rpx 0;
+    white-space: nowrap;
+}
+

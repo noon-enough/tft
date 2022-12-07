@@ -1,13 +1,16 @@
-<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
-    <view class="page__bd page__bd_spacing">
-        <view class="weui-flex title">
-            <view class="weui-flex__item"><view class="placeholder">英雄</view></view>
-            <view class="weui-flex__item"><view class="placeholder">种族</view></view>
-            <view class="weui-flex__item"><view class="placeholder">职业</view></view>
-            <view><view class="placeholder">费用</view></view>
-        </view>
-        <view class="weui-flex item">
-            <view class="weui-flex__item">
+<view class="tab-content">
+    <l-search-bar placeholder="搜索" show-cancel="{{false}}"/>
+</view>
+<view class="synergy-list">
+    <view class="synergy-list-head">
+        <text>英雄</text>
+        <text>种族</text>
+        <text>职业</text>
+        <text>费用</text>
+    </view>
+    <view class="synergy-list-body">
+        <view class="synergy-item">
+            <view class="synergy">
                 <l-avatar
                         size="80"
                         shape="square"
@@ -15,12 +18,12 @@
                         text="扎克"
                         src="https://game.gtimg.cn/images/lol/act/img/tft/champions/781.png"/>
             </view>
-            <view class="weui-flex__item">
+            <view class="synergy-race">
                 <l-avatar size="30"
                           shape="square"
                           src="https://game.gtimg.cn/images/lol/act/img/tft/origins/7116.png" text="碧波龙"/>
             </view>
-            <view class="weui-flex__item">
+            <view class="synergy-job">
                 <l-avatar
                         size="30"
                         shape="square"
@@ -28,8 +31,8 @@
                         text="护卫"
                         src="https://game.gtimg.cn/images/lol/act/img/tft/classes/7008.png"/>
             </view>
-            <view>
-                <view class="placeholder">1</view>
+            <view class="synergy-money">
+                1
             </view>
         </view>
     </view>

@@ -1,0 +1,222 @@
+.champion-detail-info {
+    display: flex;
+    display: -webkit-flex;
+    /*justify-content: space-between;*/
+    flex-direction: column;
+}
+
+
+.champion-detail-info>view {
+    box-sizing: border-box;
+    background: #0b1536;
+    /*margin-left: .1rem;*/
+}
+
+.champion-detail-info>view:first-child {
+    margin-left: 0;
+}
+
+.champion-detail-info .detail-info-1 {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: .6rem;
+}
+
+.champion-detail-info .detail-info-1 .champion-big-pic {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 300rpx;
+    /*position: absolute;*/
+    top: 0;
+    left: 0;
+}
+
+.detail-info-1 .champion-big-pic:before {
+    content: "";
+    background: url(//game.gtimg.cn/images/lol/tft/content-site/champion-detail-mask.png) no-repeat center;
+    background-size: cover;
+    /*position: absolute;*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.detail-info-1 .component-champion {
+    position: relative;
+    display: block;
+    width: 128rpx;
+    height: 128rpx;
+    line-height: 128rpx;
+    border: .01rem solid rgba(181,151,88,.15);
+    border-radius: 50%;
+    margin: 40rpx auto 0;
+    cursor: default;
+    text-align: center;
+    z-index: 0;
+}
+
+.component-champion .champion-pic {
+    position: relative;
+    border-radius: 50%;
+    width: .68rem;
+    height: .68rem;
+    overflow: hidden;
+    box-shadow: #1b212d 0 14px 10px;
+    border: 2px solid #c1a25f;
+    margin: 0 auto;
+}
+
+.detail-info-1 .component-champion .champion-price {
+    position: absolute;
+    bottom: 10rpx;
+    right: 10rpx;
+    width: 36rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+    text-align: center;
+    font-size: 28rpx;
+    border-radius: 50%;
+    color: #fff;
+    display: block;
+}
+
+
+.component-champion.cost2 .champion-price {
+    background-color: #5fcc29;
+}
+
+.detail-info-1 .champion-name {
+    color: #fff5e0;
+    font-size: 32rpx;
+    margin: .12rem 0 .2rem;
+    text-align: center;
+}
+
+.champion-skill-list {
+    padding: 0 40rpx;
+}
+
+.detail-info-1 .champion-skill-list .skill-title {
+    margin: 0 0 20rpx;
+    color: #fcf0f4;
+    font-size: 28rpx;
+}
+
+.detail-info-1 .champion-skill-list .champion-skill {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    padding: 0 0 10rpx;
+    width: 100%;
+}
+
+.skill-pic {
+    display: inline-block;
+    vertical-align: middle;
+    width: 60rpx;
+    height: 60rpx;
+    border: 1px solid #564c36;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.champion-skill-list .skill-txt {
+    display: flex;
+    vertical-align: middle;
+    margin: 0 10rpx;
+    width: 25%;
+    flex-direction: column;
+}
+
+.detail-info-1 .champion-skill-list .skill-desc {
+    display: inline-block;
+    vertical-align: middle;
+    color: #72788e;
+    font-size: 24rpx;
+    line-height: 2;
+    /*margin-left: 10%;*/
+    width: 65%;
+}
+
+.champion-skill-list .skill-txt .skill-type {
+    color: #7e807d;
+    font-size: 24rpx;
+}
+
+.champion-skill-list .skill-txt .skill-name {
+    color: #b59758;
+    font-size: 28rpx;
+    margin: 0 0 10rpx;
+}
+
+.detail-info-2 {
+    width: 100%;
+}
+
+.detail-info-2 .detail-box {
+    padding: 0 40rpx;
+    /*border-bottom: 1px solid #192446;*/
+    clear: both;
+}
+
+.detail-info-title {
+    color: #fcf0f4;
+    font-size: 28rpx;
+    margin: 40rpx 0;
+}
+
+.rec-equip .equip-info {
+    float: left;
+    display: flex;
+}
+
+.rec-equip .equip-formula {
+    float: right;
+    display: flex;
+}
+
+.component-equipment {
+    display: inline-block;
+    width: 60rpx;
+    height: 60rpx;
+    border: 1px solid #313537;
+    background: #000;
+    position: relative;
+    cursor: pointer;
+    -webkit-transition: border-color,.3s;
+    -moz-transition: border-color,.3s;
+    -o-transition: border-color,.3s;
+    transition: border-color,.3s;
+    z-index: 1;
+}
+
+.rec-equip .equip-name {
+    display: inline-block;
+    vertical-align: center;
+    color: #b59758;
+    font-size: 28rpx;
+    margin-left: 10rpx;
+}
+
+.rec-equip .equip-formula .symbol {
+    display: inline-block;
+    vertical-align: middle;
+    color: #7e807d;
+    font-size: 28rpx;
+    margin-right: 10rpx;
+    font-weight: 700;
+}
+
+.rec-equip .equip-formula .symbol-plus {
+    margin: 0 10rpx;
+}
+
+.detail-info-desc {
+    color: #72788e;
+    font-size: 28rpx;
+    line-height: 2;
+}

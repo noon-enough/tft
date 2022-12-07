@@ -138,34 +138,6 @@
     border-color: transparent;
 }
 
-.component-champion.cost8 .champion-pic {
-    border: 2px solid #cca329;
-}
-
-.component-champion.cost7 .champion-pic {
-    border: 2px solid #cc29cc;
-}
-
-.component-champion.cost5 .champion-pic {
-    border: 2px solid #cca329;
-}
-
-.component-champion.cost4 .champion-pic {
-    border: 2px solid #cc29cc;
-}
-
-.component-champion.cost3 .champion-pic {
-    border: 2px solid #297acc;
-}
-
-.component-champion.cost2 .champion-pic {
-    border: 2px solid #5fcc29;
-}
-
-.component-champion.cost1 .champion-pic {
-    border: 2px solid #999;
-}
-
 .lineup-info .lineup-champions .component-champion.cost6 .champion-stars, .page-lineup .lineup-info .lineup-champions .component-champion.cost6 .icon-carry, .page-lineup .lineup-info .lineup-champions .component-champion.cost7 .champion-stars, .page-lineup .lineup-info .lineup-champions .component-champion.cost7 .icon-carry {
     z-index: 1;
 }

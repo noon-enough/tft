@@ -1,7 +1,8 @@
 <l-tab-bar text-color="#8a8a8a" text-selected-color="#2c2c2c" list="{{list}}" />
 <view class="container">
     <view class="lineup-list">
-        <view class="lineup-item">
+        <block wx:if="{{data.length > 0}}">
+        <view class="lineup-item" wx:for="{{data}}" wx:for-index="id" wx:for-item="item">
             <view class="lineup-name">
                 <l-tag>新手推荐</l-tag>
                 <view class="lineup-quality">S</view>
@@ -86,6 +87,10 @@
                 </view>
             </view>
             <view class="lineup-line"></view>
+        </view>
+        </block>
+        <view class="weui-loadmore weui-loadmore_line">
+            <text class="weui-loadmore__tips">暂无数据</text>
         </view>
     </view>
 </view>

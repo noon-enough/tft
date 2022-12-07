@@ -1,0 +1,121 @@
+.champion-wrap {
+    position: relative;
+}
+
+
+.component-champion {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.component-champion .champion-pic {
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: #1b212d 0 14px 10px;
+    border: 2px solid #c1a25f;
+    margin: 0 auto;
+}
+
+.component-champion .champion-pic {
+    position: relative;
+    overflow: hidden;
+    border: 4rpx solid #c1a25f;
+    margin: 0 auto;
+}
+
+
+.component-champion .champion-name {
+    color: #72788e;
+    font-size: 26rpx;
+    text-align: center;
+    margin: 40rpx 0 0;
+    position: absolute;
+    top: 70rpx;
+    left: 0;
+    width: 100%;
+}
+
+.component-champion .champion-stars {
+    position: absolute;
+    top: -20rpx;
+    left: -4rpx;
+    width: 100%;
+    text-align: center;
+}
+
+.component-champion .icon-carry {
+    background: url(//game.gtimg.cn/images/lol/tft/content-site/icon-carry-hero.png) no-repeat center/100%;
+    width: 38rpx;
+    height: 38rpx;
+    position: absolute;
+    top: 50%;
+    margin-top: -30rpx;
+    left: -15rpx;
+    pointer-events: none;
+}
+
+
+.equipment-list {
+    position: absolute;
+    top: 50%;
+    /*left: 12rpx;*/
+    margin: 20rpx 0 0;
+    width: 100%;
+    text-align: center;
+    line-height: 1;
+    display: flex;
+}
+
+.component-equipment {
+    display: inline-block;
+    vertical-align: middle;
+    width: 30rpx;
+    height: 30rpx;
+    border: 1px solid #313537;
+    background: #000;
+    position: relative;
+    cursor: pointer;
+    -webkit-transition: border-color,.3s;
+    -moz-transition: border-color,.3s;
+    -o-transition: border-color,.3s;
+    transition: border-color,.3s;
+    z-index: 100;
+}
+
+.equipment-list > l-avatar {
+    display: inline-block;
+    position: relative;
+}
+
+
+.component-champion.cost8 .champion-pic {
+    border: 2rpx solid #cca329;
+}
+
+.component-champion.cost7 .champion-pic {
+    border: 2rpx solid #cc29cc;
+}
+
+.component-champion.cost5 .champion-pic {
+    border: 2rpx solid #cca329;
+}
+
+.component-champion.cost4 .champion-pic {
+    border: 2rpx solid #cc29cc;
+}
+
+.component-champion.cost3 .champion-pic {
+    border: 2rpx solid #297acc;
+}
+
+.component-champion.cost2 .champion-pic {
+    border: 2rpx solid #5fcc29;
+}
+
+.component-champion.cost1 .champion-pic {
+    border: 2rpx solid #999;
+}

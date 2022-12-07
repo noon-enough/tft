@@ -1,5 +1,5 @@
 // app.js
-const util = require('/utils/util.js');
+import util from '/utils/util.js';
 App({
   onLaunch() {
     // 展示本地存储能力

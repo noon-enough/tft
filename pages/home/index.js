@@ -1,7 +1,8 @@
 import tabbar from '../../tabbar';
 Page({
     data: {
-        list:tabbar
+        list:tabbar,
+        data: []
     },
 
     onLoad: function() {
@@ -10,4 +11,7 @@ Page({
     onShareAppMessage() {
 
     },
+
+    onRefresh:function(){
+    }
 });

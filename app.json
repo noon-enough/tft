@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/lineup/index",
     "pages/home/index",
     "pages/index/index",
     "pages/database/index",
-    "pages/mine/index"
+    "pages/mine/index",
+    "pages/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -49,15 +51,21 @@
     "l-tabpanel": "/miniprogram_npm/lin-ui/tabpanel/index",
     "l-search-bar": "/miniprogram_npm/lin-ui/search-bar/index",
     "l-avatar": "/miniprogram_npm/lin-ui/avatar/index",
-    "hero-table": "./components/hero-table/index",
-    "hex-table": "./components/hex-table/index",
-    "synergy-table": "./components/synergy-table/index",
-    "equipment-table": "./components/equipment-table/index",
     "l-grid": "/miniprogram_npm/lin-ui/grid/index",
     "l-grid-item": "/miniprogram_npm/lin-ui/grid-item/index",
     "l-tag": "/miniprogram_npm/lin-ui/tag/index",
     "l-rate": "/miniprogram_npm/lin-ui/rate/index",
-    "tag": "./components/tag/index"
+
+    "hero-table": "./components/hero-table/index",
+    "hex-table": "./components/hex-table/index",
+    "synergy-table": "./components/synergy-table/index",
+    "equipment-table": "./components/equipment-table/index",
+
+    "tag": "./components/tag/index",
+    "champion": "./components/champion/index",
+    "location-champion": "./components/location-champion/index",
+    "synergy": "./components/synergy/index",
+    "location": "./components/location/index"
   },
   "sitemapLocation": "sitemap.json",
   "subpackages": []
