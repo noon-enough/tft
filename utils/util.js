@@ -1,7 +1,3 @@
-/**
- *
- * @param url
- */
 import {FEEDBACK_APPID, OBJECT, SESSION} from "./config";
 
 
@@ -83,4 +79,16 @@ function gotoFeedback() {
     })
 }
 
-module.exports = {goto, getSession, getSessionName, heroDetail, gotoFeedback}
+/**
+ * 弹窗
+ * @param msg
+ * @param icon
+ */
+function showToast(msg, {icon = 'success'}) {
+    wx.showToast({
+        title: msg,
+        icon: icon,
+    })
+}
+
+module.exports = {goto, getSession, getSessionName, heroDetail, gotoFeedback, showToast}

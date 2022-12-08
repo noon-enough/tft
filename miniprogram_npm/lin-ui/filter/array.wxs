@@ -95,7 +95,7 @@ function unshift(targetArray) {
 }
 /**
  * reverse 倒序
- * @param {Array} targetArray 目标数组
+ * @param {string | object | ArrayBuffer} targetArray 目标数组
  */
 function reverse(targetArray) {
     var validatorArray = _isArray(targetArray, 'reverse');

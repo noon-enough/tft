@@ -1,0 +1,72 @@
+<template name="equipment-table">
+    <view>
+        <l-tabs hasLine="{{false}}">
+            <l-tabpanel tab="基础" key="basic" slot="basic">
+                <view class="normal-equip-list">
+                    <l-avatar
+                            l-class="component-equipment"
+                            shape="square"
+                            size="60"
+                            src="https://game.gtimg.cn/images/lol/act/img/tft/equip/BFSword.png"/>
+                    <l-avatar
+                            l-class="component-equipment"
+                            shape="square"
+                            size="60"
+                            src="https://game.gtimg.cn/images/lol/act/img/tft/equip/RecurveBow.png"/>
+                    <l-avatar
+                            l-class="component-equipment"
+                            shape="square"
+                            size="60"
+                            src="https://game.gtimg.cn/images/lol/act/img/tft/equip/NeedlesslyLargeRod.png"/>
+                    <l-avatar
+                            l-class="component-equipment"
+                            shape="square"
+                            size="60"
+                            src="https://game.gtimg.cn/images/lol/act/img/tft/equip/TearoftheGoddess.png"/>
+                </view>
+                <view class="equipment-combination">
+                    <view class="equipment-combination-head">
+                        <view style="width: 40%;" class="head-title-1">配方</view>
+                        <view style="width: 60%;" class="head-title-1">合成</view>
+                        <!--                    <view style=""  class="head-title-3">适合英雄</view>-->
+                    </view>
+                    <view class="equipment-combination-body">
+                        <view class="equipment-item">
+                            <view class="equip-formula" style="width: 40%;">
+                                <view class="equip-formula-flex">
+                                    <l-avatar
+                                            l-class="component-equipment"
+                                            shape="square"
+                                            size="50"
+                                            src="https://game.gtimg.cn/images/lol/act/img/tft/equip/BFSword.png"/>
+                                    <view class="symbol">+</view>
+                                    <l-avatar
+                                            l-class="component-equipment"
+                                            shape="square"
+                                            size="50"
+                                            src="https://game.gtimg.cn/images/lol/act/img/tft/equip/BFSword.png"/>
+                                    <view class="symbol">=</view>
+                                </view>
+                            </view>
+                            <view class="equip-after" style="width:auto;">
+                                <l-avatar
+                                        l-class="component-equipment"
+                                        shape="square"
+                                        size="70"
+                                        src="https://game.gtimg.cn/images/lol/act/img/tft/equip/Deathblade.png"/>
+                                <view class="equip-txt">
+                                    <view class="equip-name">死亡之刃</view>
+                                    <view class="equip-desc">携带者获得35/50/65额外攻击力。（包含基础装备）</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </l-tabpanel>
+            <l-tabpanel tab="常规" key="normal" slot="normal"></l-tabpanel>
+            <l-tabpanel tab="纹章" key="race" slot="race"></l-tabpanel>
+            <l-tabpanel tab="特殊" key="special" slot="special"></l-tabpanel>
+        </l-tabs>
+    </view>
+
+</template>

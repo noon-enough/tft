@@ -1,16 +1,22 @@
 <l-tab-bar text-color="#8a8a8a" text-selected-color="#2c2c2c" list="{{list}}" />
+<import src="/template/hero-table/index.wxml"></import>
+<import src="/template/equipment-table/index.wxml"></import>
+<import src="/template/synergy-table/index.wxml"></import>
 <view class="container">
-    <l-tabs l-class-header-line="header-line" hasLine="{{true}}" scrollable>
+    <l-tabs l-class-header-line="header-line" hasLine="{{true}}" scrollable bind:linchange="linchange">
         <l-tabpanel tab="英雄" key="hero" slot="hero">
-            <hero-table/>
+<!--            <hero-table session="{{session}}"/>-->
+            <template is="hero-table" data="{{...heroData}}"></template>
         </l-tabpanel>
         <l-tabpanel tab="装备" key="equipment" slot="equipment">
-            <equipment-table/>
+<!--            <equipment-table/>-->
+            <template is="equipment-table" data="{{...heroData}}"></template>
         </l-tabpanel>
         <l-tabpanel tab="羁绊" key="synergy" slot="synergy">
-            <view class="tab-content">
-                <synergy-table/>
-            </view>
+<!--            <view class="tab-content">-->
+<!--                <synergy-table/>-->
+<!--            </view>-->
+<!--            <template is="synergy-table"></template>-->
         </l-tabpanel>
         <l-tabpanel tab="强化符文" key="hex" slot="hex">
             <hex-table/>

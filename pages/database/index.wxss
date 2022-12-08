@@ -1,3 +1,6 @@
+@import "/template/hero-table/index.wxss";
+@import "/template/equipment-table/index.wxss";
+
 .tab-content {
     margin: 20rpx;
 }
@@ -25,3 +28,4 @@
     line-height: 40px;
     font-size: 28rpx;
 }
+
