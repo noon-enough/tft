@@ -1,4 +1,5 @@
 import tabbar from '../../tabbar';
+import {getSessionName} from "../../utils/util";
 Page({
     data: {
         list:tabbar,
@@ -6,6 +7,9 @@ Page({
     },
 
     onLoad: function() {
+        wx.setNavigationBarTitle({
+            title: getSessionName()
+        })
     },
 
     onShareAppMessage() {

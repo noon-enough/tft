@@ -5,7 +5,9 @@
     "pages/database/index",
     "pages/mine/index",
     "pages/detail/index",
-    "pages/lineup/index"
+    "pages/lineup/index",
+    "pages/rank/index",
+    "pages/qa/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -55,6 +57,8 @@
     "l-grid-item": "/miniprogram_npm/lin-ui/grid-item/index",
     "l-tag": "/miniprogram_npm/lin-ui/tag/index",
     "l-rate": "/miniprogram_npm/lin-ui/rate/index",
+    "l-list": "/miniprogram_npm/lin-ui/list/index",
+    "l-switch": "/miniprogram_npm/lin-ui/switch/index",
 
     "hero-table": "./components/hero-table/index",
     "hex-table": "./components/hex-table/index",
@@ -67,8 +71,10 @@
     "synergy": "./components/synergy/index",
     "location": "./components/location/index",
 
-    "mp-laoding": "/miniprogram_npm/weui-miniprogram/loading/loading"
+    "mp-laoding": "/miniprogram_npm/weui-miniprogram/loading/loading",
+    "mp-actionSheet": "/miniprogram_npm/weui-miniprogram/actionsheet/actionsheet"
   },
   "sitemapLocation": "sitemap.json",
-  "subpackages": []
+  "subpackages": [],
+  "embeddedAppIdList": ["wx8abaf00ee8c3202e"]
 }

@@ -13,8 +13,8 @@ export default [
     },
     {
         pagePath:"/pages/mine/index",
-        text:"我的",
+        text:"设置",
         iconPath:"/assets/icons/option.png",
-        selectedIconPath:"/assets/icons/index-selected.png"
+        selectedIconPath:"/assets/icons/option-selected.png"
     }
 ]

@@ -1,3 +1,5 @@
+import {heroDetail} from "../../utils/util";
+
 Component({
     /**
      * 组件的属性列表
@@ -9,9 +11,7 @@ Component({
      */
     methods: {
         heroDetail: function(e){
-            wx.navigateTo({
-                url: "/pages/detail/index"
-            })
+            heroDetail(1)
         }
     }
 

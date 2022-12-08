@@ -11,6 +11,9 @@ page{
     text-align: left;
 }
 
+.page {
+    margin: 40rpx;
+}
 
 .component-champion.cost8 .champion-pic {
     border: 2px solid #cca329;
