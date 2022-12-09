@@ -13,10 +13,11 @@ function sessions() {
  *
  * @returns {Promise<SuccessParam<wx.RequestOption>>}
  */
-function chess() {
+function chess(q = "") {
     let session = wx.getStorageSync(SESSION)
 
-    return get(`/api/chess?version=${session}`)
+    q = encodeURIComponent(q)
+    return get(`/api/chess?version=${session}&q=${q}`)
 }
 
 /**

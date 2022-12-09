@@ -1,5 +1,5 @@
 {
-  "component": true,
+  "navigationBarTitleText": "阵容推荐",
   "usingComponents":{
   },
   "enablePullDownRefresh": true

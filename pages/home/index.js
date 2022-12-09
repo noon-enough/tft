@@ -7,9 +7,11 @@ Page({
     },
 
     onLoad: function() {
-        wx.setNavigationBarTitle({
-            title: getSessionName()
-        })
+    },
+
+    onShow() {
+        console.log('show')
+
     },
 
     onShareAppMessage() {
