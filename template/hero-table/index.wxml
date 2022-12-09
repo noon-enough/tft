@@ -1,51 +1,60 @@
 <template name="hero-table">
-    <view class="tab-content">
+    <view class="tab-content" style="margin-bottom: 200rpx;">
         <l-search-bar placeholder="搜索" show-cancel="{{false}}"/>
-    </view>
-    <view class="synergy-list">
-        <view class="synergy-list-head">
-            <text>英雄</text>
-            <text>种族</text>
-            <text>职业</text>
-            <text>费用</text>
-        </view>
-        <view class="synergy-list-body">
-            <block wx:if="{{data.length}}">
-                <view class="synergy-item" wx:for="{{data}}" wx:for-index="idx" wx:for-item="item">
-                    <view class="synergy">
-                        <l-avatar
-                                bind:lintap="heroDetail"
-                                size="80"
-                                shape="square"
-                                placement="right"
-                                text="{{item.display_name}}"
-                                src="{{item.avatar}}"/>
+        <view class="synergy-list">
+            <view class="synergy-list-head">
+                <text>英雄</text>
+                <text>种族</text>
+                <text>职业</text>
+                <text>费用</text>
+            </view>
+            <view class="synergy-list-body">
+                <block wx:if="{{data.length}}">
+                    <view class="synergy-item" wx:for="{{data}}" wx:for-index="idx" wx:for-item="item">
+                        <view class="synergy">
+                            <l-avatar
+                                    data-hero-id="{{item.id}}"
+                                    bind:lintap="detail"
+                                    size="80"
+                                    shape="square"
+                                    placement="right"
+                                    text="{{item.display_name}}"
+                                    src="{{item.avatar}}"/>
+                        </view>
+                        <view class="synergy-race">
+                            <block wx:if="{{item.races.length}}">
+                                <block wx:for="{{item.races_data}}" wx:for-item="race" wx:for-index="ridx">
+                                    <l-avatar size="40"
+                                              l-text-class="hero-pic-text"
+                                              l-class="hero-pic"
+                                              shape="square"
+                                              placement="right"
+                                              src="{{race.image}}"
+                                              text="{{race.name}}"/>
+                                </block>
+                            </block>
+                        </view>
+                        <view class="synergy-job">
+                            <block wx:if="{{item.jobs_data.length}}">
+                                <block wx:for="{{item.jobs_data}}" wx:for-item="job" wx:for-index="ridx">
+                                    <l-avatar
+                                            size="40"
+                                            shape="square"
+                                            l-text-class="hero-pic-text"
+                                            l-class="hero-pic"
+                                            placement="right"
+                                            src="{{job.image}}"
+                                            text="{{job.name}}"/>
+                                </block>
+                            </block>
+                        </view>
+                        <view class="synergy-money">{{item.prices}}</view>
                     </view>
-                    <view class="synergy-race">
-                        <l-avatar size="40"
-                                  l-text-class="hero-pic-text"
-                                  l-class="hero-pic"
-                                  shape="square"
-                                  placement="right"
-                                  src="https://game.gtimg.cn/images/lol/act/img/tft/origins/7116.png"
-                                  text="碧波龙"/>
-                    </view>
-                    <view class="synergy-job">
-                        <l-avatar
-                                size="40"
-                                shape="square"
-                                l-text-class="hero-pic-text"
-                                l-class="hero-pic"
-                                placement="right"
-                                text="护卫"
-                                src="https://game.gtimg.cn/images/lol/act/img/tft/classes/7008.png"/>
-                    </view>
-                    <view class="synergy-money">{{item.prices}}</view>
-                </view>
-            </block>
-            <block wx:else>
-                <mp-laoding type="circle" tips="暂无数据"/>
-            </block>
+                </block>
+                <block wx:else>
+                    <mp-laoding type="circle" tips="暂无数据"/>
+                </block>
+            </view>
         </view>
     </view>
 </template>

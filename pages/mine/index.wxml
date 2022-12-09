@@ -1,7 +1,7 @@
 <l-tab-bar text-color="#8a8a8a" text-selected-color="#2c2c2c" list="{{list}}" />
 <view class="page">
     <l-list title="对弈赛季" bind:lintap="actionSheet" right-desc="{{session}}" image="/assets/icons/sword-selected.png"></l-list>
-    <l-list title="英雄名显示" image="/assets/icons/mine/hero.png" is-link="{{false}}">
+    <l-list title="英雄名别名" image="/assets/icons/mine/hero.png" is-link="{{false}}">
         <view slot="right-section">
             <l-switch />
         </view>

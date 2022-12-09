@@ -6,6 +6,7 @@ import {FEEDBACK_APPID, OBJECT, SESSION} from "./config";
  * @param url
  */
 function goto(url) {
+    console.log("goto", url)
     wx.navigateTo({
         url: url,
     })

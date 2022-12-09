@@ -4,7 +4,7 @@ REQUEST.Defaults.headers = {
     "Content-Type": "application/json"
 }
 //除了method,url，data 和cancelToken不能设置其他均可设置
-REQUEST.Defaults.baseURL = 'https://tft.qizue.com/'
+REQUEST.Defaults.baseURL = 'https://tft.qizue.com'
 
 /**
  * Get 取数据

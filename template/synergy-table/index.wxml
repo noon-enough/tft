@@ -1,0 +1,78 @@
+<template name="synergy-table">
+    <view style="margin-bottom: 200rpx;" class="tab-content">
+        <l-tabs hasLine="{{false}}">
+            <l-tabpanel tab="种族" key="race" slot="race">
+                <block wx:if="{{races.length}}">
+                    <block wx:for="{{races}}" wx:key="idx" wx:for-item="item">
+                        <view class="synergy-table-main">
+                            <view class="main-left">
+                                <l-avatar
+                                        l-class="synergy-pic"
+                                        shape="square"
+                                        size="100"
+                                        src="{{item.image}}"/>
+                                <view class="avatars">
+                                    <block wx:if="{{item.races.length}}">
+                                        <block wx:for="{{item.races}}" wx:for-item="race" wx:key="i">
+                                            <l-avatar
+                                                    shape="square"
+                                                    size="60"
+                                                    src="{{race.avatar}}"/>
+                                        </block>
+                                    </block>
+                                </view>
+                            </view>
+                            <view class="main-right">
+                                <view class="title">{{item.name}}</view>
+                                <view class="info">
+                                    <text user-select>{{item.introduce}}</text>
+                                    <block wx:if="{{item.level.length}}">
+                                        <block wx:for="{{item.level}}" wx:key="idx" wx:for-item="lvl">
+                                            <tag info="{{lvl.desc}}" level="{{lvl.level}}"></tag>
+                                        </block>
+                                    </block>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </block>
+            </l-tabpanel>
+            <l-tabpanel tab="职业" key="job" slot="job">
+                <block wx:if="{{jobs.length}}">
+                    <block wx:for="{{jobs}}" wx:key="idx" wx:for-item="item">
+                        <view class="synergy-table-main">
+                            <view class="main-left">
+                                <l-avatar
+                                        l-class="synergy-pic"
+                                        shape="square"
+                                        size="100"
+                                        src="{{item.image}}"/>
+                                <view class="avatars">
+                                    <block wx:if="{{item.jobs.length}}">
+                                        <block wx:for="{{item.jobs}}" wx:for-item="job" wx:key="i">
+                                            <l-avatar
+                                                    shape="square"
+                                                    size="60"
+                                                    src="{{job.avatar}}"/>
+                                        </block>
+                                    </block>
+                                </view>
+                            </view>
+                            <view class="main-right">
+                                <view class="title">{{item.name}}</view>
+                                <view class="info">
+                                    <text user-select>{{item.introduce}}</text>
+                                    <block wx:if="{{item.level.length}}">
+                                        <block wx:for="{{item.level}}" wx:key="idx" wx:for-item="lvl">
+                                            <tag info="{{lvl.desc}}" level="{{lvl.level}}"></tag>
+                                        </block>
+                                    </block>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </block>
+            </l-tabpanel>
+        </l-tabs>
+    </view>
+</template>

@@ -61,10 +61,6 @@
     "l-list": "/miniprogram_npm/lin-ui/list/index",
     "l-switch": "/miniprogram_npm/lin-ui/switch/index",
 
-    "hero-table": "./components/hero-table/index",
-    "hex-table": "./components/hex-table/index",
-    "synergy-table": "./components/synergy-table/index",
-    "equipment-table": "./components/equipment-table/index",
 
     "tag": "./components/tag/index",
     "champion": "./components/champion/index",

@@ -1,23 +1,43 @@
-// pages/detail/index.js
-Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
+import {SESSION} from "../../utils/config";
+import {chess, hero, hexes, jobs, races, synergies} from "../../utils/api";
+import {heroDetail, showToast} from "../../utils/util";
 
-  },
-
-  /**
-   * 组件的初始数据
-   */
+Page({
   data: {
-
+    id: 0,
+    data: {}
   },
+  onLoad: function (options) {
+    let heroId = options.id,
+        that = this
+    console.log("heroId", heroId)
+    that.setData({
+      id: heroId
+    })
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
+    that.getHeroDetail(heroId)
+  },
+  onShow: function () {
+    let session = wx.getStorageSync(SESSION),
+        that = this
 
+    that.setData({
+      session: session
+    })
+  },
+  getHeroDetail(id) {
+    let that = this
+    hero(id).then(res => {
+      console.log(res)
+      let data = res.data ?? []
+      if (data) {
+        that.setData({
+          data: data
+        })
+      }
+
+    }).catch(err => {
+      showToast("拉取数据失败", {icon: "error"})
+    })
   }
-})
+});

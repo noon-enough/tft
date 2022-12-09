@@ -1,6 +1,9 @@
 .normal-equip-list {
     margin: 20rpx;
-    display: flex;
+    /*display: flex;*/
+    width: 100%;
+    float: left;
+    display: flow-root;
 }
 
 .equipment-combination-head {
@@ -35,7 +38,7 @@
     padding: 10rpx 20rpx;
     /*background: #0b1536;*/
     height: auto;
-    max-height: 150px;
+    /*max-height: 150px;*/
 }
 
 .equipment-item > view {
@@ -101,12 +104,14 @@ l-avatar .component-equipment {
 .equipment-item .equip-after {
     display: inline-block;
     vertical-align: middle;
+    width: 60%;
 }
 
 .equipment-item .equip-txt {
     display: inline-block;
     margin-left: 10rpx;
     vertical-align: top;
+    width: 80%;
 }
 
 .equipment-item .equip-txt .equip-name {
@@ -122,5 +127,37 @@ l-avatar .component-equipment {
     align-content: space-around;
     flex-wrap: initial;
     word-break: break-all;
-    width: 55%;
+    width: 100%;
+}
+
+.equipment-item .equip-radiant-1 {
+    height: 200rpx;
+    padding: 0 20rpx 0 0;
+    box-sizing: border-box;
+}
+
+.equipment-item.halo {
+    padding: 0 60rpx
+}
+
+.equipment-item.halo .equip-radiant-1 .text {
+    color: #ffb60d;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 26rpx;
+    /*line-height: .16rem;*/
+    margin-left: 10rpx;
+    font-weight: 400;
+}
+
+.equipment-item.halo .equip-radiant-2 {
+    width: 60%;
+    padding: 0 20rpx 0 0;
+    box-sizing: border-box;
+}
+
+.equipment-item.halo .equip-radiant-2>text {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 24rpx;
 }

@@ -1,12 +1,15 @@
 .tag-main {
     display: flex;
     margin-top: 10rpx;
+    display: -webkit-flex;
+    align-items: flex-start;
 }
 
 .tag-num {
     background-color: #7f4f3e;
     padding: 8rpx;
     width: 40rpx;
+    height: 40rpx;
     text-align: center;
     color: #fff5e0;
 }
@@ -14,6 +17,8 @@
 .tag-info {
     margin-left: 10rpx;
     padding: 8rpx;
+    text-align: left;
+    width: 90%;
 }
 
 .tag-num-level-1 {

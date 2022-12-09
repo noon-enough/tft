@@ -1,5 +1,7 @@
 @import "/template/hero-table/index.wxss";
+@import "/template/synergy-table/index.wxss";
 @import "/template/equipment-table/index.wxss";
+@import "/template/hex-table/index.wxss";
 
 .tab-content {
     margin: 20rpx;

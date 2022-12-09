@@ -1,16 +1,16 @@
 <view class="champion-detail-info">
     <view class="detail-info-1">
-        <view class="champion-big-pic" style="background-image: url(//game.gtimg.cn/images/lol/tftstore/s7.5/624x318/723.jpg);">
+        <view class="champion-big-pic" style="background-image: url({{data.original_image}});">
         </view>
         <view class="component-champion cost2">
             <l-avatar
                     shape="square"
                     size="100"
                     l-class="champion-pic"
-                    src="https://game.gtimg.cn/images/lol/act/img/tft/champions/709.png"/>
+                    src="{{data.avatar}}"/>
             <view class="champion-price">2</view>
         </view>
-        <view class="champion-name">含羞蓓蕾 莉莉娅</view>
+        <view class="champion-name">{{data.name}} {{data.display_name}}</view>
         <view class="champion-rank-data">
 <!--            <l-tabs hasLine="{{false}}">-->
 <!--                <l-tabpanel tab="日" key="day" slot="day">-->
@@ -31,23 +31,18 @@
             <view class="champion-skill">
                 <l-avatar shape="square"
                           size="60"
-                          src="https://game.gtimg.cn/images/lol/act/img/tft/champions/lillia-watch-out.png"
+                          src="{{data.skill_image}}"
                           l-class="skill-pic"/>
                 <view class="skill-txt">
-                    <text class="skill-name">小心！</text>
-                    <text class="skill-type">主动</text>
+                    <text class="skill-name">{{data.skill_name}}</text>
+                    <text class="skill-type" wx:if="{{data.skill_type === 1}}">主动</text>
+                    <text class="skill-type" wx:if="{{data.skill_type === 0}}">被动</text>
                 </view>
-                <view class="skill-desc">
-                    【莉莉娅】攻击目标周围的一个小区域，造成215/275/370魔法伤害（这个伤害由命中的所有敌人平摊），并对处在冲击中心的敌人造成190/240/340额外魔法伤害。
-                </view>
+                <view class="skill-desc">{{data.skill_introduce}}</view>
             </view>
         </view>
     </view>
     <view class="detail-info-2">
-        <view class="detail-box">
-            <view class="detail-info-title">属性</view>
-            <view class="detail-info-desc"></view>
-        </view>
         <!--装备-->
         <view class="detail-box">
             <view class="detail-info-title">推荐装备</view>
@@ -57,8 +52,8 @@
                         <l-avatar
                                 l-class="component-equipment"
                                 shape="square"
-                                  size="60"
-                                  src="https://game.gtimg.cn/images/lol/act/img/tft/equip/ChaliceofPower.png"/>
+                                size="60"
+                                src="https://game.gtimg.cn/images/lol/act/img/tft/equip/ChaliceofPower.png"/>
                         <view class="equip-name">能量圣杯</view>
                     </view>
                     <view class="equip-formula">
@@ -78,40 +73,63 @@
                 </view>
             </view>
         </view>
+        <!--属性-->
+        <view class="detail-box">
+            <view class="detail-info-title">属性</view>
+            <view class="detail-info-desc">
+                生命：650/1170/2106
+                护甲：45/45/45
+                魔抗：45/45/45
+                物攻：50/90/162
+                攻速：0.55/0.55/0.55
+                暴击率：25%/25%/25%
+                攻击距离：1/1/1
+                初始法力值：60/60/60
+                法力值：120/120/120
+            </view>
+        </view>
         <!--职业、种族-->
-        <view class="detail-box">
-            <view class="detail-info-title">
-                <l-avatar
-                        shape="square"
-                        size="40"
-                        text="黯灵龙"
-                          src="https://game.gtimg.cn/images/lol/act/img/tft/origins/7115.png"/>
-            </view>
-            <view class="detail-info-desc">
-                <view class="desc-txt">召唤一个祭坛。战斗开始时：被放在祭坛上的弈子会被献祭，将其携带的随机一件装备的复制品以及额外生命值提供给每个【黯灵龙】英雄。
-                    纹章和不可合成的装备在被复制时会腐化，转而成为【黯灵精华】。</view>
-                <tag level="2" info="500生命值"/>
-                <tag level="4" info="750生命值"/>
-                <tag level="6" info="1000生命值"/>
-                <tag level="8" info="1600生命值"/>
-            </view>
-        </view>
-        <view class="detail-box">
-            <view class="detail-info-title">
-                <l-avatar
-                        shape="square"
-                        size="40"
-                        text="重骑兵"
-                        src="https://game.gtimg.cn/images/lol/act/img/tft/classes/7005.png"/>
-            </view>
-            <view class="detail-info-desc">
-                <view class="desc-txt">固有能力：在移动时朝着目标快速冲锋。
-                    【重骑兵】获得护甲和魔法抗性。在战斗开始时以及每次冲锋后，获得200%的此加成，持续4秒。</view>
-                <tag level="2" info="500生命值"/>
-                <tag level="4" info="750生命值"/>
-                <tag level="6" info="1000生命值"/>
-                <tag level="8" info="1600生命值"/>
-            </view>
-        </view>
+        <block wx:if="{{data.races_data}}">
+            <block wx:for="{{data.races_data}}" wx:key="race---for" wx:for-index="idx" wx:for-item="race">
+                <view class="detail-box">
+                    <view class="detail-info-title">
+                        <l-avatar
+                                shape="square"
+                                size="40"
+                                text="{{race.name}}"
+                                src="{{race.image}}"/>
+                    </view>
+                    <view class="detail-info-desc">
+                        <view class="desc-txt">{{race.introduce}}</view>
+                        <block wx:if="{{race.level.length}}">
+                            <block wx:for="{{race.level}}" wx:for-item="level" wx:key="race--level" wx:for-index="i">
+                                <tag level="{{level.level}}" info="{{level.desc}}"/>
+                            </block>
+                        </block>
+                    </view>
+                </view>
+            </block>
+        </block>
+        <block wx:if="{{data.jobs_data}}">
+            <block wx:for="{{data.jobs_data}}" wx:key="job---for" wx:for-index="idx" wx:for-item="job">
+                <view class="detail-box">
+                    <view class="detail-info-title">
+                        <l-avatar
+                                shape="square"
+                                size="40"
+                                text="{{job.name}}"
+                                src="{{job.image}}"/>
+                    </view>
+                    <view class="detail-info-desc">
+                        <view class="desc-txt">{{job.introduce}}</view>
+                        <block wx:if="{{job.level.length}}">
+                            <block wx:for="{{job.level}}" wx:for-item="level" wx:key="race--level" wx:for-index="i">
+                                <tag level="{{level.level}}" info="{{level.desc}}"/>
+                            </block>
+                        </block>
+                    </view>
+                </view>
+            </block>
+        </block>
     </view>
 </view>
