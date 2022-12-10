@@ -4,9 +4,10 @@
         <block wx:if="{{data.length > 0}}">
         <view class="lineup-item" wx:for="{{data}}" wx:for-index="id" wx:for-item="item">
             <view class="lineup-name">
-                <l-tag>新手推荐</l-tag>
-                <view class="lineup-quality">S</view>
-                <view class="line-name">【护卫迭嘉】S7世界赛热门阵容</view>
+                <l-tag wx:if="{{item.tag === 1}}">新手推荐</l-tag>
+                <l-tag wx:if="{{item.tag === 2}}">高手进阶</l-tag>
+                <view class="lineup-quality">{{item.quality}}</view>
+                <view class="line-name">{{item.title}}</view>
             </view>
             <view class="lineup-info">
                 <view class="lineup-champions">
@@ -70,7 +71,7 @@
             </view>
             <view class="lineup-hex">
                 <view class="author"></view>
-                <view class="lineup-tag-txt">稳健运营</view>
+                <view class="lineup-tag-txt" wx:if="{{item.feature}}">稳健运营</view>
                 <view class="lineup-races">
                     <l-avatar
                             l-class="avatar-default"
