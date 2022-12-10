@@ -8,10 +8,11 @@ Page({
     },
 
     onLoad: function() {
-        wx.setNavigationBarTitle({
-            title: getSessionName()
-        })
-        this.getStrategies()
+    },
+
+    onShow() {
+        console.log('show')
+
     },
 
     onShareAppMessage() {

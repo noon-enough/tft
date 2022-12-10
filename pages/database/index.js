@@ -5,7 +5,7 @@ import {heroDetail, showToast} from "../../utils/util";
 
 Page({
     data: {
-        list:tabbar,
+        list: tabbar,
         session: "s7",
         races: [],
         jobs: [],
@@ -47,9 +47,9 @@ Page({
 
         that.getHeroes()
     },
-    getHeroes(){
+    getHeroes(query = "") {
         let that = this
-        chess().then(res => {
+        chess(query).then(res => {
             console.log("data", res)
             let data = res.data ?? []
             if (data) {
@@ -157,30 +157,50 @@ Page({
             id = dataset.id
 
         console.log('change', type, idx, id)
-        if(type === "type1") {
+        if (type === "type1") {
             that.setData({
                 ["equipmentData.formation.type1"]: that.data.equipmentData.data.type1[idx].formation
             })
         }
-        if(type === "type2") {
+        if (type === "type2") {
             that.setData({
                 ["equipmentData.formation.type2"]: that.data.equipmentData.data.type2[idx]
             })
         }
-        if(type === "type3") {
+        if (type === "type3") {
             that.setData({
                 ["equipmentData.formation.type3"]: that.data.equipmentData.data.type3[idx]
             })
         }
-        if(type === "type4") {
+        if (type === "type4") {
             that.setData({
                 ["equipmentData.formation.type4"]: that.data.equipmentData.data.type4[idx]
             })
         }
-        if(type === "type5") {
+        if (type === "type5") {
             that.setData({
                 ["equipmentData.formation.type5"]: that.data.equipmentData.data.type5[idx]
             })
         }
+    },
+    searchConfirm(e) {
+        let q = e.detail.value ?? ""
+        if (q === "") {
+            return
+        }
+        let that = this
+        that.getHeroes(q)
+    },
+    searchClear(e) {
+        let that = this
+        that.getHeroes()
+    },
+    searchChange(e){
+        let q = e.detail.value ?? ""
+        if (q === "") {
+            return
+        }
+        let that = this
+        that.getHeroes(q)
     }
 });
