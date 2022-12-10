@@ -235,3 +235,19 @@
     z-index: 100;
     margin-right: 10rpx;
 }
+
+.lineup-item .lineup-name .lineup-feature {
+    width: .86rem;
+    line-height: .3rem;
+    color: #c29e54;
+    font-size: .14rem;
+    text-align: center;
+    border: 1px solid #35405b;
+    background: rgba(5,9,33,.2);
+}
+
+.lineup-item .lineup-name .lineup-feature {
+    color: #ffb60d;
+    border-color: rgba(255,255,255,.1);
+    background: rgba(5,9,33,.2);
+}

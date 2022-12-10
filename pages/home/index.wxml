@@ -4,8 +4,8 @@
         <block wx:if="{{data.length > 0}}">
         <view class="lineup-item" wx:for="{{data}}" wx:for-index="id" wx:for-item="item">
             <view class="lineup-name">
-                <l-tag wx:if="{{item.tag === 1}}">新手推荐</l-tag>
-                <l-tag wx:if="{{item.tag === 2}}">高手进阶</l-tag>
+                <view wx:if="{{item.tag === 2}}" class="lineup-feature">高手进阶</view>
+                <view wx:if="{{item.tag === 1}}" class="lineup-feature">新手推荐</view>
                 <view class="lineup-quality">{{item.quality}}</view>
                 <view class="line-name">{{item.title}}</view>
             </view>

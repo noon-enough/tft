@@ -48,8 +48,10 @@
 .synergy-item {
     display: flex;
     align-items: stretch;
-    /*border-top: 1px solid #192446;*/
     margin: 0 20rpx 30rpx 20rpx;
+
+    align-items: center;
+    justify-content: initial;
 }
 
 .synergy-item:first-child {

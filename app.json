@@ -60,6 +60,7 @@
     "l-rate": "/miniprogram_npm/lin-ui/rate/index",
     "l-list": "/miniprogram_npm/lin-ui/list/index",
     "l-switch": "/miniprogram_npm/lin-ui/switch/index",
+    "l-icon": "/miniprogram_npm/lin-ui/icon/index",
 
 
     "tag": "./components/tag/index",

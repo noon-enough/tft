@@ -8,11 +8,11 @@ Page({
     },
 
     onLoad: function() {
+        this.getStrategies()
     },
 
     onShow() {
         console.log('show')
-
     },
 
     onShareAppMessage() {

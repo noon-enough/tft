@@ -5,6 +5,16 @@
     flex-direction: column;
 }
 
+.champion-detail-info .left-back {
+    position: fixed;
+    position: -ms-device-fixed;
+    /* width: 50rpx; */
+    height: 60rpx;
+    left: 40rpx;
+    top: 100rpx;
+    background: none;
+    z-index: 999;
+}
 
 .champion-detail-info>view {
     box-sizing: border-box;
@@ -148,7 +158,7 @@
 }
 
 .champion-skill-list .skill-txt .skill-name {
-    color: #b59758;
+    color: #ffb60d;
     font-size: 28rpx;
     margin: 0 0 10rpx;
 }
@@ -169,6 +179,14 @@
     font-size: 28rpx;
     margin: 40rpx 0;
 }
+
+.rec-equip-list .rec-equip {
+    display: flex;
+    justify-content: space-between;
+    clear: both;
+    margin: 0 0 20rpx;
+}
+
 
 .rec-equip .equip-info {
     float: left;
@@ -198,9 +216,10 @@
 .rec-equip .equip-name {
     display: inline-block;
     vertical-align: center;
-    color: #b59758;
+    color: #ffb60d;
     font-size: 28rpx;
     margin-left: 10rpx;
+    line-height: 2;
 }
 
 .rec-equip .equip-formula .symbol {
@@ -210,6 +229,7 @@
     font-size: 28rpx;
     margin-right: 10rpx;
     font-weight: 700;
+    line-height: 2;
 }
 
 .rec-equip .equip-formula .symbol-plus {
