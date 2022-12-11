@@ -27,7 +27,9 @@ Page({
             let data = res.data ?? []
             if (data) {
                that.setData({
-                   data: data,               })
+                   data: data,
+               })
+                console.log('data', data)
             } else {
                 return Promise.reject(res)
             }

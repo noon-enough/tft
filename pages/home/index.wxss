@@ -196,25 +196,25 @@
 .lineup-item .lineup-hex {
     display: flex;
     display: -webkit-flex;
-    /*color: #fcf0f4;*/
-    width: 100%;
+    /*width: 100%;*/
     height: 80rpx;
     padding: 0 20rpx;
+    justify-content: space-between;
 }
 
 .lineup-item .lineup-hex .lineup-tag-txt {
     display: inline-block;
     vertical-align: middle;
-    /*color: #b0bbdb;*/
     font-size: 28rpx;
     line-height: 80rpx;
     color: gray;
 }
 
 .lineup-item .lineup-hex .lineup-races {
-    width: 80%;
+    /*width: 80%;*/
     text-align: end;
-    line-height: 100rpx;
+    line-height: 4;
+    flex: 1;
 }
 
 .lineup-item .lineup-line {
@@ -222,7 +222,7 @@
     background-color: #e7e7e7;
 }
 
-.avatar-default {
+.lineup-item .lineup-hex .lineup-races .avatar-default {
     display: inline-block;
     vertical-align: middle;
     width: 30rpx;
@@ -234,20 +234,22 @@
     transition: border-color,.3s;
     z-index: 100;
     margin-right: 10rpx;
+    overflow: visible;
 }
 
-.lineup-item .lineup-name .lineup-feature {
-    width: .86rem;
-    line-height: .3rem;
+.lineup-item .lineup-hex .lineup-feature {
+    line-height: 1;
     color: #c29e54;
-    font-size: .14rem;
+    font-size: 26rpx;
     text-align: center;
-    border: 1px solid #35405b;
+    border: 2rpx solid #35405b;
     background: rgba(5,9,33,.2);
 }
 
-.lineup-item .lineup-name .lineup-feature {
+.lineup-item .lineup-hex .lineup-feature {
     color: #ffb60d;
     border-color: rgba(255,255,255,.1);
-    background: rgba(5,9,33,.2);
+    background: white;
+    line-height: 3;
+    margin-right: 10rpx;
 }
