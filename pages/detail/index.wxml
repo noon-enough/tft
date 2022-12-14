@@ -5,13 +5,13 @@
     <view class="detail-info-1">
         <view class="champion-big-pic" style="background-image: url({{data.original_image}});">
         </view>
-        <view class="component-champion cost2">
+        <view class="component-champion cost{{data.prices}}">
             <l-avatar
                     shape="square"
                     size="100"
                     l-class="champion-pic"
                     src="{{data.avatar}}"/>
-            <view class="champion-price">2</view>
+            <view class="champion-price">{{data.prices}}</view>
         </view>
         <view class="champion-name">{{data.name}} {{data.display_name}}</view>
         <view class="champion-rank-data">
@@ -108,7 +108,7 @@
                     </view>
                     <view class="detail-info-desc">
                         <view class="desc-txt">{{race.introduce}}</view>
-                        <block wx:if="{{race.level.length}}">
+                        <block wx:if="{{race.level.length && race.id !== 8111}}">
                             <block wx:for="{{race.level}}" wx:for-item="level" wx:key="race--level" wx:for-index="i">
                                 <tag level="{{level.level}}" info="{{level.desc}}"/>
                             </block>

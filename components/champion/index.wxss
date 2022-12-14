@@ -2,7 +2,6 @@
     position: relative;
 }
 
-
 .component-champion {
     position: relative;
     display: inline-block;
@@ -15,7 +14,6 @@
     position: relative;
     border-radius: 50%;
     overflow: hidden;
-    box-shadow: #1b212d 0 14px 10px;
     border: 2px solid #c1a25f;
     margin: 0 auto;
 }
@@ -45,6 +43,7 @@
     left: -4rpx;
     width: 100%;
     text-align: center;
+    z-index: 100;
 }
 
 .component-champion .icon-carry {
@@ -56,8 +55,8 @@
     margin-top: -30rpx;
     left: -15rpx;
     pointer-events: none;
+    z-index: 100;
 }
-
 
 .equipment-list {
     position: absolute;
@@ -65,9 +64,11 @@
     /*left: 12rpx;*/
     margin: 20rpx 0 0;
     width: 100%;
-    text-align: center;
     line-height: 1;
     display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 }
 
 .component-equipment {
@@ -93,29 +94,54 @@
 
 
 .component-champion.cost8 .champion-pic {
-    border: 2rpx solid #cca329;
+    border: 4rpx solid #cca329;
 }
 
 .component-champion.cost7 .champion-pic {
-    border: 2rpx solid #cc29cc;
+    border: 4rpx solid #cc29cc;
 }
 
 .component-champion.cost5 .champion-pic {
-    border: 2rpx solid #cca329;
+    border: 4rpx solid #cca329;
 }
 
 .component-champion.cost4 .champion-pic {
-    border: 2rpx solid #cc29cc;
+    border: 4rpx solid #cc29cc;
 }
 
 .component-champion.cost3 .champion-pic {
-    border: 2rpx solid #297acc;
+    border: 4rpx solid #297acc;
 }
 
 .component-champion.cost2 .champion-pic {
-    border: 2rpx solid #5fcc29;
+    border: 4rpx solid #5fcc29;
 }
 
 .component-champion.cost1 .champion-pic {
-    border: 2rpx solid #999;
+    border: 4rpx solid #999;
+}
+
+.component-champion.monster::after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100rpx;
+    height: 100rpx;
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size:100% 100%;
+    pointer-events:none
+}
+.component-champion.monster.cost2::after{
+    background-image:url(//game.gtimg.cn/images/lol/tft/content-site/overawe-border-2.png)
+}
+.component-champion.monster.cost3::after{
+    background-image:url(//game.gtimg.cn/images/lol/tft/content-site/overawe-border-3.png)
+}
+.component-champion.monster.cost4::after{
+    background-image:url(//game.gtimg.cn/images/lol/tft/content-site/overawe-border-4.png)
+}
+.component-champion.monster.cost5::after{
+    background-image:url(//game.gtimg.cn/images/lol/tft/content-site/overawe-border-5.png)
 }

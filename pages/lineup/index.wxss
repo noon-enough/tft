@@ -16,7 +16,7 @@
     padding: 20rpx 30rpx;
     background: #0b1536;
     overflow: hidden;
-    margin: 10rpx 0 0;
+    /*margin: 1rpx 0 0;*/
 }
 
 .page-lineup-detail .lineup-detail-content:first-child {
@@ -72,8 +72,14 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     padding: .35rem 0 .19rem 0;
-    border-top: 1px solid #141e3f;
-    border-bottom: 1px solid #141e3f;
+    /*border-top: 1px solid #141e3f;*/
+    /*border-bottom: 1px solid #141e3f;*/
+}
+
+.page-lineup-detail .lineup-champions > champion {
+    margin-right: 20rpx;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
 }
 
 .page-lineup-detail .lineup-synergy {
@@ -123,7 +129,9 @@
 
 .page-lineup-detail .lineup-hex-priority .lineup-hex-list {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .page-lineup-detail .lineup-hex-priority .lineup-hex-list .excellent, .page-lineup-detail .lineup-hex-priority .lineup-hex-list .second-rate {
@@ -146,7 +154,7 @@
 .component-hex .component-pic {
     width: 80rpx;
     height: 80rpx;
-    /* background: url(//game.gtimg.cn/images/lol/tft/content-site/bg-hex.png) no-repeat center; */
+    background: url(//game.gtimg.cn/images/lol/tft/content-site/bg-hex.png) no-repeat center;
     margin: 0 auto;
     display: flex;
     display: -webkit-flex;
@@ -183,14 +191,17 @@
 .page-lineup-detail .lineup-stage .lineup-stage-list {
     display: inline-block;
     vertical-align: middle;
-    width: 50%;
+    width: 80%;
 }
 
 .page-lineup-detail .lineup-stage .lineup-stage-synergy {
     display: inline-block;
     vertical-align: middle;
-    width: 35%;
-    /*margin-left: 15%;*/
+    margin-top: 20rpx;
+}
+
+.page-lineup-detail .lineup-stage .lineup-stage-synergy > synergy {
+    margin-right: 10rpx;
 }
 
 .component-champion {
@@ -210,7 +221,7 @@
     display: -webkit-flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 0 60rpx;
+    /*margin: 0 0 40rpx;*/
 }
 
 .page-lineup-detail .lineup-stage-location-equip .lineup-stage-location-wrap {
@@ -232,6 +243,10 @@
 
 .page-lineup-detail .lineup-equipment-priority .lineup-equipment-list {
     margin: 10rpx 0;
+}
+
+.page-lineup-detail .lineup-equipment-priority .lineup-equipment-list > l-avatar {
+    margin-right: 20rpx;
 }
 
 .page-lineup-detail .lineup-equipment-priority .lineup-equipment-list .icon-lineup-arrow-right {

@@ -11,17 +11,20 @@ Component({
         count: {
             type: Number,
             value: 0
+        },
+        level: {
+            type: Number,
+            value: 1
         }
     },
     data: {
-        level: 0
     },
     methods: {},
     attached() {
-        const that = this
-        let level = Math.ceil(that.properties.count / 2)
-        that.setData({
-            level: level
-        })
+        // const that = this
+        // let level = Math.ceil(that.properties.count / 2)
+        // that.setData({
+        //     level: level
+        // })
     }
 });

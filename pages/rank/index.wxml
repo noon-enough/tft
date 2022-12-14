@@ -1,0 +1,10 @@
+<view class="container" style="">
+    <l-tabs l-class-header-line="header-line" hasLine="{{true}}" scrollable>
+        <l-tabpanel tab="英雄排行" key="hero" slot="hero">
+            <view class="page">
+            </view>
+        </l-tabpanel>
+        <l-tabpanel tab="装备排行" key="equipment" slot="equipment">
+        </l-tabpanel>
+    </l-tabs>
+</view>

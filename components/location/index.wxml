@@ -1,7 +1,14 @@
 <view class="lineup-stage-location-wrap">
-    <view class="lineup-location">
-        <view class="location-champion position2-7">
-            <view class="bg-img" style="background-image: url('https://game.gtimg.cn/images/lol/act/img/tft/champions/719.png');"></view>
+    <block wx:if="{{position.length}}">
+        <view class="lineup-location">
+            <block wx:for="{{position}}" wx:key="lineup-location" wx:for-index="idx" wx:for-item="item">
+                <view class="location-champion position{{item.position}}">
+                    <view class="bg-img" style="background-image: url('{{item.hero.avatar}}');"></view>
+                    <block wx:if="{{detail}}">
+                        <view class="icon-carry"></view>
+                    </block>
+                </view>
+            </block>
         </view>
-    </view>
+    </block>
 </view>

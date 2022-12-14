@@ -1,3 +1,9 @@
+.container {
+    /*background: #0b1536;*/
+    width: 100%;
+    overflow-y:scroll;
+}
+
 .lineup-item {
     position: relative;
     margin: 0 0 20rpx;
@@ -12,7 +18,7 @@
     display: inline-flex;
     display: -webkit-inline-flex;
     /*color: #fcf0f4;*/
-    width: 100%;
+    /*width: 100%;*/
     padding: 20rpx 20rpx 0 20rpx;
 }
 
@@ -26,23 +32,24 @@
 }
 
 .lineup-item .lineup-name .line-name {
-    font-size: 32rpx;
-    width: 75%;
+    font-size: 28rpx;
+    /*width: 75%;*/
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
 
 .lineup-item .lineup-info {
+    /*width: 100%;*/
     position: relative;
     /*background: #283661;*/
     display: flex;
     display: -webkit-flex;
-    align-items: end;
+    /*align-items: end;*/
     justify-content: space-between;
-    height: 120rpx;
+    /*height: 120rpx;*/
     padding: 20rpx;
-    cursor: pointer;
+    /*cursor: pointer;*/
     vertical-align: middle;
 }
 
@@ -53,10 +60,26 @@
     height: 100%;
     display: flex;
     display: -webkit-flex;
-    padding-right: 4.6%;
+    /*padding-right: 4.6%;*/
     line-height: 180rpx;
     /*border-bottom: 1rpx solid gray;*/
 }
+
+/*.lineup-item .lineup-info .lineup-champions::after {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    right: 0;*/
+/*    width: 16%;*/
+/*    height: 100%;*/
+/*    background-image: linear-gradient(to right,rgba(40,54,97,0) 0,rgba(40,54,97,.5) 16%,#0b1536 36%);*/
+/*    z-index: 1;*/
+/*    pointer-events: none;*/
+/*}*/
+
+/*.lineup-item .lineup-info .lineup-champions::after {*/
+/*    *background-image: linear-gradient(to right,rgba(66,42,107,0) 0,rgba(66,42,107,.5) 16%,#422a6b 36%);*!*/
+/*}*/
 
 .lineup-item .lineup-info .lineup-champions .swiper-container {
     width: 100%;
@@ -100,7 +123,7 @@
     height: 100%;
     line-height: 1.3rem;
     position: relative;
-    width: 18%;
+    width: 16%;
     text-align: center;
     vertical-align: middle;
 }
@@ -163,12 +186,12 @@
 .lineup-item .lineup-info .lineup-champions .equipment-list {
     position: absolute;
     top: 50%;
-    left: 12rpx;
     margin: 20rpx 0 0;
     width: 100%;
     text-align: center;
     line-height: 1;
     display: flex;
+    justify-content: center;
 }
 
 .component-equipment {

@@ -1,5 +1,11 @@
+import {showToast, heroDetail} from "../../utils/util";
+
 Component({
     properties: {
+        heroId: {
+            value: 0,
+            type: Number
+        },
         name: {
           value: "",
           type: String
@@ -30,13 +36,38 @@ Component({
         },
         equipments: {
             value: [],
-            type: Object
+            type: Array
         },
         isCarry: {
             value: false,
             type: Boolean
+        },
+        isMonster: {
+            value: false,
+            type: Boolean
         }
     },
-    data: {},
-    methods: {}
+    data: {
+        monster: ""
+    },
+    methods: {
+        detail(e) {
+            let id = e.currentTarget.dataset.heroId
+            console.log(e)
+            if (id === 0) {
+                showToast("无法打开英雄详细页", {icon: "error"})
+                return
+            }
+            heroDetail(id)
+        },
+    },
+    attached() {
+        let monster = ""
+        if (this.properties.isMonster === true) {
+            monster = "monster"
+        }
+        this.setData({
+            monster: monster
+        })
+    }
 });

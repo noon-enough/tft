@@ -1,6 +1,8 @@
 <view class="champion-wrap">
-    <view class="component-champion cost{{cost}} champion-main">
+    <view class="component-champion cost{{cost}} champion-main {{monster}}">
         <l-avatar
+                bind:tap="detail"
+                data-hero-id="{{heroId}}"
                 shape="square"
                 size="{{size}}"
                 l-class="champion-pic"
@@ -11,12 +13,12 @@
         <view wx:if="{{isCarry}}" class="icon-carry"></view>
         <view wx:if="{{showName}}" class="champion-name">{{name}}</view>
     </view>
-    <view class="equipment-list" wx:if="{{equipments.lenght}}">
+    <view class="equipment-list" wx:if="{{equipments.length}}">
         <block wx:for="{{equipments}}" wx:for-index="idx" wx:for-item="item">
             <l-avatar
                     l-class="component-equipment"
                     size="30"
-                    src="{{item}}"/>
+                    src="{{item.image}}"/>
         </block>
     </view>
 </view>

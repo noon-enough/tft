@@ -2,127 +2,126 @@
     <view class="lineup-detail-left">
         <view class="lineup-detail-content" style="padding-top: 160rpx;">
             <view class="lineup-title">
-                <view class="lineup-quality">S</view>
-                <view>【神龙卡尔玛】6神龙尊者2风暴龙</view>
+                <view class="lineup-quality">{{data.quality}}</view>
+                <view>{{data.title}}</view>
             </view>
             <view class="lineup-author">
                 <l-avatar text="斗鱼|梨落秋溪 "
                           size="60"
-                          src="https://game.gtimg.cn/images/lol/act/img/tft/author/liluo.png"/>
+                          src="{{data.avatar}}"/>
             </view>
             <view class="lineup-feature">慢D三星：常规模式：前期只拿目标英雄，连胜或连败吃利息，打第一波野怪后存50块钱利息，赌出目标卡三星</view>
-            <view class="lineup-tag">新手推荐</view>
+            <view wx:if="{{data.tag === 2}}" class="lineup-tag">高手进阶</view>
+            <view wx:if="{{data.tag === 1}}" class="lineup-tag">新手推荐</view>
             <view class="lineup-champions">
-                <champion
-                        equipments="{{['https://game.gtimg.cn/images/lol/act/img/tft/equip/JeweledGauntlet.png']}}"
-                        showStar="{{true}}"
-                        star="2"
-                        isCarry="{{true}}"
-                        name="卡尔玛"
-                        avatar="https://game.gtimg.cn/images/lol/act/img/tft/champions/719.png"/>
+                <block wx:for="{{data.hero_location}}" wx:for-index="i" wx:for-item="hero" wx:key="hero_location">
+                    <champion
+                            cost="{{hero.hero.prices}}"
+                            heroId="{{hero.hero.id}}"
+                            equipments="{{hero.equipment_data}}"
+                            showStar="{{hero.is_three_stars}}"
+                            star="3"
+                            isCarry="{{hero.is_carry_hero}}"
+                            name="{{hero.hero.name}}"
+                            avatar="{{hero.hero.avatar}}"/>
+                </block>
             </view>
             <view class="lineup-synergy"></view>
             <view class="lineup-hex-priority">
                 <view class="lineup-hex-title">强化符文</view>
                 <view class="lineup-hex-list">
-                    <view class="excellent">
-                        <text>优先</text>
-                        <view class="component-hex">
-                            <l-avatar l-class="component-pic"
-                                      l-avatar-image="l-avatar-image"
-                                      size="60"
-                                      src="https://game.gtimg.cn/images/lol/act/img/tft/hex/20220531160157HEX6295cb75e8fa6.PNG"/>
+                    <block wx:if="{{data.hexes.recomm.length}}">
+                        <view class="excellent">
+                            <text>优先</text>
+                            <block wx:for="{{data.hexes.recomm}}" wx:for-item="recomm"
+                                   wx:for-index="i"
+                                   wx:key="hexes-recomm">
+                                <view class="component-hex">
+                                    <l-avatar l-class="component-pic"
+                                              l-avatar-image="l-avatar-image"
+                                              size="60"
+                                              src="{{recomm.image}}"/>
+                                </view>
+                            </block>
                         </view>
-                        <view class="component-hex">
-                            <l-avatar l-class="component-pic"
-                                      l-avatar-image="l-avatar-image"
-                                      size="60"
-                                      src="https://game.gtimg.cn/images/lol/act/img/tft/hex/20220531194832HEX629600906d3e1.PNG"/>
+                    </block>
+                    <block wx:if="{{data.hexes.replace.length}}">
+                        <view class="second-rate">
+                            <text>次选</text>
+                            <block wx:for="{{data.hexes.replace}}"
+                                   wx:for-item="replace"
+                                   wx:for-index="j"
+                                   wx:key="hexes-replace">
+                                <view class="component-hex">
+                                    <l-avatar l-class="component-pic"
+                                              l-avatar-image="l-avatar-image"
+                                              size="60"
+                                              src="{{replace.image}}"/>
+                                </view>
+                            </block>
                         </view>
-                        <view class="component-hex">
-                            <l-avatar l-class="component-pic"
-                                      l-avatar-image="l-avatar-image"
-                                      size="60"
-                                      src="https://game.gtimg.cn/images/lol/act/img/tft/hex/20220531195749HEX629602bd565dd.PNG"/>
-                        </view>
-                    </view>
+                    </block>
                 </view>
             </view>
             <view class="lineup-hex-analyse">
                 <view class="content-title">强化符文分析</view>
-                <view class="content-desc">公理圆弧是这个阵容最强海克斯，没有之一；神龙转对这个阵容的提升很大，6级就能开6神龙；狩猎律动，珠光莲华，便捷锻炉等等，这些本来就是版本胜率极高的海克斯，基本上也可以无脑选择；神龙尊者学会后期可以副养狗熊或瞎子，上限也很高。</view>
+                <view class="content-desc">{{data.hex_info}}</view>
             </view>
         </view>
         <view class="lineup-detail-content">
             <view class="content-title">早期过渡</view>
-            <view class="content-desc">开局抢拳套或大棒，前期胡卡尔玛或者有特定海克斯，如公理圆弧，果断冲，基本上都会有分。</view>
-            <view class="lineup-stage">
+            <view class="content-desc">{{data.early_info}}</view>
+            <view class="lineup-stage" wx:if="{{data.early_heroes.length}}">
                 <view class="lineup-stage-name">前期</view>
                 <view class="lineup-stage-list">
-                    <view class="component-champion cost2">
-                        <champion
-                                cost="2"
-                                avatar="https://game.gtimg.cn/images/lol/act/img/tft/champions/765.png"/>
-                    </view>
-                    <view class="component-champion cost2">
-                        <champion
-                                cost="2"
-                                avatar="https://game.gtimg.cn/images/lol/act/img/tft/champions/765.png"/>
-                    </view>
-                    <view class="component-champion cost2">
-                        <champion
-                                cost="2"
-                                avatar="https://game.gtimg.cn/images/lol/act/img/tft/champions/765.png"/>
-                    </view>
-                    <view class="component-champion cost2">
-                        <champion
-                                cost="2"
-                                avatar="https://game.gtimg.cn/images/lol/act/img/tft/champions/765.png"/>
-                    </view>
+                    <block wx:for="{{data.early_heroes}}" wx:for-item="early" wx:for-index="i" wx:key="early_heroes">
+                        <view class="component-champion cost{{early.hero.prices}}">
+                            <champion
+                                    heroId="{{early.hero.id}}"
+                                    cost="{{early.hero.prices}}"
+                                    avatar="{{early.hero.avatar}}"/>
+                        </view>
+                    </block>
                 </view>
-                <view class="lineup-stage-synergy">
-                    <synergy count="4"
-                             name="神龙尊者"
-                             avatar="https://game.gtimg.cn/images/lol/act/img/tft/classes/7006.png"/>
+                <view class="lineup-stage-synergy" wx:if="{{data.early_heroes_contact.length}}">
+                    <block wx:for="{{data.early_heroes_contact}}"
+                           wx:for-index="i"
+                           wx:key="early_heroes_contact"
+                           wx:for-item="contact">
+                        <synergy count="{{contact.num}}"
+                                 name="{{contact.data.name}}"
+                                 level="{{contact.level}}"
+                                 avatar="{{contact.data.image}}"/>
+                    </block>
                 </view>
                 <view class="lineup-stage-location-equip">
-                    <location/>
+                    <location location="{{data.early_heroes}}"/>
                 </view>
             </view>
-            <view class="lineup-stage">
+            <view class="lineup-stage" wx:if="{{data.metaphase_heroes.length}}">
                 <view class="lineup-stage-name">中期</view>
                 <view class="lineup-stage-list">
-                    <view class="component-champion cost2">
-                        <champion
-                                cost="2"
-                                avatar="https://game.gtimg.cn/images/lol/act/img/tft/champions/765.png"/>
-                    </view>
-                    <view class="component-champion cost2">
-                        <champion
-                                cost="2"
-                                avatar="https://game.gtimg.cn/images/lol/act/img/tft/champions/765.png"/>
-                    </view>
-                    <view class="component-champion cost2">
-                        <champion
-                                cost="2"
-                                avatar="https://game.gtimg.cn/images/lol/act/img/tft/champions/765.png"/>
-                    </view>
-                    <view class="component-champion cost2">
-                        <champion
-                                cost="2"
-                                avatar="https://game.gtimg.cn/images/lol/act/img/tft/champions/765.png"/>
-                    </view>
+                    <block wx:for="{{data.metaphase_heroes}}" wx:for-index="i" wx:for-item="metaphase"
+                           wx:key="metaphase_heroes">
+                        <view class="component-champion cost{{metaphase.hero.prices}}">
+                            <champion
+                                    heroId="{{metaphase.hero.id}}"
+                                    cost="{{metaphase.hero.prices}}"
+                                    avatar="{{metaphase.hero.avatar}}"/>
+                        </view>
+                    </block>
                 </view>
-                <view class="lineup-stage-synergy">
-                    <synergy count="4"
-                             name="神龙尊者"
-                             avatar="https://game.gtimg.cn/images/lol/act/img/tft/classes/7006.png"/>
-                    <synergy count="2"
-                             name="风暴龙"
-                             avatar="https://game.gtimg.cn/images/lol/act/img/tft/origins/7112.png"/>
+                <view class="lineup-stage-synergy" wx:if="{{data.metaphase_heroes_contact.length}}">
+                    <block wx:for="{{data.metaphase_heroes_contact}}" wx:for-index="i"
+                           wx:key="metaphase_heroes_contact" wx:for-item="contact">
+                        <synergy count="{{contact.num}}"
+                                 name="{{contact.data.name}}"
+                                 level="{{contact.level}}"
+                                 avatar="{{contact.data.image}}"/>
+                    </block>
                 </view>
                 <view class="lineup-stage-location-equip">
-                    <location/>
+                    <location location="{{data.metaphase_heroes}}"/>
                 </view>
             </view>
         </view>
@@ -130,149 +129,102 @@
             <view class="content-title">装备分析</view>
             <view class="lineup-equipment-priority">
                 <view class="lineup-equipment-title">抢装顺序</view>
-                <view class="lineup-equipment-list">
-                    <l-avatar l-class="component-equipment"
-                              size="70"
-                              shape="square"
-                              src="https://game.gtimg.cn/images/lol/act/img/tft/equip/SparringGloves.png"/>
-                    <view class="icon-lineup-arrow-right">></view>
+                <view class="lineup-equipment-list" wx:if="{{data.equipment_order_data.length}}">
+                    <block wx:for="{{data.equipment_order_data}}"
+                           wx:key="equipment_order_data"
+                           wx:for-index="k"
+                           wx:for-item="equipment"
+                    >
+                        <l-avatar l-class="component-equipment"
+                                  size="70"
+                                  shape="square"
+                                  src="{{equipment.image}}"/>
+                    </block>
                 </view>
             </view>
             <view class="lineup-equipment-champion">
                 <view class="lineup-equipment-carry">
                     <view class="lineup-equipment-title">主C装备</view>
                     <view class="carry-champion">
-                        <champion name="卡尔玛"
-                                  cost="1"
+                        <champion name="{{data.equipment_analysis.carry.hero.display_name}}"
+                                  cost="{{data.equipment_analysis.carry.hero.prices}}"
                                   showName="{{true}}"
-                                  avatar="https://game.gtimg.cn/images/lol/act/img/tft/champions/719.png"/>
+                                  heroId="{{data.equipment_analysis.carry.hero.id}}"
+                                  avatar="{{data.equipment_analysis.carry.hero.avatar}}"/>
                     </view>
                     <view class="carry-champion-equip">
-                        <view>
+                        <view wx:if="{{data.carry_hero_equipments.main.length}}">
                             <view class="lineup-equipment-title">必备</view>
-                            <view class="lineup-equipment-list">
-                                <l-avatar l-class="component-equipment"
-                                          size="60"
-                                          shape="square"
-                                          src="https://game.gtimg.cn/images/lol/act/img/tft/equip/InfinityEdge.png"/>
-                            </view>
-                            <view class="lineup-equipment-list">
-                                <l-avatar l-class="component-equipment"
-                                          size="60"
-                                          shape="square"
-                                          src="https://game.gtimg.cn/images/lol/act/img/tft/equip/JeweledGauntlet.png"/>
-                            </view>
+                            <block wx:for="{{data.carry_hero_equipments.main}}"
+                                   wx:for-item="main" wx:key="q-m" wx:for-index="l">
+                                <view class="lineup-equipment-list">
+                                    <l-avatar l-class="component-equipment"
+                                              size="60"
+                                              shape="square"
+                                              src="{{main.image}}"/>
+                                </view>
+                            </block>
                         </view>
-                        <view>
+                        <view wx:if="{{data.carry_hero_equipments.backup.length}}">
                             <view class="lineup-equipment-title">替代</view>
-                            <view class="lineup-equipment-list">
-                                <l-avatar l-class="component-equipment"
-                                          size="60"
-                                          shape="square"
-                                          src="https://game.gtimg.cn/images/lol/act/img/tft/equip/Hextech_Gunblade.png"/>
-                            </view>
-                            <view class="lineup-equipment-list">
-                                <l-avatar l-class="component-equipment"
-                                          size="60"
-                                          shape="square"
-                                          src="https://game.gtimg.cn/images/lol/act/img/tft/equip/Bloodthirster.png"/>
-                            </view>
-                            <view class="lineup-equipment-list">
-                                <l-avatar l-class="component-equipment"
-                                          size="60"
-                                          shape="square"
-                                          src="https://game.gtimg.cn/images/lol/act/img/tft/equip/HandofJustice.png"/>
-                            </view>
+                            <block wx:for="{{data.carry_hero_equipments.backup}}"
+                                   wx:for-item="backup" wx:key="q-b" wx:for-index="l">
+                                <view class="lineup-equipment-list">
+                                    <l-avatar l-class="component-equipment"
+                                              size="60"
+                                              shape="square"
+                                              src="{{backup.image}}"/>
+                                </view>
+                            </block>
                         </view>
                     </view>
                 </view>
-                <view class="lineup-equipment-other">
+                <view class="lineup-equipment-other" wx:if="{{data.equipment_analysis.others.length}}">
                     <view class="other-equip-title">其他英雄装备</view>
                     <view class="other-equip-list">
-                        <view class="other-equip">
-                            <view class="other-champion">
-                                <champion name="卡莎"
-                                          showName="{{false}}"
-                                          cost="2"
-                                          avatar="https://game.gtimg.cn/images/lol/act/img/tft/champions/765.png"/>
+                        <block wx:for="{{data.equipment_analysis.others}}" wx:key="equipment_analysis"
+                               wx:for-index="n" wx:for-item="other">
+                            <view class="other-equip">
+                                <view class="other-champion">
+                                    <champion
+                                            heroId="{{other.hero.id}}"
+                                            name="{{other.hero.name}}"
+                                              showName="{{false}}"
+                                              cost="{{other.hero.prices}}"
+                                              avatar="{{other.hero.avatar}}"/>
+                                </view>
+                                <view class="lineup-equipment-list" wx:if="{{other.equipment_data.length}}">
+                                    <block wx:for="{{other.equipment_data}}"
+                                           wx:for-item="equipment"
+                                           wx:for-index="m"
+                                           wx:key="equipment_analysis_equipment_data">
+                                        <l-avatar l-class="component-equipment"
+                                                  size="60"
+                                                  shape="square"
+                                                  src="{{equipment.image}}"/>
+                                    </block>
+                                </view>
                             </view>
-                            <view class="lineup-equipment-list">
-                                <l-avatar l-class="component-equipment"
-                                          size="60"
-                                          shape="square"
-                                          src="https://game.gtimg.cn/images/lol/act/img/tft/equip/Morellonomicon.png"/>
-                                <l-avatar l-class="component-equipment"
-                                          size="60"
-                                          shape="square"
-                                          src="https://game.gtimg.cn/images/lol/act/img/tft/equip/StatikkShiv.png"/>
-                                <l-avatar l-class="component-equipment"
-                                          size="60"
-                                          shape="square"
-                                          src="https://game.gtimg.cn/images/lol/act/img/tft/equip/Edge_of_Night_item_HD.png"/>
-                            </view>
-                        </view>
-                        <view class="other-equip">
-                            <view class="other-champion">
-                                <champion name="盲僧"
-                                          showName="{{false}}"
-                                          cost="3"
-                                          avatar="https://game.gtimg.cn/images/lol/act/img/tft/champions/721.png"/>
-                            </view>
-                            <view class="lineup-equipment-list">
-                                <l-avatar l-class="component-equipment"
-                                          size="60"
-                                          shape="square"
-                                          src="https://game.gtimg.cn/images/lol/act/img/tft/equip/ChaliceofPower.png"/>
-                                <l-avatar l-class="component-equipment"
-                                          size="60"
-                                          shape="square"
-                                          src="https://game.gtimg.cn/images/lol/act/img/tft/equip/ChaliceofPower.png"/>
-                                <l-avatar l-class="component-equipment"
-                                          size="60"
-                                          shape="square"
-                                          src="https://game.gtimg.cn/images/lol/act/img/tft/equip/ChaliceofPower.png"/>
-                            </view>
-                        </view>
-                        <view class="other-equip">
-                            <view class="other-champion">
-                                <champion name="沃利贝尔"
-                                          showName="{{false}}"
-                                          cost="3"
-                                          avatar="https://game.gtimg.cn/images/lol/act/img/tft/champions/754.png"/>
-                            </view>
-                            <view class="lineup-equipment-list">
-                                <l-avatar l-class="component-equipment"
-                                          size="60"
-                                          shape="square"
-                                          src="https://game.gtimg.cn/images/lol/act/img/tft/equip/ThiefsGloves.png"/>
-                            </view>
-                        </view>
-                        <view class="other-equip">
-                            <view class="other-champion">
-                                <champion name="琪亚娜"
-                                          showName="{{false}}"
-                                          cost="2"
-                                          avatar="https://game.gtimg.cn/images/lol/act/img/tft/champions/732.png"/>
-                            </view>
-                            <view class="lineup-equipment-list">
-                                <l-avatar l-class="component-equipment"
-                                          size="60"
-                                          shape="square"
-                                          src="https://game.gtimg.cn/images/lol/act/img/tft/equip/DragonmancerEmblem_1653450723.png"/>
-                            </view>
-                        </view>
+                        </block>
                     </view>
                 </view>
             </view>
-            <view class="lineup-equip-desc">卡尔玛神装之后，尽可能先配置卡莎装备，有鬼书最好，没有的话也可以给狗熊上日炎。然后给瞎子做圣杯，能做多少做多少，多多益善。</view>
+            <view class="lineup-equip-desc">{{data.equipment_info}}</view>
+        </view>
+        <view class="lineup-detail-content">
+            <view class="content-title">阵容究极站位</view>
+            <view class="lineup-stage-location-equip">
+                <location location="{{data.hero_location}}" desc="阵容究极站位" detail="{{true}}"/>
+            </view>
+            <view class="content-desc">{{data.location_info}}</view>
         </view>
         <view class="lineup-detail-content">
             <view class="content-title">搜牌节奏</view>
-            <view class="content-desc">这套阵容的玩法节奏很简单，连败攒钱，打完石头人3-1大搜一波，卡尔玛数量多，可以直接冲完，反之就留个20-30，等选秀完再一波冲完。切记3阶段一定要三星卡尔玛，节奏很关键。在保证质量够高的情况，缓慢上7人口，存钱追其他三星神龙尊者。这阵容能否开6神龙不关键，关键的是强势期一定要血入对手，加快游戏节奏，吃分第一，吃鸡看命。</view>
+            <view class="content-desc">{{data.d_time}}</view>
         </view>
         <view class="lineup-detail-content" style="padding-bottom: 160rpx;">
             <view class="content-title">克制分析</view>
-            <view class="content-desc">这套阵容克制当前版本最热门的玉龙赛芬，打屠龙狂刃，也非常好打。不过这套阵容吃鸡能力相对较弱，后期很容易被针对。比较难打黯灵乌鸦、四龙敖兴或大成冒险敖兴。</view>
+            <view class="content-desc">{{data.enemy_info}}</view>
         </view>
     </view>
 </view>

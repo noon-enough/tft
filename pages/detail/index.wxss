@@ -94,9 +94,24 @@
     display: block;
 }
 
+.component-champion.cost1 .champion-price {
+    background-color: #999;
+}
 
 .component-champion.cost2 .champion-price {
     background-color: #5fcc29;
+}
+
+.component-champion.cost3 .champion-price {
+    background-color: #297acc;
+}
+
+.component-champion.cost4 .champion-price {
+    background-color: #cc29cc;
+}
+
+.component-champion.cost5 .champion-price {
+    background-color: #cca329;
 }
 
 .detail-info-1 .champion-name {

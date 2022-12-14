@@ -20,6 +20,10 @@ function heroDetail(id) {
     goto(`/pages/detail/index?id=${id}`)
 }
 
+function lineupDetail(id) {
+    goto(`/pages/lineup/index?id=${id}`)
+}
+
 
 /**
  * 获取session
@@ -92,4 +96,4 @@ function showToast(msg, {icon = 'success'}) {
     })
 }
 
-module.exports = {goto, getSession, getSessionName, heroDetail, gotoFeedback, showToast}
+module.exports = {goto, getSession, getSessionName, heroDetail, gotoFeedback, showToast, lineupDetail}

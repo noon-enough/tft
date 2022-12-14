@@ -1,5 +1,5 @@
 import tabbar from '../../tabbar';
-import {getSessionName, showToast} from "../../utils/util";
+import {heroDetail, lineupDetail, showToast} from "../../utils/util";
 import {synergies} from "../../utils/api";
 Page({
     data: {
@@ -36,6 +36,28 @@ Page({
         }).catch(err => {
             showToast("数据拉取失败，请稍候再试", {icon: "error"})
         })
+        wx.stopPullDownRefresh()
+    },
+    onPullDownRefresh() {
+        let that = this
+        wx.startPullDownRefresh()
+        that.getStrategies()
+    },
+    detailHero(e) {
+        let id = e.currentTarget.dataset.heroId
+        if (id === 0) {
+            showToast("无法打开英雄详细页", {icon: "error"})
+            return
+        }
+        heroDetail(id)
+    },
+    detail(e) {
+        let id = e.currentTarget.dataset.id
+        if (id === 0) {
+            showToast("无法打开英雄详细页", {icon: "error"})
+            return
+        }
+        lineupDetail(id)
     }
 });
 

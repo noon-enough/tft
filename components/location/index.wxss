@@ -181,3 +181,18 @@
     top: 258rpx;
     left: 528rpx
 }
+
+.lineup-location .icon-carry {
+    background: url(//game.gtimg.cn/images/lol/tft/content-site/icon-carry-hero.png) no-repeat center/100%;
+    width: .2rem;
+    height: .22rem;
+    position: absolute;
+    top: 50%;
+    margin-top: -.11rem;
+    right: -.1rem;
+    pointer-events: none;
+}
+
+.lineup-location-wrap .location-champion .icon-carry {
+    pointer-events: none;
+}

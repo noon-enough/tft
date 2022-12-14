@@ -17,5 +17,5 @@
             url="/pages/qa/index"
             image="/assets/icons/mine/q&a.png"  />
     <l-list title="吐槽反馈" bind:lintap="gotoFeedback" image="/assets/icons/mine/feedback.png" />
-    <l-list title="分享TFT小助手" image="/assets/icons/mine/share.png" />
+    <l-list title="分享TFT小助手" bind:lintap="onShareAppMessage" image="/assets/icons/mine/share.png" />
 </view>

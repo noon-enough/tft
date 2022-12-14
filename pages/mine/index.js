@@ -18,6 +18,13 @@ Page({
     gotoFeedback(e) {
         gotoFeedback()
     },
+    onShareAppMessage(options) {
+        let that = this
+        return {
+            title: `TFT金铲铲之战小助手`,
+            path: `/pages/home/index`,
+        }
+    },
     actionSheet(e){
         let that = this
         wx.showActionSheet({

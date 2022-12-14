@@ -65,7 +65,6 @@
 
     "tag": "./components/tag/index",
     "champion": "./components/champion/index",
-    "location-champion": "./components/location-champion/index",
     "synergy": "./components/synergy/index",
     "location": "./components/location/index",
 

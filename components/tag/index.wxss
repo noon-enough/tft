@@ -12,6 +12,7 @@
     height: 40rpx;
     text-align: center;
     color: #fff5e0;
+    line-height: 40rpx;
 }
 
 .tag-info {

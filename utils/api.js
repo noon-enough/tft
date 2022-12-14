@@ -80,4 +80,13 @@ function equipments(polymerize = 1) {
     return get(`/api/equipments?version=${session}&polymerize=${polymerize}`)
 }
 
-module.exports = {sessions, chess, hexes, synergies, races, jobs, hero, equipments}
+/**
+ *
+ * @param id
+ * @returns {Promise<SuccessParam<wx.RequestOption>>}
+ */
+function lineup(id) {
+    return get(`/api/strategies/${id}`)
+}
+
+module.exports = {sessions, chess, hexes, synergies, races, jobs, hero, equipments, lineup}
