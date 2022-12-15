@@ -7,7 +7,19 @@ export default [
     },
     {
         pagePath:"/pages/database/index",
-        text:"资料库",
+        text:"英雄",
+        iconPath:"/assets/icons/tft.png",
+        selectedIconPath:"/assets/icons/tft-selected.png"
+    },
+    {
+        pagePath:"/pages/database/index",
+        text:"装备",
+        iconPath:"/assets/icons/tft.png",
+        selectedIconPath:"/assets/icons/tft-selected.png"
+    },
+    {
+        pagePath:"/pages/database/index",
+        text:"羁绊",
         iconPath:"/assets/icons/tft.png",
         selectedIconPath:"/assets/icons/tft-selected.png"
     },

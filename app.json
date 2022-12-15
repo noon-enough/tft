@@ -11,10 +11,11 @@
     "template/hero-table/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#101c42",
     "navigationBarTitleText": "TFT金铲铲助手",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white",
+    "navTextStyle": "#8674a5"
   },
   "tabBar": {
     "color": "#707070",

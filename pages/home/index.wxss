@@ -1,25 +1,29 @@
 .container {
-    /*background: #0b1536;*/
+    background: #0b1536;
     width: 100%;
     overflow-y:scroll;
+    color: #fcf0f4;
 }
 
 .lineup-item {
     position: relative;
     margin: 0 0 20rpx;
-    border-radius: 8rpx;
     -webkit-transition: height .3s,border-color .3s;
     -moz-transition: height .3s,border-color .3s;
     -o-transition: height .3s,border-color .3s;
     transition: height .3s,border-color .3s;
+    /*background: #2c184e;*/
+    background: #283661;
+    border-color: #55407a;
 }
 
 .lineup-item .lineup-name {
-    display: inline-flex;
-    display: -webkit-inline-flex;
+    display: flex;
+    display: -webkit-flex;
     /*color: #fcf0f4;*/
     /*width: 100%;*/
     padding: 20rpx 20rpx 0 20rpx;
+    justify-content: space-between;
 }
 
 .lineup-item .lineup-name .lineup-quality {
@@ -32,11 +36,23 @@
 }
 
 .lineup-item .lineup-name .line-name {
+    flex: 1;
     font-size: 28rpx;
-    /*width: 75%;*/
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    font-weight: 600;
+}
+
+.lineup-item .lineup-name .line-detail {
+    text-align: right;
+    font-size: 24rpx;
+    color: #a7a3a3;
+    font-weight: 500;
+}
+
+.lineup-item .lineup-name {
+    color: #fcf0f4;
 }
 
 .lineup-item .lineup-info {
@@ -230,7 +246,6 @@
     vertical-align: middle;
     font-size: 28rpx;
     line-height: 80rpx;
-    color: gray;
 }
 
 .lineup-item .lineup-hex .lineup-races {
@@ -265,14 +280,10 @@
     color: #c29e54;
     font-size: 26rpx;
     text-align: center;
-    border: 2rpx solid #35405b;
-    background: rgba(5,9,33,.2);
 }
 
 .lineup-item .lineup-hex .lineup-feature {
     color: #ffb60d;
-    border-color: rgba(255,255,255,.1);
-    background: white;
     line-height: 3;
     margin-right: 10rpx;
 }

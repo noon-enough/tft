@@ -1,4 +1,9 @@
-<l-tab-bar text-color="#8a8a8a" text-selected-color="#2c2c2c" list="{{list}}" />
+<l-tab-bar
+    bg-color="#101c42"
+    text-color="#8a8a8a"
+    text-selected-color="#d7a75f"
+    list="{{list}}"
+/>
 <view class="container">
     <view class="lineup-list" style="margin-bottom: 180rpx;">
         <block wx:if="{{data.length}}">
@@ -12,6 +17,7 @@
                       bind:tap="detail">
                     <view class="lineup-quality">{{item.quality}}</view>
                     <view class="line-name">{{item.title}}</view>
+                    <view class="line-detail">查看详情</view>
                 </view>
                 <view class="lineup-info">
                     <view class="lineup-champions">
@@ -56,7 +62,6 @@
                         </view>
                     </block>
                 </view>
-                <view class="lineup-line"></view>
             </view>
         </block>
         <mp-laoding type="circle" tips="暂无数据"/>
