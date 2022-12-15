@@ -5,22 +5,32 @@
         list="{{list}}"
 />
 <view class="page">
-    <l-list title="对弈赛季" bind:lintap="actionSheet" right-desc="{{session}}" image="/assets/icons/sword-selected.png"></l-list>
+    <l-list
+            l-class="l-class"
+            title="对弈赛季"
+            bind:lintap="actionSheet"
+            right-desc="{{session}}"
+            image="/assets/icons/sword-selected.png"></l-list>
 <!--    <l-list title="英雄名别名" image="/assets/icons/mine/hero.png" is-link="{{false}}">-->
 <!--        <view slot="right-section">-->
 <!--            <l-switch />-->
 <!--        </view>-->
 <!--    </l-list>-->
     <l-list title="数据排行"
+            l-class="l-class"
             image="/assets/icons/mine/heat.png"
             link-type="navigateTo"
             tag-content="hot" tag-position="right"
             is-link="{{false}}"
             url="/pages/rank/index"/>
     <l-list title="名词解释&新手指南"
+            l-class="l-class"
             link-type="navigateTo"
             url="/pages/qa/index"
             image="/assets/icons/mine/q&a.png"  />
-    <l-list title="吐槽反馈" bind:lintap="gotoFeedback" image="/assets/icons/mine/feedback.png" />
+    <l-list title="吐槽反馈"
+            l-class="l-class"
+            bind:lintap="gotoFeedback"
+            image="/assets/icons/mine/feedback.png" />
 <!--    <l-list title="分享TFT小助手" bind:lintap="onShareAppMessage" image="/assets/icons/mine/share.png" />-->
 </view>

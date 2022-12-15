@@ -10,6 +10,7 @@ page {
     text-align: left;
 }
 
+
 .page {
     margin: 40rpx;
     background: #101c42;
@@ -83,3 +84,4 @@ page {
     background: #0c173c;
     color: #959db9;
 }
+

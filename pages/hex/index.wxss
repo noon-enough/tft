@@ -10,8 +10,9 @@
     -webkit-align-content: center;
     align-content: flex-start;
     margin-top: 20rpx;
-    background: #283661;
-    border-color: #55407a;
+    /*background: #283661;*/
+    border-bottom: 1px solid #192446;
+    border-color: #101c42;
 }
 
 .synergy-table-main:first-child{

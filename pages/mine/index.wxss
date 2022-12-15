@@ -1,0 +1,11 @@
+.page {
+    margin: 0;
+    background: none;
+}
+
+.page .l-class {
+    background-color: #101c42;
+    padding: 40rpx;
+    border-bottom: 1px solid #0b1536;
+    color: #fcf0f4;
+}

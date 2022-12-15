@@ -1,0 +1,50 @@
+.page {
+    background: none;
+}
+
+.page .rank-list {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    justify-items: left;
+}
+
+.page .rank-list .rank-item {
+    display: inline-flex;
+    margin-bottom: 20rpx;
+}
+
+.page .rank-list .rank-item .title {
+    width: 40rpx;
+    font-size: 26rpx;
+    padding: 10rpx;
+    vertical-align: middle;
+    justify-content: center;
+    justify-items: center;
+    line-height: 3;
+    text-align: center;
+}
+
+.page .rank-list .rank-item .title.t0 {
+  background-color: #f44336;
+}
+
+.page .rank-list .rank-item .title.t1 {
+    background-color: #ff9800;
+}
+
+.page .rank-list .rank-item .title.t2 {
+    background-color: #f6f223;
+}
+
+.page .rank-list .rank-item .title.t3 {
+    background-color: #3dfa94;
+}
+
+.page .rank-list .rank-item .title.t4 {
+    background-color: #3598ff;
+}
+
+.page .rank-list .rank-item .component-champion {
+    margin-right: 10rpx;
+}

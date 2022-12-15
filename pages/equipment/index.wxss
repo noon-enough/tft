@@ -29,9 +29,6 @@
     flex-shrink: 0;
 }
 
-.equipment-combination-body {
-
-}
 
 .equipment-item {
     display: flex;

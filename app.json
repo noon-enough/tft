@@ -2,13 +2,11 @@
   "pages": [
     "pages/home/index",
     "pages/index/index",
-    "pages/database/index",
     "pages/mine/index",
     "pages/detail/index",
     "pages/lineup/index",
     "pages/rank/index",
     "pages/qa/index",
-    "template/hero-table/index",
     "pages/hero/index",
     "pages/equipment/index",
     "pages/hex/index"
