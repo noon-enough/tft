@@ -188,17 +188,6 @@
     width: 100%;
 }
 
-.component-champion .icon-carry {
-    background: url(//game.gtimg.cn/images/lol/tft/content-site/icon-carry-hero.png) no-repeat center/100%;
-    width: 38rpx;
-    height: 38rpx;
-    position: absolute;
-    top: 50%;
-    margin-top: -30rpx;
-    left: -15rpx;
-    pointer-events: none;
-}
-
 .lineup-item .lineup-info .lineup-champions .equipment-list {
     position: absolute;
     top: 50%;

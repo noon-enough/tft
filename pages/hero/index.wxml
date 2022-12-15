@@ -1,0 +1,74 @@
+<l-tab-bar
+        bg-color="#101c42"
+        text-color="#8a8a8a"
+        text-selected-color="#d7a75f"
+        list="{{list}}"
+/>
+<view class="champion-list">
+    <view class="champion-item-big">
+        <view class="champion-item-pic" style="background-image: url('https://game.gtimg.cn/images/lol/tftstore/s8/624x318/801.jpg');">
+            <view class="blur-img" style="background-image: url('https://game.gtimg.cn/images/lol/tftstore/s8/624x318/801.jpg');"></view>
+            <view class="race-job-wrap">
+                <view class="race-job">
+                    <view class="race-job-icon">
+                        <l-avatar
+                                size="30"
+                                l-class="icon-img"
+                                src="https://game.gtimg.cn/images/lol/act/img/tft/origins/8103.png"/>
+                    </view>
+                    <view class="race-job-name">平民英雄</view>
+                </view>
+                <view class="race-job">
+                    <view class="race-job-icon">
+                        <l-avatar
+                                size="30"
+                                l-class="icon-img"
+                                src="https://game.gtimg.cn/images/lol/act/img/tft/origins/8103.png"/>
+                    </view>
+                    <view class="race-job-name">平民英雄</view>
+                </view>
+                <view class="race-job">
+                    <view class="race-job-icon">
+                        <l-avatar
+                                size="30"
+                                l-class="icon-img"
+                                src="https://game.gtimg.cn/images/lol/act/img/tft/origins/8103.png"/>
+                    </view>
+                    <view class="race-job-name">平民英雄</view>
+                </view>
+            </view>
+        </view>
+        <view class="champion-item-info">
+            <view class="name">正义巨像 加里奥</view>
+            <view class="price">1 金币</view>
+        </view>
+    </view>
+    <view class="champion-item-big">
+        <view class="champion-item-pic" style="background-image: url('https://game.gtimg.cn/images/lol/tftstore/s8/624x318/801.jpg');">
+            <view class="blur-img" style="background-image: url('https://game.gtimg.cn/images/lol/tftstore/s8/624x318/801.jpg');"></view>
+            <view class="race-job-wrap">
+                <view class="race-job">
+                    <view class="race-job-name">屏幕</view>
+                </view>
+            </view>
+        </view>
+        <view class="champion-item-info">
+            <view class="name">正义巨像 加里奥</view>
+            <view class="price">1 金币</view>
+        </view>
+    </view>
+    <view class="champion-item-big">
+        <view class="champion-item-pic" style="background-image: url('https://game.gtimg.cn/images/lol/tftstore/s8/624x318/801.jpg');">
+            <view class="blur-img" style="background-image: url('https://game.gtimg.cn/images/lol/tftstore/s8/624x318/801.jpg');"></view>
+            <view class="race-job-wrap">
+                <view class="race-job">
+                    <view class="race-job-name">屏幕</view>
+                </view>
+            </view>
+        </view>
+        <view class="champion-item-info">
+            <view class="name">正义巨像 加里奥</view>
+            <view class="price">1 金币</view>
+        </view>
+    </view>
+</view>

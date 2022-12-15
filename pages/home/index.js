@@ -42,6 +42,7 @@ Page({
         let that = this
         wx.startPullDownRefresh()
         that.getStrategies()
+        wx.stopPullDownRefresh()
     },
     detailHero(e) {
         let id = e.currentTarget.dataset.heroId

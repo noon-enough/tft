@@ -1,11 +1,11 @@
 <l-tab-bar text-color="#8a8a8a" text-selected-color="#2c2c2c" list="{{list}}" />
 <view class="page">
     <l-list title="对弈赛季" bind:lintap="actionSheet" right-desc="{{session}}" image="/assets/icons/sword-selected.png"></l-list>
-    <l-list title="英雄名别名" image="/assets/icons/mine/hero.png" is-link="{{false}}">
-        <view slot="right-section">
-            <l-switch />
-        </view>
-    </l-list>
+<!--    <l-list title="英雄名别名" image="/assets/icons/mine/hero.png" is-link="{{false}}">-->
+<!--        <view slot="right-section">-->
+<!--            <l-switch />-->
+<!--        </view>-->
+<!--    </l-list>-->
     <l-list title="数据排行"
             image="/assets/icons/mine/heat.png"
             link-type="navigateTo"
@@ -17,5 +17,5 @@
             url="/pages/qa/index"
             image="/assets/icons/mine/q&a.png"  />
     <l-list title="吐槽反馈" bind:lintap="gotoFeedback" image="/assets/icons/mine/feedback.png" />
-    <l-list title="分享TFT小助手" bind:lintap="onShareAppMessage" image="/assets/icons/mine/share.png" />
+<!--    <l-list title="分享TFT小助手" bind:lintap="onShareAppMessage" image="/assets/icons/mine/share.png" />-->
 </view>

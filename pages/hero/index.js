@@ -1,5 +1,8 @@
+import tabbar from '../../tabbar';
 Page({
-    data: {},
+    data: {
+        list:tabbar,
+    },
     onLoad: function (options) {
 
     }

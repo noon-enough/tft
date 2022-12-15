@@ -214,7 +214,7 @@
         <view class="lineup-detail-content">
             <view class="content-title">阵容究极站位</view>
             <view class="lineup-stage-location-equip">
-                <location location="{{data.hero_location}}" desc="阵容究极站位" detail="{{true}}"/>
+                <location location="{{data.hero_location}}" detail="{{true}}"/>
             </view>
             <view class="content-desc">{{data.location_info}}</view>
         </view>

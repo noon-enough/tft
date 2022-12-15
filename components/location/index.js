@@ -14,19 +14,19 @@ Component({
         }
     },
     data: {
-        position: []
+        // position: []
     },
     methods: {},
-    attached() {
-        let location = this.properties.location,
-            position = []
-        location.forEach(item => {
-            item["position"] = item["location"].replace(",", "-")
-            position.push(item)
-        })
-        this.setData({
-            position: position
-        })
-        console.log('got position data', position, this.properties.detail, this.properties.location)
+    attached(format, data) {
+        // let location = this.properties.location,
+        //     position = []
+        // location.forEach(item => {
+        //     item["position"] = item["location"].replace(",", "-")
+        //     position.push(item)
+        // })
+        // this.setData({
+        //     position: position
+        // }, data)
+        // console.log('got position data', position, this.properties.detail, this.properties.location)
     }
 });

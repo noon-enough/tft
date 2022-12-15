@@ -5,65 +5,70 @@
     list="{{list}}"
 />
 <view class="container">
-    <view class="lineup-list" style="margin-bottom: 180rpx;">
-        <block wx:if="{{data.length}}">
-            <view class="lineup-item"
-                  wx:for="{{data}}"
-                  wx:for-index="id"
-                  wx:for-item="item"
-            >
-                <view class="lineup-name"
-                      data-id="{{item.id}}"
-                      bind:tap="detail">
-                    <view class="lineup-quality">{{item.quality}}</view>
-                    <view class="line-name">{{item.title}}</view>
-                    <view class="line-detail">查看详情</view>
-                </view>
-                <view class="lineup-info">
-                    <view class="lineup-champions">
-                        <view class="swiper-container swiper-container-horizontal swiper-container-free-mode">
-                            <view class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
-                                <block wx:for="{{item.hero_location}}" wx:for-index="h" wx:key="hero_location" wx:for-item="chess">
-                                    <view wx:if="{{h <= 5}}" class="champion-wrap swiper-slide swiper-slide-active">
-                                        <champion
-                                                isMonster="{{chess.hero.is_monster}}"
-                                                cost="{{chess.hero.prices}}"
-                                                heroId="{{chess.id}}"
-                                                equipments="{{chess.equipment_data}}"
-                                                showStar="{{chess.is_three_stars}}"
-                                                star="3"
-                                                isCarry="{{chess.is_carry_hero}}"
-                                                name="{{chess.hero.name}}"
-                                                avatar="{{chess.hero.avatar}}"/>
-                                    </view>
-                                </block>
+    <l-loadmore show="{{true}}">
+        <view slot="content">
+            <view class="lineup-list" style="margin-bottom: 180rpx;">
+                <block wx:if="{{data.length}}">
+                    <view class="lineup-item"
+                          wx:for="{{data}}"
+                          wx:for-index="id"
+                          wx:for-item="item"
+                    >
+                        <view class="lineup-name"
+                              data-id="{{item.id}}"
+                              bind:tap="detail">
+                            <view class="lineup-quality">{{item.quality}}</view>
+                            <view class="line-name">{{item.title}}</view>
+                            <view class="line-detail">
+                                查看详情
                             </view>
                         </view>
-                    </view>
-                </view>
-                <view class="lineup-hex"
-                      data-id="{{item.id}}"
-                      bind:tap="detail">
-                    <view class="author"></view>
-                    <view wx:if="{{item.tag === 2}}" class="lineup-feature">高手进阶</view>
-                    <view wx:if="{{item.tag === 1}}" class="lineup-feature">新手推荐</view>
-                    <view class="lineup-tag-txt" wx:if="{{item.feature === 1}}">慢D三星</view>
-                    <view class="lineup-tag-txt" wx:if="{{item.feature === 2}}">稳运营</view>
-                    <view class="lineup-tag-txt" wx:if="{{item.feature === 3}}">趣味娱乐</view>
-                    <view class="lineup-tag-txt" wx:if="{{item.feature === 4}}">稳健运营</view>
-                    <block wx:if="{{item.hexes.recomm.length}}">
-                        <view class="lineup-races">
-                            <block wx:for="{{item.hexes.recomm}}" wx:for-item="hex" wx:for-index="i" wx:key="hex-for-item">
-                                <l-avatar
-                                        l-class="avatar-default"
-                                        size="50"
-                                        src="{{hex.image}}"/>
+                        <view class="lineup-info">
+                            <view class="lineup-champions">
+                                <view class="swiper-container swiper-container-horizontal swiper-container-free-mode">
+                                    <view class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                                        <block wx:for="{{item.hero_location}}" wx:for-index="h" wx:key="hero_location" wx:for-item="chess">
+                                            <view wx:if="{{h <= 5}}" class="champion-wrap swiper-slide swiper-slide-active">
+                                                <champion
+                                                        isMonster="{{chess.hero.is_monster}}"
+                                                        cost="{{chess.hero.prices}}"
+                                                        heroId="{{chess.id}}"
+                                                        equipments="{{chess.equipment_data}}"
+                                                        showStar="{{chess.is_three_stars}}"
+                                                        star="3"
+                                                        isCarry="{{chess.is_carry_hero}}"
+                                                        name="{{chess.hero.name}}"
+                                                        avatar="{{chess.hero.avatar}}"/>
+                                            </view>
+                                        </block>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="lineup-hex"
+                              data-id="{{item.id}}"
+                              bind:tap="detail">
+                            <view class="author"></view>
+                            <view wx:if="{{item.tag === 2}}" class="lineup-feature">高手进阶</view>
+                            <view wx:if="{{item.tag === 1}}" class="lineup-feature">新手推荐</view>
+                            <view class="lineup-tag-txt" wx:if="{{item.feature === 1}}">慢D三星</view>
+                            <view class="lineup-tag-txt" wx:if="{{item.feature === 2}}">稳运营</view>
+                            <view class="lineup-tag-txt" wx:if="{{item.feature === 3}}">趣味娱乐</view>
+                            <view class="lineup-tag-txt" wx:if="{{item.feature === 4}}">稳健运营</view>
+                            <block wx:if="{{item.hexes.recomm.length}}">
+                                <view class="lineup-races">
+                                    <block wx:for="{{item.hexes.recomm}}" wx:for-item="hex" wx:for-index="i" wx:key="hex-for-item">
+                                        <l-avatar
+                                                l-class="avatar-default"
+                                                size="50"
+                                                src="{{hex.image}}"/>
+                                    </block>
+                                </view>
                             </block>
                         </view>
-                    </block>
-                </view>
+                    </view>
+                </block>
             </view>
-        </block>
-        <mp-laoding type="circle" tips="暂无数据"/>
-    </view>
+        </view>
+    </l-loadmore>
 </view>

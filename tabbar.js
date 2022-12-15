@@ -6,7 +6,7 @@ export default [
         selectedIconPath:"/assets/icons/sword-selected.png"
     },
     {
-        pagePath:"/pages/database/index",
+        pagePath:"/pages/hero/index",
         text:"英雄",
         iconPath:"/assets/icons/hero.png",
         selectedIconPath:"/assets/icons/hero-selected.png"
@@ -18,7 +18,7 @@ export default [
         selectedIconPath:"/assets/icons/equipment-selected.png"
     },
     {
-        pagePath:"/pages/database/index",
+        pagePath:"/pages/hex/index",
         text:"羁绊",
         iconPath:"/assets/icons/tft.png",
         selectedIconPath:"/assets/icons/tft-selected.png"

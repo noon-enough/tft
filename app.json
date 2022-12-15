@@ -17,8 +17,7 @@
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#101c42",
     "navigationBarTitleText": "TFT金铲铲助手",
-    "navigationBarTextStyle": "white",
-    "navTextStyle": "#8674a5"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#707070",
@@ -30,20 +29,32 @@
       {
         "pagePath":"pages/home/index",
         "text":"攻略区",
-        "iconPath":"assets/icons/home.png",
-        "selectedIconPath":"assets/icons/home-selected.png"
+        "iconPath":"/assets/icons/sword.png",
+        "selectedIconPath":"/assets/icons/sword-selected.png"
       },
       {
-        "pagePath":"pages/database/index",
-        "text":"资料库",
-        "iconPath":"assets/icons/home.png",
-        "selectedIconPath":"assets/icons/home-selected.png"
+        "pagePath":"pages/hero/index",
+        "text":"英雄",
+        "iconPath":"/assets/icons/hero.png",
+        "selectedIconPath":"/assets/icons/hero-selected.png"
+      },
+      {
+        "pagePath":"pages/equipment/index",
+        "text":"装备",
+        "iconPath":"/assets/icons/equipment.png",
+        "selectedIconPath":"/assets/icons/equipment-selected.png"
+      },
+      {
+        "pagePath":"pages/hex/index",
+        "text":"羁绊",
+        "iconPath":"/assets/icons/tft.png",
+        "selectedIconPath":"/assets/icons/tft-selected.png"
       },
       {
         "pagePath":"pages/mine/index",
-        "text":"我的",
-        "iconPath":"assets/icons/home.png",
-        "selectedIconPath":"assets/icons/home-selected.png"
+        "text":"设置",
+        "iconPath":"/assets/icons/option.png",
+        "selectedIconPath":"/assets/icons/option-selected.png"
       }
     ]
   },
@@ -65,6 +76,8 @@
     "l-list": "/miniprogram_npm/lin-ui/list/index",
     "l-switch": "/miniprogram_npm/lin-ui/switch/index",
     "l-icon": "/miniprogram_npm/lin-ui/icon/index",
+    "l-loading": "/miniprogram_npm/lin-ui/loading/index",
+    "l-loadmore": "/miniprogram_npm/lin-ui/loadmore/index",
 
 
     "tag": "./components/tag/index",
