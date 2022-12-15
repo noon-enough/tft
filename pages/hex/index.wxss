@@ -69,6 +69,8 @@
 .hex-list-item {
     display: flex;
     margin-bottom: 20rpx;
+    border-bottom: 1px solid #192446;
+    border-color: #101c42;
 }
 
 .hex-list-item:first-child{
@@ -85,6 +87,9 @@
     font-size: 26rpx;
     vertical-align: middle;
     white-space: break-spaces;
+    color: #72788e;
+    margin: 0 0 10rpx 0;
+    line-height: 2;
 }
 
 .hex-list-item .hex-list-title .hex-pic {

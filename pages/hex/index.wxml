@@ -99,7 +99,7 @@
                     l-active-class="tab-active-item">
                 <l-tabpanel tab="银色" key="silver" slot="silver">
                     <view class="tab-content">
-                        <l-search-bar placeholder="搜索" show-cancel="{{false}}"/>
+                        <l-search-bar bg-color="#101c42" placeholder="搜索" show-cancel="{{false}}"/>
                         <view class="hex-list" wx:if="{{hexes.type1.length}}">
                             <block wx:for="{{hexes.type1}}" wx:for-item="item" wx:key="idx" wx:for-index="idx">
                                 <view class="hex-list-item">
@@ -120,50 +120,10 @@
                     </view>
                 </l-tabpanel>
                 <l-tabpanel tab="金色" key="gold" slot="gold">
-                    <l-search-bar placeholder="搜索" show-cancel="{{false}}"/>
-                    <view class="hex-list" wx:if="{{data.type2.length}}">
-                        <block wx:for="{{data.type2}}" wx:for-item="item" wx:for-index="idx">
-                            <view class="hex-list-item">
-                                <view class="hex-list-title">
-                                    <l-avatar
-                                            size="80"
-                                            shape="square"
-                                            l-class="hex-pic"
-                                            placement="right"
-                                            l-text-class="text"
-                                            text="{{item.name}}"
-                                            src="{{item.image}}"/>
-                                </view>
-                                <view class="hex-list-desc">{{item.description}}</view>
-                            </view>
-                        </block>
-                    </view>
-                </l-tabpanel>
-                <l-tabpanel tab="彩色" key="colorful" slot="colorful">
-                    <l-search-bar placeholder="搜索" show-cancel="{{false}}"/>
-                    <view class="hex-list" wx:if="{{data.type3.length}}">
-                        <block wx:for="{{data.type3}}" wx:for-item="item" wx:for-index="idx">
-                            <view class="hex-list-item">
-                                <view class="hex-list-title">
-                                    <l-avatar
-                                            size="80"
-                                            shape="square"
-                                            l-class="hex-pic"
-                                            placement="right"
-                                            l-text-class="text"
-                                            text="{{item.name}}"
-                                            src="{{item.image}}"/>
-                                </view>
-                                <view class="hex-list-desc">{{item.description}}</view>
-                            </view>
-                        </block>
-                    </view>
-                </l-tabpanel>
-                <block wx:if="{{session === 's8'}}">
-                    <l-tabpanel tab="英雄" key="hero" slot="hero">
-                        <l-search-bar placeholder="搜索" show-cancel="{{false}}"/>
-                        <view class="hex-list" wx:if="{{data.type4.length}}">
-                            <block wx:for="{{data.type4}}" wx:for-item="item" wx:for-index="idx">
+                    <view class="tab-content">
+                        <l-search-bar bg-color="#101c42" placeholder="搜索" show-cancel="{{false}}"/>
+                        <view class="hex-list" wx:if="{{hexes.type2.length}}">
+                            <block wx:for="{{hexes.type2}}" wx:for-item="item" wx:for-index="idx">
                                 <view class="hex-list-item">
                                     <view class="hex-list-title">
                                         <l-avatar
@@ -178,6 +138,52 @@
                                     <view class="hex-list-desc">{{item.description}}</view>
                                 </view>
                             </block>
+                        </view>
+                    </view>
+                </l-tabpanel>
+                <l-tabpanel tab="彩色" key="colorful" slot="colorful">
+                    <view class="tab-content">
+                        <l-search-bar bg-color="#101c42" placeholder="搜索" show-cancel="{{false}}"/>
+                        <view class="hex-list" wx:if="{{hexes.type3.length}}">
+                            <block wx:for="{{hexes.type3}}" wx:for-item="item" wx:for-index="idx">
+                                <view class="hex-list-item">
+                                    <view class="hex-list-title">
+                                        <l-avatar
+                                                size="80"
+                                                shape="square"
+                                                l-class="hex-pic"
+                                                placement="right"
+                                                l-text-class="text"
+                                                text="{{item.name}}"
+                                                src="{{item.image}}"/>
+                                    </view>
+                                    <view class="hex-list-desc">{{item.description}}</view>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                </l-tabpanel>
+                <block wx:if="{{session === 's8'}}">
+                    <l-tabpanel tab="英雄" key="hero" slot="hero">
+                        <view class="tab-content">
+                            <l-search-bar bg-color="#101c42" placeholder="搜索" show-cancel="{{false}}"/>
+                            <view class="hex-list" wx:if="{{hexes.type4.length}}">
+                                <block wx:for="{{hexes.type4}}" wx:for-item="item" wx:for-index="idx">
+                                    <view class="hex-list-item">
+                                        <view class="hex-list-title">
+                                            <l-avatar
+                                                    size="80"
+                                                    shape="square"
+                                                    l-class="hex-pic"
+                                                    placement="right"
+                                                    l-text-class="text"
+                                                    text="{{item.name}}"
+                                                    src="{{item.image}}"/>
+                                        </view>
+                                        <view class="hex-list-desc">{{item.description}}</view>
+                                    </view>
+                                </block>
+                            </view>
                         </view>
                     </l-tabpanel>
                 </block>
