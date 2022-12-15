@@ -1,6 +1,5 @@
-page{
-    /*background-color: #f3f3f3;*/
-    background-color: white;
+page {
+    background: #0b1536;
 }
 
 .ml20 {
@@ -13,6 +12,7 @@ page{
 
 .page {
     margin: 40rpx;
+    background: #101c42;
 }
 
 .component-champion.cost8 .champion-pic {
@@ -66,4 +66,20 @@ page{
     -o-transition: border-color,.3s;
     transition: border-color,.3s;
     z-index: 1;
+}
+
+.tab-active-item {
+    color: #b59758;
+    border: 1px solid #b59758;
+    z-index: 2;
+    font-weight: 700;
+    font-size: 24rpx;
+    background: #0c173c;
+}
+
+.tab-inactive-item {
+    text-align: center;
+    font-size: 24rpx;
+    background: #0c173c;
+    color: #959db9;
 }

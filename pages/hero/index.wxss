@@ -3,14 +3,19 @@ page {
 }
 
 .champion-list {
-    width: 100%;
+    /*width: 100%;*/
     margin: 20rpx;
+}
+
+.champion-list .search {
+    margin-bottom: 10rpx;
+    margin-top: 10rpx;
 }
 
 .champion-list .champion-item-big {
     display: inline-block;
     vertical-align: middle;
-    width: 45%;
+    width: 46%;
     border: 1px solid #1a1f26;
     margin: 0rpx 10rpx 10rpx 10rpx;
     cursor: pointer;
@@ -131,4 +136,8 @@ page {
 .champion-list .champion-item-big .champion-item-info .price {
     float: right;
     color: #b59758;
+}
+
+.champion-list .champion-item-big:last-child {
+    /*margin-bottom: 180rpx;*/
 }

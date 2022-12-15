@@ -115,7 +115,7 @@ l-avatar .component-equipment {
 }
 
 .equipment-item .equip-txt .equip-name {
-    color: black;
+    color: #b59758;
     font-weight: 400;
     font-size: 32rpx;
     margin: 0 0 .04rem;

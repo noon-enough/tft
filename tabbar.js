@@ -12,14 +12,14 @@ export default [
         selectedIconPath:"/assets/icons/hero-selected.png"
     },
     {
-        pagePath:"/pages/database/index",
+        pagePath:"/pages/equipment/index",
         text:"装备",
         iconPath:"/assets/icons/equipment.png",
         selectedIconPath:"/assets/icons/equipment-selected.png"
     },
     {
         pagePath:"/pages/hex/index",
-        text:"羁绊",
+        text:"羁绊符文",
         iconPath:"/assets/icons/tft.png",
         selectedIconPath:"/assets/icons/tft-selected.png"
     },

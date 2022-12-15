@@ -1,0 +1,101 @@
+.tab-content {
+    margin: 20rpx;
+}
+
+.synergy-table-main {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: flex-start;
+    margin-top: 20rpx;
+    background: #283661;
+    border-color: #55407a;
+}
+
+.synergy-table-main:first-child{
+    margin-top: 0;
+}
+
+.synergy-table-main .main-left {
+    text-align: center;
+    margin-top: 20rpx;
+}
+
+.synergy-table-main .main-left .avatars {
+    width: 140rpx;
+}
+
+.synergy-table-main .main-right {
+    flex: 1;
+    text-align: left;
+    margin-left: 20rpx ;
+    margin-top: 20rpx;
+}
+
+.synergy-table-main .main-right .title {
+    font-size: 40rpx;
+    background: none;
+    color: #fcf0f4;
+}
+
+.synergy-table-main .main-right .info {
+    font-size: 26rpx;
+    padding: 20rpx;
+    /*background-color: #2c184e;*/
+    color: #72788e;
+}
+
+.synergy-table-main .main-left .synergy-pic {
+    background: none;
+    width: 100rpx;
+    height: 100rpx;
+    -webkit-filter: contrast(.1) brightness(10);
+    filter: contrast(.1) brightness(10);
+}
+
+.synergy-table-main .main-left .avatars > l-avatar {
+    margin-right: 10rpx;
+}
+
+
+.hex-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20rpx;
+}
+
+.hex-list-item {
+    display: flex;
+    margin-bottom: 20rpx;
+}
+
+.hex-list-item:first-child{
+    margin-top: 20rpx;
+}
+
+.hex-list-item .hex-list-title {
+    width: 40%;
+}
+
+.hex-list-item .hex-list-desc {
+    width: 58%;
+    text-align: left;
+    font-size: 26rpx;
+    vertical-align: middle;
+    white-space: break-spaces;
+}
+
+.hex-list-item .hex-list-title .hex-pic {
+    height: 80rpx;
+    width: 80rpx;
+    background: none;
+}
+
+
+.hex-list-item .hex-list-title .text {
+    font-weight: 400;
+    font-size: 26rpx;
+    color: #fcf0f4;
+}

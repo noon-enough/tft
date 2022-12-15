@@ -4,71 +4,54 @@
         text-selected-color="#d7a75f"
         list="{{list}}"
 />
-<view class="champion-list">
-    <view class="champion-item-big">
-        <view class="champion-item-pic" style="background-image: url('https://game.gtimg.cn/images/lol/tftstore/s8/624x318/801.jpg');">
-            <view class="blur-img" style="background-image: url('https://game.gtimg.cn/images/lol/tftstore/s8/624x318/801.jpg');"></view>
-            <view class="race-job-wrap">
-                <view class="race-job">
-                    <view class="race-job-icon">
-                        <l-avatar
-                                size="30"
-                                l-class="icon-img"
-                                src="https://game.gtimg.cn/images/lol/act/img/tft/origins/8103.png"/>
+<block wx:if="{{data.length}}">
+    <view class="champion-list" style="margin-bottom: 180rpx;">
+        <view class="search">
+            <l-search-bar placeholder="搜索"
+                          bind:linconfirm="searchConfirm"
+                          bind:linclear="searchClear"
+                          bind:linchange="searchChange"
+                          bg-color="#101c42"
+                          show-cancel="{{false}}"/>
+        </view>
+        <block wx:for="{{data}}" wx:for-item="item" wx:for-index="i" wx:key="item.id">
+            <view class="champion-item-big" bind:tap="detail" data-hero-id="{{item.id}}">
+                <view class="champion-item-pic" style="background-image: url('{{item.original_image}}');">
+                    <view class="blur-img" style="background-image: url('{{item.original_image}}');"></view>
+                    <view class="race-job-wrap">
+                        <block wx:if="{{item.jobs_data.length}}">
+                            <block wx:for="{{item.jobs_data}}" wx:for-index="j" wx:for-item="job" wx:key="job.id">
+                                <view class="race-job">
+                                    <view class="race-job-icon">
+                                        <l-avatar
+                                                size="30"
+                                                l-class="icon-img"
+                                                src="{{job.image}}"/>
+                                    </view>
+                                    <view class="race-job-name">{{job.name}}</view>
+                                </view>
+                            </block>
+                        </block>
+                        <block wx:if="{{item.races_data.length}}">
+                            <block wx:for="{{item.races_data}}" wx:for-index="r" wx:for-item="race" wx:key="race.id">
+                                <view class="race-job">
+                                    <view class="race-job-icon">
+                                        <l-avatar
+                                                size="30"
+                                                l-class="icon-img"
+                                                src="{{race.image}}"/>
+                                    </view>
+                                    <view class="race-job-name">{{race.name}}</view>
+                                </view>
+                            </block>
+                        </block>
                     </view>
-                    <view class="race-job-name">平民英雄</view>
                 </view>
-                <view class="race-job">
-                    <view class="race-job-icon">
-                        <l-avatar
-                                size="30"
-                                l-class="icon-img"
-                                src="https://game.gtimg.cn/images/lol/act/img/tft/origins/8103.png"/>
-                    </view>
-                    <view class="race-job-name">平民英雄</view>
-                </view>
-                <view class="race-job">
-                    <view class="race-job-icon">
-                        <l-avatar
-                                size="30"
-                                l-class="icon-img"
-                                src="https://game.gtimg.cn/images/lol/act/img/tft/origins/8103.png"/>
-                    </view>
-                    <view class="race-job-name">平民英雄</view>
+                <view class="champion-item-info">
+                    <view class="name">{{item.name}} {{item.display_name}}</view>
+                    <view class="price">{{item.prices}} 金币</view>
                 </view>
             </view>
-        </view>
-        <view class="champion-item-info">
-            <view class="name">正义巨像 加里奥</view>
-            <view class="price">1 金币</view>
-        </view>
+        </block>
     </view>
-    <view class="champion-item-big">
-        <view class="champion-item-pic" style="background-image: url('https://game.gtimg.cn/images/lol/tftstore/s8/624x318/801.jpg');">
-            <view class="blur-img" style="background-image: url('https://game.gtimg.cn/images/lol/tftstore/s8/624x318/801.jpg');"></view>
-            <view class="race-job-wrap">
-                <view class="race-job">
-                    <view class="race-job-name">屏幕</view>
-                </view>
-            </view>
-        </view>
-        <view class="champion-item-info">
-            <view class="name">正义巨像 加里奥</view>
-            <view class="price">1 金币</view>
-        </view>
-    </view>
-    <view class="champion-item-big">
-        <view class="champion-item-pic" style="background-image: url('https://game.gtimg.cn/images/lol/tftstore/s8/624x318/801.jpg');">
-            <view class="blur-img" style="background-image: url('https://game.gtimg.cn/images/lol/tftstore/s8/624x318/801.jpg');"></view>
-            <view class="race-job-wrap">
-                <view class="race-job">
-                    <view class="race-job-name">屏幕</view>
-                </view>
-            </view>
-        </view>
-        <view class="champion-item-info">
-            <view class="name">正义巨像 加里奥</view>
-            <view class="price">1 金币</view>
-        </view>
-    </view>
-</view>
+</block>

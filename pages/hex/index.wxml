@@ -1,0 +1,187 @@
+<l-tab-bar
+        bg-color="#101c42"
+        text-color="#8a8a8a"
+        text-selected-color="#d7a75f"
+        list="{{list}}"
+/>
+<view style="margin-bottom: 200rpx;">
+    <l-tabs hasLine="{{false}}"
+            active-color="#b59758"
+            inactive-color="#959db9"
+            bind:linchange="onTabTabBar"
+            l-inactive-class="tab-inactive-item"
+            l-active-class="tab-active-item">
+        <l-tabpanel tab="种族" key="race" slot="race">
+            <view class="tab-content">
+                <block wx:if="{{races.length}}">
+                    <block wx:for="{{races}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
+                        <view class="synergy-table-main">
+                            <view class="main-left">
+                                <l-avatar
+                                        l-class="synergy-pic"
+                                        shape="square"
+                                        size="100"
+                                        src="{{item.image}}"/>
+                                <view class="avatars">
+                                    <block wx:if="{{item.races.length}}">
+                                        <block wx:for="{{item.races}}" wx:for-item="race" wx:key="i">
+                                            <l-avatar
+                                                    data-hero-id="{{race.id}}"
+                                                    bind:lintap="detail"
+                                                    shape="square"
+                                                    size="60"
+                                                    src="{{race.avatar}}"/>
+                                        </block>
+                                    </block>
+                                </view>
+                            </view>
+                            <view class="main-right">
+                                <view class="title">{{item.name}}</view>
+                                <view class="info">
+                                    <text user-select>{{item.introduce}}</text>
+                                    <block wx:if="{{item.level.length}}">
+                                        <block wx:for="{{item.level}}" wx:key="idx" wx:for-item="lvl">
+                                            <tag info="{{lvl.desc}}" level="{{lvl.level}}"></tag>
+                                        </block>
+                                    </block>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </block>
+            </view>
+        </l-tabpanel>
+        <l-tabpanel tab="职业" key="job" slot="job">
+            <view class="tab-content">
+                <block wx:if="{{jobs.length}}">
+                    <block wx:for="{{jobs}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
+                        <view class="synergy-table-main">
+                            <view class="main-left">
+                                <l-avatar
+                                        l-class="synergy-pic"
+                                        shape="square"
+                                        size="100"
+                                        src="{{item.image}}"/>
+                                <view class="avatars">
+                                    <block wx:if="{{item.jobs.length}}">
+                                        <block wx:for="{{item.jobs}}" wx:for-item="job" wx:key="i">
+                                            <l-avatar
+                                                    data-hero-id="{{job.id}}"
+                                                    bind:lintap="detail"
+                                                    shape="square"
+                                                    size="60"
+                                                    src="{{job.avatar}}"/>
+                                        </block>
+                                    </block>
+                                </view>
+                            </view>
+                            <view class="main-right">
+                                <view class="title">{{item.name}}</view>
+                                <view class="info">
+                                    <text user-select>{{item.introduce}}</text>
+                                    <block wx:if="{{item.level.length}}">
+                                        <block wx:for="{{item.level}}" wx:key="idx" wx:for-item="lvl">
+                                            <tag info="{{lvl.desc}}" level="{{lvl.level}}"></tag>
+                                        </block>
+                                    </block>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </block>
+            </view>
+        </l-tabpanel>
+        <l-tabpanel tab="符文" key="hex" slot="hex">
+            <l-tabs hasLine="{{false}}"
+                    active-color="#b59758"
+                    inactive-color="#959db9"
+                    l-inactive-class="tab-inactive-item"
+                    l-active-class="tab-active-item">
+                <l-tabpanel tab="银色" key="silver" slot="silver">
+                    <view class="tab-content">
+                        <l-search-bar placeholder="搜索" show-cancel="{{false}}"/>
+                        <view class="hex-list" wx:if="{{hexes.type1.length}}">
+                            <block wx:for="{{hexes.type1}}" wx:for-item="item" wx:key="idx" wx:for-index="idx">
+                                <view class="hex-list-item">
+                                    <view class="hex-list-title">
+                                        <l-avatar
+                                                size="80"
+                                                shape="square"
+                                                l-class="hex-pic"
+                                                placement="right"
+                                                l-text-class="text"
+                                                text="{{item.name}}"
+                                                src="{{item.image}}"/>
+                                    </view>
+                                    <view class="hex-list-desc">{{item.description}}</view>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                </l-tabpanel>
+                <l-tabpanel tab="金色" key="gold" slot="gold">
+                    <l-search-bar placeholder="搜索" show-cancel="{{false}}"/>
+                    <view class="hex-list" wx:if="{{data.type2.length}}">
+                        <block wx:for="{{data.type2}}" wx:for-item="item" wx:for-index="idx">
+                            <view class="hex-list-item">
+                                <view class="hex-list-title">
+                                    <l-avatar
+                                            size="80"
+                                            shape="square"
+                                            l-class="hex-pic"
+                                            placement="right"
+                                            l-text-class="text"
+                                            text="{{item.name}}"
+                                            src="{{item.image}}"/>
+                                </view>
+                                <view class="hex-list-desc">{{item.description}}</view>
+                            </view>
+                        </block>
+                    </view>
+                </l-tabpanel>
+                <l-tabpanel tab="彩色" key="colorful" slot="colorful">
+                    <l-search-bar placeholder="搜索" show-cancel="{{false}}"/>
+                    <view class="hex-list" wx:if="{{data.type3.length}}">
+                        <block wx:for="{{data.type3}}" wx:for-item="item" wx:for-index="idx">
+                            <view class="hex-list-item">
+                                <view class="hex-list-title">
+                                    <l-avatar
+                                            size="80"
+                                            shape="square"
+                                            l-class="hex-pic"
+                                            placement="right"
+                                            l-text-class="text"
+                                            text="{{item.name}}"
+                                            src="{{item.image}}"/>
+                                </view>
+                                <view class="hex-list-desc">{{item.description}}</view>
+                            </view>
+                        </block>
+                    </view>
+                </l-tabpanel>
+                <block wx:if="{{session === 's8'}}">
+                    <l-tabpanel tab="英雄" key="hero" slot="hero">
+                        <l-search-bar placeholder="搜索" show-cancel="{{false}}"/>
+                        <view class="hex-list" wx:if="{{data.type4.length}}">
+                            <block wx:for="{{data.type4}}" wx:for-item="item" wx:for-index="idx">
+                                <view class="hex-list-item">
+                                    <view class="hex-list-title">
+                                        <l-avatar
+                                                size="80"
+                                                shape="square"
+                                                l-class="hex-pic"
+                                                placement="right"
+                                                l-text-class="text"
+                                                text="{{item.name}}"
+                                                src="{{item.image}}"/>
+                                    </view>
+                                    <view class="hex-list-desc">{{item.description}}</view>
+                                </view>
+                            </block>
+                        </view>
+                    </l-tabpanel>
+                </block>
+            </l-tabs>
+        </l-tabpanel>
+    </l-tabs>
+</view>

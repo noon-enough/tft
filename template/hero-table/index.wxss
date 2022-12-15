@@ -2,7 +2,6 @@
     margin: 20rpx;
 }
 
-
 .synergy-list-head {
     height: 100rpx;
     line-height: 100rpx;
