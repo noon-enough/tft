@@ -8,7 +8,10 @@
     "pages/lineup/index",
     "pages/rank/index",
     "pages/qa/index",
-    "template/hero-table/index"
+    "template/hero-table/index",
+    "pages/hero/index",
+    "pages/equipment/index",
+    "pages/hex/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -8,14 +8,14 @@ export default [
     {
         pagePath:"/pages/database/index",
         text:"英雄",
-        iconPath:"/assets/icons/tft.png",
-        selectedIconPath:"/assets/icons/tft-selected.png"
+        iconPath:"/assets/icons/hero.png",
+        selectedIconPath:"/assets/icons/hero-selected.png"
     },
     {
         pagePath:"/pages/database/index",
         text:"装备",
-        iconPath:"/assets/icons/tft.png",
-        selectedIconPath:"/assets/icons/tft-selected.png"
+        iconPath:"/assets/icons/equipment.png",
+        selectedIconPath:"/assets/icons/equipment-selected.png"
     },
     {
         pagePath:"/pages/database/index",
