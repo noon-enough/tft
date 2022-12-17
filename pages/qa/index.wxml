@@ -1,0 +1,177 @@
+<view class="page">
+    <view class="box">
+        <view class="title">
+            刷新概率
+        </view>
+        <view class="desc">
+            <view class="table">
+                <!-- 表头(即第一行) -->
+                <view class="tr title">
+                    <view class="th">等级</view>
+                    <view class="th">1费卡</view>
+                    <view class="th">2费卡</view>
+                    <view class="th">3费卡</view>
+                    <view class="th">4费卡</view>
+                    <view class="th">5费卡</view>
+                </view>
+                <view class="tr">
+                    <view class="td">Lv1</view>
+                    <view class="td">100%</view>
+                    <view class="td">-</view>
+                    <view class="td">-</view>
+                    <view class="td">-</view>
+                    <view class="td">-</view>
+                </view>
+                <view class="tr">
+                    <view class="td">Lv2</view>
+                    <view class="td">100%</view>
+                    <view class="td">-</view>
+                    <view class="td">-</view>
+                    <view class="td">-</view>
+                    <view class="td">-</view>
+                </view>
+                <view class="tr">
+                    <view class="td">Lv3</view>
+                    <view class="td">55%</view>
+                    <view class="td">30%</view>
+                    <view class="td">15%</view>
+                    <view class="td">-</view>
+                    <view class="td">-</view>
+                </view>
+                <view class="tr">
+                    <view class="td">Lv4</view>
+                    <view class="td">55%</view>
+                    <view class="td">30%</view>
+                    <view class="td">15%</view>
+                    <view class="td">-</view>
+                    <view class="td">-</view>
+                </view>
+                <view class="tr">
+                    <view class="td">Lv5</view>
+                    <view class="td">45%</view>
+                    <view class="td">33%</view>
+                    <view class="td">20%</view>
+                    <view class="td">2%</view>
+                    <view class="td">-</view>
+                </view>
+                <view class="tr">
+                    <view class="td">Lv6</view>
+                    <view class="td">25%</view>
+                    <view class="td">49%</view>
+                    <view class="td">30%</view>
+                    <view class="td">15%</view>
+                    <view class="td">1%</view>
+                </view>
+                <view class="tr">
+                    <view class="td">Lv7</view>
+                    <view class="td">19%</view>
+                    <view class="td">30%</view>
+                    <view class="td">35%</view>
+                    <view class="td">25</view>
+                    <view class="td">5%</view>
+                </view>
+                <view class="tr">
+                    <view class="td">Lv8</view>
+                    <view class="td">15%</view>
+                    <view class="td">20%</view>
+                    <view class="td">35%</view>
+                    <view class="td">25%</view>
+                    <view class="td">5%</view>
+                </view>
+                <view class="tr">
+                    <view class="td">Lv9</view>
+                    <view class="td">10%</view>
+                    <view class="td">15%</view>
+                    <view class="td">30%</view>
+                    <view class="td">30%</view>
+                    <view class="td">15%</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view style="display: flex;">
+        <view class="box double" style="width: 50%;">
+            <view class="title">
+                连胜/连败奖励
+            </view>
+            <view class="desc">
+                <view class="table">
+                    <!-- 表头(即第一行) -->
+                    <view class="tr">
+                        <view class="td" style="width: 50%;">1连胜/败</view>
+                        <view class="td" style="width: 50%;">-</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td" style="width: 50%;">2连胜/败</view>
+                        <view class="td" style="width: 50%;">1 金币</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td" style="width: 50%;">3连胜/败</view>
+                        <view class="td" style="width: 50%;">1 金币</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td" style="width: 50%;">4连胜/败</view>
+                        <view class="td" style="width: 50%;">2 金币</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td" style="width: 50%;">5连胜/败</view>
+                        <view class="td" style="width: 50%;">3 金币</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td" style="width: 50%;">6连胜/败</view>
+                        <view class="td" style="width: 50%;">3 金币</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td" style="width: 50%;">7连胜/败</view>
+                        <view class="td" style="width: 50%;">3 金币</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td" style="width: 50%;">+8连胜/败</view>
+                        <view class="td" style="width: 50%;">3 金币</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="box" style="width: 50%; margin-left: 10rpx;">
+            <view class="title">
+                经验表
+            </view>
+            <view class="desc">
+                <view class="table">
+                    <view class="tr">
+                        <view class="td" style="width: 60%;">Lv1 -> Lv2</view>
+                        <view class="td" style="width: 50%;">-</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td" style="width: 60%;">Lv2 -> Lv3</view>
+                        <view class="td" style="width: 50%;">2 经验</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td" style="width: 60%;">Lv3 -> Lv4</view>
+                        <view class="td" style="width: 50%;">6 经验</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td" style="width: 60%;">Lv4 -> Lv5</view>
+                        <view class="td" style="width: 50%;">10 经验</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td" style="width: 60%;">Lv5 -> Lv6</view>
+                        <view class="td" style="width: 50%;">20 经验</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td" style="width: 60%;">Lv6 -> Lv7</view>
+                        <view class="td" style="width: 50%;">36 经验</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td" style="width: 60%;">Lv7 -> Lv8</view>
+                        <view class="td" style="width: 50%;">56 经验</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td" style="width: 60%;">Lv8 -> Lv9</view>
+                        <view class="td" style="width: 50%;">80 经验</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
