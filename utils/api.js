@@ -26,7 +26,7 @@ function chess(q = "") {
  * @returns {Promise<SuccessParam<wx.RequestOption>>}
  */
 function hero(id) {
-    return get(`/api/chess/${id}`)
+    return get(`/api/chess/${id}?version=1.1`)
 }
 
 /**

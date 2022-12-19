@@ -16,6 +16,11 @@
     z-index: 999;
 }
 
+.champion-detail-info .left-back .icon {
+    color: #fcf0f4;
+    font-weight: bold;
+}
+
 .champion-detail-info>view {
     box-sizing: border-box;
     background: #0b1536;
@@ -255,4 +260,41 @@
     color: #72788e;
     font-size: 28rpx;
     line-height: 2;
+}
+
+
+.detail-box .detail-info-desc .table {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10rpx;
+}
+
+.detail-box .detail-info-desc .table .tr {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.detail-box .detail-info-desc .table .tr .th,
+.detail-box .detail-info-desc .table .tr .td {  /* 公有的属性 */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;            /* 自动换行 */
+    width: calc(100% / 4);
+    text-align: center;         /* 文本居中 */
+    justify-content:center;     /* 主轴居中 */
+    align-items: center;        /* 交叉轴居中 */
+}
+
+.th {
+    padding: 20rpx;
+    font-weight: 800;           /* 字体加重 */
+    background-color: #283661;   /* 背景色 */
+    color: #fcf0f4;
+}
+
+.td {
+    padding: 10rpx;
+    /*background-color:#edf3e9;   !* 背景色 *!*/
+    font-size: 26rpx;
 }
