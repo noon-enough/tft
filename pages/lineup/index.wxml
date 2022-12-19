@@ -1,4 +1,7 @@
 <view class="page-lineup-detail" style="">
+    <view class="left-back" bind:tap="back">
+        <l-icon name="left" l-class="icon" color="#fcf0f4"/>
+    </view>
     <view class="lineup-detail-left">
         <view class="lineup-detail-content" style="padding-top: 160rpx;">
             <view class="lineup-title">
@@ -24,6 +27,7 @@
                             equipments="{{hero.equipment_data}}"
                             showStar="{{hero.is_three_stars}}"
                             star="3"
+                            isMonster="{{hero.hero.is_monster}}"
                             isCarry="{{hero.is_carry_hero}}"
                             name="{{hero.hero.name}}"
                             avatar="{{hero.hero.avatar}}"/>

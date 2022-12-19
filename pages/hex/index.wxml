@@ -39,7 +39,7 @@
                                 <view class="title">{{item.name}}</view>
                                 <view class="info">
                                     <text user-select>{{item.introduce}}</text>
-                                    <block wx:if="{{item.level.length}}">
+                                    <block wx:if="{{item.level.length && item.id !== 8111}}">
                                         <block wx:for="{{item.level}}" wx:key="idx" wx:for-item="lvl">
                                             <tag info="{{lvl.desc}}" level="{{lvl.level}}"></tag>
                                         </block>
@@ -99,7 +99,9 @@
                     l-active-class="tab-active-item">
                 <l-tabpanel tab="银色" key="silver" slot="silver">
                     <view class="tab-content">
-                        <l-search-bar bg-color="#101c42" placeholder="搜索" show-cancel="{{false}}"/>
+                        <l-search-bar bg-color="#101c42"
+                                      placeholder="搜索"
+                                      show-cancel="{{false}}"/>
                         <view class="hex-list" wx:if="{{hexes.type1.length}}">
                             <block wx:for="{{hexes.type1}}" wx:for-item="item" wx:key="idx" wx:for-index="idx">
                                 <view class="hex-list-item">

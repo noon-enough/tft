@@ -4,6 +4,22 @@
     flex-direction: column;
 }
 
+.page-lineup-detail .left-back {
+    position: fixed;
+    position: -ms-device-fixed;
+    /* width: 50rpx; */
+    height: 60rpx;
+    left: 40rpx;
+    top: 100rpx;
+    background: none;
+    z-index: 999;
+}
+
+.page-lineup-detail .left-back .icon {
+    color: #fcf0f4;
+    font-weight: bold;
+}
+
 .page-lineup-detail .lineup-detail-left {
     width: 100%;
     display: inline-block;

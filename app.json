@@ -77,14 +77,10 @@
     "l-loading": "/miniprogram_npm/lin-ui/loading/index",
     "l-loadmore": "/miniprogram_npm/lin-ui/loadmore/index",
 
-
     "tag": "./components/tag/index",
     "champion": "./components/champion/index",
     "synergy": "./components/synergy/index",
-    "location": "./components/location/index",
-
-    "mp-laoding": "/miniprogram_npm/weui-miniprogram/loading/loading",
-    "mp-actionSheet": "/miniprogram_npm/weui-miniprogram/actionsheet/actionsheet"
+    "location": "./components/location/index"
   },
   "sitemapLocation": "sitemap.json",
   "subpackages": [],
