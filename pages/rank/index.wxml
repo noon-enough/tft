@@ -17,7 +17,7 @@
                                                 bind:tap="detail"
                                                 data-hero-id="{{item.data.id}}"
                                                 shape="square"
-                                                size="80"
+                                                size="60"
                                                 l-class="champion-pic"
                                                 src="{{item.data.avatar}}"/>
                                     </view>
@@ -27,7 +27,7 @@
                     </block>
                     <block wx:if="{{hero.T1.length}}">
                         <view class="rank-item">
-                            <view class="title t0">T1</view>
+                            <view class="title t1">T1</view>
                             <view class="desc">
                                 <block wx:for="{{hero.T1}}" wx:key="id" wx:for-index="i" wx:for-item="item">
                                     <view class="component-champion cost{{item.data.prices}}" style="margin-left: 10rpx;">
@@ -35,7 +35,7 @@
                                                 bind:tap="detail"
                                                 data-hero-id="{{item.data.id}}"
                                                 shape="square"
-                                                size="80"
+                                                size="60"
                                                 l-class="champion-pic"
                                                 src="{{item.data.avatar}}"/>
                                     </view>
@@ -45,7 +45,7 @@
                     </block>
                     <block wx:if="{{hero.T2.length}}">
                         <view class="rank-item">
-                            <view class="title t0">T2</view>
+                            <view class="title t2">T2</view>
                             <view class="desc">
                                 <block wx:for="{{hero.T2}}" wx:key="id" wx:for-index="i" wx:for-item="item">
                                     <view class="component-champion cost{{item.data.prices}}" style="margin-left: 10rpx;">
@@ -53,7 +53,7 @@
                                                 bind:tap="detail"
                                                 data-hero-id="{{item.data.id}}"
                                                 shape="square"
-                                                size="80"
+                                                size="60"
                                                 l-class="champion-pic"
                                                 src="{{item.data.avatar}}"/>
                                     </view>
@@ -63,7 +63,7 @@
                     </block>
                     <block wx:if="{{hero.T3.length}}">
                         <view class="rank-item">
-                            <view class="title t0">T3</view>
+                            <view class="title t3">T3</view>
                             <view class="desc">
                                 <block wx:for="{{hero.T3}}" wx:key="id" wx:for-index="i" wx:for-item="item">
                                     <view class="component-champion cost{{item.data.prices}}" style="margin-left: 10rpx;">
@@ -71,7 +71,7 @@
                                                 bind:tap="detail"
                                                 data-hero-id="{{item.data.id}}"
                                                 shape="square"
-                                                size="80"
+                                                size="60"
                                                 l-class="champion-pic"
                                                 src="{{item.data.avatar}}"/>
                                     </view>
@@ -81,7 +81,7 @@
                     </block>
                     <block wx:if="{{hero.T4.length}}">
                         <view class="rank-item">
-                            <view class="title t0">T4</view>
+                            <view class="title t4">T4</view>
                             <view class="desc">
                                 <block wx:for="{{hero.T4}}" wx:key="id" wx:for-index="i" wx:for-item="item">
                                     <view class="component-champion cost{{item.data.prices}}" style="margin-left: 10rpx;">
@@ -89,7 +89,7 @@
                                                 bind:tap="detail"
                                                 data-hero-id="{{item.data.id}}"
                                                 shape="square"
-                                                size="80"
+                                                size="60"
                                                 l-class="champion-pic"
                                                 src="{{item.data.avatar}}"/>
                                     </view>
@@ -98,6 +98,7 @@
                         </view>
                     </block>
                 </view>
+                <view class="tips">所有数据均来自TFT官方数据统计，数据每天临晨更新；英雄强度按照官方数据中“胜率”、“登场率”、“前四率”进行综合排序；</view>
             </view>
         </l-tabpanel>
         <l-tabpanel tab="装备排行" key="equipment" slot="equipment">
@@ -111,7 +112,7 @@
                                     <view class="component-champion" style="margin-left: 10rpx;">
                                         <l-avatar
                                                 shape="square"
-                                                size="80"
+                                                size="60"
                                                 l-class="champion-pic"
                                                 src="{{item.data.image}}"/>
                                     </view>
@@ -121,13 +122,13 @@
                     </block>
                     <block wx:if="{{equipment.T1.length}}">
                         <view class="rank-item">
-                            <view class="title t0">T1</view>
+                            <view class="title t1">T1</view>
                             <view class="desc">
                                 <block wx:for="{{equipment.T1}}" wx:key="id" wx:for-index="i" wx:for-item="item">
                                     <view class="component-champion" style="margin-left: 10rpx;">
                                         <l-avatar
                                                 shape="square"
-                                                size="80"
+                                                size="60"
                                                 l-class="champion-pic"
                                                 src="{{item.data.image}}"/>
                                     </view>
@@ -137,13 +138,13 @@
                     </block>
                     <block wx:if="{{equipment.T2.length}}">
                         <view class="rank-item">
-                            <view class="title t0">T2</view>
+                            <view class="title t2">T2</view>
                             <view class="desc">
                                 <block wx:for="{{equipment.T2}}" wx:key="id" wx:for-index="i" wx:for-item="item">
                                     <view class="component-champion" style="margin-left: 10rpx;">
                                         <l-avatar
                                                 shape="square"
-                                                size="80"
+                                                size="60"
                                                 l-class="champion-pic"
                                                 src="{{item.data.image}}"/>
                                     </view>
@@ -153,13 +154,13 @@
                     </block>
                     <block wx:if="{{equipment.T3.length}}">
                         <view class="rank-item">
-                            <view class="title t0">T3</view>
+                            <view class="title t3">T3</view>
                             <view class="desc">
                                 <block wx:for="{{equipment.T3}}" wx:key="id" wx:for-index="i" wx:for-item="item">
                                     <view class="component-champion" style="margin-left: 10rpx;">
                                         <l-avatar
                                                 shape="square"
-                                                size="80"
+                                                size="60"
                                                 l-class="champion-pic"
                                                 src="{{item.data.image}}"/>
                                     </view>
@@ -169,13 +170,13 @@
                     </block>
                     <block wx:if="{{equipment.T4.length}}">
                         <view class="rank-item">
-                            <view class="title t0">T4</view>
+                            <view class="title t4">T4</view>
                             <view class="desc">
                                 <block wx:for="{{equipment.T4}}" wx:key="id" wx:for-index="i" wx:for-item="item">
                                     <view class="component-champion" style="margin-left: 10rpx;">
                                         <l-avatar
                                                 shape="square"
-                                                size="80"
+                                                size="60"
                                                 l-class="champion-pic"
                                                 src="{{item.data.image}}"/>
                                     </view>
@@ -184,6 +185,7 @@
                         </view>
                     </block>
                 </view>
+                <view class="tips">所有数据均来自TFT官方数据统计，数据每天临晨更新</view>
             </view>
         </l-tabpanel>
     </l-tabs>

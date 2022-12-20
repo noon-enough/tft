@@ -19,6 +19,10 @@
     margin-top: 0;
 }
 
+.synergy-table-main:last-child{
+    margin-bottom: 180rpx;
+}
+
 .synergy-table-main .main-left {
     text-align: center;
     margin-top: 20rpx;
@@ -104,4 +108,7 @@
     font-weight: 400;
     font-size: 26rpx;
     color: #fcf0f4;
+    word-wrap: break-word;
+    max-width: 160rpx;
+    line-height: 2;
 }

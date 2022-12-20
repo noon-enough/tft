@@ -38,4 +38,11 @@ Page({
         }
         heroDetail(id)
     },
+    onShareAppMessage(options) {
+        let that = this
+        return {
+            title: `金铲铲之战-英雄、装备、羁绊数据排行统计`,
+            path: `/pages/rank/index`,
+        }
+    },
 });

@@ -39,6 +39,10 @@
     height: auto;
 }
 
+.equipment-item:last-child {
+    margin-bottom: 180rpx;
+}
+
 .equipment-item > view {
     flex-shrink: 0;
 }
