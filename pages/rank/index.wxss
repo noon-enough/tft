@@ -23,6 +23,7 @@
     justify-items: center;
     line-height: 3;
     text-align: center;
+    color: #fcf0f4;
 }
 
 .page .rank-list .rank-item .title.t0 {
@@ -45,6 +46,16 @@
     background-color: #3598ff;
 }
 
+.page .rank-list .rank-item .desc {
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .page .rank-list .rank-item .component-champion {
     margin-right: 10rpx;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    z-index: 1;
 }

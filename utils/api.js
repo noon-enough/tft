@@ -89,4 +89,14 @@ function lineup(id) {
     return get(`/api/strategies/${id}`)
 }
 
-module.exports = {sessions, chess, hexes, synergies, races, jobs, hero, equipments, lineup}
+/**
+ *
+ * @returns {Promise<SuccessParam<wx.RequestOption>>}
+ */
+function rank() {
+    let session = wx.getStorageSync(SESSION)
+
+    return get(`/api/rank?version=${session}`)
+}
+
+module.exports = {sessions, chess, hexes, synergies, races, jobs, hero, equipments, lineup, rank}

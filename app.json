@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/home/index",
-    "pages/index/index",
     "pages/mine/index",
     "pages/detail/index",
     "pages/lineup/index",
