@@ -16,7 +16,7 @@
 <!--            <l-switch />-->
 <!--        </view>-->
 <!--    </l-list>-->
-    <l-list title="数据排行"
+    <l-list title="数据强度排行"
             l-class="l-class"
             image="/assets/icons/mine/heat.png"
             link-type="navigateTo"
