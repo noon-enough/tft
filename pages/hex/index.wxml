@@ -99,9 +99,14 @@
                     l-active-class="tab-active-item">
                 <l-tabpanel tab="银色" key="silver" slot="silver">
                     <view class="tab-content">
-                        <l-search-bar bg-color="#101c42"
-                                      placeholder="搜索"
-                                      show-cancel="{{false}}"/>
+                        <l-search-bar
+                                data-type="silver"
+                                bind:linconfirm="searchConfirm"
+                                bind:linclear="searchClear"
+                                bind:linchange="searchChange"
+                                bg-color="#101c42"
+                                placeholder="搜索"
+                                show-cancel="{{false}}"/>
                         <view class="hex-list" wx:if="{{hexes.type1.length}}">
                             <block wx:for="{{hexes.type1}}" wx:for-item="item" wx:key="idx" wx:for-index="idx">
                                 <view class="hex-list-item">
@@ -123,7 +128,14 @@
                 </l-tabpanel>
                 <l-tabpanel tab="金色" key="gold" slot="gold">
                     <view class="tab-content">
-                        <l-search-bar bg-color="#101c42" placeholder="搜索" show-cancel="{{false}}"/>
+                        <l-search-bar
+                                data-type="gold"
+                                bind:linconfirm="searchConfirm"
+                                bind:linclear="searchClear"
+                                bind:linchange="searchChange"
+                                bg-color="#101c42"
+                                placeholder="搜索"
+                                show-cancel="{{false}}"/>
                         <view class="hex-list" wx:if="{{hexes.type2.length}}">
                             <block wx:for="{{hexes.type2}}" wx:for-item="item" wx:for-index="idx">
                                 <view class="hex-list-item">
@@ -145,7 +157,14 @@
                 </l-tabpanel>
                 <l-tabpanel tab="彩色" key="colorful" slot="colorful">
                     <view class="tab-content">
-                        <l-search-bar bg-color="#101c42" placeholder="搜索" show-cancel="{{false}}"/>
+                        <l-search-bar
+                                data-type="colorful"
+                                bind:linconfirm="searchConfirm"
+                                bind:linclear="searchClear"
+                                bind:linchange="searchChange"
+                                bg-color="#101c42"
+                                placeholder="搜索"
+                                show-cancel="{{false}}"/>
                         <view class="hex-list" wx:if="{{hexes.type3.length}}">
                             <block wx:for="{{hexes.type3}}" wx:for-item="item" wx:for-index="idx">
                                 <view class="hex-list-item">
@@ -168,7 +187,14 @@
                 <block wx:if="{{session === 's8'}}">
                     <l-tabpanel tab="英雄" key="hero" slot="hero">
                         <view class="tab-content">
-                            <l-search-bar bg-color="#101c42" placeholder="搜索" show-cancel="{{false}}"/>
+                            <l-search-bar
+                                    data-type="hero"
+                                    bind:linconfirm="searchConfirm"
+                                    bind:linclear="searchClear"
+                                    bind:linchange="searchChange"
+                                    bg-color="#101c42"
+                                    placeholder="搜索"
+                                    show-cancel="{{false}}"/>
                             <view class="hex-list" wx:if="{{hexes.type4.length}}">
                                 <block wx:for="{{hexes.type4}}" wx:for-item="item" wx:for-index="idx">
                                     <view class="hex-list-item">

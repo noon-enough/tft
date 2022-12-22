@@ -14,20 +14,39 @@
             <view class="champion-price">{{data.prices}}</view>
         </view>
         <view class="champion-name">{{data.name}} {{data.display_name}}</view>
-        <view class="champion-rank-data">
-<!--            <l-tabs hasLine="{{false}}">-->
-<!--                <l-tabpanel tab="日" key="day" slot="day">-->
-<!--                    <view class="champion-data">-->
-<!--                        -->
-<!--                    </view>-->
-<!--                </l-tabpanel>-->
-<!--                <l-tabpanel tab="周" key="week" slot="week">-->
-<!--                    <view class="tab-content">品牌</view>-->
-<!--                </l-tabpanel>-->
-<!--                <l-tabpanel tab="月" key="mouth" slot="mouth">-->
-<!--                    <view class="tab-content">接口</view>-->
-<!--                </l-tabpanel>-->
-<!--            </l-tabs>-->
+        <view class="champion-rank-data" wx:if="{{data.rankData}}">
+            <view class="champion-data">
+                <view class="data-item">
+                    <view class="data-num strength">
+                        {{data.rankData.strength}}
+                    </view>
+                    <view class="data-txt">英雄强度</view>
+                </view>
+                <view class="data-item">
+                    <view class="data-num">
+                        {{data.rankData.presence}}%
+                    </view>
+                    <view class="data-txt">登场率</view>
+                </view>
+                <view class="data-item">
+                    <view class="data-num">
+                        {{data.rankData.fourth}}%
+                    </view>
+                    <view class="data-txt">前四率</view>
+                </view>
+                <view class="data-item">
+                    <view class="data-num">
+                        {{data.rankData.top}}%
+                    </view>
+                    <view class="data-txt">登顶率</view>
+                </view>
+                <view class="data-item">
+                    <view class="data-num">
+                        #{{data.rankData.average}}
+                    </view>
+                    <view class="data-txt">平均排名</view>
+                </view>
+            </view>
         </view>
         <view class="champion-skill-list">
             <view class="skill-title">英雄技能</view>

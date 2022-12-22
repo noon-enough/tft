@@ -7,8 +7,10 @@
                 size="{{size}}"
                 l-class="champion-pic"
                 src="{{avatar}}"/>
-        <view class="champion-stars" wx:if="{{star > 1 && showStar}}">
-            <l-rate size="30" disabled="{{true}}" active-color="#FF9036" score="{{star}}" count="{{star}}"/>
+        <view class="champion-stars star-3" wx:if="{{star > 1 && showStar}}">
+            <l-avatar l-class="icon" size="30" src="/assets/images/star-fill.png"/>
+            <l-avatar l-class="icon" size="30" src="/assets/images/star-fill.png"/>
+            <l-avatar l-class="icon" size="30" src="/assets/images/star-fill.png"/>
         </view>
         <view wx:if="{{isCarry}}" class="icon-carry"></view>
         <view wx:if="{{showName}}" class="champion-name">{{name}}</view>

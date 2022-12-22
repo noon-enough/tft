@@ -7,7 +7,18 @@ Page({
         list:tabbar,
         races: [],
         jobs: [],
-        hexes: {},
+        hexes: {
+            type1: [],
+            type2: [],
+            type3: [],
+            type4: [],
+        },
+        hexesBackup: {
+            type1: [],
+            type2: [],
+            type3: [],
+            type4: [],
+        },
         session: "s7"
     },
     onLoad: function (options) {
@@ -67,11 +78,117 @@ Page({
                 let data = res.data ?? []
                 if (data) {
                     that.setData({
-                        hexes: data
+                        hexes: {
+                            type1: data.type1,
+                            type2: data.type2,
+                            type3: data.type3,
+                            type4: data.type4,
+                        },
+                        hexesBackup: {
+                            type1: data.type1,
+                            type2: data.type2,
+                            type3: data.type3,
+                            type4: data.type4,
+                        },
                     })
                 }
             }).catch(err => {
                 showToast("拉取数据失败，请稍候再试", {icon: "error"})
+            })
+        }
+    },
+    searchConfirm(e) {
+        let q = e.detail.value ?? ""
+        if (q === "") {
+            return
+        }
+        let type = e.currentTarget.dataset.type ?? ''
+        this.searchHexesBackup(q, type)
+    },
+    searchClear(e) {
+        let that = this,
+            type = e.currentTarget.dataset.type ?? ''
+        console.log('e', e);
+        if (type === "silver") {
+            console.log('that.data.hexesBackup.type1', that.data.hexesBackup)
+            that.setData({
+                ["hexes.type1"]: that.data.hexesBackup.type1,
+            })
+        }
+        if (type === "gold") {
+            that.setData({
+                ["hexes.type2"]: that.data.hexesBackup.type2,
+            })
+        }
+        if (type === "colorful") {
+            that.setData({
+                ["hexes.type3"]: that.data.hexesBackup.type3,
+            })
+        }
+        if (type === "hero") {
+            that.setData({
+                ["hexes.type4"]: that.data.hexesBackup.type4,
+            })
+        }
+    },
+    searchChange(e){
+        let q = e.detail.value ?? ""
+        if (q === "") {
+            return
+        }
+        let type = e.currentTarget.dataset.type ?? ''
+        let that = this
+        that.searchHexesBackup(q, type)
+    },
+    searchHexesBackup(q, type) {
+        let that = this
+
+
+        if (type === "silver") {
+            let data = []
+            that.data.hexesBackup.type1.forEach(item => {
+                if (item.name.indexOf(q) >= 0) {
+                    data.push(item)
+                }
+            })
+            that.setData({
+                ["hexes.type1"]: data,
+            })
+            return
+        }
+        if (type === "gold") {
+            let data = []
+            that.data.hexesBackup.type2.forEach(item => {
+                if (item.name.indexOf(q) >= 0) {
+                    data.push(item)
+                }
+            })
+            that.setData({
+                ["hexes.type2"]: data,
+            })
+            return
+        }
+        if (type === "colorful") {
+            let data = []
+            that.data.hexesBackup.type3.forEach(item => {
+                if (item.name.indexOf(q) >= 0) {
+                    data.push(item)
+                }
+            })
+            that.setData({
+                ["hexes.type3"]: data,
+            })
+            return
+        }
+        if (type === "hero") {
+            let data = []
+            that.data.hexesBackup.type4.forEach(item => {
+                if (item.name.indexOf(q) >= 0) {
+                    data.push(item)
+                }
+            })
+            that.setData({
+                ["hexes.type4"]: data,
             })
         }
     }

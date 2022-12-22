@@ -32,5 +32,4 @@
             l-class="l-class"
             bind:lintap="gotoFeedback"
             image="/assets/icons/mine/feedback.png" />
-<!--    <l-list title="分享TFT小助手" bind:lintap="onShareAppMessage" image="/assets/icons/mine/share.png" />-->
 </view>

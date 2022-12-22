@@ -1,6 +1,7 @@
 import tabbar from '../../tabbar';
 import {heroDetail, lineupDetail, showToast} from "../../utils/util";
 import {synergies} from "../../utils/api";
+
 Page({
     data: {
         list:tabbar,
@@ -59,6 +60,9 @@ Page({
             return
         }
         lineupDetail(id)
+    },
+    filter(e) {
+        console.log(e)
     }
 });
 

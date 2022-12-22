@@ -76,6 +76,7 @@
     "l-loading": "/miniprogram_npm/lin-ui/loading/index",
     "l-loadmore": "/miniprogram_npm/lin-ui/loadmore/index",
 
+    "capsule-bar": "./components/capsule-bar/index",
     "tag": "./components/tag/index",
     "champion": "./components/champion/index",
     "synergy": "./components/synergy/index",

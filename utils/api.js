@@ -32,12 +32,14 @@ function hero(id) {
 /**
  *
  * @param byColor 按照颜色分类
+ * @param q 搜索关键词
+ * @param type 搜索类型
  * @returns {Promise<SuccessParam<wx.RequestOption>>}
  */
-function hexes(byColor = 1) {
+function hexes(byColor = 1, q = "", type = 1) {
     let session = wx.getStorageSync(SESSION)
 
-    return get(`/api/hexes?version=${session}&byColor=${byColor}`)
+    return get(`/api/hexes?version=${session}&byColor=${byColor}&q=${encodeURI(q)}&type=${type}`)
 }
 
 /**

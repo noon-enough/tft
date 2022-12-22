@@ -5,6 +5,11 @@
     color: #fcf0f4;
 }
 
+.capsule-bar-title {
+    font-size: unset;
+    font-weight: unset;
+}
+
 .lineup-item {
     position: relative;
     margin: 0 0 20rpx;

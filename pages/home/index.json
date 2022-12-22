@@ -1,4 +1,5 @@
 {
+  "navigationStyle": "custom",
   "navigationBarTitleText": "阵容推荐",
   "usingComponents":{
   },
