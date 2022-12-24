@@ -31,10 +31,10 @@
 
 
 .component-champion .champion-name {
-    color: #72788e;
-    font-size: 26rpx;
+    color: #a4a8b7;
+    font-size: 24rpx;
     text-align: center;
-    margin: 40rpx 0 0;
+    margin: 30rpx 0 0;
     position: absolute;
     top: 70rpx;
     left: 0;

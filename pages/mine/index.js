@@ -1,18 +1,22 @@
 import tabbar from '../../tabbar';
-import {SESSION} from "../../utils/config";
+import {SESSION, SESSION_SHOW_NICKNAME} from "../../utils/config";
 import {getSessionName, getSession, gotoFeedback} from "../../utils/util";
 
 Page({
     data: {
         session: "",
         list:tabbar,
-        sessions: ['怪兽入侵', '隐秘之海', '时空裂痕']
+        sessions: ['怪兽入侵', '隐秘之海', '时空裂痕'],
+        show_nickname: false,
     },
     onLoad: function (options) {
-        let session = wx.getStorageSync(SESSION)
-        console.log('session', session)
-        this.setData({
-            session: getSessionName(session)
+        let session = wx.getStorageSync(SESSION),
+            show_nickname = !!wx.getStorageSync(SESSION_SHOW_NICKNAME),
+            that = this
+
+        that.setData({
+            session: getSessionName(session),
+            show_nickname: show_nickname,
         })
     },
     gotoFeedback(e) {
@@ -24,6 +28,16 @@ Page({
             title: `TFT金铲铲之战小助手`,
             path: `/pages/home/index`,
         }
+    },
+    onChange(e) {
+        let that = this,
+            checked = e.detail.value
+        console.log('checked', checked)
+        wx.setStorageSync(SESSION_SHOW_NICKNAME, checked)
+
+        that.setData({
+            show_nickname: checked,
+        })
     },
     actionSheet(e){
         let that = this

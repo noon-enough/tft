@@ -1,19 +1,25 @@
 import tabbar from '../../tabbar';
 import {heroDetail, lineupDetail, showToast} from "../../utils/util";
 import {synergies} from "../../utils/api";
+import {SESSION_SHOW_NICKNAME} from "../../utils/config";
 
 Page({
     data: {
         list:tabbar,
-        data: []
+        data: [],
+        show_champion_name: false
     },
 
     onLoad: function() {
         this.getStrategies()
     },
-
     onShow() {
-        console.log('show')
+        let show_nickname = !!wx.getStorageSync(SESSION_SHOW_NICKNAME),
+            that = this
+        console.log('show_nickname', show_nickname)
+        that.setData({
+            show_nickname: show_nickname
+        })
     },
 
     onShareAppMessage() {

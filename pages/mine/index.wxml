@@ -11,11 +11,15 @@
             bind:lintap="actionSheet"
             right-desc="{{session}}"
             image="/assets/icons/sword-selected.png"></l-list>
-<!--    <l-list title="英雄名别名" image="/assets/icons/mine/hero.png" is-link="{{false}}">-->
-<!--        <view slot="right-section">-->
-<!--            <l-switch />-->
-<!--        </view>-->
-<!--    </l-list>-->
+    <l-list
+            l-class="l-class"
+            title="英雄名别名"
+            image="/assets/icons/mine/hero.png"
+            is-link="{{false}}">
+        <view slot="right-section">
+            <switch checked="{{show_nickname}}" color="#3963bc" bindchange="onChange"/>
+        </view>
+    </l-list>
     <l-list title="数据强度排行"
             l-class="l-class"
             image="/assets/icons/mine/heat.png"

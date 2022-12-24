@@ -48,7 +48,7 @@ Component({
         }
     },
     data: {
-        monster: ""
+        monster: "",
     },
     methods: {
         detail(e) {
@@ -62,12 +62,16 @@ Component({
         },
     },
     attached() {
-        let monster = ""
-        if (this.properties.isMonster === true) {
+        let monster = "",
+            that = this
+        if (that.properties.isMonster === true) {
             monster = "monster"
         }
-        this.setData({
-            monster: monster
-        })
+        console.log('champion GOT data showName ===>', that.properties.showName)
+    },
+    observers: {
+        showName(e) {
+            console.log('showName Changed:', e)
+        }
     }
 });
