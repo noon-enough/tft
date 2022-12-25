@@ -61,13 +61,13 @@ Page({
                    data: data,
                })
                 console.log('data', data)
-                wx.stopPullDownRefresh()
             } else {
                 return Promise.reject(res)
             }
         }).catch(err => {
             showToast("数据拉取失败，请稍候再试", {icon: "error"})
         })
+        wx.stopPullDownRefresh()
     },
     onPullDownRefresh() {
         let that = this
@@ -123,6 +123,7 @@ Page({
             filterType: type,
             filterId: id
         })
+        console.log('filterType', type, 'filterId', id)
     }
 });
 

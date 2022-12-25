@@ -33,7 +33,7 @@
             "disablePlugins": [],
             "outputPath": ""
         },
-        "useIsolateContext": true,
+        "useIsolateContext": false,
         "userConfirmedBundleSwitch": false,
         "packNpmManually": false,
         "packNpmRelationList": [],
@@ -43,7 +43,8 @@
         "showES6CompileOption": false,
         "useCompilerPlugins": false,
         "ignoreUploadUnusedFiles": true,
-        "ignoreDevUnusedFiles": false
+        "ignoreDevUnusedFiles": false,
+        "userConfirmedUseIsolateContext": false
     },
     "editorSetting": {
         "tabIndent": "auto",

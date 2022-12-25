@@ -46,10 +46,11 @@
                                     </block>
                                 </view>
                                 <view class="filter-panel-left" wx:if="{{showFilterIndex === 2}}">
+                                    {{filterId}} - {{filterType}}
                                     <block wx:if="{{jobsData.length}}">
                                         <view bindtap="onFilter"
                                               data-type="job" data-id="0"
-                                              class="{{filterId === 0 && filterType === 'job' ? 'active': ''}}">全部</view>
+                                              class="{{filterId == 0 && filterType == 'job' ? 'active': ''}}">全部</view>
                                         <block wx:for="{{jobsData}}" wx:key="{{item.id}}" wx:for-index="i" wx:for-item="job">
                                             <view bindtap="onFilter"
                                                   data-type="job"
