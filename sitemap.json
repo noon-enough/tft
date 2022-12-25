@@ -2,6 +2,34 @@
   "desc": "关于本文件的更多信息，请参考文档 https://developers.weixin.qq.com/miniprogram/dev/framework/sitemap.html",
   "rules": [{
     "action": "allow",
-    "page": "*"
+    "page": "/pages/home/index"
+  }, {
+    "action": "allow",
+    "page": "/pages/detail/index",
+    "params": ["id"],
+    "matching": "exclusive"
+  }, {
+    "action": "allow",
+    "page": "/pages/hero/index"
+  }, {
+    "action": "allow",
+    "page": "/pages/hex/index"
+  }, {
+    "action": "allow",
+    "page": "/pages/equipment/index"
+  }, {
+    "action": "allow",
+    "page": "/pages/rank/index"
+  }, {
+    "action": "allow",
+    "page": "/pages/qa/index"
+  }, {
+    "action": "allow",
+    "page": "/pages/lineup/index",
+    "params": ["id"],
+    "matching": "exclusive"
+  }, {
+    "action": "disallow",
+    "page": "/pages/mine/index"
   }]
 }

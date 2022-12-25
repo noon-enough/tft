@@ -61,17 +61,23 @@ Component({
             heroDetail(id)
         },
     },
+    pageLifetimes: {
+        // 组件所在页面的生命周期函数
+        show: function () {
+            let that = this
+        },
+        hide: function () { },
+        resize: function () { },
+    },
     attached() {
         let monster = "",
             that = this
         if (that.properties.isMonster === true) {
             monster = "monster"
         }
-        console.log('champion GOT data showName ===>', that.properties.showName)
     },
     observers: {
         showName(e) {
-            console.log('showName Changed:', e)
         }
     }
 });

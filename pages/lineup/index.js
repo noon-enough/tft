@@ -1,4 +1,4 @@
-import {SESSION} from "../../utils/config";
+import {SESSION, SESSION_SHOW_NICKNAME} from "../../utils/config";
 import {chess, hero, hexes, jobs, lineup, races, synergies} from "../../utils/api";
 import {heroDetail, showToast} from "../../utils/util";
 
@@ -8,6 +8,7 @@ Page({
         data: {},
         title: "",
         navigationBarHeight: 87,
+        show_champion_name: false
     },
     onLoad: function (options) {
         let id = options.id,
@@ -27,9 +28,12 @@ Page({
     },
     onShow: function () {
         let session = wx.getStorageSync(SESSION),
-            that = this
+            that = this,
+            show_nickname = !!wx.getStorageSync(SESSION_SHOW_NICKNAME)
 
+        console.log('show_nickname', show_nickname)
         that.setData({
+            show_champion_name: show_nickname,
             session: session
         })
     },

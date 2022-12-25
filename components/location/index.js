@@ -1,3 +1,5 @@
+import {heroDetail} from "../../utils/util";
+
 Component({
     properties: {
         location: {
@@ -16,17 +18,17 @@ Component({
     data: {
         // position: []
     },
-    methods: {},
+    methods: {
+        detail(e) {
+            let id = e.currentTarget.dataset.heroId
+            console.log(e)
+            if (id === 0) {
+                showToast("无法打开英雄详细页", {icon: "error"})
+                return
+            }
+            heroDetail(id)
+        },
+    },
     attached(format, data) {
-        // let location = this.properties.location,
-        //     position = []
-        // location.forEach(item => {
-        //     item["position"] = item["location"].replace(",", "-")
-        //     position.push(item)
-        // })
-        // this.setData({
-        //     position: position
-        // }, data)
-        // console.log('got position data', position, this.properties.detail, this.properties.location)
     }
 });

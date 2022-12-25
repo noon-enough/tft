@@ -1,4 +1,4 @@
-<view class="container" style="">
+<view class="container">
     <l-tabs active-color="#b59758"
             inactive-color="#959db9"
             l-inactive-class="tab-inactive-item"

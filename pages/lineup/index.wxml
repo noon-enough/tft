@@ -29,7 +29,8 @@
                             star="3"
                             isMonster="{{hero.hero.is_monster}}"
                             isCarry="{{hero.is_carry_hero}}"
-                            name="{{hero.hero.name}}"
+                            showName="{{show_champion_name}}"
+                            name="{{hero.hero.nickname === '' ? hero.hero.display_name : hero.hero.nickname }}"
                             avatar="{{hero.hero.avatar}}"/>
                 </block>
             </view>
@@ -153,9 +154,10 @@
                 <view class="lineup-equipment-carry">
                     <view class="lineup-equipment-title">主C装备</view>
                     <view class="carry-champion">
-                        <champion name="{{data.equipment_analysis.carry.hero.display_name}}"
+                        <champion
                                   cost="{{data.equipment_analysis.carry.hero.prices}}"
                                   showName="{{true}}"
+                                  name="{{data.equipment_analysis.carry.hero.nickname === '' ? data.equipment_analysis.carry.hero.display_name : data.equipment_analysis.carry.hero.nickname }}"
                                   heroId="{{data.equipment_analysis.carry.hero.id}}"
                                   avatar="{{data.equipment_analysis.carry.hero.avatar}}"/>
                     </view>
@@ -195,10 +197,10 @@
                                 <view class="other-champion">
                                     <champion
                                             heroId="{{other.hero.id}}"
-                                            name="{{other.hero.name}}"
-                                              showName="{{false}}"
-                                              cost="{{other.hero.prices}}"
-                                              avatar="{{other.hero.avatar}}"/>
+                                            name="{{other.hero.nickname === '' ? other.hero.display_name : other.hero.nickname }}"
+                                            showName="{{false}}"
+                                            cost="{{other.hero.prices}}"
+                                            avatar="{{other.hero.avatar}}"/>
                                 </view>
                                 <view class="lineup-equipment-list" wx:if="{{other.equipment_data.length}}">
                                     <block wx:for="{{other.equipment_data}}"
