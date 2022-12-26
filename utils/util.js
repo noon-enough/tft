@@ -1,4 +1,4 @@
-import {FEEDBACK_APPID, OBJECT, SESSION} from "./config";
+import {DEFAULT_SESSION, FEEDBACK_APPID, OBJECT, SESSION} from "./config";
 
 
 /**
@@ -25,6 +25,12 @@ function lineupDetail(id) {
 }
 
 
+function getSessionFromStorage() {
+    let session = wx.getStorageSync(SESSION)
+    return session ?? DEFAULT_SESSION
+}
+
+
 /**
  * 获取session
  * @param session
@@ -32,7 +38,7 @@ function lineupDetail(id) {
  */
 function getSessionName(session = "") {
     if (session === "") {
-        session = wx.getStorageSync(SESSION)
+        session = getSessionFromStorage()
     }
 
     let name = "隐秘之海"
@@ -96,4 +102,4 @@ function showToast(msg, {icon = 'success'}) {
     })
 }
 
-module.exports = {goto, getSession, getSessionName, heroDetail, gotoFeedback, showToast, lineupDetail}
+module.exports = {goto, getSession, getSessionName, heroDetail, gotoFeedback, showToast, lineupDetail, getSessionFromStorage}

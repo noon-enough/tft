@@ -1,5 +1,5 @@
 import {get} from './http'
-import {SESSION} from "./config";
+import {getSessionFromStorage} from "./util";
 
 /**
  *
@@ -14,7 +14,7 @@ function sessions() {
  * @returns {Promise<SuccessParam<wx.RequestOption>>}
  */
 function chess(q = "") {
-    let session = wx.getStorageSync(SESSION)
+    let session = getSessionFromStorage()
 
     q = encodeURIComponent(q)
     return get(`/api/chess?version=${session}&q=${q}`)
@@ -37,7 +37,7 @@ function hero(id) {
  * @returns {Promise<SuccessParam<wx.RequestOption>>}
  */
 function hexes(byColor = 1, q = "", type = 1) {
-    let session = wx.getStorageSync(SESSION)
+    let session = getSessionFromStorage()
 
     return get(`/api/hexes?version=${session}&byColor=${byColor}&q=${encodeURI(q)}&type=${type}`)
 }
@@ -47,7 +47,7 @@ function hexes(byColor = 1, q = "", type = 1) {
  * @returns {Promise<SuccessParam<wx.RequestOption>>}
  */
 function synergies() {
-    let session = wx.getStorageSync(SESSION)
+    let session = getSessionFromStorage()
 
     return get(`/api/strategies?version=${session}`)
 }
@@ -57,7 +57,7 @@ function synergies() {
  * @returns {Promise<SuccessParam<wx.RequestOption>>}
  */
 function races(heroes = 1) {
-    let session = wx.getStorageSync(SESSION)
+    let session = getSessionFromStorage()
 
     return get(`/api/races?version=${session}&heroes=${heroes}`)
 }
@@ -67,7 +67,7 @@ function races(heroes = 1) {
  * @returns {Promise<SuccessParam<wx.RequestOption>>}
  */
 function jobs(heroes = 1) {
-    let session = wx.getStorageSync(SESSION)
+    let session = getSessionFromStorage()
 
     return get(`/api/jobs?version=${session}&heroes=${heroes}`)
 }
@@ -78,7 +78,8 @@ function jobs(heroes = 1) {
  * @returns {Promise<SuccessParam<wx.RequestOption>>}
  */
 function equipments(polymerize = 1) {
-    let session = wx.getStorageSync(SESSION)
+    let session = getSessionFromStorage()
+
     return get(`/api/equipments?version=${session}&polymerize=${polymerize}`)
 }
 
@@ -96,7 +97,7 @@ function lineup(id) {
  * @returns {Promise<SuccessParam<wx.RequestOption>>}
  */
 function rank() {
-    let session = wx.getStorageSync(SESSION)
+    let session = getSessionFromStorage()
 
     return get(`/api/rank?version=${session}`)
 }
