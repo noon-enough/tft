@@ -1,6 +1,6 @@
 import tabbar from '../../tabbar';
 import {heroDetail, lineupDetail, showToast} from "../../utils/util";
-import {jobs, synergies} from "../../utils/api";
+import {jobs, races, synergies} from "../../utils/api";
 import {SESSION_SHOW_NICKNAME} from "../../utils/config";
 
 Page({
@@ -13,13 +13,22 @@ Page({
         showFilterIndex: 0,
         showFilter: false,
         jobsData: [],
+        raceData: [],
         filterType: "",
-        filterId: ""
+        filterId: "",
+        loadmore: false,
+        page: 1,
+        isLast: false
     },
     onLoad: function() {
         let that = this
+        that.setData({
+            page: 1,
+            data: [],
+        })
         that.getStrategies()
         that.getJobs()
+        that.getRaces()
     },
     onShow() {
         let show_nickname = !!wx.getStorageSync(SESSION_SHOW_NICKNAME),
@@ -35,6 +44,22 @@ Page({
             title: `金铲铲云顶上分吃鸡小助手`,
             path: `/pages/home/index`,
         }
+    },
+    getRaces() {
+        let that = this
+        races().then(res => {
+            let data = res.data ?? []
+            if (data) {
+                that.setData({
+                    raceData: data,
+                })
+                console.log('races', data)
+            } else {
+                return Promise.reject(res)
+            }
+        }).catch(err => {
+            showToast("数据拉取失败，请稍候再试", {icon: "error"})
+        })
     },
     getJobs() {
         let that = this
@@ -53,12 +78,42 @@ Page({
         })
     },
     getStrategies() {
-        let that = this
-        synergies().then(res=> {
-            let data = res.data ?? []
+        let that = this,
+            filterId = that.data.filterId,
+            filterType = that.data.filterType,
+            race = 0,
+            job = 0,
+            quality = "ALL",
+            page = that.data.page
+        that.setData({
+            loadmore: true
+        })
+        console.log('filterType', filterType, 'filterId', filterId)
+        if (filterType === "job") {
+            job = parseInt(filterId)
+        } else if (filterType === 'race') {
+            race = parseInt(filterId)
+        } else if (filterType === "quality") {
+            quality = filterId
+        }
+        synergies({race: race,
+            job: job,
+            quality: quality,
+            page: page
+        }).then(res=> {
+            let data = res.data ?? [],
+                totalPage = res.extra.totalPage ?? 1,
+                isLast = false
+
+            data = that.data.data.concat(data)
+            if (page > totalPage) {
+                isLast = true
+            }
             if (data) {
                that.setData({
+                   isLast: isLast,
                    data: data,
+                   loadmore: false
                })
                 console.log('data', data)
             } else {
@@ -69,11 +124,31 @@ Page({
         })
         wx.stopPullDownRefresh()
     },
-    onPullDownRefresh() {
+    onPullDownRefresh: function() {
         let that = this
         wx.startPullDownRefresh()
+        that.setData({
+            page: 1,
+            data: [],
+        })
         that.getStrategies()
         wx.stopPullDownRefresh()
+    },
+    onReachBottom: function() {
+        let that = this,
+            page = that.data.page,
+            nextPage = page + 1,
+            isLast = that.data.isLast
+
+        if (isLast === true) {
+            console.log('isLast', isLast, 'page', page)
+            return
+        }
+
+        that.setData({
+            page: nextPage
+        })
+        that.getStrategies()
     },
     detail(e) {
         let id = e.currentTarget.dataset.id
@@ -98,11 +173,15 @@ Page({
         })
     },
     setFilterPanel(e) {
-        let findex = e.currentTarget.dataset.findex ?? 0,
+        let type = e.currentTarget.dataset.type ?? 0,
             that = this
+        let filterId = 0
+        if (type === 'quality') {
+            filterId = "ALL"
+        }
 
         that.setData({
-            showFilterIndex: parseInt(findex),
+            showFilterIndex: type,
             showFilter: true
         })
     },
@@ -111,7 +190,9 @@ Page({
         that.getStrategies()
         this.setData({
             showFilterIndex: 0,
-            showFilter: false
+            showFilter: false,
+            filterId: 0,
+            filterType: "",
         })
     },
     onFilter(e) {

@@ -87,7 +87,7 @@
 
 .detail-info-1 .component-champion .champion-price {
     position: absolute;
-    bottom: 10rpx;
+    bottom: 20rpx;
     right: 10rpx;
     width: 36rpx;
     height: 36rpx;

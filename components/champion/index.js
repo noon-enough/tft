@@ -53,7 +53,6 @@ Component({
     methods: {
         detail(e) {
             let id = e.currentTarget.dataset.heroId
-            console.log(e)
             if (id === 0) {
                 showToast("无法打开英雄详细页", {icon: "error"})
                 return
@@ -63,11 +62,9 @@ Component({
     },
     pageLifetimes: {
         // 组件所在页面的生命周期函数
-        show: function () {
-            let that = this
-        },
-        hide: function () { },
-        resize: function () { },
+        show: function () {},
+        hide: function () {},
+        resize: function () {},
     },
     attached() {
         let monster = "",
@@ -75,6 +72,9 @@ Component({
         if (that.properties.isMonster === true) {
             monster = "monster"
         }
+        that.setData({
+            monster: monster,
+        })
     },
     observers: {
         showName(e) {

@@ -16,7 +16,7 @@
         <view wx:if="{{showName}}" class="champion-name">{{name}}</view>
     </view>
     <view class="equipment-list" wx:if="{{equipments.length}}">
-        <block wx:for="{{equipments}}" wx:for-index="idx" wx:for-item="item">
+        <block wx:for="{{equipments}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
             <l-avatar
                     l-class="component-equipment"
                     size="30"

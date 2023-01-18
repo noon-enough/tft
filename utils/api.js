@@ -46,10 +46,13 @@ function hexes(byColor = 1, q = "", type = 1) {
  *
  * @returns {Promise<SuccessParam<wx.RequestOption>>}
  */
-function synergies() {
+function synergies({race = 0,
+                       job = 0,
+                       quality = "ALL",
+                       page = 1}) {
     let session = getSessionFromStorage()
 
-    return get(`/api/strategies?version=${session}`)
+    return get(`/api/strategies?version=${session}&race=${race}&job=${job}&quality=${quality}&page=${page}`)
 }
 
 /**

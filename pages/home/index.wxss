@@ -362,3 +362,13 @@
     bottom: 0;
     z-index: 9999;
 }
+
+
+.filter-empty {
+    color: #72788e;
+    text-align: center;
+    font-size: 30rpx;
+    padding: 40rpx 0;
+    background: #0b1536;
+    position: relative;
+}

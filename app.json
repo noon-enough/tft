@@ -66,12 +66,9 @@
     "l-tabpanel": "/miniprogram_npm/lin-ui/tabpanel/index",
     "l-search-bar": "/miniprogram_npm/lin-ui/search-bar/index",
     "l-avatar": "/miniprogram_npm/lin-ui/avatar/index",
-    "l-grid": "/miniprogram_npm/lin-ui/grid/index",
-    "l-grid-item": "/miniprogram_npm/lin-ui/grid-item/index",
     "l-tag": "/miniprogram_npm/lin-ui/tag/index",
     "l-rate": "/miniprogram_npm/lin-ui/rate/index",
     "l-list": "/miniprogram_npm/lin-ui/list/index",
-    "l-switch": "/miniprogram_npm/lin-ui/switch/index",
     "l-icon": "/miniprogram_npm/lin-ui/icon/index",
     "l-loading": "/miniprogram_npm/lin-ui/loading/index",
     "l-loadmore": "/miniprogram_npm/lin-ui/loadmore/index",
@@ -85,5 +82,6 @@
   },
   "sitemapLocation": "sitemap.json",
   "subpackages": [],
-  "embeddedAppIdList": ["wx8abaf00ee8c3202e"]
+  "embeddedAppIdList": ["wx8abaf00ee8c3202e"],
+  "lazyCodeLoading": "requiredComponents"
 }

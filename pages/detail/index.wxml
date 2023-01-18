@@ -13,7 +13,10 @@
                     src="{{data.avatar}}"/>
             <view class="champion-price">{{data.prices}}</view>
         </view>
-        <view class="champion-name">{{data.name}} {{data.display_name}}</view>
+        <view class="champion-name">
+            {{data.name}} {{data.display_name}}
+            <block wx:if="{{data.nickname}}">({{data.nickname}})</block>
+        </view>
         <view class="champion-rank-data" wx:if="{{data.rankData}}">
             <view class="champion-data">
                 <view class="data-item">
@@ -63,6 +66,25 @@
                 <view class="skill-desc">{{data.skill_introduce}}</view>
             </view>
         </view>
+        <block wx:if="{{data.session === 's8'}}">
+            <block wx:if="{{data.hero_hex.length > 0}}">
+                <view class="champion-skill-list">
+                    <view class="skill-title">英雄加强符文</view>
+                    <block wx:for="{{data.hero_hex}}" wx:for-item="hero" wx:key="id" wx:for-index="idx">
+                        <view class="champion-skill">
+                            <l-avatar shape="square"
+                                      size="60"
+                                      src="{{hero.image}}"
+                                      l-class="skill-pic"/>
+                            <view class="skill-txt">
+                                <text class="skill-name">{{hero.name}}</text>
+                            </view>
+                            <view class="skill-desc">{{hero.description}}</view>
+                        </view>
+                    </block>
+                </view>
+            </block>
+        </block>
     </view>
     <view class="detail-info-2">
         <!--装备-->
@@ -70,7 +92,8 @@
             <view class="detail-box">
                 <view class="detail-info-title">推荐装备</view>
                 <view class="rec-equip-list">
-                    <block wx:for="{{data.equipments_data}}" wx:for-item="equipment" wx:key="rec-equip" wx:for-index="idx">
+                    <block wx:for="{{data.equipments_data}}" wx:for-item="equipment"
+                           wx:key="id" wx:for-index="idx">
                         <view class="rec-equip">
                             <view class="equip-info">
                                 <l-avatar
@@ -176,7 +199,7 @@
         </view>
         <!--职业、种族-->
         <block wx:if="{{data.races_data}}">
-            <block wx:for="{{data.races_data}}" wx:key="race---for" wx:for-index="idx" wx:for-item="race">
+            <block wx:for="{{data.races_data}}" wx:key="id" wx:for-index="idx" wx:for-item="race">
                 <view class="detail-box">
                     <view class="detail-info-title">
                         <l-avatar
@@ -188,7 +211,7 @@
                     <view class="detail-info-desc">
                         <view class="desc-txt">{{race.introduce}}</view>
                         <block wx:if="{{race.level.length && race.id !== 8111}}">
-                            <block wx:for="{{race.level}}" wx:for-item="level" wx:key="race--level" wx:for-index="i">
+                            <block wx:for="{{race.level}}" wx:for-item="level" wx:key="id" wx:for-index="i">
                                 <tag level="{{level.level}}" info="{{level.desc}}"/>
                             </block>
                         </block>
@@ -197,7 +220,8 @@
             </block>
         </block>
         <block wx:if="{{data.jobs_data}}">
-            <block wx:for="{{data.jobs_data}}" wx:key="job---for" wx:for-index="idx" wx:for-item="job">
+            <block wx:for="{{data.jobs_data}}" wx:key="id"
+                   wx:for-index="idx" wx:for-item="job">
                 <view class="detail-box">
                     <view class="detail-info-title">
                         <l-avatar
@@ -209,7 +233,7 @@
                     <view class="detail-info-desc">
                         <view class="desc-txt">{{job.introduce}}</view>
                         <block wx:if="{{job.level.length}}">
-                            <block wx:for="{{job.level}}" wx:for-item="level" wx:key="race--level" wx:for-index="i">
+                            <block wx:for="{{job.level}}" wx:for-item="level" wx:key="id" wx:for-index="i">
                                 <tag level="{{level.level}}" info="{{level.desc}}"/>
                             </block>
                         </block>

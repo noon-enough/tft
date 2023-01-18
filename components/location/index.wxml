@@ -1,7 +1,7 @@
 <view class="lineup-stage-location-wrap">
     <block wx:if="{{location.length}}">
         <view class="lineup-location">
-            <block wx:for="{{location}}" wx:key="item.id" wx:for-index="idx" wx:for-item="item">
+            <block wx:for="{{location}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
                 <view class="location-champion position{{item.location}}">
                     <view class="bg-img"
                           bind:tap="detail"
@@ -11,7 +11,7 @@
                         <view wx:if="{{item.is_carry_hero}}" class="icon-carry"></view>
                         <block wx:if="{{item.equipment_data.length}}">
                             <view class="equipment-list">
-                                <block wx:for="{{item.equipment_data}}" wx:key="equipment.id" wx:for-item="equipment" wx:for-index="e">
+                                <block wx:for="{{item.equipment_data}}" wx:key="id" wx:for-item="equipment" wx:for-index="e">
                                     <l-avatar
                                             l-class="component-equipment"
                                             size="20"

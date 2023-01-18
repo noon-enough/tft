@@ -43,7 +43,7 @@
                             <text>优先</text>
                             <block wx:for="{{data.hexes.recomm}}" wx:for-item="recomm"
                                    wx:for-index="i"
-                                   wx:key="hexes-recomm">
+                                   wx:key="id">
                                 <view class="component-hex">
                                     <l-avatar l-class="component-pic"
                                               l-avatar-image="l-avatar-image"
@@ -59,7 +59,7 @@
                             <block wx:for="{{data.hexes.replace}}"
                                    wx:for-item="replace"
                                    wx:for-index="j"
-                                   wx:key="hexes-replace">
+                                   wx:key="id">
                                 <view class="component-hex">
                                     <l-avatar l-class="component-pic"
                                               l-avatar-image="l-avatar-image"
@@ -165,7 +165,7 @@
                         <view wx:if="{{data.carry_hero_equipments.main.length}}">
                             <view class="lineup-equipment-title">必备</view>
                             <block wx:for="{{data.carry_hero_equipments.main}}"
-                                   wx:for-item="main" wx:key="q-m" wx:for-index="l">
+                                   wx:for-item="main" wx:key="id" wx:for-index="l">
                                 <view class="lineup-equipment-list">
                                     <l-avatar l-class="component-equipment"
                                               size="60"
@@ -177,7 +177,7 @@
                         <view wx:if="{{data.carry_hero_equipments.backup.length}}">
                             <view class="lineup-equipment-title">替代</view>
                             <block wx:for="{{data.carry_hero_equipments.backup}}"
-                                   wx:for-item="backup" wx:key="q-b" wx:for-index="l">
+                                   wx:for-item="backup" wx:key="id" wx:for-index="l">
                                 <view class="lineup-equipment-list">
                                     <l-avatar l-class="component-equipment"
                                               size="60"

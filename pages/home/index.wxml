@@ -19,24 +19,31 @@
         bind:linlefttap="filter"
         title="阵容推荐">
     <view class="container">
-        <l-loadmore show="{{true}}">
+        <l-loadmore
+                show="{{loadmore}}">
             <view slot="content">
                 <view class="lineup-list" style="margin-bottom: 180rpx;">
                     <view class="filter-flex" wx:if="{{showFilterBody}}">
                         <view class="filter-tab">
-                            <text bindtap="setFilterPanel" data-findex="1" class="{{showFilterIndex === 1 ? 'active':''}}">种族</text>
-                            <text bindtap="setFilterPanel" data-findex="2" class="{{showFilterIndex === 2 ? 'active':''}}">职业</text>
-                            <text bindtap="setFilterPanel" data-findex="3" class="{{showFilterIndex === 3 ? 'active':''}}">质量</text>
+                            <text bindtap="setFilterPanel"
+                                  data-type="race"
+                                  class="{{showFilterIndex === 'race' ? 'active':''}}">种族</text>
+                            <text bindtap="setFilterPanel"
+                                  data-type="job"
+                                  class="{{showFilterIndex === 'job' ? 'active':''}}">职业</text>
+                            <text bindtap="setFilterPanel"
+                                  data-type="quality"
+                                  class="{{showFilterIndex === 'quality' ? 'active':''}}">质量</text>
                         </view>
                         <view class="filter-content" wx:if="{{showFilter}}">
                             <view class="filter-panel">
-                                <view class="filter-panel-left" wx:if="{{showFilterIndex === 1}}">
-                                    <block wx:if="{{racesData.length}}">
+                                <view class="filter-panel-left" wx:if="{{showFilterIndex === 'race'}}">
+                                    <block wx:if="{{raceData.length}}">
                                         <view bindtap="onFilter"
                                               data-type="race"
                                               data-id="0"
                                               class="{{filterId === 0 && filterType === 'race'  ? 'active': ''}}">全部</view>
-                                        <block wx:for="{{racesData}}" wx:key="{{item.id}}" wx:for-index="i" wx:for-item="race">
+                                        <block wx:for="{{raceData}}" wx:key="{{id}}" wx:for-index="i" wx:for-item="race">
                                             <view bindtap="onFilter"
                                                   data-type="race"
                                                   data-id="{{race.id}}"
@@ -45,26 +52,35 @@
                                         </block>
                                     </block>
                                 </view>
-                                <view class="filter-panel-left" wx:if="{{showFilterIndex === 2}}">
-                                    {{filterId}} - {{filterType}}
+                                <view class="filter-panel-left" wx:if="{{showFilterIndex === 'job'}}">
                                     <block wx:if="{{jobsData.length}}">
                                         <view bindtap="onFilter"
                                               data-type="job" data-id="0"
-                                              class="{{filterId == 0 && filterType == 'job' ? 'active': ''}}">全部</view>
-                                        <block wx:for="{{jobsData}}" wx:key="{{item.id}}" wx:for-index="i" wx:for-item="job">
+                                              class="{{filterId === 0 && filterType === 'job' ? 'active': ''}}">全部</view>
+                                        <block wx:for="{{jobsData}}" wx:key="{{id}}" wx:for-index="i" wx:for-item="job">
                                             <view bindtap="onFilter"
                                                   data-type="job"
-                                                  class="{{filterId === job.id && filterType === 'race' ? 'active': ''}}"
+                                                  class="{{filterId === job.id && filterType === 'job' ? 'active': ''}}"
                                                   data-id="{{job.id}}">{{job.name}}</view>
                                         </block>
                                     </block>
                                 </view>
-                                <view class="filter-panel-left" wx:if="{{showFilterIndex === 3}}">
-                                    <view bindtap="onFilter" data-type="quality" data-id="ALL" class="active">全部</view>
-                                    <view bindtap="onFilter" data-type="quality" data-id="S">S</view>
-                                    <view bindtap="onFilter" data-type="quality" data-id="A">A</view>
-                                    <view bindtap="onFilter" data-type="quality" data-id="B">B</view>
-                                    <view bindtap="onFilter" data-type="quality" data-id="C">C</view>
+                                <view class="filter-panel-left" wx:if="{{showFilterIndex === 'quality'}}">
+                                    <view bindtap="onFilter"
+                                          class="{{filterId === 'ALL' && filterType === 'quality' ? 'active': ''}}"
+                                          data-type="quality" data-id="ALL">全部</view>
+                                    <view bindtap="onFilter"
+                                          class="{{filterId === 'S' && filterType === 'quality' ? 'active': ''}}"
+                                          data-type="quality" data-id="S">S</view>
+                                    <view bindtap="onFilter"
+                                          class="{{filterId === 'A' && filterType === 'quality' ? 'active': ''}}"
+                                          data-type="quality" data-id="A">A</view>
+                                    <view bindtap="onFilter"
+                                          class="{{filterId === 'B' && filterType === 'quality' ? 'active': ''}}"
+                                          data-type="quality" data-id="B">B</view>
+                                    <view bindtap="onFilter"
+                                          class="{{filterId === 'C' && filterType === 'quality' ? 'active': ''}}"
+                                          data-type="quality" data-id="C">C</view>
                                 </view>
                                 <view class="filter-footer">
                                     <l-button bind:lintap="hideFilter" plain="{{true}}">筛选</l-button>
@@ -76,6 +92,7 @@
                     <block wx:if="{{data.length}}">
                         <view class="lineup-item"
                               wx:for="{{data}}"
+                              wx:key="id"
                               wx:for-index="id"
                               wx:for-item="item"
                         >
@@ -123,7 +140,8 @@
                                 <view class="lineup-tag-txt" wx:if="{{item.feature === 4}}">稳健运营</view>
                                 <block wx:if="{{item.hexes.recomm.length}}">
                                     <view class="lineup-races">
-                                        <block wx:for="{{item.hexes.recomm}}" wx:for-item="hex" wx:for-index="i" wx:key="hex-for-item">
+                                        <block wx:for="{{item.hexes.recomm}}" wx:for-item="hex"
+                                               wx:for-index="i" wx:key="id">
                                             <l-avatar
                                                     l-class="avatar-default"
                                                     size="50"
@@ -133,6 +151,9 @@
                                 </block>
                             </view>
                         </view>
+                    </block>
+                    <block wx:else>
+                        <view class="filter-empty">尚无对应阵容</view>
                     </block>
                 </view>
             </view>
