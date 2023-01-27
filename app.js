@@ -3,9 +3,12 @@ import {showToast} from '/utils/util.js'
 import {sessions} from "./utils/api"
 import {SESSION, SESSION_LIST} from "./utils/config";
 
-
 App({
   onLaunch(key, data) {
+    let navBarHeight = 44
+    let navBarHeightNew = navBarHeight * 750 / wx.getSystemInfoSync().windowWidth
+    console.log('navBarHeightNew', navBarHeightNew)
+    this.globalData.navBarHeight = navBarHeightNew
     sessions().then(r => {
       let data = r.data ?? []
       if (data) {
@@ -20,7 +23,9 @@ App({
       showToast("数据拉取失败", {icon: "error"})
     })
   },
-  globalData: {},
+  globalData: {
+    navBarHeight: 0,
+  },
   // 设置监听器
   watch: function (ctx, obj) {
     Object.keys(obj).forEach(key => {

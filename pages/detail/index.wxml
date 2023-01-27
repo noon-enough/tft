@@ -1,5 +1,5 @@
 <view class="champion-detail-info">
-    <view class="left-back" bind:tap="back">
+    <view class="left-back" bind:tap="back" style="top: {{navigationBarHeight}}rpx">
         <l-icon name="left" l-class="icon" color="#fcf0f4"/>
     </view>
     <view class="detail-info-1">

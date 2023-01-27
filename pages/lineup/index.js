@@ -2,6 +2,7 @@ import {SESSION, SESSION_SHOW_NICKNAME} from "../../utils/config";
 import {chess, hero, hexes, jobs, lineup, races, synergies} from "../../utils/api";
 import {heroDetail, showToast} from "../../utils/util";
 
+const app = getApp()
 Page({
     data: {
         id: 0,
@@ -13,9 +14,10 @@ Page({
     onLoad: function (options) {
         let id = options.id,
             that = this
-        console.log("lineup-id", id)
+        console.log("lineup-id", id, 'navBarHeight', app.globalData.navBarHeight)
         that.setData({
-            id: id
+            id: id,
+            navigationBarHeight: app.globalData.navBarHeight
         })
         that.getDetail(id)
     },

@@ -13,7 +13,7 @@
             image="/assets/icons/sword-selected.png"></l-list>
     <l-list
             l-class="l-class"
-            title="英雄名别名"
+            title="英雄名/别名"
             image="/assets/icons/mine/hero.png"
             is-link="{{false}}">
         <view slot="right-section">

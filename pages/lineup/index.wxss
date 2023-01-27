@@ -229,7 +229,7 @@
 }
 
 .page-lineup-detail .lineup-stage .component-champion {
-    margin: 10rpx;
+    margin: 20rpx;
 }
 
 .page-lineup-detail .lineup-stage-location-equip {
@@ -356,7 +356,7 @@
 .page-lineup-detail .lineup-equipment-other .other-equip {
     display: inline-block;
     vertical-align: middle;
-    margin: 10rpx 20rpx 10rpx 0;
+    margin: 20rpx 20rpx 20rpx 0;
     white-space: nowrap;
 }
 

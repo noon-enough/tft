@@ -2,6 +2,7 @@ import {SESSION} from "../../utils/config";
 import {chess, hero, hexes, jobs, races, synergies} from "../../utils/api";
 import {heroDetail, showToast} from "../../utils/util";
 
+const app = getApp()
 Page({
   data: {
     id: 0,

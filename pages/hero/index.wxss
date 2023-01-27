@@ -139,5 +139,5 @@ page {
 }
 
 .champion-list .champion-item-big:last-child {
-    /*margin-bottom: 180rpx;*/
+    margin-bottom: 200rpx;
 }

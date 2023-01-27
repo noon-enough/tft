@@ -1,5 +1,5 @@
 <view class="page-lineup-detail" style="">
-    <view class="left-back" bind:tap="back">
+    <view class="left-back" bind:tap="back" style="top: {{navigationBarHeight}}rpx;">
         <l-icon name="left" l-class="icon" color="#fcf0f4"/>
     </view>
     <view class="lineup-detail-left">
@@ -15,7 +15,7 @@
             </view>
             <view class="lineup-feature" wx:if="{{item.feature === 1}}">慢D三星：前期只拿目标英雄，连胜或连败吃利息，打第一波野怪后存50块钱利息，赌出目标卡三星</view>
             <view class="lineup-feature" wx:if="{{item.feature === 2}}">稳运营：保证经济和血量健康前提下，使用利息升级或搜牌，一般情况下再3-2升6级，4-1升7级，5-1升8级</view>
-            <view class="lineup-feature" wx:if="{{item.feature === 3}}">趣味娱乐：1-6阶段利用强势2星棋子与强势羁绊打工，其余金币全部D卡找目标1费棋子，争取在6-1之前D到3星</view>
+            <view class="lineup-feature" wx:if="{{item.feature === 3}}">1费快节奏：1-6阶段利用强势2星棋子与强势羁绊打工，其余金币全部D卡找目标1费棋子，争取在6-1之前D到3星</view>
             <view class="lineup-feature" wx:if="{{item.feature === 4}}">稳健运营：前期尽量用强势棋子与羁绊打工，保证打工棋子2星，进而稳定血量健康，步入7与8阶段，7与8阶段低费打工卡向以4-5费棋子为核心阵容转型</view>
             <view wx:if="{{data.tag === 2}}" class="lineup-tag">高手进阶</view>
             <view wx:if="{{data.tag === 1}}" class="lineup-tag">新手推荐</view>
@@ -85,6 +85,8 @@
                     <block wx:for="{{data.early_heroes}}" wx:for-item="early" wx:for-index="i" wx:key="early_heroes">
                         <view class="component-champion cost{{early.hero.prices}}">
                             <champion
+                                    showName="{{show_champion_name}}"
+                                    name="{{early.hero.nickname === '' ? early.hero.display_name : early.hero.nickname }}"
                                     heroId="{{early.hero.id}}"
                                     cost="{{early.hero.prices}}"
                                     avatar="{{early.hero.avatar}}"/>
@@ -113,6 +115,8 @@
                            wx:key="metaphase_heroes">
                         <view class="component-champion cost{{metaphase.hero.prices}}">
                             <champion
+                                    showName="{{show_champion_name}}"
+                                    name="{{metaphase.hero.nickname === '' ? metaphase.hero.display_name : metaphase.hero.nickname }}"
                                     heroId="{{metaphase.hero.id}}"
                                     cost="{{metaphase.hero.prices}}"
                                     avatar="{{metaphase.hero.avatar}}"/>
@@ -198,7 +202,7 @@
                                     <champion
                                             heroId="{{other.hero.id}}"
                                             name="{{other.hero.nickname === '' ? other.hero.display_name : other.hero.nickname }}"
-                                            showName="{{false}}"
+                                            showName="{{show_champion_name}}"
                                             cost="{{other.hero.prices}}"
                                             avatar="{{other.hero.avatar}}"/>
                                 </view>
