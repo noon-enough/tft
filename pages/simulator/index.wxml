@@ -1,0 +1,5 @@
+<view class="page-simulator">
+    <view class="simulator-center">
+        <view class="simulator-content"></view>
+    </view>
+</view>

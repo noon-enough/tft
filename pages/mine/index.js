@@ -6,7 +6,7 @@ Page({
     data: {
         session: "",
         list:tabbar,
-        sessions: ['怪兽入侵', '隐秘之海', '时空裂痕'],
+        sessions: ['金铲铲市危机', '怪兽入侵', '隐秘之海', '时空裂痕'],
         show_nickname: false,
     },
     onLoad: function (options) {
@@ -50,12 +50,15 @@ Page({
                         session = ""
                     switch (idx){
                         case 0:
+                            session = "金铲铲市危机"
+                            break;
+                        case 1:
                             session = "怪兽入侵"
                             break
-                        case 1:
+                        case 2:
                             session = "隐秘之海"
                             break
-                        case 2:
+                        case 3:
                             session = "时空裂痕"
                             break
                     }

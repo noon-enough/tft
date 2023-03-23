@@ -52,6 +52,7 @@ Page({
   },
   getHeroDetail(id) {
     let that = this
+    wx.showLoading()
     hero(id).then(res => {
       console.log(res)
       let data = res.data ?? []
@@ -63,6 +64,8 @@ Page({
       }
     }).catch(err => {
       showToast("拉取数据失败", {icon: "error"})
+    }).finally(e => {
+      wx.hideLoading()
     })
   },
   onShareAppMessage(options) {

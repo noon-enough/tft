@@ -1,10 +1,12 @@
 import tabbar from '../../tabbar';
-import {heroDetail, lineupDetail, showToast} from "../../utils/util";
+import selection from "../../selection";
+import {goto, heroDetail, lineupDetail, showToast} from "../../utils/util";
 import {jobs, races, synergies} from "../../utils/api";
 import {SESSION_SHOW_NICKNAME} from "../../utils/config";
 
 Page({
     data: {
+        selection: selection,
         list:tabbar,
         data: [],
         filterIconPath: "/assets/images/filter-white.png",
@@ -84,10 +86,16 @@ Page({
             race = 0,
             job = 0,
             quality = "ALL",
-            page = that.data.page
+            page = that.data.page,
+            oldData = that.data.data
         that.setData({
             loadmore: true
         })
+
+        if (page === 1) {
+            oldData = []
+        }
+
         console.log('filterType', filterType, 'filterId', filterId)
         if (filterType === "job") {
             job = parseInt(filterId)
@@ -105,7 +113,7 @@ Page({
                 totalPage = res.extra.totalPage ?? 1,
                 isLast = false
 
-            data = that.data.data.concat(data)
+            data = oldData.concat(data)
             if (page > totalPage) {
                 isLast = true
             }
@@ -129,7 +137,6 @@ Page({
         wx.startPullDownRefresh()
         that.setData({
             page: 1,
-            data: [],
         })
         that.getStrategies()
         wx.stopPullDownRefresh()
@@ -205,6 +212,15 @@ Page({
             filterId: id
         })
         console.log('filterType', type, 'filterId', id)
+    },
+    selectionTap(e) {
+        console.log('e', e)
+        let uri = e.currentTarget.dataset.targetUri ?? ""
+        if (uri === "") {
+            return false
+        }
+
+        goto(uri)
     }
 });
 

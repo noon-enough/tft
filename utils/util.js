@@ -1,6 +1,5 @@
 import {DEFAULT_SESSION, FEEDBACK_APPID, OBJECT, SESSION} from "./config";
 
-
 /**
  * 跳转
  * @param url
@@ -20,11 +19,18 @@ function heroDetail(id) {
     goto(`/pages/detail/index?id=${id}`)
 }
 
+/**
+ * lineup阵容详情
+ * @param id
+ */
 function lineupDetail(id) {
     goto(`/pages/lineup/index?id=${id}`)
 }
 
-
+/**
+ *
+ * @returns {any|string}
+ */
 function getSessionFromStorage() {
     let session = wx.getStorageSync(SESSION)
     return session ?? DEFAULT_SESSION
@@ -43,6 +49,9 @@ function getSessionName(session = "") {
 
     let name = "隐秘之海"
     switch (session) {
+        case "s8.5":
+            name = "金铲铲市危机"
+            break;
         case "s8":
             name = "怪兽入侵"
             break
@@ -66,6 +75,9 @@ function getSessionName(session = "") {
 function getSession(name) {
     let session = "s7"
     switch (name) {
+        case "金铲铲市危机":
+            session = "s8.5"
+            break
         case "怪兽入侵":
             session = "s8"
             break
@@ -80,6 +92,9 @@ function getSession(name) {
     return session
 }
 
+/**
+ * 打开意见反馈
+ */
 function gotoFeedback() {
     wx.openEmbeddedMiniProgram({
         appId: FEEDBACK_APPID,
@@ -102,4 +117,8 @@ function showToast(msg, {icon = 'success'}) {
     })
 }
 
+/**
+ *
+ * @type {{goto: goto, heroDetail: heroDetail, getSessionName: (function(string=): string), showToast: showToast, getSession: (function(*): string), gotoFeedback: gotoFeedback, getSessionFromStorage: (function(): *), lineupDetail: lineupDetail}}
+ */
 module.exports = {goto, getSession, getSessionName, heroDetail, gotoFeedback, showToast, lineupDetail, getSessionFromStorage}

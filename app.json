@@ -8,7 +8,8 @@
     "pages/qa/index",
     "pages/hero/index",
     "pages/equipment/index",
-    "pages/hex/index"
+    "pages/hex/index",
+    "pages/simulator/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

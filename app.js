@@ -11,6 +11,7 @@ App({
     this.globalData.navBarHeight = navBarHeightNew
     sessions().then(r => {
       let data = r.data ?? []
+      console.log('got Sessions', SESSION_LIST, data)
       if (data) {
         wx.setStorageSync(SESSION_LIST, data)
         for (const datum of data) {

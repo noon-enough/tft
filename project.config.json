@@ -44,7 +44,8 @@
     "useCompilerPlugins": false,
     "ignoreUploadUnusedFiles": true,
     "ignoreDevUnusedFiles": false,
-    "userConfirmedUseIsolateContext": false
+    "userConfirmedUseIsolateContext": false,
+    "condition": false
   },
   "editorSetting": {
     "tabIndent": "auto",

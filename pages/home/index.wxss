@@ -372,3 +372,33 @@
     background: #0b1536;
     position: relative;
 }
+
+.tab-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-height: 140rpx;
+    overflow: auto;
+    margin: 40rpx;
+    padding-top: 10rpx;
+}
+
+.tab-list .component-select {
+    margin:0;
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-list .component-select .component-select-name {
+    color: aliceblue;
+    font-size: 26rpx;
+    text-align: center;
+    /*margin: 40rpx;*/
+    /*position: absolute;*/
+    /*top: 90rpx;*/
+    /*left: 0;*/
+}
+
+.tab-list .component-select .component-select-pic {
+    background: none;
+}

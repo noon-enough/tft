@@ -22,6 +22,20 @@
         <l-loadmore
                 show="{{loadmore}}">
             <view slot="content">
+<!--                <block wx:if="{{selection.length}}">-->
+<!--                    <view class="tab-list">-->
+<!--                        <block wx:for="{{selection}}" wx:key="id" wx:for-index="idx"-->
+<!--                               wx:for-item="item">-->
+<!--                            <view class="component-select">-->
+<!--                                <l-avatar src="{{item.iconPath}}"-->
+<!--                                          l-class="component-select-pic"-->
+<!--                                          data-target-uri="{{item.pagePath}}"-->
+<!--                                          bind:lintap="selectionTap" size="{{item.size}}"></l-avatar>-->
+<!--                                <view class="component-select-name">{{item.text}}</view>-->
+<!--                            </view>-->
+<!--                        </block>-->
+<!--                    </view>-->
+<!--                </block>-->
                 <view class="lineup-list" style="margin-bottom: 180rpx;">
                     <view class="filter-flex" wx:if="{{showFilterBody}}">
                         <view class="filter-tab">
