@@ -5,6 +5,7 @@ import {heroDetail, showToast} from "../../utils/util";
 const app = getApp()
 Page({
   data: {
+    session: "",
     id: 0,
     data: {},
     name: "",
@@ -12,13 +13,16 @@ Page({
   },
   onLoad: function (options) {
     let heroId = options.id,
-        that = this
-    console.log("heroId", heroId)
+        that = this,
+        session = options.session
+
+    console.log("heroId", heroId, 'session', session)
     that.setData({
-      id: heroId
+      id: heroId,
+      session: session
     })
 
-    that.getHeroDetail(heroId)
+    that.getHeroDetail(heroId, session)
 
     let { statusBarHeight } = wx.getSystemInfoSync(); // 当前设备信息
     let { height, top } = wx.getMenuButtonBoundingClientRect(); // 胶囊状态信息
@@ -37,23 +41,26 @@ Page({
   },
   onPullDownRefresh() {
     let that = this ,
-        heroId = that.data.id
+        heroId = that.data.id,
+        session = that.data.session
+
     wx.startPullDownRefresh()
-    that.getHeroDetail(heroId)
+    that.getHeroDetail(heroId, session)
     wx.stopPullDownRefresh()
+
   },
   onShow: function () {
-    let session = wx.getStorageSync(SESSION),
-        that = this
-
-    that.setData({
-      session: session
-    })
+    // let session = wx.getStorageSync(SESSION),
+    //     that = this
+    //
+    // that.setData({
+    //   session: session
+    // })
   },
-  getHeroDetail(id) {
+  getHeroDetail(id, session) {
     let that = this
     wx.showLoading()
-    hero(id).then(res => {
+    hero(id, session).then(res => {
       console.log(res)
       let data = res.data ?? []
       if (data) {
@@ -73,7 +80,7 @@ Page({
         data = that.data
     return {
       title: `金铲铲之战-${data.name} 详细资料`,
-      path: `/pages/detail/index?id=${data.id}`,
+      path: `/pages/detail/index?id=${data.id}&${data.session}`,
     }
   },
   back() {

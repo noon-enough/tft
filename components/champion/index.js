@@ -45,19 +45,22 @@ Component({
         isMonster: {
             value: false,
             type: Boolean
-        }
+        },
+        session: String
     },
     data: {
         monster: "",
     },
     methods: {
         detail(e) {
-            let id = e.currentTarget.dataset.heroId
-            if (id === 0) {
+            let id = e.currentTarget.dataset.heroId,
+                session = e.currentTarget.dataset.heroSession
+            id = parseInt(id)
+            if (id === 0 || session === "") {
                 showToast("无法打开英雄详细页", {icon: "error"})
                 return
             }
-            heroDetail(id)
+            heroDetail(id, session)
         },
     },
     pageLifetimes: {
@@ -75,9 +78,5 @@ Component({
         that.setData({
             monster: monster,
         })
-    },
-    observers: {
-        showName(e) {
-        }
     }
 });

@@ -23,10 +23,11 @@ function chess(q = "") {
 /**
  * 获取英雄详细信息
  * @param id
+ * @param session
  * @returns {Promise<SuccessParam<wx.RequestOption>>}
  */
-function hero(id) {
-    return get(`/api/chess/${id}?version=1.1`)
+function hero(id, session) {
+    return get(`/api/chess/${id}?version=1.1&session=${session}`)
 }
 
 /**

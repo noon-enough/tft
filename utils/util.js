@@ -14,9 +14,10 @@ function goto(url) {
 /**
  * 跳转到英雄详细页面
  * @param id
+ * @param session
  */
-function heroDetail(id) {
-    goto(`/pages/detail/index?id=${id}`)
+function heroDetail(id, session) {
+    goto(`/pages/detail/index?id=${id}&session=${session}`)
 }
 
 /**

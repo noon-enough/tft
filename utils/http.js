@@ -14,7 +14,7 @@ REQUEST.Listeners.onSend.push(console.log)
  * @returns {Promise<SuccessParam<wx.RequestOption>>}
  */
 function get(uri, params = {}) {
-    console.log(log("Request"), log("GET"), uri, log(params), params)
+    console.log(log("Request"), log("GET"), uri, log(JSON.stringify(params)))
 
     return REQUEST.get(uri, {}, undefined).then(res => {
         if (res.statusCode === 200) {
@@ -32,7 +32,7 @@ function get(uri, params = {}) {
  * @returns {Promise<SuccessParam<wx.RequestOption>>}
  */
 function post(uri, params = {}) {
-    console.log(log("Request"), log("POST"), uri, log(params), params)
+    console.log(log("Request"), log("POST"), uri, log(JSON.stringify(params)))
 
     return REQUEST.post(uri, JSON.parse(params), {
         headers: {
@@ -55,7 +55,7 @@ function post(uri, params = {}) {
  * @returns {Promise<SuccessParam<wx.RequestOption>>}
  */
 function put(uri, params = {}) {
-    console.log(log("Request"), log("PUT"), uri, log(params), params)
+    console.log(log("Request"), log("PUT"), uri, log(JSON.stringify(params)))
 
     return REQUEST.post(uri, JSON.parse(params), {
         headers: {
@@ -78,7 +78,7 @@ function put(uri, params = {}) {
  * @returns {Promise<SuccessParam<wx.RequestOption>>}
  */
 function d(uri, params = {}) {
-    console.log(log("Request"), log("DELETE"), uri, log(params), params)
+    console.log(log("Request"), log("DELETE"), uri, log(JSON.stringify(params)))
 
     return REQUEST.post(uri, JSON.parse(params), {
         headers: {

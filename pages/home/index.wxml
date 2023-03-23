@@ -126,6 +126,7 @@
                                             <block wx:for="{{item.hero_location}}" wx:for-index="h" wx:key="hero_location" wx:for-item="chess">
                                                 <view wx:if="{{h <= 5}}" class="champion-wrap swiper-slide swiper-slide-active">
                                                     <champion
+                                                            session="{{item.session}}"
                                                             showName="{{show_champion_name}}"
                                                             isMonster="{{chess.hero.is_monster}}"
                                                             cost="{{chess.hero.prices}}"

@@ -2,6 +2,7 @@
     <view class="component-champion cost{{cost}} champion-main {{monster}}">
         <l-avatar
                 bind:tap="detail"
+                data-hero-session="{{session}}"
                 data-hero-id="{{heroId}}"
                 shape="square"
                 size="{{size}}"
