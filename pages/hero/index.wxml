@@ -15,7 +15,7 @@
                           show-cancel="{{false}}"/>
         </view>
         <block wx:for="{{data}}" wx:for-item="item" wx:for-index="i" wx:key="item.id">
-            <view class="champion-item-big" bind:tap="detail" data-hero-id="{{item.id}}">
+            <view class="champion-item-big" bind:tap="detail" data-hero-id="{{item.id}}" data-hero-session="{{item.session}}">
                 <view class="champion-item-pic" style="background-image: url('{{item.original_image}}');">
                     <view class="blur-img" style="background-image: url('{{item.original_image}}');"></view>
                     <view class="race-job-wrap">

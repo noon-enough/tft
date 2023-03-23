@@ -22,6 +22,7 @@
             <view class="lineup-champions">
                 <block wx:for="{{data.hero_location}}" wx:for-index="i" wx:for-item="hero" wx:key="hero_location">
                     <champion
+                            session="{{data.session}}"
                             cost="{{hero.hero.prices}}"
                             heroId="{{hero.hero.id}}"
                             equipments="{{hero.equipment_data}}"
@@ -85,6 +86,7 @@
                     <block wx:for="{{data.early_heroes}}" wx:for-item="early" wx:for-index="i" wx:key="early_heroes">
                         <view class="component-champion cost{{early.hero.prices}}">
                             <champion
+                                    session="{{data.session}}"
                                     showName="{{show_champion_name}}"
                                     name="{{early.hero.nickname === '' ? early.hero.display_name : early.hero.nickname }}"
                                     heroId="{{early.hero.id}}"
@@ -115,6 +117,7 @@
                            wx:key="metaphase_heroes">
                         <view class="component-champion cost{{metaphase.hero.prices}}">
                             <champion
+                                    session="{{data.session}}"
                                     showName="{{show_champion_name}}"
                                     name="{{metaphase.hero.nickname === '' ? metaphase.hero.display_name : metaphase.hero.nickname }}"
                                     heroId="{{metaphase.hero.id}}"
@@ -159,6 +162,7 @@
                     <view class="lineup-equipment-title">主C装备</view>
                     <view class="carry-champion">
                         <champion
+                                session="{{data.session}}"
                                   cost="{{data.equipment_analysis.carry.hero.prices}}"
                                   showName="{{true}}"
                                   name="{{data.equipment_analysis.carry.hero.nickname === '' ? data.equipment_analysis.carry.hero.display_name : data.equipment_analysis.carry.hero.nickname }}"
@@ -200,6 +204,7 @@
                             <view class="other-equip">
                                 <view class="other-champion">
                                     <champion
+                                            session="{{data.session}}"
                                             heroId="{{other.hero.id}}"
                                             name="{{other.hero.nickname === '' ? other.hero.display_name : other.hero.nickname }}"
                                             showName="{{show_champion_name}}"
