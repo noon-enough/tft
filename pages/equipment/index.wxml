@@ -34,7 +34,7 @@
                 </view>
                 <view class="equipment-combination-body">
                     <block wx:if="{{formation.type1.length}}">
-                        <block wx:for="{{formation.type1}}" wx:for-index="idx" wx:for-item="item">
+                        <block wx:for="{{formation.type1}}" wx:for-index="idx" wx:key="i" wx:for-item="item">
                             <view class="equipment-item">
                                 <view class="equip-formula" style="width: 40%;">
                                     <view class="equip-formula-flex">

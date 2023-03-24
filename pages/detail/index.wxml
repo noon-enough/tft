@@ -1,245 +1,262 @@
-<view class="champion-detail-info">
-    <view class="left-back" bind:tap="back" style="top: {{navigationBarHeight}}rpx">
-        <l-icon name="left" l-class="icon" color="#fcf0f4"/>
-    </view>
-    <view class="detail-info-1">
-        <view class="champion-big-pic" style="background-image: url({{data.original_image}});">
-        </view>
-        <view class="component-champion cost{{data.prices}}">
-            <l-avatar
-                    shape="square"
-                    size="100"
-                    l-class="champion-pic"
-                    src="{{data.avatar}}"/>
-            <view class="champion-price">{{data.prices}}</view>
-        </view>
-        <view class="champion-name">
-            {{data.name}} {{data.display_name}}
-            <block wx:if="{{data.nickname}}">({{data.nickname}})</block>
-        </view>
-        <view class="champion-rank-data" wx:if="{{data.rankData}}">
-            <view class="champion-data">
-                <view class="data-item">
-                    <view class="data-num strength">
-                        {{data.rankData.strength}}
+<capsule-bar
+        bg-color="{{bgColor}}"
+        title-color="white"
+        capsule-color="white"
+        disable-home="{{true}}"
+        disable-back="{{false}}"
+        capsule-left-icon-width="38"
+        capsule-left-icon-height="38"
+        capsule-left-icon-path="/assets/images/arrow-left.png"
+        title="{{title}}"
+        bind:linlefttap="back">
+    <image class="capsule-bar-bg" style="height:{{navigationBarHeight}}rpx;top: -{{capsuleBarHeight}}rpx;"
+           mode="aspectFill"
+           lazy-load
+           src="{{data.original_image}}" />
+    <view class="detail-main" style="top: {{navigationBarHeight - capsuleBarHeight - 90}}rpx">
+        <view class="champion-detail-info">
+            <view class="detail-info-1" style="background: transparent;">
+                <view class="component-champion cost{{data.prices}}">
+                    <l-avatar
+                            shape="square"
+                            size="100"
+                            l-class="champion-pic"
+                            src="{{data.avatar}}"/>
+                    <view class="champion-price">{{data.prices}}</view>
+                </view>
+                <view class="champion-name">
+                    {{data.name}} {{data.display_name}}
+                    <block wx:if="{{data.nickname}}">({{data.nickname}})</block>
+                </view>
+                <view class="champion-rank-data" wx:if="{{data.rankData.length}}">
+                    <view class="champion-data">
+                        <view class="data-item">
+                            <view class="data-num strength">
+                                {{data.rankData.strength}}
+                            </view>
+                            <view class="data-txt">英雄强度</view>
+                        </view>
+                        <view class="data-item">
+                            <view class="data-num">
+                                {{data.rankData.presence}}%
+                            </view>
+                            <view class="data-txt">登场率</view>
+                        </view>
+                        <view class="data-item">
+                            <view class="data-num">
+                                {{data.rankData.fourth}}%
+                            </view>
+                            <view class="data-txt">前四率</view>
+                        </view>
+                        <view class="data-item">
+                            <view class="data-num">
+                                {{data.rankData.top}}%
+                            </view>
+                            <view class="data-txt">登顶率</view>
+                        </view>
+                        <view class="data-item">
+                            <view class="data-num">
+                                #{{data.rankData.average}}
+                            </view>
+                            <view class="data-txt">平均排名</view>
+                        </view>
                     </view>
-                    <view class="data-txt">英雄强度</view>
                 </view>
-                <view class="data-item">
-                    <view class="data-num">
-                        {{data.rankData.presence}}%
-                    </view>
-                    <view class="data-txt">登场率</view>
-                </view>
-                <view class="data-item">
-                    <view class="data-num">
-                        {{data.rankData.fourth}}%
-                    </view>
-                    <view class="data-txt">前四率</view>
-                </view>
-                <view class="data-item">
-                    <view class="data-num">
-                        {{data.rankData.top}}%
-                    </view>
-                    <view class="data-txt">登顶率</view>
-                </view>
-                <view class="data-item">
-                    <view class="data-num">
-                        #{{data.rankData.average}}
-                    </view>
-                    <view class="data-txt">平均排名</view>
-                </view>
-            </view>
-        </view>
-        <view class="champion-skill-list">
-            <view class="skill-title">英雄技能</view>
-            <view class="champion-skill">
-                <l-avatar shape="square"
-                          size="60"
-                          src="{{data.skill_image}}"
-                          l-class="skill-pic"/>
-                <view class="skill-txt">
-                    <text class="skill-name">{{data.skill_name}}</text>
-                    <text class="skill-type" wx:if="{{data.skill_type === 1}}">主动</text>
-                    <text class="skill-type" wx:if="{{data.skill_type === 0}}">被动</text>
-                </view>
-                <view class="skill-desc">{{data.skill_introduce}}</view>
-            </view>
-        </view>
-        <block wx:if="{{data.session === 's8'}}">
-            <block wx:if="{{data.hero_hex.length > 0}}">
                 <view class="champion-skill-list">
-                    <view class="skill-title">英雄加强符文</view>
-                    <block wx:for="{{data.hero_hex}}" wx:for-item="hero" wx:key="id" wx:for-index="idx">
-                        <view class="champion-skill">
-                            <l-avatar shape="square"
-                                      size="60"
-                                      src="{{hero.image}}"
-                                      l-class="skill-pic"/>
-                            <view class="skill-txt">
-                                <text class="skill-name">{{hero.name}}</text>
-                            </view>
-                            <view class="skill-desc">{{hero.description}}</view>
+                    <view class="skill-title">英雄技能</view>
+                    <view class="champion-skill">
+                        <l-avatar shape="square"
+                                  size="60"
+                                  src="{{data.skill_image}}"
+                                  l-class="skill-pic"/>
+                        <view class="skill-txt">
+                            <text class="skill-name">{{data.skill_name}}</text>
+                            <text class="skill-type" wx:if="{{data.skill_type === 1}}">主动</text>
+                            <text class="skill-type" wx:if="{{data.skill_type === 0}}">被动</text>
+                        </view>
+                        <view class="skill-desc">{{data.skill_introduce}}</view>
+                    </view>
+                </view>
+                <block wx:if="{{data.session === 's8'}}">
+                    <block wx:if="{{data.hero_hex.length > 0}}">
+                        <view class="champion-skill-list">
+                            <view class="skill-title">英雄加强符文</view>
+                            <block wx:for="{{data.hero_hex}}" wx:for-item="hero" wx:key="id" wx:for-index="idx">
+                                <view class="champion-skill">
+                                    <l-avatar shape="square"
+                                              size="60"
+                                              src="{{hero.image}}"
+                                              l-class="skill-pic"/>
+                                    <view class="skill-txt">
+                                        <text class="skill-name">{{hero.name}}</text>
+                                    </view>
+                                    <view class="skill-desc">{{hero.description}}</view>
+                                </view>
+                            </block>
                         </view>
                     </block>
-                </view>
-            </block>
-        </block>
-    </view>
-    <view class="detail-info-2">
-        <!--装备-->
-        <block wx:if="{{data.equipments_data.length}}">
-            <view class="detail-box">
-                <view class="detail-info-title">推荐装备</view>
-                <view class="rec-equip-list">
-                    <block wx:for="{{data.equipments_data}}" wx:for-item="equipment"
-                           wx:key="id" wx:for-index="idx">
-                        <view class="rec-equip">
-                            <view class="equip-info">
-                                <l-avatar
-                                        l-class="component-equipment"
-                                        shape="square"
-                                        size="60"
-                                        src="{{equipment.image}}"/>
-                                <view class="equip-name">{{equipment.name}}</view>
-                            </view>
-                            <view class="equip-formula">
-                                <view class="symbol">=</view>
-                                <l-avatar
-                                        l-class="component-equipment"
-                                        shape="square"
-                                        size="60"
-                                        src="{{equipment.formula_data[equipment.formula[0]].image}}"/>
-                                <view class="symbol symbol-plus">+</view>
-                                <l-avatar
-                                        l-class="component-equipment"
-                                        shape="square"
-                                        size="60"
-                                        src="{{equipment.formula_data[equipment.formula[1]].image}}"/>
-                            </view>
-                        </view>
-                    </block>
-                </view>
+                </block>
             </view>
-        </block>
-        <!--属性-->
-        <view class="detail-box">
-            <view class="detail-info-title">属性</view>
-            <view class="detail-info-desc">
-                不同的英雄等级拥有不同的属性
-                <view class="table">
-                    <view class="tr title">
-                        <view class="th"></view>
-                        <view class="th">
-                            <l-rate size="30" disabled="{{true}}" active-color="#FF9036" score="1" count="1"/>
+            <view class="detail-info-2">
+                <!--装备-->
+                <block wx:if="{{data.equipments_data.length}}">
+                    <view class="detail-box">
+                        <view class="detail-info-title">推荐装备</view>
+                        <view class="rec-equip-list">
+                            <block wx:for="{{data.equipments_data}}" wx:for-item="equipment"
+                                   wx:key="id" wx:for-index="idx">
+                                <view class="rec-equip">
+                                    <view class="equip-info">
+                                        <l-avatar
+                                                l-class="component-equipment"
+                                                shape="square"
+                                                size="60"
+                                                src="{{equipment.image}}"/>
+                                        <view class="equip-name">{{equipment.name}}</view>
+                                    </view>
+                                    <view class="equip-formula">
+                                        <view class="symbol">=</view>
+                                        <l-avatar
+                                                l-class="component-equipment"
+                                                shape="square"
+                                                size="60"
+                                                src="{{equipment.formula_data[equipment.formula[0]].image}}"/>
+                                        <view class="symbol symbol-plus">+</view>
+                                        <l-avatar
+                                                l-class="component-equipment"
+                                                shape="square"
+                                                size="60"
+                                                src="{{equipment.formula_data[equipment.formula[1]].image}}"/>
+                                    </view>
+                                </view>
+                            </block>
                         </view>
-                        <view class="th">
-                            <l-rate size="30" disabled="{{true}}" active-color="#CE6132" score="2" count="2"/>
+                    </view>
+                </block>
+                <!--属性-->
+                <view class="detail-box">
+                    <view class="detail-info-title">属性</view>
+                    <view class="detail-info-desc">
+                        不同的英雄等级拥有不同的属性
+                        <view class="table">
+                            <view class="tr title">
+                                <view class="th"></view>
+                                <view class="th">
+                                    <l-rate size="30" disabled="{{true}}" active-color="#FF9036" score="1" count="1"/>
+                                </view>
+                                <view class="th">
+                                    <l-rate size="30" disabled="{{true}}" active-color="#CE6132" score="2" count="2"/>
+                                </view>
+                                <view class="th">
+                                    <l-rate size="30" disabled="{{true}}" active-color="#D72E3C" score="3" count="3"/>
+                                </view>
+                            </view>
+                            <view class="tr">
+                                <view class="td">生命（血量）</view>
+                                <view class="td">{{data.life_data[0]}}</view>
+                                <view class="td">{{data.life_data[1]}}</view>
+                                <view class="td">{{data.life_data[2]}}</view>
+                            </view>
+                            <view class="tr">
+                                <view class="td">物理抗性（护甲）</view>
+                                <view class="td">{{data.armor}}</view>
+                                <view class="td">{{data.armor}}</view>
+                                <view class="td">{{data.armor}}</view>
+                            </view>
+                            <view class="tr">
+                                <view class="td">魔法抗性（魔抗）</view>
+                                <view class="td">{{data.spell_block}}</view>
+                                <view class="td">{{data.spell_block}}</view>
+                                <view class="td">{{data.spell_block}}</view>
+                            </view>
+                            <view class="tr">
+                                <view class="td">物理攻击</view>
+                                <view class="td">{{data.attack_data[0]}}</view>
+                                <view class="td">{{data.attack_data[1]}}</view>
+                                <view class="td">{{data.attack_data[2]}}</view>
+                            </view>
+                            <view class="tr">
+                                <view class="td">攻击速度</view>
+                                <view class="td">{{data.attack_speed}}</view>
+                                <view class="td">{{data.attack_speed}}</view>
+                                <view class="td">{{data.attack_speed}}</view>
+                            </view>
+                            <view class="tr">
+                                <view class="td">暴击率</view>
+                                <view class="td">{{data.crit}}</view>
+                                <view class="td">{{data.crit}}</view>
+                                <view class="td">{{data.crit}}</view>
+                            </view>
+                            <view class="tr">
+                                <view class="td">攻击距离</view>
+                                <view class="td">{{data.attack_range}}</view>
+                                <view class="td">{{data.attack_range}}</view>
+                                <view class="td">{{data.attack_range}}</view>
+                            </view>
+                            <view class="tr">
+                                <view class="td">初始法力值</view>
+                                <view class="td">{{data.start_magic}}</view>
+                                <view class="td">{{data.start_magic}}</view>
+                                <view class="td">{{data.start_magic}}</view>
+                            </view>
+                            <view class="tr">
+                                <view class="td">法力值（蓝量）</view>
+                                <view class="td">{{data.magic}}</view>
+                                <view class="td">{{data.magic}}</view>
+                                <view class="td">{{data.magic}}</view>
+                            </view>
                         </view>
-                        <view class="th">
-                            <l-rate size="30" disabled="{{true}}" active-color="#D72E3C" score="3" count="3"/>
-                        </view>
-                    </view>
-                    <view class="tr">
-                        <view class="td">生命（血量）</view>
-                        <view class="td">{{data.life_data[0]}}</view>
-                        <view class="td">{{data.life_data[1]}}</view>
-                        <view class="td">{{data.life_data[2]}}</view>
-                    </view>
-                    <view class="tr">
-                        <view class="td">物理抗性（护甲）</view>
-                        <view class="td">{{data.armor}}</view>
-                        <view class="td">{{data.armor}}</view>
-                        <view class="td">{{data.armor}}</view>
-                    </view>
-                    <view class="tr">
-                        <view class="td">魔法抗性（魔抗）</view>
-                        <view class="td">{{data.spell_block}}</view>
-                        <view class="td">{{data.spell_block}}</view>
-                        <view class="td">{{data.spell_block}}</view>
-                    </view>
-                    <view class="tr">
-                        <view class="td">物理攻击</view>
-                        <view class="td">{{data.attack_data[0]}}</view>
-                        <view class="td">{{data.attack_data[1]}}</view>
-                        <view class="td">{{data.attack_data[2]}}</view>
-                    </view>
-                    <view class="tr">
-                        <view class="td">攻击速度</view>
-                        <view class="td">{{data.attack_speed}}</view>
-                        <view class="td">{{data.attack_speed}}</view>
-                        <view class="td">{{data.attack_speed}}</view>
-                    </view>
-                    <view class="tr">
-                        <view class="td">暴击率</view>
-                        <view class="td">{{data.crit}}</view>
-                        <view class="td">{{data.crit}}</view>
-                        <view class="td">{{data.crit}}</view>
-                    </view>
-                    <view class="tr">
-                        <view class="td">攻击距离</view>
-                        <view class="td">{{data.attack_range}}</view>
-                        <view class="td">{{data.attack_range}}</view>
-                        <view class="td">{{data.attack_range}}</view>
-                    </view>
-                    <view class="tr">
-                        <view class="td">初始法力值</view>
-                        <view class="td">{{data.start_magic}}</view>
-                        <view class="td">{{data.start_magic}}</view>
-                        <view class="td">{{data.start_magic}}</view>
-                    </view>
-                    <view class="tr">
-                        <view class="td">法力值（蓝量）</view>
-                        <view class="td">{{data.magic}}</view>
-                        <view class="td">{{data.magic}}</view>
-                        <view class="td">{{data.magic}}</view>
                     </view>
                 </view>
+                <!--职业、种族-->
+                <block wx:if="{{data.races_data}}">
+                    <block wx:for="{{data.races_data}}" wx:key="id" wx:for-index="idx" wx:for-item="race">
+                        <view class="detail-box">
+                            <view class="detail-info-title">
+                                <l-avatar
+                                        l-text-class="title"
+                                        l-class="avatar"
+                                        shape="square"
+                                        size="60"
+                                        text="{{race.name}}"
+                                        src="{{race.image}}"/>
+                            </view>
+                            <view class="detail-info-desc">
+                                <view class="desc-txt">{{race.introduce}}</view>
+                                <block wx:if="{{race.level.length && race.id !== 8111}}">
+                                    <block wx:for="{{race.level}}" wx:for-item="level" wx:key="id" wx:for-index="i">
+                                        <tag level="{{level.level}}" info="{{level.desc}}"/>
+                                    </block>
+                                </block>
+                            </view>
+                        </view>
+                    </block>
+                </block>
+                <block wx:if="{{data.jobs_data}}">
+                    <block wx:for="{{data.jobs_data}}" wx:key="id"
+                           wx:for-index="idx" wx:for-item="job">
+                        <view class="detail-box">
+                            <view class="detail-info-title">
+                                <l-avatar
+                                        l-text-class="title"
+                                        l-class="avatar"
+                                        shape="square"
+                                        size="60"
+                                        text="{{job.name}}"
+                                        src="{{job.image}}"/>
+                            </view>
+                            <view class="detail-info-desc">
+                                <view class="desc-txt">{{job.introduce}}</view>
+                                <block wx:if="{{job.level.length}}">
+                                    <block wx:for="{{job.level}}" wx:for-item="level" wx:key="id" wx:for-index="i">
+                                        <tag level="{{level.level}}" info="{{level.desc}}"/>
+                                    </block>
+                                </block>
+                            </view>
+                        </view>
+                    </block>
+                </block>
             </view>
         </view>
-        <!--职业、种族-->
-        <block wx:if="{{data.races_data}}">
-            <block wx:for="{{data.races_data}}" wx:key="id" wx:for-index="idx" wx:for-item="race">
-                <view class="detail-box">
-                    <view class="detail-info-title">
-                        <l-avatar
-                                shape="square"
-                                size="60"
-                                text="{{race.name}}"
-                                src="{{race.image}}"/>
-                    </view>
-                    <view class="detail-info-desc">
-                        <view class="desc-txt">{{race.introduce}}</view>
-                        <block wx:if="{{race.level.length && race.id !== 8111}}">
-                            <block wx:for="{{race.level}}" wx:for-item="level" wx:key="id" wx:for-index="i">
-                                <tag level="{{level.level}}" info="{{level.desc}}"/>
-                            </block>
-                        </block>
-                    </view>
-                </view>
-            </block>
-        </block>
-        <block wx:if="{{data.jobs_data}}">
-            <block wx:for="{{data.jobs_data}}" wx:key="id"
-                   wx:for-index="idx" wx:for-item="job">
-                <view class="detail-box">
-                    <view class="detail-info-title">
-                        <l-avatar
-                                shape="square"
-                                size="60"
-                                text="{{job.name}}"
-                                src="{{job.image}}"/>
-                    </view>
-                    <view class="detail-info-desc">
-                        <view class="desc-txt">{{job.introduce}}</view>
-                        <block wx:if="{{job.level.length}}">
-                            <block wx:for="{{job.level}}" wx:for-item="level" wx:key="id" wx:for-index="i">
-                                <tag level="{{level.level}}" info="{{level.desc}}"/>
-                            </block>
-                        </block>
-                    </view>
-                </view>
-            </block>
-        </block>
     </view>
-</view>
+</capsule-bar>

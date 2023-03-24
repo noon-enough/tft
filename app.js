@@ -1,3 +1,4 @@
+import deviceUtil from "/miniprogram_npm/lin-ui/utils/device-util";
 // app.js
 import {showToast} from '/utils/util.js'
 import {sessions} from "./utils/api"
@@ -5,10 +6,21 @@ import {SESSION, SESSION_LIST} from "./utils/config";
 
 App({
   onLaunch(key, data) {
-    let navBarHeight = 44
-    let navBarHeightNew = navBarHeight * 750 / wx.getSystemInfoSync().windowWidth
-    console.log('navBarHeightNew', navBarHeightNew)
-    this.globalData.navBarHeight = navBarHeightNew
+    let width = wx.getSystemInfoSync().windowWidth,
+        height = wx.getSystemInfoSync().windowHeight,
+        that = this,
+        navigationBarHeight = deviceUtil.getNavigationBarHeight(),
+        statusBarHeight = deviceUtil.getStatusBarHeight(),
+        titleBarHeight = deviceUtil.getTitleBarHeight()
+
+    that.globalData.system = {
+      width: width,
+      height: height,
+      navigationBarHeight: navigationBarHeight,
+      statusBarHeight: statusBarHeight,
+      titleBarHeight: titleBarHeight,
+    }
+
     sessions().then(r => {
       let data = r.data ?? []
       console.log('got Sessions', SESSION_LIST, data)
@@ -26,6 +38,13 @@ App({
   },
   globalData: {
     navBarHeight: 0,
+    system: {
+      width: 0,
+      height: 0,
+      navigationBarHeight: 0,
+      statusBarHeight: 0,
+      titleBarHeight: 0,
+    }
   },
   // 设置监听器
   watch: function (ctx, obj) {

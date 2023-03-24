@@ -1,248 +1,257 @@
-<view class="page-lineup-detail" style="">
-    <view class="left-back" bind:tap="back" style="top: {{navigationBarHeight}}rpx;">
-        <l-icon name="left" l-class="icon" color="#fcf0f4"/>
-    </view>
-    <view class="lineup-detail-left">
-        <view class="lineup-detail-content" style="padding-top: 160rpx;">
-            <view class="lineup-title">
-                <view class="lineup-quality">{{data.quality}}</view>
-                <view>{{data.title}}</view>
-            </view>
-            <view class="lineup-author">
-                <l-avatar text="{{data.username}}"
-                          size="60"
-                          src="{{data.avatar}}"/>
-            </view>
-            <view class="lineup-feature" wx:if="{{item.feature === 1}}">慢D三星：前期只拿目标英雄，连胜或连败吃利息，打第一波野怪后存50块钱利息，赌出目标卡三星</view>
-            <view class="lineup-feature" wx:if="{{item.feature === 2}}">稳运营：保证经济和血量健康前提下，使用利息升级或搜牌，一般情况下再3-2升6级，4-1升7级，5-1升8级</view>
-            <view class="lineup-feature" wx:if="{{item.feature === 3}}">1费快节奏：1-6阶段利用强势2星棋子与强势羁绊打工，其余金币全部D卡找目标1费棋子，争取在6-1之前D到3星</view>
-            <view class="lineup-feature" wx:if="{{item.feature === 4}}">稳健运营：前期尽量用强势棋子与羁绊打工，保证打工棋子2星，进而稳定血量健康，步入7与8阶段，7与8阶段低费打工卡向以4-5费棋子为核心阵容转型</view>
-            <view wx:if="{{data.tag === 2}}" class="lineup-tag">高手进阶</view>
-            <view wx:if="{{data.tag === 1}}" class="lineup-tag">新手推荐</view>
-            <view class="lineup-champions">
-                <block wx:for="{{data.hero_location}}" wx:for-index="i" wx:for-item="hero" wx:key="hero_location">
-                    <champion
-                            session="{{data.session}}"
-                            cost="{{hero.hero.prices}}"
-                            heroId="{{hero.hero.id}}"
-                            equipments="{{hero.equipment_data}}"
-                            showStar="{{hero.is_three_stars}}"
-                            star="3"
-                            isMonster="{{hero.hero.is_monster}}"
-                            isCarry="{{hero.is_carry_hero}}"
-                            showName="{{show_champion_name}}"
-                            name="{{hero.hero.nickname === '' ? hero.hero.display_name : hero.hero.nickname }}"
-                            avatar="{{hero.hero.avatar}}"/>
-                </block>
-            </view>
-            <view class="lineup-synergy"></view>
-            <view class="lineup-hex-priority">
-                <view class="lineup-hex-title">强化符文</view>
-                <view class="lineup-hex-list">
-                    <block wx:if="{{data.hexes.recomm.length}}">
-                        <view class="excellent">
-                            <text>优先</text>
-                            <block wx:for="{{data.hexes.recomm}}" wx:for-item="recomm"
-                                   wx:for-index="i"
-                                   wx:key="id">
-                                <view class="component-hex">
-                                    <l-avatar l-class="component-pic"
-                                              l-avatar-image="l-avatar-image"
-                                              size="60"
-                                              src="{{recomm.image}}"/>
-                                </view>
-                            </block>
-                        </view>
-                    </block>
-                    <block wx:if="{{data.hexes.replace.length}}">
-                        <view class="second-rate">
-                            <text>次选</text>
-                            <block wx:for="{{data.hexes.replace}}"
-                                   wx:for-item="replace"
-                                   wx:for-index="j"
-                                   wx:key="id">
-                                <view class="component-hex">
-                                    <l-avatar l-class="component-pic"
-                                              l-avatar-image="l-avatar-image"
-                                              size="60"
-                                              src="{{replace.image}}"/>
-                                </view>
-                            </block>
-                        </view>
-                    </block>
+<capsule-bar
+        bg-color="{{bgColor}}"
+        title-color="white"
+        capsule-color="white"
+        disable-home="{{true}}"
+        disable-back="{{false}}"
+        capsule-left-icon-width="38"
+        capsule-left-icon-height="38"
+        capsule-left-icon-path="/assets/images/arrow-left.png"
+        title="{{capsuleTitle}}"
+        bind:linlefttap="back">
+    <view class="page-lineup-detail" style="">
+        <view class="lineup-detail-left">
+            <view class="lineup-detail-content">
+                <view class="lineup-title">
+                    <view class="lineup-quality">{{data.quality}}</view>
+                    <view>{{data.title}}</view>
                 </view>
-            </view>
-            <view class="lineup-hex-analyse">
-                <view class="content-title">强化符文分析</view>
-                <view class="content-desc">{{data.hex_info}}</view>
-            </view>
-        </view>
-        <view class="lineup-detail-content">
-            <view class="content-title">早期过渡</view>
-            <view class="content-desc">{{data.early_info}}</view>
-            <view class="lineup-stage" wx:if="{{data.early_heroes.length}}">
-                <view class="lineup-stage-name">前期</view>
-                <view class="lineup-stage-list">
-                    <block wx:for="{{data.early_heroes}}" wx:for-item="early" wx:for-index="i" wx:key="early_heroes">
-                        <view class="component-champion cost{{early.hero.prices}}">
-                            <champion
-                                    session="{{data.session}}"
-                                    showName="{{show_champion_name}}"
-                                    name="{{early.hero.nickname === '' ? early.hero.display_name : early.hero.nickname }}"
-                                    heroId="{{early.hero.id}}"
-                                    cost="{{early.hero.prices}}"
-                                    avatar="{{early.hero.avatar}}"/>
-                        </view>
-                    </block>
+                <view class="lineup-author">
+                    <l-avatar text="{{data.username}}"
+                              size="60"
+                              src="{{data.avatar}}"/>
                 </view>
-                <view class="lineup-stage-synergy" wx:if="{{data.early_heroes_contact.length}}">
-                    <block wx:for="{{data.early_heroes_contact}}"
-                           wx:for-index="i"
-                           wx:key="early_heroes_contact"
-                           wx:for-item="contact">
-                        <synergy count="{{contact.num}}"
-                                 name="{{contact.data.name}}"
-                                 level="{{contact.level}}"
-                                 avatar="{{contact.data.image}}"/>
-                    </block>
-                </view>
-                <view class="lineup-stage-location-equip">
-                    <location location="{{data.early_heroes}}"/>
-                </view>
-            </view>
-            <view class="lineup-stage" wx:if="{{data.metaphase_heroes.length}}">
-                <view class="lineup-stage-name">中期</view>
-                <view class="lineup-stage-list">
-                    <block wx:for="{{data.metaphase_heroes}}" wx:for-index="i" wx:for-item="metaphase"
-                           wx:key="metaphase_heroes">
-                        <view class="component-champion cost{{metaphase.hero.prices}}">
-                            <champion
-                                    session="{{data.session}}"
-                                    showName="{{show_champion_name}}"
-                                    name="{{metaphase.hero.nickname === '' ? metaphase.hero.display_name : metaphase.hero.nickname }}"
-                                    heroId="{{metaphase.hero.id}}"
-                                    cost="{{metaphase.hero.prices}}"
-                                    avatar="{{metaphase.hero.avatar}}"/>
-                        </view>
-                    </block>
-                </view>
-                <view class="lineup-stage-synergy" wx:if="{{data.metaphase_heroes_contact.length}}">
-                    <block wx:for="{{data.metaphase_heroes_contact}}" wx:for-index="i"
-                           wx:key="metaphase_heroes_contact" wx:for-item="contact">
-                        <synergy count="{{contact.num}}"
-                                 name="{{contact.data.name}}"
-                                 level="{{contact.level}}"
-                                 avatar="{{contact.data.image}}"/>
-                    </block>
-                </view>
-                <view class="lineup-stage-location-equip">
-                    <location location="{{data.metaphase_heroes}}"/>
-                </view>
-            </view>
-        </view>
-        <view class="lineup-detail-content">
-            <view class="content-title">装备分析</view>
-            <view class="lineup-equipment-priority">
-                <view class="lineup-equipment-title">抢装顺序</view>
-                <view class="lineup-equipment-list" wx:if="{{data.equipment_order_data.length}}">
-                    <block wx:for="{{data.equipment_order_data}}"
-                           wx:key="equipment_order_data"
-                           wx:for-index="k"
-                           wx:for-item="equipment"
-                    >
-                        <l-avatar l-class="component-equipment"
-                                  size="70"
-                                  shape="square"
-                                  src="{{equipment.image}}"/>
-                    </block>
-                </view>
-            </view>
-            <view class="lineup-equipment-champion">
-                <view class="lineup-equipment-carry">
-                    <view class="lineup-equipment-title">主C装备</view>
-                    <view class="carry-champion">
+                <view class="lineup-feature" wx:if="{{item.feature === 1}}">慢D三星：前期只拿目标英雄，连胜或连败吃利息，打第一波野怪后存50块钱利息，赌出目标卡三星</view>
+                <view class="lineup-feature" wx:if="{{item.feature === 2}}">稳运营：保证经济和血量健康前提下，使用利息升级或搜牌，一般情况下再3-2升6级，4-1升7级，5-1升8级</view>
+                <view class="lineup-feature" wx:if="{{item.feature === 3}}">1费快节奏：1-6阶段利用强势2星棋子与强势羁绊打工，其余金币全部D卡找目标1费棋子，争取在6-1之前D到3星</view>
+                <view class="lineup-feature" wx:if="{{item.feature === 4}}">稳健运营：前期尽量用强势棋子与羁绊打工，保证打工棋子2星，进而稳定血量健康，步入7与8阶段，7与8阶段低费打工卡向以4-5费棋子为核心阵容转型</view>
+                <view wx:if="{{data.tag === 2}}" class="lineup-tag">高手进阶</view>
+                <view wx:if="{{data.tag === 1}}" class="lineup-tag">新手推荐</view>
+                <view class="lineup-champions">
+                    <block wx:for="{{data.hero_location}}" wx:for-index="i" wx:for-item="hero" wx:key="hero_location">
                         <champion
                                 session="{{data.session}}"
-                                  cost="{{data.equipment_analysis.carry.hero.prices}}"
-                                  showName="{{true}}"
-                                  name="{{data.equipment_analysis.carry.hero.nickname === '' ? data.equipment_analysis.carry.hero.display_name : data.equipment_analysis.carry.hero.nickname }}"
-                                  heroId="{{data.equipment_analysis.carry.hero.id}}"
-                                  avatar="{{data.equipment_analysis.carry.hero.avatar}}"/>
-                    </view>
-                    <view class="carry-champion-equip">
-                        <view wx:if="{{data.carry_hero_equipments.main.length}}">
-                            <view class="lineup-equipment-title">必备</view>
-                            <block wx:for="{{data.carry_hero_equipments.main}}"
-                                   wx:for-item="main" wx:key="id" wx:for-index="l">
-                                <view class="lineup-equipment-list">
-                                    <l-avatar l-class="component-equipment"
-                                              size="60"
-                                              shape="square"
-                                              src="{{main.image}}"/>
-                                </view>
-                            </block>
-                        </view>
-                        <view wx:if="{{data.carry_hero_equipments.backup.length}}">
-                            <view class="lineup-equipment-title">替代</view>
-                            <block wx:for="{{data.carry_hero_equipments.backup}}"
-                                   wx:for-item="backup" wx:key="id" wx:for-index="l">
-                                <view class="lineup-equipment-list">
-                                    <l-avatar l-class="component-equipment"
-                                              size="60"
-                                              shape="square"
-                                              src="{{backup.image}}"/>
-                                </view>
-                            </block>
-                        </view>
-                    </view>
+                                cost="{{hero.hero.prices}}"
+                                heroId="{{hero.hero.id}}"
+                                equipments="{{hero.equipment_data}}"
+                                showStar="{{hero.is_three_stars}}"
+                                star="3"
+                                isMonster="{{hero.hero.is_monster}}"
+                                isCarry="{{hero.is_carry_hero}}"
+                                showName="{{show_champion_name}}"
+                                name="{{hero.hero.nickname === '' ? hero.hero.display_name : hero.hero.nickname }}"
+                                avatar="{{hero.hero.avatar}}"/>
+                    </block>
                 </view>
-                <view class="lineup-equipment-other" wx:if="{{data.equipment_analysis.others.length}}">
-                    <view class="other-equip-title">其他英雄装备</view>
-                    <view class="other-equip-list">
-                        <block wx:for="{{data.equipment_analysis.others}}" wx:key="equipment_analysis"
-                               wx:for-index="n" wx:for-item="other">
-                            <view class="other-equip">
-                                <view class="other-champion">
-                                    <champion
-                                            session="{{data.session}}"
-                                            heroId="{{other.hero.id}}"
-                                            name="{{other.hero.nickname === '' ? other.hero.display_name : other.hero.nickname }}"
-                                            showName="{{show_champion_name}}"
-                                            cost="{{other.hero.prices}}"
-                                            avatar="{{other.hero.avatar}}"/>
-                                </view>
-                                <view class="lineup-equipment-list" wx:if="{{other.equipment_data.length}}">
-                                    <block wx:for="{{other.equipment_data}}"
-                                           wx:for-item="equipment"
-                                           wx:for-index="m"
-                                           wx:key="equipment_analysis_equipment_data">
-                                        <l-avatar l-class="component-equipment"
+                <view class="lineup-synergy"></view>
+                <view class="lineup-hex-priority">
+                    <view class="lineup-hex-title">强化符文</view>
+                    <view class="lineup-hex-list">
+                        <block wx:if="{{data.hexes.recomm.length}}">
+                            <view class="excellent">
+                                <text>优先</text>
+                                <block wx:for="{{data.hexes.recomm}}" wx:for-item="recomm"
+                                       wx:for-index="i"
+                                       wx:key="id">
+                                    <view class="component-hex">
+                                        <l-avatar l-class="component-pic"
+                                                  l-avatar-image="l-avatar-image"
                                                   size="60"
-                                                  shape="square"
-                                                  src="{{equipment.image}}"/>
-                                    </block>
-                                </view>
+                                                  src="{{recomm.image}}"/>
+                                    </view>
+                                </block>
+                            </view>
+                        </block>
+                        <block wx:if="{{data.hexes.replace.length}}">
+                            <view class="second-rate">
+                                <text>次选</text>
+                                <block wx:for="{{data.hexes.replace}}"
+                                       wx:for-item="replace"
+                                       wx:for-index="j"
+                                       wx:key="id">
+                                    <view class="component-hex">
+                                        <l-avatar l-class="component-pic"
+                                                  l-avatar-image="l-avatar-image"
+                                                  size="60"
+                                                  src="{{replace.image}}"/>
+                                    </view>
+                                </block>
                             </view>
                         </block>
                     </view>
                 </view>
+                <view class="lineup-hex-analyse">
+                    <view class="content-title">强化符文分析</view>
+                    <view class="content-desc">{{data.hex_info}}</view>
+                </view>
             </view>
-            <view class="lineup-equip-desc">{{data.equipment_info}}</view>
-        </view>
-        <view class="lineup-detail-content">
-            <view class="content-title">阵容究极站位</view>
-            <view class="lineup-stage-location-equip">
-                <location location="{{data.hero_location}}" detail="{{true}}"/>
+            <view class="lineup-detail-content">
+                <view class="content-title">早期过渡</view>
+                <view class="content-desc">{{data.early_info}}</view>
+                <view class="lineup-stage" wx:if="{{data.early_heroes.length}}">
+                    <view class="lineup-stage-name">前期</view>
+                    <view class="lineup-stage-list">
+                        <block wx:for="{{data.early_heroes}}" wx:for-item="early" wx:for-index="i" wx:key="early_heroes">
+                            <view class="component-champion cost{{early.hero.prices}}">
+                                <champion
+                                        session="{{data.session}}"
+                                        showName="{{show_champion_name}}"
+                                        name="{{early.hero.nickname === '' ? early.hero.display_name : early.hero.nickname }}"
+                                        heroId="{{early.hero.id}}"
+                                        cost="{{early.hero.prices}}"
+                                        avatar="{{early.hero.avatar}}"/>
+                            </view>
+                        </block>
+                    </view>
+                    <view class="lineup-stage-synergy" wx:if="{{data.early_heroes_contact.length}}">
+                        <block wx:for="{{data.early_heroes_contact}}"
+                               wx:for-index="i"
+                               wx:key="early_heroes_contact"
+                               wx:for-item="contact">
+                            <synergy count="{{contact.num}}"
+                                     name="{{contact.data.name}}"
+                                     level="{{contact.level}}"
+                                     avatar="{{contact.data.image}}"/>
+                        </block>
+                    </view>
+                    <view class="lineup-stage-location-equip">
+                        <location location="{{data.early_heroes}}"/>
+                    </view>
+                </view>
+                <view class="lineup-stage" wx:if="{{data.metaphase_heroes.length}}">
+                    <view class="lineup-stage-name">中期</view>
+                    <view class="lineup-stage-list">
+                        <block wx:for="{{data.metaphase_heroes}}" wx:for-index="i" wx:for-item="metaphase"
+                               wx:key="metaphase_heroes">
+                            <view class="component-champion cost{{metaphase.hero.prices}}">
+                                <champion
+                                        session="{{data.session}}"
+                                        showName="{{show_champion_name}}"
+                                        name="{{metaphase.hero.nickname === '' ? metaphase.hero.display_name : metaphase.hero.nickname }}"
+                                        heroId="{{metaphase.hero.id}}"
+                                        cost="{{metaphase.hero.prices}}"
+                                        avatar="{{metaphase.hero.avatar}}"/>
+                            </view>
+                        </block>
+                    </view>
+                    <view class="lineup-stage-synergy" wx:if="{{data.metaphase_heroes_contact.length}}">
+                        <block wx:for="{{data.metaphase_heroes_contact}}" wx:for-index="i"
+                               wx:key="metaphase_heroes_contact" wx:for-item="contact">
+                            <synergy count="{{contact.num}}"
+                                     name="{{contact.data.name}}"
+                                     level="{{contact.level}}"
+                                     avatar="{{contact.data.image}}"/>
+                        </block>
+                    </view>
+                    <view class="lineup-stage-location-equip">
+                        <location location="{{data.metaphase_heroes}}"/>
+                    </view>
+                </view>
             </view>
-            <view class="content-desc">{{data.location_info}}</view>
-        </view>
-        <view class="lineup-detail-content">
-            <view class="content-title">搜牌节奏</view>
-            <view class="content-desc">{{data.d_time}}</view>
-        </view>
-        <view class="lineup-detail-content" style="padding-bottom: 160rpx;">
-            <view class="content-title">克制分析</view>
-            <view class="content-desc">{{data.enemy_info}}</view>
+            <view class="lineup-detail-content">
+                <view class="content-title">装备分析</view>
+                <view class="lineup-equipment-priority">
+                    <view class="lineup-equipment-title">抢装顺序</view>
+                    <view class="lineup-equipment-list" wx:if="{{data.equipment_order_data.length}}">
+                        <block wx:for="{{data.equipment_order_data}}"
+                               wx:key="equipment_order_data"
+                               wx:for-index="k"
+                               wx:for-item="equipment"
+                        >
+                            <l-avatar l-class="component-equipment"
+                                      size="70"
+                                      shape="square"
+                                      src="{{equipment.image}}"/>
+                        </block>
+                    </view>
+                </view>
+                <view class="lineup-equipment-champion">
+                    <view class="lineup-equipment-carry">
+                        <view class="lineup-equipment-title">主C装备</view>
+                        <view class="carry-champion">
+                            <champion
+                                    session="{{data.session}}"
+                                    cost="{{data.equipment_analysis.carry.hero.prices}}"
+                                    showName="{{true}}"
+                                    name="{{data.equipment_analysis.carry.hero.nickname === '' ? data.equipment_analysis.carry.hero.display_name : data.equipment_analysis.carry.hero.nickname }}"
+                                    heroId="{{data.equipment_analysis.carry.hero.id}}"
+                                    avatar="{{data.equipment_analysis.carry.hero.avatar}}"/>
+                        </view>
+                        <view class="carry-champion-equip">
+                            <view wx:if="{{data.carry_hero_equipments.main.length}}">
+                                <view class="lineup-equipment-title">必备</view>
+                                <block wx:for="{{data.carry_hero_equipments.main}}"
+                                       wx:for-item="main" wx:key="id" wx:for-index="l">
+                                    <view class="lineup-equipment-list">
+                                        <l-avatar l-class="component-equipment"
+                                                  size="60"
+                                                  shape="square"
+                                                  src="{{main.image}}"/>
+                                    </view>
+                                </block>
+                            </view>
+                            <view wx:if="{{data.carry_hero_equipments.backup.length}}">
+                                <view class="lineup-equipment-title">替代</view>
+                                <block wx:for="{{data.carry_hero_equipments.backup}}"
+                                       wx:for-item="backup" wx:key="id" wx:for-index="l">
+                                    <view class="lineup-equipment-list">
+                                        <l-avatar l-class="component-equipment"
+                                                  size="60"
+                                                  shape="square"
+                                                  src="{{backup.image}}"/>
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="lineup-equipment-other" wx:if="{{data.equipment_analysis.others.length}}">
+                        <view class="other-equip-title">其他英雄装备</view>
+                        <view class="other-equip-list">
+                            <block wx:for="{{data.equipment_analysis.others}}" wx:key="equipment_analysis"
+                                   wx:for-index="n" wx:for-item="other">
+                                <view class="other-equip">
+                                    <view class="other-champion">
+                                        <champion
+                                                session="{{data.session}}"
+                                                heroId="{{other.hero.id}}"
+                                                name="{{other.hero.nickname === '' ? other.hero.display_name : other.hero.nickname }}"
+                                                showName="{{show_champion_name}}"
+                                                cost="{{other.hero.prices}}"
+                                                avatar="{{other.hero.avatar}}"/>
+                                    </view>
+                                    <view class="lineup-equipment-list" wx:if="{{other.equipment_data.length}}">
+                                        <block wx:for="{{other.equipment_data}}"
+                                               wx:for-item="equipment"
+                                               wx:for-index="m"
+                                               wx:key="equipment_analysis_equipment_data">
+                                            <l-avatar l-class="component-equipment"
+                                                      size="60"
+                                                      shape="square"
+                                                      src="{{equipment.image}}"/>
+                                        </block>
+                                    </view>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+                <view class="lineup-equip-desc">{{data.equipment_info}}</view>
+            </view>
+            <view class="lineup-detail-content">
+                <view class="content-title">阵容究极站位</view>
+                <view class="lineup-stage-location-equip">
+                    <location location="{{data.hero_location}}" detail="{{true}}"/>
+                </view>
+                <view class="content-desc">{{data.location_info}}</view>
+            </view>
+            <view class="lineup-detail-content">
+                <view class="content-title">搜牌节奏</view>
+                <view class="content-desc">{{data.d_time}}</view>
+            </view>
+            <view class="lineup-detail-content" style="padding-bottom: 160rpx;">
+                <view class="content-title">克制分析</view>
+                <view class="content-desc">{{data.enemy_info}}</view>
+            </view>
         </view>
     </view>
-</view>
+</capsule-bar>

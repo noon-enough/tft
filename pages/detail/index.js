@@ -9,35 +9,29 @@ Page({
     id: 0,
     data: {},
     name: "",
+    displayName: "",
+    nickname: "",
     navigationBarHeight: 87,
+    capsuleBarHeight: 0,
+    title: "",
+    bgColor: "transparent"
   },
   onLoad: function (options) {
     let heroId = options.id,
         that = this,
-        session = options.session
+        session = options.session,
+        capsuleBarHeight = app.globalData.system.navigationBarHeight
 
     console.log("heroId", heroId, 'session', session)
+    console.log('capsuleBarHeight', capsuleBarHeight)
     that.setData({
       id: heroId,
-      session: session
+      session: session,
+      capsuleBarHeight: capsuleBarHeight,
+      navigationBarHeight: capsuleBarHeight + 300
     })
 
     that.getHeroDetail(heroId, session)
-
-    let { statusBarHeight } = wx.getSystemInfoSync(); // 当前设备信息
-    let { height, top } = wx.getMenuButtonBoundingClientRect(); // 胶囊状态信息
-
-    // 判断是否为iPhone设备，是：比值为3，否：比值为2
-    let isIOSRatio = 2 //model.match(/iPhone/) ? 3 : 2; // 比值
-
-    // 自定义标题栏的高度 =
-    // 状态栏的高度 +
-    // 状态栏与标题栏之间的缝隙（根据设备不同乘上对应的比值） +
-    // 胶囊的高度
-    let navigationBarHeight = statusBarHeight + (top - statusBarHeight) * isIOSRatio + height;
-    that.setData({
-      navigationBarHeight: navigationBarHeight,
-    })
   },
   onPullDownRefresh() {
     let that = this ,
@@ -50,12 +44,6 @@ Page({
 
   },
   onShow: function () {
-    // let session = wx.getStorageSync(SESSION),
-    //     that = this
-    //
-    // that.setData({
-    //   session: session
-    // })
   },
   getHeroDetail(id, session) {
     let that = this
@@ -66,7 +54,9 @@ Page({
       if (data) {
         that.setData({
           data: data,
-          name: data.display_name,
+          displayName: data.display_name,
+          name: data.name,
+          nickname: data.nickname,
         })
       }
     }).catch(err => {
@@ -77,13 +67,42 @@ Page({
   },
   onShareAppMessage(options) {
     let that = this,
-        data = that.data
+        data = that.data,
+        title = ""
+    if (data.nickname) {
+      title = `${data.name} ${data.displayName} (${data.nickname})`
+    } else {
+      title = `${data.name} ${data.displayName}`
+    }
+
     return {
-      title: `金铲铲之战-${data.name} 详细资料`,
+      title: `金铲铲之战 - ${title} 详细资料`,
       path: `/pages/detail/index?id=${data.id}&${data.session}`,
     }
   },
   back() {
     wx.navigateBack()
+  },
+  onPageScroll(e) {
+    let that = this,
+        data = that.data,
+        title = ""
+    if (data.nickname) {
+      title = `${data.name} ${data.displayName} (${data.nickname})`
+    } else {
+      title = `${data.name} ${data.displayName}`
+    }
+
+    if (e.scrollTop >= 300) {
+      that.setData({
+        title: title,
+        bgColor: "#101c42"
+      })
+    } else {
+      that.setData({
+        title: "",
+        bgColor: "transparent"
+      })
+    }
   }
 });

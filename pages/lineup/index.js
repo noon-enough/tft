@@ -8,8 +8,9 @@ Page({
         id: 0,
         data: {},
         title: "",
+        capsuleTitle: "",
         navigationBarHeight: 87,
-        show_champion_name: false
+        show_champion_name: false,
     },
     onLoad: function (options) {
         let id = options.id,
@@ -73,4 +74,18 @@ Page({
         }
         heroDetail(id)
     },
+    onPageScroll(e) {
+        let that = this
+        if(e.scrollTop >= 150) {
+            that.setData({
+                capsuleTitle: that.data.title,
+                bgColor: "#101c42"
+            })
+        } else {
+            that.setData({
+                capsuleTitle: "",
+                bgColor: "#transparent"
+            })
+        }
+    }
 });
