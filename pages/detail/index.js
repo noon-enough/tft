@@ -22,7 +22,7 @@ Page({
         session = options.session,
         capsuleBarHeight = app.globalData.system.navigationBarHeight
 
-    console.log("heroId", heroId, 'session', session)
+    console.log("heroId", heroId, 'session', session, 'options', options)
     console.log('capsuleBarHeight', capsuleBarHeight)
     that.setData({
       id: heroId,
@@ -74,14 +74,24 @@ Page({
     } else {
       title = `${data.name} ${data.displayName}`
     }
+    let path = `/pages/detail/index?id=${data.id}&session=${data.session}`
 
+    console.log('share path', path)
     return {
       title: `金铲铲之战 - ${title} 详细资料`,
-      path: `/pages/detail/index?id=${data.id}&${data.session}`,
+      path: path,
     }
   },
   back() {
-    wx.navigateBack()
+    const pages = getCurrentPages();
+    console.log('this pages', pages)
+    if (pages.length >= 2) {
+      wx.navigateBack()
+    } else {
+      wx.switchTab({
+        url: "/pages/home/index"
+      })
+    }
   },
   onPageScroll(e) {
     let that = this,
