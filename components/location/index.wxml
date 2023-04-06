@@ -6,6 +6,7 @@
                     <view class="bg-img"
                           bind:tap="detail"
                           data-hero-id="{{item.hero.id}}"
+                          data-hero-session="{{item.hero.session}}"
                           style="background-image: url('{{item.hero.avatar}}');"></view>
                     <block wx:if="{{detail}}">
                         <view wx:if="{{item.is_carry_hero}}" class="icon-carry"></view>

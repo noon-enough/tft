@@ -20,13 +20,14 @@ Component({
     },
     methods: {
         detail(e) {
-            let id = e.currentTarget.dataset.heroId
+            let id = e.currentTarget.dataset.heroId,
+                session = e.currentTarget.dataset.heroSession
             console.log(e)
-            if (id === 0) {
+            if (id === 0 || session === "") {
                 showToast("无法打开英雄详细页", {icon: "error"})
                 return
             }
-            heroDetail(id)
+            heroDetail(id, session)
         },
     },
     attached(format, data) {

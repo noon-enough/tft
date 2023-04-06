@@ -67,12 +67,13 @@ Page({
         wx.navigateBack()
     },
     detail(e) {
-        let id = e.currentTarget.dataset.heroId
-        if (id === 0) {
+        let id = e.currentTarget.dataset.heroId,
+            session = e.currentTarget.dataset.heroSession
+        if (id === 0 || session === "") {
             showToast("无法打开英雄详细页", {icon: "error"})
             return
         }
-        heroDetail(id)
+        heroDetail(id, session)
     },
     onPageScroll(e) {
         let that = this

@@ -26,6 +26,7 @@
                                     <block wx:if="{{item.races.length}}">
                                         <block wx:for="{{item.races}}" wx:for-item="race" wx:key="i">
                                             <l-avatar
+                                                    data-hero-session="{{race.session}}"
                                                     data-hero-id="{{race.id}}"
                                                     bind:lintap="detail"
                                                     shape="square"
@@ -66,6 +67,7 @@
                                     <block wx:if="{{item.jobs.length}}">
                                         <block wx:for="{{item.jobs}}" wx:for-item="job" wx:key="i">
                                             <l-avatar
+                                                    data-hero-session="{{job.session}}"
                                                     data-hero-id="{{job.id}}"
                                                     bind:lintap="detail"
                                                     shape="square"

@@ -14,6 +14,7 @@
                                 <block wx:for="{{hero.T0}}" wx:key="id" wx:for-index="i" wx:for-item="item">
                                     <view class="component-champion cost{{item.data.prices}}" style="margin-left: 10rpx;">
                                         <l-avatar
+                                                data-hero-session="{{item.data.session}}"
                                                 bind:tap="detail"
                                                 data-hero-id="{{item.data.id}}"
                                                 shape="square"
@@ -32,6 +33,7 @@
                                 <block wx:for="{{hero.T1}}" wx:key="id" wx:for-index="i" wx:for-item="item">
                                     <view class="component-champion cost{{item.data.prices}}" style="margin-left: 10rpx;">
                                         <l-avatar
+                                                data-hero-session="{{item.data.session}}"
                                                 bind:tap="detail"
                                                 data-hero-id="{{item.data.id}}"
                                                 shape="square"
@@ -50,6 +52,7 @@
                                 <block wx:for="{{hero.T2}}" wx:key="id" wx:for-index="i" wx:for-item="item">
                                     <view class="component-champion cost{{item.data.prices}}" style="margin-left: 10rpx;">
                                         <l-avatar
+                                                data-hero-session="{{item.data.session}}"
                                                 bind:tap="detail"
                                                 data-hero-id="{{item.data.id}}"
                                                 shape="square"
@@ -68,6 +71,7 @@
                                 <block wx:for="{{hero.T3}}" wx:key="id" wx:for-index="i" wx:for-item="item">
                                     <view class="component-champion cost{{item.data.prices}}" style="margin-left: 10rpx;">
                                         <l-avatar
+                                                data-hero-session="{{item.data.session}}"
                                                 bind:tap="detail"
                                                 data-hero-id="{{item.data.id}}"
                                                 shape="square"
@@ -86,6 +90,7 @@
                                 <block wx:for="{{hero.T4}}" wx:key="id" wx:for-index="i" wx:for-item="item">
                                     <view class="component-champion cost{{item.data.prices}}" style="margin-left: 10rpx;">
                                         <l-avatar
+                                                data-hero-session="{{item.data.session}}"
                                                 bind:tap="detail"
                                                 data-hero-id="{{item.data.id}}"
                                                 shape="square"
