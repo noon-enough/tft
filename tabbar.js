@@ -1,7 +1,7 @@
 export default [
     {
         pagePath:"/pages/home/index",
-        text:"攻略区",
+        text:"攻略",
         iconPath:"/assets/icons/sword.png",
         selectedIconPath:"/assets/icons/sword-selected.png"
     },
@@ -19,7 +19,7 @@ export default [
     },
     {
         pagePath:"/pages/hex/index",
-        text:"羁绊符文",
+        text:"强化",
         iconPath:"/assets/icons/tft.png",
         selectedIconPath:"/assets/icons/tft-selected.png"
     },

@@ -6,6 +6,10 @@ page {
     margin-left: 20rpx;
 }
 
+.mt20 {
+    margin-top: 20rpx;
+}
+
 .text-align-left {
     text-align: left;
 }

@@ -139,7 +139,7 @@
                                 placeholder="搜索"
                                 show-cancel="{{false}}"/>
                         <view class="hex-list" wx:if="{{hexes.type2.length}}">
-                            <block wx:for="{{hexes.type2}}" wx:for-item="item" wx:for-index="idx">
+                            <block wx:for="{{hexes.type2}}" wx:for-item="item" wx:for-index="idx" wx:key="i">
                                 <view class="hex-list-item">
                                     <view class="hex-list-title">
                                         <l-avatar
@@ -168,7 +168,7 @@
                                 placeholder="搜索"
                                 show-cancel="{{false}}"/>
                         <view class="hex-list" wx:if="{{hexes.type3.length}}">
-                            <block wx:for="{{hexes.type3}}" wx:for-item="item" wx:for-index="idx">
+                            <block wx:for="{{hexes.type3}}" wx:for-item="item" wx:key="i" wx:for-index="idx">
                                 <view class="hex-list-item">
                                     <view class="hex-list-title">
                                         <l-avatar
@@ -217,7 +217,50 @@
                         </view>
                     </l-tabpanel>
                 </block>
+                <l-tabpanel wx:if="{{session === 's9'}}" tab="英雄之力" key="legend" slot="legend">
+                    <view class="tab-content play-bookby-group" wx:if="{{legend.length}}">
+                        <block wx:for="{{legend}}" wx:for-item="item" wx:key="i" wx:for-index="index">
+                            <view class="play-bookby-item"
+                                  bind:tap="gotoLegend"
+                                  data-raw-data="{{item}}"
+                                  data-id="{{item.id}}">
+                                <view class="play-head">
+                                    <image mode="widthFix" style="width: 160rpx;"
+                                           src="{{item.picture}}"></image>
+                                </view>
+                                <view class="play-name">{{item.name}} : {{item.subname}}</view>
+                                <view class="play-desc">{{item.description}}</view>
+                            </view>
+                        </block>
+                    </view>
+                </l-tabpanel>
             </l-tabs>
+        </l-tabpanel>
+        <l-tabpanel tab="城邦" key="galaxy" slot="galaxy" wx:if="{{session === 's9'}}">
+            <view class="tab-content galaxy-list" wx:if="{{galaxy.length}}">
+                <view class="galaxy-list-head">
+                    <view>名称</view>
+                    <view>强化</view>
+                </view>
+                <view class="galaxy-list-item" wx:for="{{galaxy}}" wx:key="i" wx:for-index="index" wx:for-item="item">
+                    <view class="galaxy-item-badge">
+                        <l-avatar placement="bottom"
+                                  text="{{item.country}}"
+                                  size="80"
+                                  l-class="avatar"
+                                  l-text-class="name"
+                                  src="{{item.logo}}" />
+                    </view>
+                    <view class="galaxy-item-info" wx:if="{{item.hex.length}}">
+                        <block wx:for="{{item.hex}}" wx:for-index="idx" wx:key="j" wx:for-item="value">
+                            <view class="item">
+                                <view class="info-title">{{value.name}}</view>
+                                <view class="info-desc">{{value.desc}}</view>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
         </l-tabpanel>
     </l-tabs>
 </view>

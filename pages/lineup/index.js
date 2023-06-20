@@ -11,6 +11,12 @@ Page({
         capsuleTitle: "",
         navigationBarHeight: 87,
         show_champion_name: false,
+        is_show_mask: false,
+        is_show_playbook_mask: false,
+        is_show_hex_mask: false,
+        galaxy: {},
+        playbook: {},
+        hex: {},
     },
     onLoad: function (options) {
         let id = options.id,
@@ -88,5 +94,54 @@ Page({
                 bgColor: "#transparent"
             })
         }
-    }
+    },
+    showMask: function(e) {
+        console.log('e', e)
+        let that = this,
+            galaxy = {
+                "country": e.currentTarget.dataset.country ?? "",
+                "desc": e.currentTarget.dataset.desc ?? "",
+                "id": e.currentTarget.dataset.id ?? "",
+                "name": e.currentTarget.dataset.name ?? "",
+                "logo": e.currentTarget.dataset.logo ?? "",
+            }
+        that.setData({
+            is_show_mask: true,
+            galaxy: galaxy,
+        })
+    },
+    changeMask: function (e) {
+        let that = this
+        that.setData({
+            is_show_mask: false,
+            is_show_playbook_mask: false,
+            is_show_hex_mask: false,
+        })
+    },
+    showHexMask: function(e) {
+        let that = this
+        that.setData({
+            is_show_hex_mask: true,
+            hex : {
+                image: e.currentTarget.dataset.image ?? "",
+                name: e.currentTarget.dataset.name ?? "",
+                description: e.currentTarget.dataset.description ?? "",
+                id: e.currentTarget.dataset.id ?? "",
+            }
+        })
+    },
+    showPlaybookMask: function(e) {
+        let that = this
+
+        that.setData({
+            is_show_playbook_mask: true,
+            playbook : {
+                picture: e.currentTarget.dataset.picture ?? "",
+                name: e.currentTarget.dataset.name ?? "",
+                subname: e.currentTarget.dataset.subname ?? "",
+                desc: e.currentTarget.dataset.desc ?? "",
+                id: e.currentTarget.dataset.id ?? "",
+            }
+        })
+    },
 });

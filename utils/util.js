@@ -50,6 +50,9 @@ function getSessionName(session = "") {
 
     let name = "隐秘之海"
     switch (session) {
+        case "s9":
+            name = "符文大陆"
+            break;
         case "s8.5":
             name = "金铲铲市危机"
             break;
@@ -74,8 +77,11 @@ function getSessionName(session = "") {
  * @returns {string}
  */
 function getSession(name) {
-    let session = "s7"
+    let session = DEFAULT_SESSION
     switch (name) {
+        case "符文大陆":
+            session = "s9"
+            break
         case "金铲铲市危机":
             session = "s8.5"
             break
@@ -106,6 +112,20 @@ function gotoFeedback() {
     })
 }
 
+function historyBack(success = function (){} ) {
+    const pages = getCurrentPages();
+    if (pages.length >= 2) {
+        wx.navigateBack({
+            delta: 1,
+            success: success,
+        })
+    } else {
+        wx.switchTab({
+            url: "/pages/home/index"
+        })
+    }
+}
+
 /**
  * 弹窗
  * @param msg
@@ -118,8 +138,12 @@ function showToast(msg, {icon = 'success'}) {
     })
 }
 
+function gotoLegend(id) {
+    goto(`/pages/hex/legend/index?id=${id}`)
+}
+
 /**
  *
  * @type {{goto: goto, heroDetail: heroDetail, getSessionName: (function(string=): string), showToast: showToast, getSession: (function(*): string), gotoFeedback: gotoFeedback, getSessionFromStorage: (function(): *), lineupDetail: lineupDetail}}
  */
-module.exports = {goto, getSession, getSessionName, heroDetail, gotoFeedback, showToast, lineupDetail, getSessionFromStorage}
+module.exports = {historyBack, goto, getSession, getSessionName, heroDetail, gotoFeedback, showToast, lineupDetail, getSessionFromStorage, gotoLegend}

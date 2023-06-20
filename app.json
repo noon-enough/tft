@@ -9,7 +9,8 @@
     "pages/hero/index",
     "pages/equipment/index",
     "pages/hex/index",
-    "pages/simulator/index"
+    "pages/simulator/index",
+    "pages/hex/legend/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -63,6 +64,7 @@
   "debug": true,
   "usingComponents" : {
     "l-tabs": "/miniprogram_npm/lin-ui/tabs/index",
+    "l-mask": "/miniprogram_npm/lin-ui/mask/index",
     "l-tab-bar":"/miniprogram_npm/lin-ui/tab-bar/index",
     "l-tabpanel": "/miniprogram_npm/lin-ui/tabpanel/index",
     "l-search-bar": "/miniprogram_npm/lin-ui/search-bar/index",

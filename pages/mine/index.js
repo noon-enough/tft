@@ -6,7 +6,7 @@ Page({
     data: {
         session: "",
         list:tabbar,
-        sessions: ['金铲铲市危机', '怪兽入侵', '隐秘之海', '时空裂痕'],
+        sessions: ['符文大陆', '金铲铲市危机', '怪兽入侵', '隐秘之海', '时空裂痕'],
         show_nickname: false,
     },
     onLoad: function (options) {
@@ -50,15 +50,18 @@ Page({
                         session = ""
                     switch (idx){
                         case 0:
-                            session = "金铲铲市危机"
+                            session = "符文大陆"
                             break;
                         case 1:
+                            session = "金铲铲市危机"
+                            break;
+                        case 2:
                             session = "怪兽入侵"
                             break
-                        case 2:
+                        case 3:
                             session = "隐秘之海"
                             break
-                        case 3:
+                        case 4:
                             session = "时空裂痕"
                             break
                     }
@@ -66,7 +69,7 @@ Page({
                     that.setData({
                         session: session
                     })
-
+                    console.log('get session', session, 'name', name)
                     wx.setStorageSync(SESSION, name)
                 }
             }

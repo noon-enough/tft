@@ -12,6 +12,7 @@ Page({
         let session = wx.getStorageSync(SESSION),
             that = this
 
+        console.log('session', session)
         that.setData({
             session: session,
             hexData: {
@@ -23,6 +24,7 @@ Page({
     },
     getHeroes(query = "") {
         let that = this
+        wx.showLoading()
         chess(query).then(res => {
             console.log("data", res)
             let data = res.data ?? []
@@ -34,7 +36,7 @@ Page({
             }
         }).catch(err => {
             showToast("拉取数据失败，请稍候再试", {icon: "error"})
-        })
+        }).finally(wx.hideLoading)
     },
     detail(e) {
         let id = e.currentTarget.dataset.heroId,
@@ -79,5 +81,11 @@ Page({
         that.setData({
             data: data,
         })
+    },
+    onPullDownRefresh() {
+        let that = this;
+
+        that.getHeroes()
+        wx.stopPullDownRefresh()
     }
 });

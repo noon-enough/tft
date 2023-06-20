@@ -112,3 +112,149 @@
     max-width: 160rpx;
     line-height: 2;
 }
+
+.play-bookby-group {
+    font-size: 0;
+    position: relative;
+    text-align: left;
+    margin-bottom: 200rpx;
+}
+
+.play-bookby-group .play-bookby-item {
+    width: calc(94% / 3);
+    height: auto;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 8rpx;
+    margin-bottom: 8rpx;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: border-color .3s;
+    border: 1px solid transparent;
+}
+
+.play-bookby-group .play-bookby-item .play-head {
+    margin: 20rpx auto 0 auto;
+    position: relative;
+}
+
+.play-bookby-group .play-bookby-item .play-head::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.play-bookby-group .play-bookby-item .play-head image {
+    height: 140rpx;
+}
+
+.play-bookby-group .play-bookby-item .play-head .avatar {
+    background-color: unset;
+}
+
+.play-bookby-group .play-bookby-item .play-name {
+    font-size: 28rpx;
+    color: #fff;
+    line-height: 1.2;
+    margin-top: 20rpx;
+    margin-bottom:  10rpx;
+    width: 100%;
+    text-align: center;
+}
+
+.play-bookby-group .play-bookby-item .play-desc {
+    line-height: 1.2;
+    width: 90%;
+    margin: 10rpx auto 0 auto;
+    text-align: center;
+    color: #828c9c;
+    font-size: 26rpx;
+}
+
+.galaxy-list {
+    width: 100%;
+    display: inline-block;
+    vertical-align: center;
+    margin-bottom: 200rpx;
+}
+
+.galaxy-list .galaxy-list-head {
+    height: 40rpx;
+    border-bottom: 2rpx solid #132949;
+    padding-bottom: 10rpx;
+}
+
+.galaxy-list .galaxy-list-head view:first-child {
+    width: 20%;
+    padding-left: 10rpx;
+}
+
+.galaxy-list .galaxy-list-head view {
+    display: inline-block;
+    vertical-align: center;
+    color: #6c7a95;
+    text-align: left;
+    line-height: 1.2rpx;
+    font-size:  28rpx;
+    font-weight: bolder;
+    box-sizing: border-box;
+}
+
+.galaxy-list .galaxy-list-item {
+    width: 100%;
+    height: auto;
+    border-bottom: 2rpx solid #132949;
+    box-sizing: border-box;
+    padding: 10rpx 0;
+    display: flex;
+}
+
+.galaxy-list .galaxy-list-item .galaxy-item-badge {
+    width: 20%;
+    height: 100%;
+    vertical-align: center;
+    text-align: left;
+}
+
+.galaxy-list .galaxy-list-item .galaxy-item-badge .avatar {
+    background-color: unset;
+}
+
+.galaxy-list .galaxy-list-item .galaxy-item-badge .name {
+    color: #fff;
+    font-size:  28rpx;
+    text-align: center;
+    margin: 6rpx auto 0 auto;
+}
+
+.galaxy-list .galaxy-list-item .galaxy-item-info {
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    flex: 1;
+}
+
+.galaxy-list .galaxy-list-item .galaxy-item-info .item {
+    display: flex;
+    width: 90%;
+    margin-top: 10rpx;
+}
+
+.galaxy-list .galaxy-list-item .galaxy-item-info .item .info-title {
+    width: 120rpx;
+    color: #fff;
+    font-size: 28rpx;
+    text-align: left;
+}
+
+.galaxy-list .galaxy-list-item .galaxy-item-info .item .info-desc {
+    margin-left: 40rpx;
+    color: #6c7a95;
+    font-size: 28rpx;
+    text-align: left;
+    white-space: normal;
+    flex: 1;
+}

@@ -1,12 +1,14 @@
 import tabbar from '../../tabbar';
 import {SESSION} from "../../utils/config";
-import {hexes, jobs, races} from "../../utils/api";
-import {heroDetail, showToast} from "../../utils/util";
+import {galaxy, hexes, jobs, legend, races} from "../../utils/api";
+import {gotoLegend, heroDetail, showToast} from "../../utils/util";
 Page({
     data: {
         list:tabbar,
         races: [],
         jobs: [],
+        legend: {},
+        galaxy: {},
         hexes: {
             type1: [],
             type2: [],
@@ -23,6 +25,13 @@ Page({
     },
     onLoad: function (options) {
         let that = this
+        that.getRaces()
+        that.getJobs()
+        that.getLegend()
+        that.getGalaxy()
+    },
+    getRaces: function () {
+        let that = this
         races().then(res => {
             console.log(res)
             let data = res.data ?? []
@@ -34,20 +43,56 @@ Page({
             } else {
                 return Promise.reject(res)
             }
-        }).then(races => {
-            jobs().then(res => {
-                console.log(res)
-                let data = res.data ?? []
-                if (data) {
-                    that.setData({
-                        jobs: data,
-                    })
-                } else {
-                    return Promise.reject(res)
-                }
-            }).catch(err => {
-                showToast("拉取数据失败，请稍候再试", {icon: "error"})
-            })
+        }).catch(err => {
+            showToast("拉取数据失败，请稍候再试", {icon: "error"})
+        })
+    },
+    getJobs: function() {
+        let that = this
+        jobs().then(res => {
+            console.log(res)
+            let data = res.data ?? []
+            if (data) {
+                that.setData({
+                    jobs: data,
+                })
+            } else {
+                return Promise.reject(res)
+            }
+        }).catch(err => {
+            showToast("拉取数据失败，请稍候再试", {icon: "error"})
+        })
+    },
+    getLegend: function() {
+        let that = this
+        legend().then(res => {
+            console.log("getLegend", res)
+
+            let data = res.data ?? []
+            if (data) {
+                that.setData({
+                    legend: data,
+                })
+            } else {
+                return Promise.reject(res)
+            }
+        }).catch(err => {
+            showToast("拉取数据失败，请稍候再试", {icon: "error"})
+        })
+    },
+    getGalaxy: function() {
+        let that = this
+        galaxy().then(res => {
+            console.log("getGalaxy", res)
+
+            let data = res.data ?? []
+            if (data) {
+                that.setData({
+                    galaxy: data,
+                })
+            } else {
+                return Promise.reject(res)
+            }
         }).catch(err => {
             showToast("拉取数据失败，请稍候再试", {icon: "error"})
         })
@@ -192,5 +237,12 @@ Page({
                 ["hexes.type4"]: data,
             })
         }
+    },
+    gotoLegend: function(e) {
+        console.log('gotoLegend', e)
+        let that = this ,
+            id = e.currentTarget.dataset.id ?? ""
+
+        gotoLegend(id)
     }
 });

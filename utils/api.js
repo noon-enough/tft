@@ -76,6 +76,18 @@ function jobs(heroes = 1) {
     return get(`/api/jobs?version=${session}&heroes=${heroes}`)
 }
 
+function legend() {
+    let session = getSessionFromStorage()
+
+    return get(`/api/legend?version=${session}`)
+}
+
+function galaxy() {
+    let session = getSessionFromStorage()
+
+    return get(`/api/galaxy?version=${session}`)
+}
+
 /**
  *
  * @param polymerize
@@ -106,4 +118,10 @@ function rank() {
     return get(`/api/rank?version=${session}`)
 }
 
-module.exports = {sessions, chess, hexes, synergies, races, jobs, hero, equipments, lineup, rank}
+function legendDetail(id = "") {
+    let session = getSessionFromStorage()
+
+    return get(`/api/legend/${id}?version=${session}`)
+}
+
+module.exports = {sessions, chess, hexes, synergies, races, jobs, hero, equipments, lineup, rank, legend, galaxy, legendDetail}

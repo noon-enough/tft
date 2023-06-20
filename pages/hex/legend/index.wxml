@@ -1,0 +1,32 @@
+<view class="galaxy-left-content">
+    <view class="galaxy-left-head">
+        <view class="galaxy-head-image">
+            <image mode="widthFix" src="{{legend.picture}}"></image>
+        </view>
+        <view class="galaxy-info">
+            <view class="galaxy-name">
+                {{legend.name}}: {{legend.subname}}
+            </view>
+            <view class="galaxy-desc">{{legend.description}}</view>
+        </view>
+    </view>
+    <view class="galaxy-stage" wx:if="{{legend.hex.length}}">
+        <view class="galaxy-stage-item" wx:for="{{legend.hex}}" wx:for-index="index" wx:for-item="hex" wx:key="i">
+            <view class="galaxy-stage-con">
+                {{hex.name}}
+            </view>
+            <block wx:if="{{hex.data.length}}">
+                <view class="galaxy-hex-list" wx:for="{{hex.data}}" wx:key="h" wx:for-item="value" wx:for-index="idx">
+                    <view class="galaxy-hex-info">
+                        <l-avatar size="80"
+                                  l-class="avatar"
+                                  l-text-class="galaxy-hex-name"
+                                  text="{{value.name}}"
+                                  src="{{value.image}}"></l-avatar>
+                        <view class="galaxy-hex-desc">{{value.description}}</view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

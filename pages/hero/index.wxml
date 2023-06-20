@@ -14,13 +14,13 @@
                           bg-color="#101c42"
                           show-cancel="{{false}}"/>
         </view>
-        <block wx:for="{{data}}" wx:for-item="item" wx:for-index="i" wx:key="item.id">
+        <block wx:for="{{data}}" wx:for-item="item" wx:for-index="i" wx:key="id">
             <view class="champion-item-big" bind:tap="detail" data-hero-id="{{item.id}}" data-hero-session="{{item.session}}">
                 <view class="champion-item-pic" style="background-image: url('{{item.original_image}}');">
                     <view class="blur-img" style="background-image: url('{{item.original_image}}');"></view>
                     <view class="race-job-wrap">
                         <block wx:if="{{item.jobs_data.length}}">
-                            <block wx:for="{{item.jobs_data}}" wx:for-index="j" wx:for-item="job" wx:key="job.id">
+                            <block wx:for="{{item.jobs_data}}" wx:for-index="j" wx:for-item="job" wx:key="id">
                                 <view class="race-job">
                                     <view class="race-job-icon">
                                         <l-avatar
@@ -33,7 +33,7 @@
                             </block>
                         </block>
                         <block wx:if="{{item.races_data.length}}">
-                            <block wx:for="{{item.races_data}}" wx:for-index="r" wx:for-item="race" wx:key="race.id">
+                            <block wx:for="{{item.races_data}}" wx:for-index="r" wx:for-item="race" wx:key="id">
                                 <view class="race-job">
                                     <view class="race-job-icon">
                                         <l-avatar
