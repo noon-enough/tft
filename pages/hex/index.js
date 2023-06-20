@@ -114,6 +114,16 @@ Page({
         }
         heroDetail(id, session)
     },
+    onHexBarChange(e) {
+        let activeKey = e.detail.activeKey,
+            that = this
+
+        if (activeKey === "legend") {
+            wx.showLoading()
+            that.getLegend()
+            wx.hideLoading()
+        }
+    },
     onTabTabBar(e) {
         let activeKey = e.detail.activeKey,
             that = this
@@ -141,6 +151,10 @@ Page({
             }).catch(err => {
                 showToast("拉取数据失败，请稍候再试", {icon: "error"})
             })
+        } else if (activeKey === "galaxy") {
+            wx.showLoading()
+            that.getGalaxy()
+            wx.hideLoading()
         }
     },
     searchConfirm(e) {
