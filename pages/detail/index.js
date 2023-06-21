@@ -1,6 +1,6 @@
 import {SESSION} from "../../utils/config";
 import {chess, hero, hexes, jobs, races, synergies} from "../../utils/api";
-import {heroDetail, showToast} from "../../utils/util";
+import {heroDetail, historyBack, showToast} from "../../utils/util";
 
 const app = getApp()
 Page({
@@ -83,15 +83,7 @@ Page({
     }
   },
   back() {
-    const pages = getCurrentPages();
-    console.log('this pages', pages)
-    if (pages.length >= 2) {
-      wx.navigateBack()
-    } else {
-      wx.switchTab({
-        url: "/pages/home/index"
-      })
-    }
+    historyBack()
   },
   onPageScroll(e) {
     let that = this,

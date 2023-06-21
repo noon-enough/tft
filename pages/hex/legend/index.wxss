@@ -1,15 +1,13 @@
-page {
-    width: 100%;
-}
+page {}
 
 .galaxy-left-content {
+    width: 100%;
     display: inline-block;
     vertical-align: top;
 }
 
 .galaxy-left-content .galaxy-left-head {
     height: 200rpx;
-    width: 100%;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -48,7 +46,6 @@ page {
 }
 
 .galaxy-left-content .galaxy-stage {
-    width: 100%;
     position: relative;
     margin: 20rpx;
 }
@@ -56,7 +53,6 @@ page {
 .galaxy-left-content .galaxy-stage .galaxy-stage-item {
     display: inline-block;
     vertical-align: top;
-    width: 100%;
     padding: 0 10rpx;
     box-sizing: border-box;
 }
@@ -74,7 +70,6 @@ page {
 
 .galaxy-left-content .galaxy-hex-list {
     height: 200rpx;
-    width: 100%;
     padding-top: 10rpx;
     box-sizing: border-box;
     border-bottom: 1rpx solid #112542;

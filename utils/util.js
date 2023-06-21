@@ -1,4 +1,4 @@
-import {DEFAULT_SESSION, FEEDBACK_APPID, OBJECT, SESSION} from "./config";
+import {DEFAULT_SESSION, FEEDBACK_APPID, OBJECT, SESSION, SESSION_SET} from "./config";
 
 /**
  * 跳转
@@ -37,6 +37,16 @@ function getSessionFromStorage() {
     return session ?? DEFAULT_SESSION
 }
 
+/**
+ * 0 系统设置
+ * 1 我的菜单里面设置
+ * 系统设置只有更新的时候才生效
+ * @returns {any|number}
+ */
+function getSessionSet() {
+    let set = wx.getStorageSync(SESSION_SET)
+    return set === undefined || set === "" ? 0 : set
+}
 
 /**
  * 获取session
@@ -146,4 +156,7 @@ function gotoLegend(id) {
  *
  * @type {{goto: goto, heroDetail: heroDetail, getSessionName: (function(string=): string), showToast: showToast, getSession: (function(*): string), gotoFeedback: gotoFeedback, getSessionFromStorage: (function(): *), lineupDetail: lineupDetail}}
  */
-module.exports = {historyBack, goto, getSession, getSessionName, heroDetail, gotoFeedback, showToast, lineupDetail, getSessionFromStorage, gotoLegend}
+module.exports = {historyBack, goto, getSession, getSessionName,
+    getSessionSet,
+    heroDetail, gotoFeedback, showToast, lineupDetail,
+    getSessionFromStorage, gotoLegend}

@@ -5,7 +5,8 @@ import {heroDetail, showToast} from "../../utils/util";
 Page({
     data: {
         hero: {},
-        equipment: {}
+        equipment: {},
+        mb: [],
     },
     onLoad: function (options) {
         let that = this
@@ -13,12 +14,33 @@ Page({
             let data = res.data ?? []
             console.log('data', data)
             if (data) {
+                let mb = data.mb.map((item) => {
+                    item.average = (item.average * 100).toFixed(1)
+                    item.fourth = (item.fourth * 100).toFixed(1)
+                    item.presence = (item.presence * 100).toFixed(1)
+                    item.top = (item.top * 100).toFixed(1)
+                    item.data = item.data.map((item) => {
+                        let raw = item.data,
+                            level = 1,
+                            count = item.count,
+                            rawLevel = {}
+
+                        rawLevel = JSON.parse(raw.level.replace(/\n/g, ""))
+                        let index = Object.keys(rawLevel).indexOf(count);
+                        level = index + 1
+                        item.level = level
+                        return item
+                    })
+                    return item
+                })
                 that.setData({
                     hero: data.hero,
                     equipment: data.equipment,
+                    mb: mb,
                 })
             }
         }).catch(err => {
+            console.log('err', err)
             showToast("数据拉取失败，请稍候再试", {icon: "error"})
         })
     },

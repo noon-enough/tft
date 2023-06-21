@@ -1,6 +1,6 @@
 import deviceUtil from "/miniprogram_npm/lin-ui/utils/device-util";
 // app.js
-import {showToast} from '/utils/util.js'
+import {getSessionSet, showToast} from '/utils/util.js'
 import {sessions} from "./utils/api"
 import {SESSION, SESSION_LIST} from "./utils/config";
 
@@ -21,13 +21,14 @@ App({
       titleBarHeight: titleBarHeight,
     }
 
+    let sessionSet = getSessionSet()
     sessions().then(r => {
       let data = r.data ?? []
-      console.log('got Sessions', SESSION_LIST, data)
+      console.log('got Sessions', SESSION_LIST, data, 'sessionSet', sessionSet)
       if (data) {
         wx.setStorageSync(SESSION_LIST, data)
         for (const datum of data) {
-          if (datum.is_default === 1) {
+          if (datum.is_default === 1 && sessionSet === 0) {
             wx.setStorageSync(SESSION, datum.version)
           }
         }

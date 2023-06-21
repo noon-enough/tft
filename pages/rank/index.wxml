@@ -4,6 +4,31 @@
             l-inactive-class="tab-inactive-item"
             l-active-class="tab-active-item"
             hasLine="{{false}}">
+        <l-tabpanel tab="羁绊强度" key="hex" slot="hex">
+            <view class="page synergy-rank-list" wx:if="{{mb.length}}">
+                <view class="synergy-rank-item"
+                      wx:for="{{mb}}"
+                      wx:for-index="index"
+                      wx:key="i"
+                      wx:for-item="hex">
+                    <view class="synergy-rank-info">
+                        <view class="synergy-list" wx:if="{{hex.data.length}}">
+                            <synergy wx:for="{{hex.data}}"
+                                     wx:for-item="item" wx:key="h" wx:for-index="idx"
+                                     count="{{item.count}}"
+                                     name="{{item.data.name}}"
+                                     level="{{item.level}}"
+                                     avatar="{{item.data.image}}"/>
+                        </view>
+                        <view class="number-list">
+                            <view class="">登场率：{{hex.presence}}%</view>
+                            <view class="">前四率：{{hex.fourth}}%</view>
+                            <view class="active">吃鸡率：{{hex.top}}%</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </l-tabpanel>
         <l-tabpanel tab="英雄强度" key="hero" slot="hero">
             <view class="page">
                 <view class="rank-list">

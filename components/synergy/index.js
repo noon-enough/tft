@@ -15,6 +15,10 @@ Component({
         level: {
             type: Number,
             value: 1
+        },
+        size: {
+            type: Number,
+            value: 40,
         }
     },
     data: {

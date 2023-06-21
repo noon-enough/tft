@@ -1,10 +1,13 @@
-import {SESSION, SESSION_SHOW_NICKNAME} from "../../utils/config";
+import {SESSION, SESSION_FOLDING_MID_PROPHASE, SESSION_SHOW_NICKNAME} from "../../utils/config";
 import {chess, hero, hexes, jobs, lineup, races, synergies} from "../../utils/api";
-import {heroDetail, showToast} from "../../utils/util";
+import {heroDetail, historyBack, showToast} from "../../utils/util";
 
 const app = getApp()
 Page({
     data: {
+        is_show_equipment_mask: false,
+        is_folding_mid_prophase: false,
+        show_mid_prophase: false,
         id: 0,
         data: {},
         title: "",
@@ -17,14 +20,20 @@ Page({
         galaxy: {},
         playbook: {},
         hex: {},
+        equipment: {},
     },
     onLoad: function (options) {
         let id = options.id,
-            that = this
-        console.log("lineup-id", id, 'navBarHeight', app.globalData.navBarHeight)
+            that = this,
+            is_folding_mid_prophase =  !!wx.getStorageSync(SESSION_FOLDING_MID_PROPHASE)
+
+        console.log("lineup-id", id, 'navBarHeight', app.globalData.navBarHeight,
+            'is_folding_mid_prophase', is_folding_mid_prophase)
         that.setData({
             id: id,
-            navigationBarHeight: app.globalData.navBarHeight
+            navigationBarHeight: app.globalData.navBarHeight,
+            is_folding_mid_prophase: is_folding_mid_prophase,
+            show_mid_prophase: is_folding_mid_prophase !== true,
         })
         that.getDetail(id)
     },
@@ -38,18 +47,21 @@ Page({
     onShow: function () {
         let session = wx.getStorageSync(SESSION),
             that = this,
-            show_nickname = !!wx.getStorageSync(SESSION_SHOW_NICKNAME)
+            show_nickname = !!wx.getStorageSync(SESSION_SHOW_NICKNAME),
+            is_folding_mid_prophase= !!wx.getStorageSync(SESSION_FOLDING_MID_PROPHASE)
 
         console.log('show_nickname', show_nickname)
         that.setData({
             show_champion_name: show_nickname,
-            session: session
+            session: session,
+            is_folding_mid_prophase: is_folding_mid_prophase,
+            show_mid_prophase: is_folding_mid_prophase !== true,
         })
     },
-    getDetail(id) {
+    getDetail: function(id = "") {
         let that = this
         lineup(id).then(res => {
-            console.log(res)
+            console.log('lineup', res)
             let data = res.data ?? []
             if (data) {
                 that.setData({
@@ -70,7 +82,7 @@ Page({
         }
     },
     back() {
-        wx.navigateBack()
+        historyBack()
     },
     detail(e) {
         let id = e.currentTarget.dataset.heroId,
@@ -116,6 +128,18 @@ Page({
             is_show_mask: false,
             is_show_playbook_mask: false,
             is_show_hex_mask: false,
+            is_show_equipment_mask: false,
+        })
+    },
+    showEquipmentMask: function(e) {
+        let that = this
+        that.setData({
+            is_show_equipment_mask: true,
+            equipment: {
+                name: e.currentTarget.dataset.name ?? "",
+                effect: e.currentTarget.dataset.effect ?? "",
+                image: e.currentTarget.dataset.image ?? "",
+            },
         })
     },
     showHexMask: function(e) {
@@ -144,4 +168,14 @@ Page({
             }
         })
     },
+    onShowHideMidProphase: function(e) {
+        let that = this,
+            show_mid_prophase = that.data.show_mid_prophase,
+            is_show = show_mid_prophase !== true
+
+        that.setData({
+            show_mid_prophase: is_show
+        })
+
+    }
 });

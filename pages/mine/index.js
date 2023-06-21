@@ -1,5 +1,5 @@
 import tabbar from '../../tabbar';
-import {SESSION, SESSION_SHOW_NICKNAME} from "../../utils/config";
+import {SESSION, SESSION_FOLDING_MID_PROPHASE, SESSION_SHOW_NICKNAME} from "../../utils/config";
 import {getSessionName, getSession, gotoFeedback} from "../../utils/util";
 
 Page({
@@ -8,15 +8,18 @@ Page({
         list:tabbar,
         sessions: ['符文大陆', '金铲铲市危机', '怪兽入侵', '隐秘之海', '时空裂痕'],
         show_nickname: false,
+        is_folding_mid_prophase: false,
     },
     onLoad: function (options) {
         let session = wx.getStorageSync(SESSION),
             show_nickname = !!wx.getStorageSync(SESSION_SHOW_NICKNAME),
-            that = this
+            that = this,
+            is_folding_mid_prophase = !!wx.getStorageSync(SESSION_FOLDING_MID_PROPHASE)
 
         that.setData({
             session: getSessionName(session),
             show_nickname: show_nickname,
+            is_folding_mid_prophase: is_folding_mid_prophase,
         })
     },
     gotoFeedback(e) {
@@ -31,13 +34,21 @@ Page({
     },
     onChange(e) {
         let that = this,
-            checked = e.detail.value
-        console.log('checked', checked)
-        wx.setStorageSync(SESSION_SHOW_NICKNAME, checked)
+            checked = e.detail.value,
+            type = e.currentTarget.dataset.type ?? "hero"
+        console.log('checked', checked, e)
 
-        that.setData({
-            show_nickname: checked,
-        })
+        if (type === "hero") {
+            wx.setStorageSync(SESSION_SHOW_NICKNAME, checked)
+            that.setData({
+                show_nickname: checked,
+            })
+        } else if (type === "mid_prophase") {
+            wx.setStorageSync(SESSION_FOLDING_MID_PROPHASE, checked)
+            that.setData({
+                is_folding_mid_prophase: checked,
+            })
+        }
     },
     actionSheet(e){
         let that = this

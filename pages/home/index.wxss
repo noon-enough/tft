@@ -402,3 +402,17 @@
 .tab-list .component-select .component-select-pic {
     background: none;
 }
+
+
+.mask-content {
+    width: 260rpx;
+    height: 160rpx;
+    background: #0b1536;
+    border-radius: 12rpx;
+    overflow: hidden;
+    z-index: 99999999;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

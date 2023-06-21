@@ -9,9 +9,8 @@
     /*margin: 10rpx 20rpx 10rpx 0;*/
 }
 
-
 .component-synergy .synergy-icon {
-    line-height: 3;
+    line-height: 3.4;
     position: relative;
     display: inline-block;
     vertical-align: middle;

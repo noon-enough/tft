@@ -1,9 +1,6 @@
 <view class="component-synergy type-0 active level{{level}}">
     <view class="synergy-icon">
-        <l-avatar
-                size="40"
-                l-class="icon-img"
-                src="{{avatar}}"></l-avatar>
+        <l-avatar size="{{size}}" l-class="icon-img" src="{{avatar}}"></l-avatar>
     </view>
     <view class="synergy-txt">{{count}} {{name}}</view>
 </view>

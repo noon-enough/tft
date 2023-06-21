@@ -17,12 +17,30 @@
             image="/assets/icons/mine/hero.png"
             is-link="{{false}}">
         <view slot="right-section">
-            <switch checked="{{show_nickname}}" color="#3963bc" bindchange="onChange"/>
+            <switch checked="{{show_nickname}}" data-type="hero" color="#3963bc" bindchange="onChange"/>
         </view>
     </l-list>
+    <l-list
+            l-class="l-class"
+            title="阵容折叠前中期"
+            image="/assets/icons/mine/newspaper-folding.png"
+            is-link="{{false}}">
+        <view slot="right-section">
+            <switch checked="{{is_folding_mid_prophase}}" data-type="mid_prophase" color="#3963bc" bindchange="onChange"/>
+        </view>
+    </l-list>
+<!--    <l-list-->
+<!--            l-class="l-class"-->
+<!--            title="显示英雄原始皮肤"-->
+<!--            image="/assets/icons/mine/basketball-clothes.png"-->
+<!--            is-link="{{false}}">-->
+<!--        <view slot="right-section">-->
+<!--            <switch checked="{{is_folding_mid_prophase}}" data-type="mid_prophase" color="#3963bc" bindchange="onChange"/>-->
+<!--        </view>-->
+<!--    </l-list>-->
     <l-list title="数据强度排行"
             l-class="l-class"
-            image="/assets/icons/mine/heat.png"
+            image="/assets/icons/mine/trend-two.png"
             link-type="navigateTo"
             tag-content="hot" tag-position="right"
             is-link="{{false}}"
@@ -31,9 +49,9 @@
             l-class="l-class"
             link-type="navigateTo"
             url="/pages/qa/index"
-            image="/assets/icons/mine/q&a.png"  />
+            image="/assets/icons/mine/helpcenter.png"  />
     <l-list title="吐槽反馈"
             l-class="l-class"
             bind:lintap="gotoFeedback"
-            image="/assets/icons/mine/feedback.png" />
+            image="/assets/icons/mine/comment.png" />
 </view>

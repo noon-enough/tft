@@ -63,7 +63,10 @@
   },
   "debug": true,
   "usingComponents" : {
+    "l-collapse": "/miniprogram_npm/lin-ui/collapse/index",
+    "l-collapse-item": "/miniprogram_npm/lin-ui/collapse-item/index",
     "l-tabs": "/miniprogram_npm/lin-ui/tabs/index",
+    "l-notice-bar": "/miniprogram_npm/lin-ui/notice-bar/index",
     "l-mask": "/miniprogram_npm/lin-ui/mask/index",
     "l-tab-bar":"/miniprogram_npm/lin-ui/tab-bar/index",
     "l-tabpanel": "/miniprogram_npm/lin-ui/tabpanel/index",

@@ -2,10 +2,11 @@ import tabbar from '../../tabbar';
 import selection from "../../selection";
 import {goto, heroDetail, lineupDetail, showToast} from "../../utils/util";
 import {jobs, races, synergies} from "../../utils/api";
-import {SESSION_SHOW_NICKNAME} from "../../utils/config";
+import {DEFAULT_SESSION, DEFAULT_SESSION_NAME, SESSION, SESSION_SET, SESSION_SHOW_NICKNAME} from "../../utils/config";
 
 Page({
     data: {
+        show_new_session: false,
         selection: selection,
         list:tabbar,
         data: [],
@@ -24,10 +25,15 @@ Page({
     },
     onLoad: function() {
         let that = this
+
+        let newSession = wx.getStorageSync(SESSION_SET)
+        newSession = parseInt(newSession)
         that.setData({
             page: 1,
             data: [],
+            show_new_session: newSession !== 1,
         })
+
         that.getStrategies()
         that.getJobs()
         that.getRaces()
@@ -221,6 +227,24 @@ Page({
         }
 
         goto(uri)
-    }
+    },
+    onNewSession(e) {
+        let that = this,
+            sessionName = DEFAULT_SESSION_NAME
+
+        showToast(`新赛季切换成功`, {icon: "success"})
+        wx.setStorageSync(SESSION_SET, 1)
+        wx.setStorageSync(SESSION, DEFAULT_SESSION)
+
+        that.setData({
+            show_new_session: false,
+        })
+
+        that.onLoad()
+    },
+    changeMask() {
+        let that = this
+        that.onNewSession()
+    },
 });
 

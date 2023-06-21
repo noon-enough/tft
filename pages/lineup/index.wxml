@@ -154,65 +154,70 @@
             <view class="lineup-detail-content">
                 <view class="content-title">早期过渡</view>
                 <view class="content-desc">{{data.early_info}}</view>
-                <view class="lineup-stage" wx:if="{{data.early_heroes.length}}">
-                    <view class="lineup-stage-name">前期</view>
-                    <view class="lineup-stage-list">
-                        <block wx:for="{{data.early_heroes}}" wx:for-item="early" wx:for-index="i" wx:key="early_heroes">
-                            <view class="component-champion cost{{early.hero.prices}}">
-                                <champion
-                                        session="{{data.session}}"
-                                        showName="{{show_champion_name}}"
-                                        name="{{early.hero.nickname === '' ? early.hero.display_name : early.hero.nickname }}"
-                                        heroId="{{early.hero.id}}"
-                                        cost="{{early.hero.prices}}"
-                                        avatar="{{early.hero.avatar}}"/>
-                            </view>
-                        </block>
+                <view wx:if="{{is_folding_mid_prophase}}"
+                      bind:tap="onShowHideMidProphase"
+                      class="content-title mid_prophase">前中期阵容已折叠（<text>{{show_mid_prophase === true ? "收起" : "展开"}}</text>）</view>
+                <block wx:if="{{show_mid_prophase}}">
+                    <view class="lineup-stage" wx:if="{{data.early_heroes.length}}">
+                        <view class="lineup-stage-name">前期</view>
+                        <view class="lineup-stage-list">
+                            <block wx:for="{{data.early_heroes}}" wx:for-item="early" wx:for-index="i" wx:key="early_heroes">
+                                <view class="component-champion cost{{early.hero.prices}}">
+                                    <champion
+                                            session="{{data.session}}"
+                                            showName="{{show_champion_name}}"
+                                            name="{{early.hero.nickname === '' ? early.hero.display_name : early.hero.nickname }}"
+                                            heroId="{{early.hero.id}}"
+                                            cost="{{early.hero.prices}}"
+                                            avatar="{{early.hero.avatar}}"/>
+                                </view>
+                            </block>
+                        </view>
+                        <view class="lineup-stage-synergy" wx:if="{{data.early_heroes_contact.length}}">
+                            <block wx:for="{{data.early_heroes_contact}}"
+                                   wx:for-index="i"
+                                   wx:key="early_heroes_contact"
+                                   wx:for-item="contact">
+                                <synergy count="{{contact.num}}"
+                                         name="{{contact.data.name}}"
+                                         level="{{contact.level}}"
+                                         avatar="{{contact.data.image}}"/>
+                            </block>
+                        </view>
+                        <view class="lineup-stage-location-equip">
+                            <location location="{{data.early_heroes}}"/>
+                        </view>
                     </view>
-                    <view class="lineup-stage-synergy" wx:if="{{data.early_heroes_contact.length}}">
-                        <block wx:for="{{data.early_heroes_contact}}"
-                               wx:for-index="i"
-                               wx:key="early_heroes_contact"
-                               wx:for-item="contact">
-                            <synergy count="{{contact.num}}"
-                                     name="{{contact.data.name}}"
-                                     level="{{contact.level}}"
-                                     avatar="{{contact.data.image}}"/>
-                        </block>
+                    <view class="lineup-stage" wx:if="{{data.metaphase_heroes.length}}">
+                        <view class="lineup-stage-name">中期</view>
+                        <view class="lineup-stage-list">
+                            <block wx:for="{{data.metaphase_heroes}}" wx:for-index="i" wx:for-item="metaphase"
+                                   wx:key="metaphase_heroes">
+                                <view class="component-champion cost{{metaphase.hero.prices}}">
+                                    <champion
+                                            session="{{data.session}}"
+                                            showName="{{show_champion_name}}"
+                                            name="{{metaphase.hero.nickname === '' ? metaphase.hero.display_name : metaphase.hero.nickname }}"
+                                            heroId="{{metaphase.hero.id}}"
+                                            cost="{{metaphase.hero.prices}}"
+                                            avatar="{{metaphase.hero.avatar}}"/>
+                                </view>
+                            </block>
+                        </view>
+                        <view class="lineup-stage-synergy" wx:if="{{data.metaphase_heroes_contact.length}}">
+                            <block wx:for="{{data.metaphase_heroes_contact}}" wx:for-index="i"
+                                   wx:key="metaphase_heroes_contact" wx:for-item="contact">
+                                <synergy count="{{contact.num}}"
+                                         name="{{contact.data.name}}"
+                                         level="{{contact.level}}"
+                                         avatar="{{contact.data.image}}"/>
+                            </block>
+                        </view>
+                        <view class="lineup-stage-location-equip">
+                            <location location="{{data.metaphase_heroes}}"/>
+                        </view>
                     </view>
-                    <view class="lineup-stage-location-equip">
-                        <location location="{{data.early_heroes}}"/>
-                    </view>
-                </view>
-                <view class="lineup-stage" wx:if="{{data.metaphase_heroes.length}}">
-                    <view class="lineup-stage-name">中期</view>
-                    <view class="lineup-stage-list">
-                        <block wx:for="{{data.metaphase_heroes}}" wx:for-index="i" wx:for-item="metaphase"
-                               wx:key="metaphase_heroes">
-                            <view class="component-champion cost{{metaphase.hero.prices}}">
-                                <champion
-                                        session="{{data.session}}"
-                                        showName="{{show_champion_name}}"
-                                        name="{{metaphase.hero.nickname === '' ? metaphase.hero.display_name : metaphase.hero.nickname }}"
-                                        heroId="{{metaphase.hero.id}}"
-                                        cost="{{metaphase.hero.prices}}"
-                                        avatar="{{metaphase.hero.avatar}}"/>
-                            </view>
-                        </block>
-                    </view>
-                    <view class="lineup-stage-synergy" wx:if="{{data.metaphase_heroes_contact.length}}">
-                        <block wx:for="{{data.metaphase_heroes_contact}}" wx:for-index="i"
-                               wx:key="metaphase_heroes_contact" wx:for-item="contact">
-                            <synergy count="{{contact.num}}"
-                                     name="{{contact.data.name}}"
-                                     level="{{contact.level}}"
-                                     avatar="{{contact.data.image}}"/>
-                        </block>
-                    </view>
-                    <view class="lineup-stage-location-equip">
-                        <location location="{{data.metaphase_heroes}}"/>
-                    </view>
-                </view>
+                </block>
             </view>
             <view class="lineup-detail-content">
                 <view class="content-title">装备分析</view>
@@ -224,7 +229,12 @@
                                wx:for-index="k"
                                wx:for-item="equipment"
                         >
-                            <l-avatar l-class="component-equipment"
+                            <l-avatar
+                                    data-image="{{equipment.image}}"
+                                    data-effect="{{equipment.effect}}"
+                                    data-name="{{equipment.name}}"
+                                    bind:lintap="showEquipmentMask"
+                                      l-class="component-equipment"
                                       size="70"
                                       shape="square"
                                       src="{{equipment.image}}"/>
@@ -249,7 +259,12 @@
                                 <block wx:for="{{data.carry_hero_equipments.main}}"
                                        wx:for-item="main" wx:key="id" wx:for-index="l">
                                     <view class="lineup-equipment-list">
-                                        <l-avatar l-class="component-equipment"
+                                        <l-avatar
+                                                data-image="{{main.image}}"
+                                                data-effect="{{main.effect}}"
+                                                data-name="{{main.name}}"
+                                                bind:lintap="showEquipmentMask"
+                                                l-class="component-equipment"
                                                   size="60"
                                                   shape="square"
                                                   src="{{main.image}}"/>
@@ -262,6 +277,10 @@
                                        wx:for-item="backup" wx:key="id" wx:for-index="l">
                                     <view class="lineup-equipment-list">
                                         <l-avatar l-class="component-equipment"
+                                                  data-image="{{backup.image}}"
+                                                  data-effect="{{backup.effect}}"
+                                                  data-name="{{backup.name}}"
+                                                  bind:lintap="showEquipmentMask"
                                                   size="60"
                                                   shape="square"
                                                   src="{{backup.image}}"/>
@@ -293,6 +312,10 @@
                                             <l-avatar l-class="component-equipment"
                                                       size="60"
                                                       shape="square"
+                                                      data-image="{{equipment.image}}"
+                                                      data-effect="{{equipment.effect}}"
+                                                      data-name="{{equipment.name}}"
+                                                      bind:lintap="showEquipmentMask"
                                                       src="{{equipment.image}}"/>
                                         </block>
                                     </view>
@@ -357,6 +380,21 @@
                 </view>
                 <view class="desc mt20">
                     {{playbook.desc}}
+                </view>
+            </view>
+        </view>
+    </l-mask>
+    <l-mask show="{{is_show_equipment_mask}}" bind:lintap="changeMask" center="{{false}}">
+        <view class="mask-content">
+            <view class="payload">
+                <view class="header">
+                    <view class="payload_avatar">
+                        <image mode="widthFix" src="{{equipment.image}}"></image>
+                    </view>
+                    <view class="name ml20">{{equipment.name}}</view>
+                </view>
+                <view class="desc mt20">
+                    {{equipment.effect}}
                 </view>
             </view>
         </view>

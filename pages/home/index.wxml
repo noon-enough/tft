@@ -19,6 +19,15 @@
         bind:linlefttap="filter"
         title="阵容推荐">
     <view class="container">
+        <l-notice-bar
+                show="{{false}}"
+                type="still"
+                front-icon-name="notification"
+                end-icon-name="close"
+                front-icon-size="20"
+                front-icon-color="#3683D6">
+            我是通告栏
+        </l-notice-bar>
         <l-loadmore
                 show="{{loadmore}}">
             <view slot="content">
@@ -174,4 +183,9 @@
             </view>
         </l-loadmore>
     </view>
+    <l-mask show="{{show_new_session}}" bind:lintap="changeMask" center="{{false}}">
+        <view class="mask-content" bind:tap="onNewSession">
+            <image mode="scaleToFill" style="width: 260rpx; height: 160rpx;" src="https://game.gtimg.cn/images/lol/tft/content-site/logo-tft.png"></image>
+        </view>
+    </l-mask>
 </capsule-bar>

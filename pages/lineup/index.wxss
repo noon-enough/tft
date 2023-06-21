@@ -103,6 +103,14 @@
     margin: 0 0 10rpx;
 }
 
+.page-lineup-detail .lineup-detail-content .content-title.mid_prophase {
+    color: #cca329;
+    font-size: 30rpx;
+    font-weight: 700;
+    margin-top: 20rpx;
+    text-align: center;
+}
+
 .page-lineup-detail .lineup-detail-content .content-desc {
     color: #72788e;
     font-size: 26rpx;
