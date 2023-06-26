@@ -1,6 +1,6 @@
 import {SESSION} from "../../utils/config";
 import {chess, hero, hexes, jobs, races, synergies} from "../../utils/api";
-import {heroDetail, historyBack, showToast} from "../../utils/util";
+import {gotoRank, heroDetail, historyBack, showToast} from "../../utils/util";
 
 const app = getApp()
 Page({
@@ -106,5 +106,10 @@ Page({
         bgColor: "transparent"
       })
     }
-  }
+  },
+  gotoRank: function (e) {
+    let that = this,
+        type = e.currentTarget.dataset.type ?? "hex"
+    gotoRank(type)
+  },
 });

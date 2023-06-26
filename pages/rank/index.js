@@ -7,9 +7,15 @@ Page({
         hero: {},
         equipment: {},
         mb: [],
+        defaultAction: "hex",
+        is_show_equipment_mask: false,
     },
     onLoad: function (options) {
-        let that = this
+        let that = this,
+            defaultAction = options.type ?? "hex"
+        that.setData({
+            defaultAction: defaultAction,
+        })
         rank().then(res => {
             let data = res.data ?? []
             console.log('data', data)
@@ -67,5 +73,25 @@ Page({
             title: `金铲铲之战-英雄、装备、羁绊数据排行统计`,
             path: `/pages/rank/index`,
         }
+    },
+    changeMask: function (e) {
+        let that = this
+        that.setData({
+            is_show_equipment_mask: false,
+        })
+    },
+    showEquipmentMask: function(e) {
+        let that = this,
+            equipment = {
+                name: e.currentTarget.dataset.name ?? "",
+                effect: e.currentTarget.dataset.effect ?? "",
+                image: e.currentTarget.dataset.image ?? "",
+                formula: e.currentTarget.dataset.formula ?? {},
+            }
+        equipment.formula = Object.values(equipment.formula)
+        that.setData({
+            is_show_equipment_mask: true,
+            equipment: equipment,
+        })
     },
 });

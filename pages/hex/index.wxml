@@ -9,6 +9,7 @@
             active-color="#b59758"
             inactive-color="#959db9"
             bind:linchange="onTabTabBar"
+            active-key="{{topActive}}"
             l-inactive-class="tab-inactive-item"
             l-active-class="tab-active-item">
         <l-tabpanel tab="种族" key="race" slot="race">
@@ -95,6 +96,7 @@
         </l-tabpanel>
         <l-tabpanel tab="符文" key="hex" slot="hex">
             <l-tabs hasLine="{{false}}"
+                    secondActive="{{secondActive}}"
                     bind:linchange="onHexBarChange"
                     active-color="#b59758"
                     inactive-color="#959db9"

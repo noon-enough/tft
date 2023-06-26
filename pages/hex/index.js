@@ -2,8 +2,12 @@ import tabbar from '../../tabbar';
 import {SESSION} from "../../utils/config";
 import {galaxy, hexes, jobs, legend, races} from "../../utils/api";
 import {gotoLegend, heroDetail, showToast} from "../../utils/util";
+
+const app = getApp()
 Page({
     data: {
+        activeKey: "race",
+        secondActive: "silver",
         list:tabbar,
         races: [],
         jobs: [],
@@ -24,11 +28,20 @@ Page({
         session: "s7"
     },
     onLoad: function (options) {
-        let that = this
+        let that = this,
+            top = app.globalData.hex.top ?? "race",
+            second = app.globalData.hex.second ?? "silver"
+
         that.getRaces()
         that.getJobs()
         that.getLegend()
         that.getGalaxy()
+
+        console.log('app', app.globalData.hex)
+        that.setData({
+            activeKey: top,
+            secondActive: second,
+        })
     },
     getRaces: function () {
         let that = this

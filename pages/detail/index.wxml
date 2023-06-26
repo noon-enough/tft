@@ -29,7 +29,7 @@
                     <block wx:if="{{data.nickname}}">({{data.nickname}})</block>
                 </view>
                 <view class="champion-rank-data" wx:if="{{data.rankData}}">
-                    <view class="champion-data">
+                    <view class="champion-data" bind:tap="gotoRank" data-type="hero">
                         <view class="data-item">
                             <view class="data-num strength">
                                 {{data.rankData.strength}}

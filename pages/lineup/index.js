@@ -29,6 +29,7 @@ Page({
 
         console.log("lineup-id", id, 'navBarHeight', app.globalData.navBarHeight,
             'is_folding_mid_prophase', is_folding_mid_prophase)
+        wx.showLoading()
         that.setData({
             id: id,
             navigationBarHeight: app.globalData.navBarHeight,
@@ -71,6 +72,9 @@ Page({
             }
         }).catch(err => {
             showToast("拉取数据失败", {icon: "error"})
+        }).finally( ()=> {
+            wx.hideLoading()
+            wx.hideNavigationBarLoading()
         })
     },
     onShareAppMessage(options) {
@@ -132,14 +136,17 @@ Page({
         })
     },
     showEquipmentMask: function(e) {
-        let that = this
-        that.setData({
-            is_show_equipment_mask: true,
-            equipment: {
+        let that = this,
+            equipment = {
                 name: e.currentTarget.dataset.name ?? "",
                 effect: e.currentTarget.dataset.effect ?? "",
                 image: e.currentTarget.dataset.image ?? "",
-            },
+                formula: e.currentTarget.dataset.formula ?? {},
+            }
+        equipment.formula = Object.values(equipment.formula)
+        that.setData({
+            is_show_equipment_mask: true,
+            equipment: equipment,
         })
     },
     showHexMask: function(e) {

@@ -10,6 +10,10 @@ page {
     margin-top: 20rpx;
 }
 
+.mb20 {
+    margin-bottom: 20rpx;
+}
+
 .text-align-left {
     text-align: left;
 }
@@ -114,3 +118,12 @@ page {
     color: #959db9;
 }
 
+.symbol  {
+    display: inline-block;
+    vertical-align: middle;
+    color: #6e4a00;
+    font-size: 30rpx;
+    margin: 0 30rpx;
+    font-weight: 700;
+    flex-grow: 1;
+}

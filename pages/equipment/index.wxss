@@ -93,16 +93,6 @@ l-avatar .component-equipment {
     height: 60px;
 }
 
-.symbol  {
-    display: inline-block;
-    vertical-align: middle;
-    color: #6e4a00;
-    font-size: 30rpx;
-    margin: 0 30rpx;
-    font-weight: 700;
-    flex-grow: 1;
-}
-
 .equipment-item .equip-after {
     display: inline-block;
     vertical-align: middle;

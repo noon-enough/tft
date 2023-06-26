@@ -11,6 +11,16 @@ function goto(url) {
     })
 }
 
+function gotoHex() {
+    wx.switchTab({
+        url: `/pages/hex/index`
+    })
+}
+
+
+function gotoRank(type = "mb") {
+    goto(`/pages/rank/index?type=${type}`)
+}
 /**
  * 跳转到英雄详细页面
  * @param id
@@ -157,6 +167,6 @@ function gotoLegend(id) {
  * @type {{goto: goto, heroDetail: heroDetail, getSessionName: (function(string=): string), showToast: showToast, getSession: (function(*): string), gotoFeedback: gotoFeedback, getSessionFromStorage: (function(): *), lineupDetail: lineupDetail}}
  */
 module.exports = {historyBack, goto, getSession, getSessionName,
-    getSessionSet,
+    getSessionSet, gotoRank, gotoHex,
     heroDetail, gotoFeedback, showToast, lineupDetail,
     getSessionFromStorage, gotoLegend}

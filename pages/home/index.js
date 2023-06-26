@@ -1,9 +1,10 @@
 import tabbar from '../../tabbar';
 import selection from "../../selection";
-import {goto, heroDetail, lineupDetail, showToast} from "../../utils/util";
+import {goto, gotoHex, heroDetail, lineupDetail, showToast} from "../../utils/util";
 import {jobs, races, synergies} from "../../utils/api";
 import {DEFAULT_SESSION, DEFAULT_SESSION_NAME, SESSION, SESSION_SET, SESSION_SHOW_NICKNAME} from "../../utils/config";
 
+const app = getApp()
 Page({
     data: {
         show_new_session: false,
@@ -246,5 +247,19 @@ Page({
         let that = this
         that.onNewSession()
     },
+    gotoGalaxy: function() {
+        app.globalData.hex = {
+            top: "galaxy",
+            second: "",
+        }
+        gotoHex()
+    },
+    gotoLegend: function() {
+        app.globalData.hex = {
+            top: "hex",
+            second: "legend",
+        }
+        gotoHex()
+    }
 });
 

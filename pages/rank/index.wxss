@@ -1,3 +1,5 @@
+@import "/assets/style/mask.wxss";
+
 .page {
     background: none;
 }
@@ -115,4 +117,63 @@
 .synergy-rank-list  .synergy-rank-item .synergy-rank-info .number-list view.active {
     color: #e8f5ff;
     font-weight: bold;
+}
+
+.page-rank-list .rank-title {
+    width: 100%;
+    line-height: 1.2;
+    border-bottom-width: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.page-rank-list .rank-title .title-text {
+    display: inline-block;
+    vertical-align: middle;
+    color: #fcf0f4;
+    font-size: 28rpx;
+    font-weight: 700;
+}
+
+.page-rank-list .rank-title .title-text {
+    color: #e8f5ff;
+}
+
+.page-rank-list .rank-title .sorter {
+    width: 46%;
+    /*margin-right: 8%;*/
+    float: right;
+    display: flex;
+    text-align: center;
+}
+
+.page-rank-list .rank-title .sorter .item {
+    width: calc(100% / 3);
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    vertical-align: middle;
+}
+
+.page-rank-list .rank-title .sorter .item .sorter-txt {
+    color: #6c7a95;
+    font-size: 26rpx;
+}
+
+.page-rank-list .rank-title .sorter .item .sorter-txt.active  {
+    color: #e8f5ff;
+    font-weight: bolder;
+}
+
+.page-rank-list .rank-title .sorter .item .sorter-arrow {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 8rpx;
+}
+
+.page-rank-list .rank-title .sorter .item .sorter-arrow .icon {
+    display: block;
+    width: 22rpx;
+    height: 22rpx;
 }

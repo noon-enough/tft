@@ -19,15 +19,15 @@
         bind:linlefttap="filter"
         title="阵容推荐">
     <view class="container">
-        <l-notice-bar
-                show="{{false}}"
-                type="still"
-                front-icon-name="notification"
-                end-icon-name="close"
-                front-icon-size="20"
-                front-icon-color="#3683D6">
-            我是通告栏
-        </l-notice-bar>
+        <view class="show-block">
+            <view class="banner-wrap" bind:tap="gotoGalaxy">
+                <image class="left" src="https://game.gtimg.cn/images/lol/tft/content-site/btn-monsters.png"
+                       mode="aspectFill"></image>
+            </view>
+            <view class="banner-wrap" bind:tap="gotoLegend">
+                <image class="right" src="https://game.gtimg.cn/images/lol/tft/content-site/btn-hero-hex.png" mode="aspectFill"></image>
+            </view>
+        </view>
         <l-loadmore
                 show="{{loadmore}}">
             <view slot="content">

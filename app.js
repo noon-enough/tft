@@ -45,6 +45,10 @@ App({
       navigationBarHeight: 0,
       statusBarHeight: 0,
       titleBarHeight: 0,
+    },
+    hex: {
+      top: "race",
+      second: "silver",
     }
   },
   // 设置监听器

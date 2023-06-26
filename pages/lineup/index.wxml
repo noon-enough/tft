@@ -230,10 +230,11 @@
                                wx:for-item="equipment"
                         >
                             <l-avatar
+                                    data-formula="{{equipment.formula_data}}"
+                                    bind:lintap="showEquipmentMask"
                                     data-image="{{equipment.image}}"
                                     data-effect="{{equipment.effect}}"
                                     data-name="{{equipment.name}}"
-                                    bind:lintap="showEquipmentMask"
                                       l-class="component-equipment"
                                       size="70"
                                       shape="square"
@@ -263,6 +264,7 @@
                                                 data-image="{{main.image}}"
                                                 data-effect="{{main.effect}}"
                                                 data-name="{{main.name}}"
+                                                data-formula="{{main.formula_data}}"
                                                 bind:lintap="showEquipmentMask"
                                                 l-class="component-equipment"
                                                   size="60"
@@ -277,10 +279,11 @@
                                        wx:for-item="backup" wx:key="id" wx:for-index="l">
                                     <view class="lineup-equipment-list">
                                         <l-avatar l-class="component-equipment"
+                                                  data-formula="{{backup.formula_data}}"
+                                                  bind:lintap="showEquipmentMask"
                                                   data-image="{{backup.image}}"
                                                   data-effect="{{backup.effect}}"
                                                   data-name="{{backup.name}}"
-                                                  bind:lintap="showEquipmentMask"
                                                   size="60"
                                                   shape="square"
                                                   src="{{backup.image}}"/>
@@ -312,10 +315,11 @@
                                             <l-avatar l-class="component-equipment"
                                                       size="60"
                                                       shape="square"
+                                                      data-formula="{{equipment.formula_data}}"
+                                                      bind:lintap="showEquipmentMask"
                                                       data-image="{{equipment.image}}"
                                                       data-effect="{{equipment.effect}}"
                                                       data-name="{{equipment.name}}"
-                                                      bind:lintap="showEquipmentMask"
                                                       src="{{equipment.image}}"/>
                                         </block>
                                     </view>
@@ -394,6 +398,21 @@
                     <view class="name ml20">{{equipment.name}}</view>
                 </view>
                 <view class="desc mt20">
+                    <view class="equip-formula mb20" style="width: 40%;" wx:if="{{equipment.formula.length}}">
+                        <view class="equip-formula-flex">
+                            <l-avatar
+                                    l-class="component-equipment"
+                                    shape="square"
+                                    size="50"
+                                    src="{{equipment.formula[0].image}}"/>
+                            <view class="symbol">+</view>
+                            <l-avatar
+                                    l-class="component-equipment"
+                                    shape="square"
+                                    size="50"
+                                    src="{{equipment.formula[1].image}}"/>
+                        </view>
+                    </view>
                     {{equipment.effect}}
                 </view>
             </view>
