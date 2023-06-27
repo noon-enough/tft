@@ -24,6 +24,11 @@ page {
     background: #101c42;
 }
 
+.component-champion .text {
+    color: white;
+    font-size: 26rpx;
+}
+
 .component-champion.cost8 .champion-pic {
     border: 2px solid #cca329;
 }

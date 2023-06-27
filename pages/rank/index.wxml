@@ -4,31 +4,41 @@
             l-inactive-class="tab-inactive-item"
             l-active-class="tab-active-item"
             active-key="{{defaultAction}}"
+            bind:linchange="onTabChange"
             hasLine="{{false}}">
         <l-tabpanel tab="羁绊强度" key="hex" slot="hex">
             <view class="page page-rank-list synergy-rank-list" wx:if="{{mb.length}}">
                 <view class="rank-title">
                     <view class="title-text">羁绊排行</view>
                     <view class="sorter">
-                        <view class="item">
-                            <view class="sorter-txt active">登场</view>
+                        <view class="item"
+                              data-action="mb"
+                              data-type="presence"
+                              bind:tap="rankSorter">
+                            <view class="sorter-txt {{activeSort === 'mb-presence' ? 'active' : ''}}">登场</view>
                             <view class="sorter-arrow">
-                                <image src="/assets/icons/up.png" mode="widthFix" class="icon"></image>
-                                <image src="/assets/icons/down_active.png" mode="widthFix" class="icon"></image>
+                                <image src="/assets/icons/up{{activeSort === 'mb-presence' && sortData.mb.presence === false ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                                <image src="/assets/icons/down{{activeSort === 'mb-presence' && sortData.mb.presence === true ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
                             </view>
                         </view>
-                        <view class="item">
-                            <view class="sorter-txt">前四</view>
+                        <view class="item"
+                              data-action="mb"
+                              data-type="fourth"
+                              bind:tap="rankSorter">
+                            <view class="sorter-txt {{activeSort === 'mb-fourth' ? 'active' : ''}}">前四</view>
                             <view class="sorter-arrow">
-                                <image src="/assets/icons/up.png" mode="widthFix" class="icon"></image>
-                                <image src="/assets/icons/down.png" mode="widthFix" class="icon"></image>
+                                <image src="/assets/icons/up{{activeSort === 'mb-fourth' && sortData.mb.fourth === false ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                                <image src="/assets/icons/down{{activeSort === 'mb-fourth' && sortData.mb.fourth === true ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
                             </view>
                         </view>
-                        <view class="item">
-                            <view class="sorter-txt">登顶</view>
+                        <view class="item"
+                              data-action="mb"
+                              data-type="top"
+                              bind:tap="rankSorter">
+                            <view class="sorter-txt {{activeSort === 'mb-top' ? 'active' : ''}}">登顶</view>
                             <view class="sorter-arrow">
-                                <image src="/assets/icons/up.png" mode="widthFix" class="icon"></image>
-                                <image src="/assets/icons/down.png" mode="widthFix" class="icon"></image>
+                                <image src="/assets/icons/up{{activeSort === 'mb-top' && sortData.mb.top === false ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                                <image src="/assets/icons/down{{activeSort === 'mb-top' && sortData.mb.top === true ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
                             </view>
                         </view>
                     </view>
@@ -41,228 +51,190 @@
                     <view class="synergy-rank-info">
                         <view class="synergy-list" wx:if="{{hex.data.length}}">
                             <synergy wx:for="{{hex.data}}"
-                                     wx:for-item="item" wx:key="h" wx:for-index="idx"
+                                     wx:for-item="item"
+                                     wx:key="h" wx:for-index="idx"
                                      count="{{item.count}}"
                                      name="{{item.data.name}}"
                                      level="{{item.level}}"
+                                     iconSize="40"
+                                     fontSize="24"
+                                     size="30"
+                                     isRank="{{true}}"
                                      avatar="{{item.data.image}}"/>
                         </view>
                         <view class="number-list">
-                            <view class="">登场率：{{hex.presence}}%</view>
-                            <view class="">前四率：{{hex.fourth}}%</view>
-                            <view class="active">吃鸡率：{{hex.top}}%</view>
+                            <view class="item {{activeSort === 'mb-presence' ? 'active' : ''}}">{{hex.presence}}%</view>
+                            <view class="item {{activeSort === 'mb-fourth' ? 'active' : ''}}">{{hex.fourth}}%</view>
+                            <view class="item {{activeSort === 'mb-top' ? 'active' : ''}}">{{hex.top}}%</view>
                         </view>
                     </view>
                 </view>
             </view>
         </l-tabpanel>
         <l-tabpanel tab="英雄强度" key="hero" slot="hero">
-            <view class="page">
-                <view class="rank-list">
-                    <block wx:if="{{hero.T0.length}}">
-                        <view class="rank-item">
-                            <view class="title t0">T0</view>
-                            <view class="desc">
-                                <block wx:for="{{hero.T0}}" wx:key="id" wx:for-index="i" wx:for-item="item">
-                                    <view class="component-champion cost{{item.data.prices}}" style="margin-left: 10rpx;">
-                                        <l-avatar
-                                                data-hero-session="{{item.data.session}}"
-                                                bind:tap="detail"
-                                                data-hero-id="{{item.data.id}}"
-                                                shape="square"
-                                                size="60"
-                                                l-class="champion-pic"
-                                                src="{{item.data.avatar}}"/>
-                                    </view>
-                                </block>
+            <view class="page page-rank-list synergy-rank-list">
+                <view class="rank-title">
+                    <view class="title-text">英雄强度</view>
+                    <view class="sorter">
+                        <view class="item"
+                              data-action="hero"
+                              data-type="presence"
+                              bind:tap="rankSorter">
+                            <view class="sorter-txt {{activeSort === 'hero-presence' ? 'active' : ''}}">登场</view>
+                            <view class="sorter-arrow">
+                                <image src="/assets/icons/up{{activeSort === 'hero-presence' && sortData.hero.presence === false ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                                <image src="/assets/icons/down{{activeSort === 'hero-presence' && sortData.hero.presence === true ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
                             </view>
                         </view>
-                    </block>
-                    <block wx:if="{{hero.T1.length}}">
-                        <view class="rank-item">
-                            <view class="title t1">T1</view>
-                            <view class="desc">
-                                <block wx:for="{{hero.T1}}" wx:key="id" wx:for-index="i" wx:for-item="item">
-                                    <view class="component-champion cost{{item.data.prices}}" style="margin-left: 10rpx;">
-                                        <l-avatar
-                                                data-hero-session="{{item.data.session}}"
-                                                bind:tap="detail"
-                                                data-hero-id="{{item.data.id}}"
-                                                shape="square"
-                                                size="60"
-                                                l-class="champion-pic"
-                                                src="{{item.data.avatar}}"/>
-                                    </view>
-                                </block>
+                        <view class="item"
+                              data-action="hero"
+                              data-type="fourth"
+                              bind:tap="rankSorter">
+                            <view class="sorter-txt {{activeSort === 'hero-fourth' ? 'active' : ''}}">前四</view>
+                            <view class="sorter-arrow">
+                                <image src="/assets/icons/up{{activeSort === 'hero-fourth' && sortData.hero.fourth === false ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                                <image src="/assets/icons/down{{activeSort === 'hero-fourth' && sortData.hero.fourth === true ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
                             </view>
                         </view>
-                    </block>
-                    <block wx:if="{{hero.T2.length}}">
-                        <view class="rank-item">
-                            <view class="title t2">T2</view>
-                            <view class="desc">
-                                <block wx:for="{{hero.T2}}" wx:key="id" wx:for-index="i" wx:for-item="item">
-                                    <view class="component-champion cost{{item.data.prices}}" style="margin-left: 10rpx;">
-                                        <l-avatar
-                                                data-hero-session="{{item.data.session}}"
-                                                bind:tap="detail"
-                                                data-hero-id="{{item.data.id}}"
-                                                shape="square"
-                                                size="60"
-                                                l-class="champion-pic"
-                                                src="{{item.data.avatar}}"/>
-                                    </view>
-                                </block>
+                        <view class="item"
+                              data-action="hero"
+                              data-type="top"
+                              bind:tap="rankSorter">
+                            <view class="sorter-txt {{activeSort === 'hero-top' ? 'active' : ''}}">登顶</view>
+                            <view class="sorter-arrow">
+                                <image src="/assets/icons/up{{activeSort === 'hero-top' && sortData.hero.top === false ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                                <image src="/assets/icons/down{{activeSort === 'hero-top' && sortData.hero.top === true ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
                             </view>
                         </view>
-                    </block>
-                    <block wx:if="{{hero.T3.length}}">
-                        <view class="rank-item">
-                            <view class="title t3">T3</view>
-                            <view class="desc">
-                                <block wx:for="{{hero.T3}}" wx:key="id" wx:for-index="i" wx:for-item="item">
-                                    <view class="component-champion cost{{item.data.prices}}" style="margin-left: 10rpx;">
-                                        <l-avatar
-                                                data-hero-session="{{item.data.session}}"
-                                                bind:tap="detail"
-                                                data-hero-id="{{item.data.id}}"
-                                                shape="square"
-                                                size="60"
-                                                l-class="champion-pic"
-                                                src="{{item.data.avatar}}"/>
-                                    </view>
-                                </block>
+                    </view>
+                </view>
+                <view class="synergy-rank-item"
+                      wx:for="{{hero}}"
+                      wx:for-index="index"
+                      wx:key="i"
+                      wx:for-item="item">
+                    <view class="synergy-rank-info">
+                        <view class="synergy-list">
+                            <view class="component-champion cost{{item.data.prices}}">
+                                <l-avatar
+                                        bind:tap="detail"
+                                        data-hero-session="{{item.data.session}}"
+                                        data-hero-id="{{item.data.id}}"
+                                        size="{{60}}"
+                                        text="{{item.data.display_name}}"
+                                        l-class="champion-pic"
+                                        l-text-class="text"
+                                        src="{{item.data.avatar}}"/>
                             </view>
                         </view>
-                    </block>
-                    <block wx:if="{{hero.T4.length}}">
-                        <view class="rank-item">
-                            <view class="title t4">T4</view>
-                            <view class="desc">
-                                <block wx:for="{{hero.T4}}" wx:key="id" wx:for-index="i" wx:for-item="item">
-                                    <view class="component-champion cost{{item.data.prices}}" style="margin-left: 10rpx;">
-                                        <l-avatar
-                                                data-hero-session="{{item.data.session}}"
-                                                bind:tap="detail"
-                                                data-hero-id="{{item.data.id}}"
-                                                shape="square"
-                                                size="60"
-                                                l-class="champion-pic"
-                                                src="{{item.data.avatar}}"/>
-                                    </view>
-                                </block>
-                            </view>
+                        <view class="number-list">
+                            <view class="item {{activeSort === 'hero-presence' ? 'active' : ''}}">{{item.presence}}%</view>
+                            <view class="item {{activeSort === 'hero-fourth' ? 'active' : ''}}">{{item.fourth}}%</view>
+                            <view class="item {{activeSort === 'hero-top' ? 'active' : ''}}">{{item.top}}%</view>
                         </view>
-                    </block>
+                    </view>
                 </view>
                 <view class="tips">所有数据均来自TFT官方数据统计，数据每天临晨更新；英雄强度按照官方数据中“胜率”、“登场率”、“前四率”进行综合排序；</view>
             </view>
         </l-tabpanel>
         <l-tabpanel tab="装备强度" key="equipment" slot="equipment">
-            <view class="page page-rank-list">
+            <view class="page page-rank-list synergy-rank-list">
                 <view class="rank-title">
                     <view class="title-text">装备排行</view>
-                    <view class="sorter"></view>
+                    <view class="sorter">
+                        <view class="item"
+                              data-action="equipment"
+                              data-type="presence"
+                              bind:tap="rankSorter">
+                            <view class="sorter-txt {{activeSort === 'equipment-presence' ? 'active' : ''}}">登场</view>
+                            <view class="sorter-arrow">
+                                <image src="/assets/icons/up{{activeSort === 'equipment-presence' && sortData.equipment.presence === false ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                                <image src="/assets/icons/down{{activeSort === 'equipment-presence' && sortData.equipment.presence === true ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                            </view>
+                        </view>
+                        <view class="item"
+                              data-action="equipment"
+                              data-type="fourth"
+                              bind:tap="rankSorter">
+                            <view class="sorter-txt {{activeSort === 'equipment-fourth' ? 'active' : ''}}">前四</view>
+                            <view class="sorter-arrow">
+                                <image src="/assets/icons/up{{activeSort === 'equipment-fourth' && sortData.equipment.fourth === false ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                                <image src="/assets/icons/down{{activeSort === 'equipment-fourth' && sortData.equipment.fourth === true ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                            </view>
+                        </view>
+                        <view class="item"
+                              data-action="equipment"
+                              data-type="top"
+                              bind:tap="rankSorter">
+                            <view class="sorter-txt {{activeSort === 'equipment-top' ? 'active' : ''}}">登顶</view>
+                            <view class="sorter-arrow">
+                                <image src="/assets/icons/up{{activeSort === 'equipment-top' && sortData.hero.top === false ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                                <image src="/assets/icons/down{{activeSort === 'equipment-top' && sortData.hero.top === true ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                            </view>
+                        </view>
+                    </view>
                 </view>
-                <view class="rank-list">
-                    <block wx:if="{{equipment.T0.length}}">
-                        <view class="rank-item">
-                            <view class="title t0">T0</view>
-                            <view class="desc">
-                                <block wx:for="{{equipment.T0}}" wx:key="id" wx:for-index="i" wx:for-item="item">
-                                    <view class="component-champion" style="margin-left: 10rpx;">
-                                        <l-avatar
-                                                shape="square"
-                                                size="60"
-                                                l-class="champion-pic"
-                                                src="{{item.data.image}}"/>
-                                    </view>
-                                </block>
-                            </view>
+                <view class="synergy-rank-item"
+                      wx:for="{{equipment}}"
+                      wx:for-index="index"
+                      wx:key="i"
+                      wx:for-item="item">
+                    <view class="synergy-rank-info">
+                        <view class="synergy-list">
+                            <l-avatar
+                                    data-formula-id="{{item.data.formula}}"
+                                    data-formula="{{item.data.formula_data}}"
+                                    bind:lintap="showEquipmentMask"
+                                    data-image="{{item.data.image}}"
+                                    data-effect="{{item.data.effect}}"
+                                    data-name="{{item.data.name}}"
+                                    data-hero-id="{{item.data.id}}"
+                                    size="{{60}}"
+                                    shape="square"
+                                    text="{{item.data.name}}"
+                                    l-class="champion-pic"
+                                    l-text-class="text"
+                                    src="{{item.data.image}}"/>
                         </view>
-                    </block>
-                    <block wx:if="{{equipment.T1.length}}">
-                        <view class="rank-item">
-                            <view class="title t1">T1</view>
-                            <view class="desc">
-                                <block wx:for="{{equipment.T1}}" wx:key="id" wx:for-index="i" wx:for-item="item">
-                                    <view class="component-champion" style="margin-left: 10rpx;">
-                                        <l-avatar
-                                                data-formula="{{item.data.formula_data}}"
-                                                bind:lintap="showEquipmentMask"
-                                                data-image="{{item.data.image}}"
-                                                data-effect="{{item.data.effect}}"
-                                                data-name="{{item.data.name}}"
-                                                shape="square"
-                                                size="60"
-                                                l-class="champion-pic"
-                                                src="{{item.data.image}}"/>
-                                    </view>
-                                </block>
-                            </view>
+                        <view class="number-list">
+                            <view class="item {{activeSort === 'equipment-presence' ? 'active' : ''}}">{{item.presence}}%</view>
+                            <view class="item {{activeSort === 'equipment-fourth' ? 'active' : ''}}">{{item.fourth}}%</view>
+                            <view class="item {{activeSort === 'equipment-top' ? 'active' : ''}}">{{item.top}}%</view>
                         </view>
-                    </block>
-                    <block wx:if="{{equipment.T2.length}}">
-                        <view class="rank-item">
-                            <view class="title t2">T2</view>
-                            <view class="desc">
-                                <block wx:for="{{equipment.T2}}" wx:key="id" wx:for-index="i" wx:for-item="item">
-                                    <view class="component-champion" style="margin-left: 10rpx;">
-                                        <l-avatar
-                                                data-formula="{{item.data.formula_data}}"
-                                                bind:lintap="showEquipmentMask"
-                                                data-image="{{item.data.image}}"
-                                                data-effect="{{item.data.effect}}"
-                                                data-name="{{item.data.name}}"
-                                                shape="square"
-                                                size="60"
-                                                l-class="champion-pic"
-                                                src="{{item.data.image}}"/>
-                                    </view>
-                                </block>
-                            </view>
-                        </view>
-                    </block>
-                    <block wx:if="{{equipment.T3.length}}">
-                        <view class="rank-item">
-                            <view class="title t3">T3</view>
-                            <view class="desc">
-                                <block wx:for="{{equipment.T3}}" wx:key="id" wx:for-index="i" wx:for-item="item">
-                                    <view class="component-champion" style="margin-left: 10rpx;">
-                                        <l-avatar
-                                                data-formula="{{item.data.formula_data}}"
-                                                bind:lintap="showEquipmentMask"
-                                                data-image="{{item.data.image}}"
-                                                data-effect="{{item.data.effect}}"
-                                                data-name="{{item.data.name}}"
-                                                shape="square"
-                                                size="60"
-                                                l-class="champion-pic"
-                                                src="{{item.data.image}}"/>
-                                    </view>
-                                </block>
-                            </view>
-                        </view>
-                    </block>
-                    <block wx:if="{{equipment.T4.length}}">
-                        <view class="rank-item">
-                            <view class="title t4">T4</view>
-                            <view class="desc">
-                                <block wx:for="{{equipment.T4}}" wx:key="id" wx:for-index="i" wx:for-item="item">
-                                    <view class="component-champion" style="margin-left: 10rpx;">
-                                        <l-avatar
-                                                shape="square"
-                                                size="60"
-                                                l-class="champion-pic"
-                                                src="{{item.data.image}}"/>
-                                    </view>
-                                </block>
-                            </view>
-                        </view>
-                    </block>
+                    </view>
                 </view>
-                <view class="tips">所有数据均来自TFT官方数据统计，数据每天临晨更新</view>
+                <view class="tips">所有数据均来自TFT官方数据统计，数据每天临晨更新；英雄强度按照官方数据中“胜率”、“登场率”、“前四率”进行综合排序；</view>
             </view>
+            <l-mask show="{{is_show_equipment_mask}}" bind:lintap="changeMask" center="{{false}}">
+                <view class="mask-content">
+                    <view class="payload">
+                        <view class="header">
+                            <view class="payload_avatar">
+                                <image mode="widthFix" src="{{maskEquipment.image}}"></image>
+                            </view>
+                            <view class="name ml20">{{maskEquipment.name}}</view>
+                        </view>
+                        <view class="desc mt20">
+                            <view class="equip-formula mb20" style="width: 40%;" wx:if="{{maskEquipment.formula.length}}">
+                                <view class="equip-formula-flex">
+                                    <l-avatar
+                                            l-class="component-equipment"
+                                            shape="square"
+                                            size="50"
+                                            src="{{maskEquipment.formula[0].image}}"/>
+                                    <view class="symbol">+</view>
+                                    <l-avatar
+                                            l-class="component-equipment"
+                                            shape="square"
+                                            size="50"
+                                            src="{{maskEquipment.formula[1].image}}"/>
+                                </view>
+                            </view>
+                            {{maskEquipment.effect}}
+                        </view>
+                    </view>
+                </view>
+            </l-mask>
         </l-tabpanel>
     </l-tabs>
 </view>

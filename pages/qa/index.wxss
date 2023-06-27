@@ -14,6 +14,12 @@
     font-weight: 700;
 }
 
+.page .box .desc.text {
+    font-size: 26rpx;
+    color: #72788e;
+}
+
+
 
 .page .box .desc .table {
     display: flex;

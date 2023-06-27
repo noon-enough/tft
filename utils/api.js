@@ -115,8 +115,15 @@ function lineup(id) {
 function rank() {
     let session = getSessionFromStorage()
 
-    return get(`/api/rank?version=${session}`)
+    return get(`/api/rank?version=${session}&is_new=1`)
 }
+
+function rankSort(action = "mb", type = "presence", sort = "desc") {
+    let session = getSessionFromStorage()
+
+    return get(`/api/rank/${action}?type=${type}&sort=${sort}&version=${session}`)
+}
+
 
 function legendDetail(id = "") {
     let session = getSessionFromStorage()
@@ -124,4 +131,6 @@ function legendDetail(id = "") {
     return get(`/api/legend/${id}?version=${session}`)
 }
 
-module.exports = {sessions, chess, hexes, synergies, races, jobs, hero, equipments, lineup, rank, legend, galaxy, legendDetail}
+module.exports = {sessions, chess, hexes, synergies,
+    races, jobs, hero, equipments, lineup, rank,
+    legend, galaxy, legendDetail, rankSort}

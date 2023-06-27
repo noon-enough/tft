@@ -1,5 +1,13 @@
 Component({
     properties: {
+        iconSize: {
+            type: Number,
+            value: 80,
+        },
+        fontSize: {
+          type: Number,
+          value: 26,
+        },
         avatar: {
             type: String,
             value: ""
@@ -19,16 +27,15 @@ Component({
         size: {
             type: Number,
             value: 40,
+        },
+        isRank: {
+            type:Boolean,
+            value: false,
         }
     },
     data: {
     },
     methods: {},
     attached() {
-        // const that = this
-        // let level = Math.ceil(that.properties.count / 2)
-        // that.setData({
-        //     level: level
-        // })
     }
 });

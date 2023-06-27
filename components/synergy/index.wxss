@@ -53,6 +53,12 @@
     overflow: visible;
 }
 
+.component-synergy .synergy-icon .icon-img.rank {
+    position: absolute;
+    top: -24rpx;
+    left: 4rpx;
+}
+
 .component-synergy.active .synergy-icon .icon-img {
     -webkit-filter: contrast(.1) brightness(10);
     filter: contrast(.1) brightness(10);

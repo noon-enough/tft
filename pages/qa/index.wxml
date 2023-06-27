@@ -1,6 +1,18 @@
 <view class="page">
     <view class="box">
         <view class="title">
+            英雄传说之力
+        </view>
+        <view class="desc text">
+            英雄传说之力可以视为现有强化符文系统的升级，在加载界面可以选择一个英雄传说之力。它将影响你在对局中获得的强化符文，对局中每次强化符文环节都必定出现对其最有益的选择。
+        </view>
+        <view class="title">
+            英雄传说之力
+        </view>
+        <view class="desc text">
+            在每局游戏开场前，所有玩家可以从三个随机出现的地区传送门中投票前往你想前往的地区，其中一名幸运玩家所选择的地区将成为本场游戏的地区。不同而地区将触发不一样的游戏内效果和影响。
+        </view>
+        <view class="title">
             刷新概率
         </view>
         <view class="desc">

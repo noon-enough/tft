@@ -137,13 +137,19 @@ Page({
     },
     showEquipmentMask: function(e) {
         let that = this,
+            formulaId = e.currentTarget.dataset.formulaId ?? [],
             equipment = {
                 name: e.currentTarget.dataset.name ?? "",
                 effect: e.currentTarget.dataset.effect ?? "",
                 image: e.currentTarget.dataset.image ?? "",
                 formula: e.currentTarget.dataset.formula ?? {},
             }
-        equipment.formula = Object.values(equipment.formula)
+
+        if (Array.isArray(formulaId) === true) {
+            equipment.formula = formulaId.map((id) => {
+                return equipment.formula[id] ?? {}
+            })
+        }
         that.setData({
             is_show_equipment_mask: true,
             equipment: equipment,

@@ -230,6 +230,7 @@
                                wx:for-item="equipment"
                         >
                             <l-avatar
+                                    data-formula-id="{{equipment.formula}}"
                                     data-formula="{{equipment.formula_data}}"
                                     bind:lintap="showEquipmentMask"
                                     data-image="{{equipment.image}}"
@@ -261,6 +262,7 @@
                                        wx:for-item="main" wx:key="id" wx:for-index="l">
                                     <view class="lineup-equipment-list">
                                         <l-avatar
+                                                data-formula-id="{{main.formula}}"
                                                 data-image="{{main.image}}"
                                                 data-effect="{{main.effect}}"
                                                 data-name="{{main.name}}"
@@ -279,6 +281,7 @@
                                        wx:for-item="backup" wx:key="id" wx:for-index="l">
                                     <view class="lineup-equipment-list">
                                         <l-avatar l-class="component-equipment"
+                                                  data-formula-id="{{backup.formula}}"
                                                   data-formula="{{backup.formula_data}}"
                                                   bind:lintap="showEquipmentMask"
                                                   data-image="{{backup.image}}"
@@ -315,6 +318,7 @@
                                             <l-avatar l-class="component-equipment"
                                                       size="60"
                                                       shape="square"
+                                                      data-formula-id="{{equipment.formula}}"
                                                       data-formula="{{equipment.formula_data}}"
                                                       bind:lintap="showEquipmentMask"
                                                       data-image="{{equipment.image}}"

@@ -21,11 +21,10 @@
     <view class="container">
         <view class="show-block">
             <view class="banner-wrap" bind:tap="gotoGalaxy">
-                <image class="left" src="https://game.gtimg.cn/images/lol/tft/content-site/btn-monsters.png"
-                       mode="aspectFill"></image>
+                <image class="left" src="https://tft-images.qizue.com/btn-monsters.webp" mode="aspectFill"></image>
             </view>
             <view class="banner-wrap" bind:tap="gotoLegend">
-                <image class="right" src="https://game.gtimg.cn/images/lol/tft/content-site/btn-hero-hex.png" mode="aspectFill"></image>
+                <image class="right" src="https://tft-images.qizue.com/btn-hero-hex.webp" mode="aspectFill"></image>
             </view>
         </view>
         <l-loadmore
@@ -185,7 +184,7 @@
     </view>
     <l-mask show="{{show_new_session}}" bind:lintap="changeMask" center="{{false}}">
         <view class="mask-content" bind:tap="onNewSession">
-            <image mode="scaleToFill" style="width: 260rpx; height: 160rpx;" src="https://game.gtimg.cn/images/lol/tft/content-site/logo-tft.png"></image>
+            <image mode="scaleToFill" style="width: 260rpx; height: 160rpx;" src="https://tft-images.qizue.com/logo-tft.webp"></image>
         </view>
     </l-mask>
 </capsule-bar>

@@ -248,17 +248,22 @@ Page({
         that.onNewSession()
     },
     gotoGalaxy: function() {
-        app.globalData.hex = {
-            top: "galaxy",
-            second: "",
-        }
-        gotoHex()
-    },
-    gotoLegend: function() {
-        app.globalData.hex = {
+        let data = {
             top: "hex",
             second: "legend",
         }
+        console.log('gotoGalaxy', data)
+        app.globalData.hex = data
+
+        gotoHex()
+    },
+    gotoLegend: function() {
+        let data = {
+            top: "galaxy",
+            second: "",
+        }
+        console.log('gotoGalaxy', data)
+        app.globalData.hex = data
         gotoHex()
     }
 });
