@@ -49,9 +49,10 @@ Page({
     let that = this
     wx.showLoading()
     hero(id, session).then(res => {
-      console.log(res)
       let data = res.data ?? []
       if (data) {
+        console.log('getHeroDetail', data)
+        data.synergies = data.synergies === '' ? 0 : parseInt(data.synergies)
         that.setData({
           data: data,
           displayName: data.display_name,
@@ -62,8 +63,8 @@ Page({
     }).catch(err => {
       showToast("拉取数据失败", {icon: "error"})
     }).finally(e => {
-      wx.hideLoading()
     })
+    wx.hideLoading()
   },
   onShareAppMessage(options) {
     let that = this,

@@ -25,6 +25,12 @@
                     <view class="champion-price">{{data.prices}}</view>
                 </view>
                 <view class="champion-name">
+                    <view wx:if="{{data.synergies === 1}}" class="status plus">
+                        增强
+                    </view>
+                    <view wx:elif="{{data.synergies === -1}}" class="status minus">
+                       削弱
+                    </view>
                     {{data.name}} {{data.display_name}}
                     <block wx:if="{{data.nickname}}">({{data.nickname}})</block>
                 </view>

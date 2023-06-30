@@ -18,6 +18,14 @@
             <view class="champion-item-big" bind:tap="detail" data-hero-id="{{item.id}}" data-hero-session="{{item.session}}">
                 <view class="champion-item-pic" style="background-image: url('{{item.original_image}}');">
                     <view class="blur-img" style="background-image: url('{{item.original_image}}');"></view>
+                    <view class="update-info">
+                        <view wx:if="{{item.synergies === 1}}" class="status plus">
+                            增强
+                        </view>
+                        <view wx:elif="{{item.synergies === -1}}" class="status minus">
+                            削弱
+                        </view>
+                    </view>
                     <view class="race-job-wrap">
                         <block wx:if="{{item.jobs_data.length}}">
                             <block wx:for="{{item.jobs_data}}" wx:for-index="j" wx:for-item="job" wx:key="id">
@@ -48,7 +56,9 @@
                     </view>
                 </view>
                 <view class="champion-item-info">
-                    <view class="name">{{item.name}} {{item.display_name}}</view>
+                    <view class="name">
+                        {{item.name}} {{item.display_name}}
+                    </view>
                     <view class="price">{{item.prices}} 金币</view>
                 </view>
             </view>

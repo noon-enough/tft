@@ -104,8 +104,28 @@
 .detail-info-1 .champion-name {
     color: #fff5e0;
     font-size: 32rpx;
-    margin: .12rem 0 .2rem;
+    margin: 10rpx 40rpx;
     text-align: center;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail-info-1 .champion-name  .status {
+    margin-right: 10rpx;
+}
+
+.detail-info-1 .champion-name  .status.plus {
+    color: #ff1700;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+
+.detail-info-1 .champion-name  .status.minus {
+    color: #3da742;
+    font-size: 28rpx;
+    font-weight: bold;
 }
 
 .champion-skill-list {

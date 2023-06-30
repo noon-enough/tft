@@ -28,6 +28,10 @@ Page({
         chess(query).then(res => {
             console.log("data", res)
             let data = res.data ?? []
+            data = data.map((item) => {
+                item.synergies = item.synergies === '' ? 0 : parseInt(item.synergies)
+                return item
+            })
             if (data) {
                 that.setData({
                     data: data,
