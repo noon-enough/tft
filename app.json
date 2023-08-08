@@ -79,7 +79,6 @@
     "l-loading": "/miniprogram_npm/lin-ui/loading/index",
     "l-loadmore": "/miniprogram_npm/lin-ui/loadmore/index",
     "l-button": "/miniprogram_npm/lin-ui/button/index",
-
     "capsule-bar": "./components/capsule-bar/index",
     "tag": "./components/tag/index",
     "champion": "./components/champion/index",
@@ -89,5 +88,8 @@
   "sitemapLocation": "sitemap.json",
   "subpackages": [],
   "embeddedAppIdList": ["wx8abaf00ee8c3202e"],
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "navigateToMiniProgramAppIdList": [
+    "wx70487acfdf04b312"
+  ]
 }

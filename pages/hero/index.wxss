@@ -8,8 +8,8 @@ page {
 }
 
 .champion-list .search {
-    margin-bottom: 10rpx;
-    margin-top: 10rpx;
+    margin-bottom: 20rpx;
+    margin-top: 20rpx;
 }
 
 .champion-list .champion-item-big {
@@ -77,18 +77,19 @@ page {
     width: 60rpx;
     margin-left: 10rpx;
     text-align: center;
+    /*background-color: rgba(255, 255, 255, 0.5);*/
 }
 
 .champion-list .champion-item-big .champion-item-pic  .update-info .status.plus {
     color: #ff1700;
     font-size: 28rpx;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 
 .champion-list .champion-item-big .champion-item-pic  .update-info .status.minus {
     color: #3da742;
     font-size: 28rpx;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 
 .champion-list .champion-item-big .champion-item-pic .race-job-wrap {
@@ -164,5 +165,7 @@ page {
 }
 
 .champion-list .champion-item-big:last-child {
-    margin-bottom: 200rpx;
+    /*margin-bottom: 200rpx;*/
 }
+
+@import "/assets/style/filter-box.wxss";

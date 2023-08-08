@@ -371,3 +371,16 @@
     top:0;
     left:0;
 }
+
+.tft, .lol {
+    position: absolute;
+    display: inline-block;
+    padding: 10rpx 10rpx;
+    background-color: rgba(181, 151, 88, 0.5);
+    color: #fcf0f4;
+    font-size: 28rpx;
+    margin: 20rpx 10rpx;
+    text-align: right;
+    right: 20rpx;
+    z-index: 999999;
+}

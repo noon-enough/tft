@@ -113,4 +113,17 @@ Page({
         type = e.currentTarget.dataset.type ?? "hex"
     gotoRank(type)
   },
+  onOpenLOLMiniProc(e) {
+    let that = this,
+        id = e.currentTarget.dataset.id,
+        name = e.currentTarget.dataset.name
+
+    console.log('onOpenLOLMiniProc', e.currentTarget.dataset)
+    wx.navigateToMiniProgram({
+      appId: 'wx70487acfdf04b312',  //要打开的小程序appid
+      path: `/pages/detail/index?id=${id}`,  //要打开另一个小程序的页面和传递的参数
+      envVersion: 'release', //打开小程序的版本（体验版trial；开发版develop；正式版release）
+      success(res) {}
+    })
+  }
 });

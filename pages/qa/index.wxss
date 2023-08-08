@@ -5,13 +5,19 @@
 }
 
 .page .box {
-    margin-top: 20rpx;
+    /*margin-top: 20rpx;*/
 }
 
 .page .box .title {
     font-size: 28rpx;
     color: #fcf0f4;
     font-weight: 700;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+}
+
+.page .box .title:first-child {
+    /*margin-top: unset;*/
 }
 
 .page .box .desc.text {

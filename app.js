@@ -1,10 +1,95 @@
 import deviceUtil from "/miniprogram_npm/lin-ui/utils/device-util";
 // app.js
 import {getSessionSet, showToast} from '/utils/util.js'
-import {sessions} from "./utils/api"
+import {jobs, races, sessions} from "./utils/api"
 import {SESSION, SESSION_LIST} from "./utils/config";
+import CustomHook from 'spa-custom-hooks';
+
+let globalData = {
+      navBarHeight: 0,
+      system: {
+        width: 0,
+        height: 0,
+        navigationBarHeight: 0,
+        statusBarHeight: 0,
+        titleBarHeight: 0,
+      },
+      hex: {
+        top: "race",
+        second: "silver",
+      },
+      raceData: [],
+      jobData: [],
+      qualityData: [{
+        key: "ALL",
+        name: "全部质量",
+      }, {
+        key: "S",
+        name: "S",
+      }, {
+        key: "A",
+        name: "A",
+      }, {
+        key: "B",
+        name: "B",
+      }, {
+        key: "C",
+        name: "C",
+      }],
+      priceData: [{
+        key: -1,
+        name: '费用'
+      }, {
+        key: 0,
+        name: '1 金币'
+      }, {
+        key: 1,
+        name: '2 金币'
+      }, {
+        key: 2,
+        name: '3 金币'
+      },{
+        key: 3,
+        name: '4 金币'
+      },{
+        key: 4,
+        name: '5 金币'
+      }],
+    }
+
+CustomHook.install({
+  'Job': {
+    name: 'jobData',
+    watchKey: 'jobData',
+    onUpdate(jobData) {
+      return jobData.length >= 1
+    }
+  },
+  'Race': {
+    name: 'raceData',
+    watchKey: 'raceData',
+    onUpdate(raceData) {
+      return raceData.length >= 1
+    }
+  },
+  'Price': {
+    name: 'priceData',
+    watchKey: 'priceData',
+    onUpdate(priceData) {
+      return priceData.length >= 1
+    }
+  },
+  'Quality': {
+    name: 'qualityData',
+    watchKey: 'qualityData',
+    onUpdate(qualityData) {
+      return qualityData.length >= 1
+    }
+  }
+}, globalData)
 
 App({
+  globalData,
   onLaunch(key, data) {
     let width = wx.getSystemInfoSync().windowWidth,
         height = wx.getSystemInfoSync().windowHeight,
@@ -36,21 +121,53 @@ App({
     }).catch(err => {
       showToast("数据拉取失败", {icon: "error"})
     })
+
+    races().then(res => {
+      let data = res.data ?? []
+      if (data) {
+        data = data.map((item) => {
+          return {
+            key: item.id,
+            name: item.name
+          }
+        })
+
+        data.unshift({
+          name: "种族",
+          key: -1,
+        })
+
+        console.log('getRaces', data)
+        that.globalData.raceData = data
+      }
+    }).catch(err => {
+      showToast("数据拉取失败，请稍候再试", {icon: "error"})
+    })
+
+    jobs().then(res =>{
+      let data = res.data ?? []
+      if (data) {
+        data = data.map((item) => {
+          return {
+            key: item.id,
+            name: item.name
+          }
+        })
+        data.unshift({
+          name: "职业",
+          key: -1,
+        })
+
+        console.log('getJobs', data)
+
+        that.globalData.jobData = data
+      }
+    }).catch(err => {
+      showToast("数据拉取失败，请稍候再试", {icon: "error"})
+    })
+
   },
-  globalData: {
-    navBarHeight: 0,
-    system: {
-      width: 0,
-      height: 0,
-      navigationBarHeight: 0,
-      statusBarHeight: 0,
-      titleBarHeight: 0,
-    },
-    hex: {
-      top: "race",
-      second: "silver",
-    }
-  },
+
   // 设置监听器
   watch: function (ctx, obj) {
     Object.keys(obj).forEach(key => {

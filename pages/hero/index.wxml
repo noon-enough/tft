@@ -4,64 +4,130 @@
         text-selected-color="#d7a75f"
         list="{{list}}"
 />
-<block wx:if="{{data.length}}">
-    <view class="champion-list" style="margin-bottom: 180rpx;">
-        <view class="search">
-            <l-search-bar placeholder="搜索"
-                          bind:linconfirm="searchConfirm"
-                          bind:linclear="searchClear"
-                          bind:linchange="searchChange"
-                          bg-color="#101c42"
-                          show-cancel="{{false}}"/>
+<view class="filter-box">
+    <view class="component-select {{priceDefaultDataShow ? 'active': ''}} {{priceIsActive ? 'selected' : ''}}">
+        <view class="select-text"
+              data-type="price"
+              bind:tap="openClose">
+            {{priceDefaultData.name}}
         </view>
-        <block wx:for="{{data}}" wx:for-item="item" wx:for-index="i" wx:key="id">
-            <view class="champion-item-big" bind:tap="detail" data-hero-id="{{item.id}}" data-hero-session="{{item.session}}">
-                <view class="champion-item-pic" style="background-image: url('{{item.original_image}}');">
-                    <view class="blur-img" style="background-image: url('{{item.original_image}}');"></view>
-                    <view class="update-info">
-                        <view wx:if="{{item.synergies === 1}}" class="status plus">
-                            增强
-                        </view>
-                        <view wx:elif="{{item.synergies === -1}}" class="status minus">
-                            削弱
-                        </view>
-                    </view>
-                    <view class="race-job-wrap">
-                        <block wx:if="{{item.jobs_data.length}}">
-                            <block wx:for="{{item.jobs_data}}" wx:for-index="j" wx:for-item="job" wx:key="id">
-                                <view class="race-job">
-                                    <view class="race-job-icon">
-                                        <l-avatar
-                                                size="30"
-                                                l-class="icon-img"
-                                                src="{{job.image}}"/>
-                                    </view>
-                                    <view class="race-job-name">{{job.name}}</view>
-                                </view>
-                            </block>
-                        </block>
-                        <block wx:if="{{item.races_data.length}}">
-                            <block wx:for="{{item.races_data}}" wx:for-index="r" wx:for-item="race" wx:key="id">
-                                <view class="race-job">
-                                    <view class="race-job-icon">
-                                        <l-avatar
-                                                size="30"
-                                                l-class="icon-img"
-                                                src="{{race.image}}"/>
-                                    </view>
-                                    <view class="race-job-name">{{race.name}}</view>
-                                </view>
-                            </block>
-                        </block>
-                    </view>
-                </view>
-                <view class="champion-item-info">
-                    <view class="name">
-                        {{item.name}} {{item.display_name}}
-                    </view>
-                    <view class="price">{{item.prices}} 金币</view>
+        <view class="select-options-wrap" wx:if="{{priceDefaultDataShow}}">
+            <view class="select-options">
+                <view class="li"
+                      bind:tap="onFilterBoxChange"
+                      data-type="price"
+                      wx:for="{{priceData}}"
+                      wx:key="id"
+                      wx:for-item="item"
+                      wx:for-index="idx"
+                      data-id="{{item.key}}"
+                      data-name="{{item.name}}">
+                    {{item.name}}
                 </view>
             </view>
-        </block>
+        </view>
     </view>
-</block>
+    <view class="component-select {{jobsDefaultDataShow ? 'active': ''}} {{jobsIsActive ? 'selected' : ''}}">
+        <view class="select-text"
+              data-type="job"
+              bind:tap="openClose">
+            {{jobsDefaultData.name}}
+        </view>
+        <view class="select-options-wrap" wx:if="{{jobsDefaultDataShow}}">
+            <view class="select-options">
+                <view class="li"
+                      bind:tap="onFilterBoxChange"
+                      data-type="job"
+                      wx:for="{{jobsData}}"
+                      wx:key="id"
+                      wx:for-item="item"
+                      wx:for-index="idx"
+                      data-id="{{item.key}}"
+                      data-name="{{item.name}}">
+                    {{item.name}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="component-select {{raceDefaultDataShow ? 'active': ''}} {{raceIsActive ? 'selected' : ''}}">
+        <view class="select-text"
+              data-type="race"
+              bind:tap="openClose">
+            {{raceDefaultData.name}}
+        </view>
+        <view class="select-options-wrap" wx:if="{{raceDefaultDataShow}}">
+            <view class="select-options">
+                <view class="li"
+                      bind:tap="onFilterBoxChange"
+                      data-type="race"
+                      wx:for="{{raceData}}"
+                      wx:key="id"
+                      wx:for-item="item"
+                      wx:for-index="idx"
+                      data-id="{{item.key}}"
+                      data-name="{{item.name}}">
+                    {{item.name}}
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="search">
+    <l-search-bar placeholder="搜索"
+                  bind:linconfirm="searchConfirm"
+                  bind:linclear="searchClear"
+                  bind:linchange="searchChange"
+                  bg-color="#101c42"
+                  show-cancel="{{false}}"/>
+</view>
+<view class="champion-list" style="padding-bottom: 200rpx;" wx:if="{{data.length}}">
+    <block wx:for="{{data}}" wx:for-item="item" wx:for-index="i" wx:key="id">
+        <view class="champion-item-big" bind:tap="detail" data-hero-id="{{item.id}}" data-hero-session="{{item.session}}">
+            <view class="champion-item-pic" style="background-image: url('{{item.original_image}}');">
+<!--                    <view class="blur-img" style="background-image: url('{{item.original_image}}');"></view>-->
+                <view class="update-info">
+                    <view wx:if="{{item.synergies === 1}}" class="status plus">
+                        增强
+                    </view>
+                    <view wx:elif="{{item.synergies === -1}}" class="status minus">
+                        削弱
+                    </view>
+                </view>
+                <view class="race-job-wrap">
+                    <block wx:if="{{item.jobs_data.length}}">
+                        <block wx:for="{{item.jobs_data}}" wx:for-index="j" wx:for-item="job" wx:key="id">
+                            <view class="race-job">
+                                <view class="race-job-icon">
+                                    <l-avatar
+                                            size="30"
+                                            l-class="icon-img"
+                                            src="{{job.image}}"/>
+                                </view>
+                                <view class="race-job-name">{{job.name}}</view>
+                            </view>
+                        </block>
+                    </block>
+                    <block wx:if="{{item.races_data.length}}">
+                        <block wx:for="{{item.races_data}}" wx:for-index="r" wx:for-item="race" wx:key="id">
+                            <view class="race-job">
+                                <view class="race-job-icon">
+                                    <l-avatar
+                                            size="30"
+                                            l-class="icon-img"
+                                            src="{{race.image}}"/>
+                                </view>
+                                <view class="race-job-name">{{race.name}}</view>
+                            </view>
+                        </block>
+                    </block>
+                </view>
+            </view>
+            <view class="champion-item-info">
+                <view class="name">
+                    {{item.name}} {{item.display_name}}
+                </view>
+                <view class="price">{{item.prices}} 金币</view>
+            </view>
+        </view>
+    </block>
+</view>

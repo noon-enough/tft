@@ -14,6 +14,11 @@
            lazy-load
            src="{{data.original_image}}" />
     <view class="detail-main" style="top: {{navigationBarHeight - capsuleBarHeight - 90}}rpx">
+        <view class="lol"
+              data-id="{{data.lol_info.id}}"
+              data-name="{{data.lol_info.name}}"
+              bind:tap="onOpenLOLMiniProc"
+              wx:if="{{data.lol_info}}">在LOL开黑助手中查看</view>
         <view class="champion-detail-info">
             <view class="detail-info-1" style="background: transparent;">
                 <view class="component-champion cost{{data.prices}}">

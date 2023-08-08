@@ -1,0 +1,103 @@
+
+.filter-box {
+    margin: 20rpx 40rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.component-select {
+    position: relative;
+    text-indent: 20rpx;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    width: 200rpx;
+}
+
+
+.component-select .select-text {
+    display: block;
+    height: 60rpx;
+    line-height: 60rpx;
+    background: #0c173c;
+    font-size: 28rpx;
+    color: #959db9;
+    border: 2rpx solid #394567;
+    box-sizing: border-box;
+    -webkit-transition: border-color .3s;
+    -moz-transition: border-color .3s;
+    -o-transition: border-color .3s;
+    transition: border-color .3s;
+}
+
+.component-select .select-text {
+    color: #6c7a95;
+    background: #041938;
+    border-color: #26426a;
+}
+
+.component-select .select-options-wrap {
+    position: absolute;
+    top: 60rpx;
+    left: 0;
+    width: 100%;
+    max-height: 600rpx;
+    /*height: 600rpx;*/
+    height: auto;
+    /*background: #0b1536;*/
+    background: red;
+    border: 2rpx solid #0b1536;
+    box-sizing: border-box;
+    -webkit-transition: opacity .3s,border-color .3s;
+    -moz-transition: opacity .3s,border-color .3s;
+    -o-transition: opacity .3s,border-color .3s;
+    transition: opacity .3s,border-color .3s;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 9999;
+}
+
+
+.component-select .select-options-wrap {
+    background: #041938;
+    border-color: #feaa51;
+}
+
+.component-select.selected .select-text {
+    color: #feaa51;
+}
+
+.component-select.active .select-options-wrap {
+    visibility: visible;
+    opacity: 1;
+    z-index: 999;
+    border-color: #b59758;
+}
+
+.component-select.active .select-options-wrap {
+    border-color: #feaa51;
+}
+
+.component-select .select-options {
+    margin: 4rpx 0 0;
+    width: calc(100% - 2px);
+    overflow: scroll;
+    max-height: 600rpx;
+}
+
+.component-select .select-options .li {
+    height: 60rpx;
+    line-height: 60rpx;
+    color: #959db9;
+    font-size: 26rpx;
+}
+
+.component-select .select-options .li {
+    color: #6c7a95;
+    border-top: 2rpx solid rgba(255,255,255,.05);
+    box-sizing: border-box;
+}
+
+.component-select .select-options .li:first-of-type {
+    border-top: none;
+}

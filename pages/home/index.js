@@ -17,16 +17,78 @@ Page({
         showFilterIndex: 0,
         showFilter: false,
         jobsData: [],
+        jobsDefaultSelect: -1,
+        jobsDefaultData: {},
+        jobsIsActive: false,
+        jobsDefaultDataShow: false,
         raceData: [],
+        raceDefaultSelect: -1,
+        raceDefaultData: {},
+        raceIsActive: false,
+        raceDefaultDataShow: false,
+        qualityData: [],
+        qualityDefaultSelect: "ALL",
+        qualityDefaultData: {},
+        qualityDefaultDataShow: false,
+        qualityIsActive: false,
         filterType: "",
         filterId: "",
         loadmore: false,
         page: 1,
         isLast: false
     },
+    onLoadJob() {
+        let that = this,
+            jobData = app.globalData.jobData,
+            jobsDefaultData= {},
+            jobsDefaultSelect = that.data.jobsDefaultSelect
+        jobData.forEach((item) => {
+            if (item.key === jobsDefaultSelect) {
+                jobsDefaultData = {...item}
+            }
+        })
+        console.log('onLoadJob', jobData, 'jobsDefaultData', jobsDefaultData)
+        that.setData({
+            jobsData: jobData,
+            jobsDefaultData: jobsDefaultData,
+        })
+    },
+    onLoadRace() {
+        let that = this,
+            raceData = app.globalData.raceData,
+            raceDefaultData = {},
+            raceDefaultSelect = that.data.raceDefaultSelect
+        raceData.forEach((item) => {
+            if (item.key === raceDefaultSelect) {
+                raceDefaultData = {...item}
+            }
+        })
+
+        console.log('onLoadRace', raceData, 'raceDefaultData', raceDefaultData)
+        that.setData({
+            raceData: raceData,
+            raceDefaultData: raceDefaultData
+        })
+    },
+    onLoadQuality() {
+        let that = this,
+            qualityData = app.globalData.qualityData,
+            qualityDefaultSelect = that.data.qualityDefaultSelect,
+            qualityDefaultData =  {}
+        qualityData.forEach((item) => {
+            if (item.key === qualityDefaultSelect) {
+                qualityDefaultData = {...item}
+            }
+        })
+
+        console.log('onLoadQuality', qualityData, 'qualityDefaultData', qualityDefaultData)
+        that.setData({
+            qualityData: qualityData,
+            qualityDefaultData: qualityDefaultData,
+        })
+    },
     onLoad: function() {
         let that = this
-
         let newSession = wx.getStorageSync(SESSION_SET)
         newSession = parseInt(newSession)
         that.setData({
@@ -36,8 +98,6 @@ Page({
         })
 
         that.getStrategies()
-        that.getJobs()
-        that.getRaces()
     },
     onShow() {
         let show_nickname = !!wx.getStorageSync(SESSION_SHOW_NICKNAME),
@@ -54,47 +114,16 @@ Page({
             path: `/pages/home/index`,
         }
     },
-    getRaces() {
-        let that = this
-        races().then(res => {
-            let data = res.data ?? []
-            if (data) {
-                that.setData({
-                    raceData: data,
-                })
-                console.log('races', data)
-            } else {
-                return Promise.reject(res)
-            }
-        }).catch(err => {
-            showToast("数据拉取失败，请稍候再试", {icon: "error"})
-        })
-    },
-    getJobs() {
-        let that = this
-        jobs().then(res =>{
-            let data = res.data ?? []
-            if (data) {
-                that.setData({
-                    jobsData: data,
-                })
-                console.log('jobs', data)
-            } else {
-                return Promise.reject(res)
-            }
-        }).catch(err => {
-            showToast("数据拉取失败，请稍候再试", {icon: "error"})
-        })
-    },
     getStrategies() {
         let that = this,
-            filterId = that.data.filterId,
-            filterType = that.data.filterType,
-            race = 0,
-            job = 0,
-            quality = "ALL",
             page = that.data.page,
-            oldData = that.data.data
+            oldData = that.data.data,
+            query = {
+                race: that.data.raceDefaultSelect,
+                job: that.data.jobsDefaultSelect,
+                quality: that.data.qualityDefaultSelect,
+                page: page
+            }
         that.setData({
             loadmore: true
         })
@@ -103,19 +132,8 @@ Page({
             oldData = []
         }
 
-        console.log('filterType', filterType, 'filterId', filterId)
-        if (filterType === "job") {
-            job = parseInt(filterId)
-        } else if (filterType === 'race') {
-            race = parseInt(filterId)
-        } else if (filterType === "quality") {
-            quality = filterId
-        }
-        synergies({race: race,
-            job: job,
-            quality: quality,
-            page: page
-        }).then(res=> {
+        console.log("getStrategies", query)
+        synergies(query).then(res=> {
             let data = res.data ?? [],
                 totalPage = res.extra.totalPage ?? 1,
                 isLast = false
@@ -172,43 +190,6 @@ Page({
         }
         lineupDetail(id)
     },
-    filter(e) {
-        let that = this,
-            isShow = false,
-            filterIcon = "/assets/images/filter-white.png"
-        if (that.data.showFilterBody === false) {
-            isShow = true
-            filterIcon = "/assets/images/filter.png"
-        }
-
-        that.setData({
-            showFilterBody: isShow,
-            filterIconPath: filterIcon,
-        })
-    },
-    setFilterPanel(e) {
-        let type = e.currentTarget.dataset.type ?? 0,
-            that = this
-        let filterId = 0
-        if (type === 'quality') {
-            filterId = "ALL"
-        }
-
-        that.setData({
-            showFilterIndex: type,
-            showFilter: true
-        })
-    },
-    hideFilter(e) {
-        let that = this
-        that.getStrategies()
-        this.setData({
-            showFilterIndex: 0,
-            showFilter: false,
-            filterId: 0,
-            filterType: "",
-        })
-    },
     onFilter(e) {
         let that = this,
             id = e.currentTarget.dataset.id,
@@ -219,15 +200,6 @@ Page({
             filterId: id
         })
         console.log('filterType', type, 'filterId', id)
-    },
-    selectionTap(e) {
-        console.log('e', e)
-        let uri = e.currentTarget.dataset.targetUri ?? ""
-        if (uri === "") {
-            return false
-        }
-
-        goto(uri)
     },
     onNewSession(e) {
         let that = this,
@@ -265,6 +237,61 @@ Page({
         console.log('gotoGalaxy', data)
         app.globalData.hex = data
         gotoHex()
+    },
+    openClose(e) {
+        let that = this,
+            type = e.currentTarget.dataset.type ?? "job",
+            data = {}
+
+        if (type === "job") {
+            data.jobsDefaultDataShow = !that.data.jobsDefaultDataShow
+        } else if (type === 'race') {
+            data.raceDefaultDataShow = !that.data.raceDefaultDataShow
+        } else if (type === "quality") {
+            data.qualityDefaultDataShow = !that.data.qualityDefaultDataShow
+        }
+
+        console.log('type', type, 'data', data)
+        that.setData(data)
+    },
+    onFilterBoxChange(e) {
+        let that = this,
+            {id, name, type} =  e.currentTarget.dataset,
+            data = {}
+
+        if (type === "job") {
+            id = parseInt(id)
+            data.jobsDefaultSelect = id
+            data.jobsDefaultDataShow = false
+            data.jobsIsActive = id !== -1
+            that.data.jobsData.forEach((item) => {
+                if (item.key === id) {
+                    data.jobsDefaultData = {...item}
+                }
+            })
+        } else if (type === "race") {
+            id = parseInt(id)
+            data.raceDefaultSelect = id
+            data.raceDefaultDataShow = false
+            data.raceIsActive = id !== -1
+            that.data.raceData.forEach((item) => {
+                if (item.key === id) {
+                    data.raceDefaultData = {...item}
+                }
+            })
+        } else if (type === "quality") {
+            data.qualityDefaultSelect = id
+            data.qualityDefaultDataShow = false
+            data.qualityIsActive = id !== -1
+            that.data.qualityData.forEach((item) => {
+                if (item.key === id) {
+                    data.qualityDefaultData = {...item}
+                }
+            })
+        }
+        console.log('onFilterBoxChange', 'data', data)
+        that.setData(data)
+        that.getStrategies()
     }
 });
 

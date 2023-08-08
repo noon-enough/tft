@@ -9,14 +9,12 @@
         title-color="#fcf0f4"
         capsule-color="white"
         disable-home="{{true}}"
-        disable-back="{{false}}"
+        disable-back="{{true}}"
         l-title-class="capsule-bar-title"
         capsule-left-icon-width="38"
         capsule-left-icon-height="38"
         capsule-right-icon-width="38"
         capsule-right-icon-height="38"
-        capsule-left-icon-path="{{filterIconPath}}"
-        bind:linlefttap="filter"
         title="阵容推荐">
     <view class="container">
         <view class="show-block">
@@ -30,86 +28,74 @@
         <l-loadmore
                 show="{{loadmore}}">
             <view slot="content">
-<!--                <block wx:if="{{selection.length}}">-->
-<!--                    <view class="tab-list">-->
-<!--                        <block wx:for="{{selection}}" wx:key="id" wx:for-index="idx"-->
-<!--                               wx:for-item="item">-->
-<!--                            <view class="component-select">-->
-<!--                                <l-avatar src="{{item.iconPath}}"-->
-<!--                                          l-class="component-select-pic"-->
-<!--                                          data-target-uri="{{item.pagePath}}"-->
-<!--                                          bind:lintap="selectionTap" size="{{item.size}}"></l-avatar>-->
-<!--                                <view class="component-select-name">{{item.text}}</view>-->
-<!--                            </view>-->
-<!--                        </block>-->
-<!--                    </view>-->
-<!--                </block>-->
                 <view class="lineup-list" style="margin-bottom: 180rpx;">
-                    <view class="filter-flex" wx:if="{{showFilterBody}}">
-                        <view class="filter-tab">
-                            <text bindtap="setFilterPanel"
-                                  data-type="race"
-                                  class="{{showFilterIndex === 'race' ? 'active':''}}">种族</text>
-                            <text bindtap="setFilterPanel"
+                    <view class="filter-box">
+                        <view class="component-select {{jobsDefaultDataShow ? 'active': ''}} {{jobsIsActive ? 'selected' : ''}}">
+                            <view class="select-text"
                                   data-type="job"
-                                  class="{{showFilterIndex === 'job' ? 'active':''}}">职业</text>
-                            <text bindtap="setFilterPanel"
-                                  data-type="quality"
-                                  class="{{showFilterIndex === 'quality' ? 'active':''}}">质量</text>
-                        </view>
-                        <view class="filter-content" wx:if="{{showFilter}}">
-                            <view class="filter-panel">
-                                <view class="filter-panel-left" wx:if="{{showFilterIndex === 'race'}}">
-                                    <block wx:if="{{raceData.length}}">
-                                        <view bindtap="onFilter"
-                                              data-type="race"
-                                              data-id="0"
-                                              class="{{filterId === 0 && filterType === 'race'  ? 'active': ''}}">全部</view>
-                                        <block wx:for="{{raceData}}" wx:key="{{id}}" wx:for-index="i" wx:for-item="race">
-                                            <view bindtap="onFilter"
-                                                  data-type="race"
-                                                  data-id="{{race.id}}"
-                                                  class="{{filterId === race.id && filterType === 'race' ? 'active': ''}}"
-                                            >{{race.name}}</view>
-                                        </block>
-                                    </block>
-                                </view>
-                                <view class="filter-panel-left" wx:if="{{showFilterIndex === 'job'}}">
-                                    <block wx:if="{{jobsData.length}}">
-                                        <view bindtap="onFilter"
-                                              data-type="job" data-id="0"
-                                              class="{{filterId === 0 && filterType === 'job' ? 'active': ''}}">全部</view>
-                                        <block wx:for="{{jobsData}}" wx:key="{{id}}" wx:for-index="i" wx:for-item="job">
-                                            <view bindtap="onFilter"
-                                                  data-type="job"
-                                                  class="{{filterId === job.id && filterType === 'job' ? 'active': ''}}"
-                                                  data-id="{{job.id}}">{{job.name}}</view>
-                                        </block>
-                                    </block>
-                                </view>
-                                <view class="filter-panel-left" wx:if="{{showFilterIndex === 'quality'}}">
-                                    <view bindtap="onFilter"
-                                          class="{{filterId === 'ALL' && filterType === 'quality' ? 'active': ''}}"
-                                          data-type="quality" data-id="ALL">全部</view>
-                                    <view bindtap="onFilter"
-                                          class="{{filterId === 'S' && filterType === 'quality' ? 'active': ''}}"
-                                          data-type="quality" data-id="S">S</view>
-                                    <view bindtap="onFilter"
-                                          class="{{filterId === 'A' && filterType === 'quality' ? 'active': ''}}"
-                                          data-type="quality" data-id="A">A</view>
-                                    <view bindtap="onFilter"
-                                          class="{{filterId === 'B' && filterType === 'quality' ? 'active': ''}}"
-                                          data-type="quality" data-id="B">B</view>
-                                    <view bindtap="onFilter"
-                                          class="{{filterId === 'C' && filterType === 'quality' ? 'active': ''}}"
-                                          data-type="quality" data-id="C">C</view>
-                                </view>
-                                <view class="filter-footer">
-                                    <l-button bind:lintap="hideFilter" plain="{{true}}">筛选</l-button>
+                                  bind:tap="openClose">
+                                {{jobsDefaultData.name}}
+                            </view>
+                            <view class="select-options-wrap" wx:if="{{jobsDefaultDataShow}}">
+                                <view class="select-options">
+                                    <view class="li"
+                                          bind:tap="onFilterBoxChange"
+                                          data-type="job"
+                                          wx:for="{{jobsData}}"
+                                          wx:key="id"
+                                          wx:for-item="item"
+                                          wx:for-index="idx"
+                                          data-id="{{item.key}}"
+                                          data-name="{{item.name}}">
+                                        {{item.name}}
+                                    </view>
                                 </view>
                             </view>
                         </view>
-<!--                        <view class="filter-shadow" wx:if="{{showFilter}}" bindtap="hideFilter"></view>-->
+                        <view class="component-select {{raceDefaultDataShow ? 'active': ''}} {{raceIsActive ? 'selected' : ''}}">
+                            <view class="select-text"
+                                  data-type="race"
+                                  bind:tap="openClose">
+                                {{raceDefaultData.name}}
+                            </view>
+                            <view class="select-options-wrap" wx:if="{{raceDefaultDataShow}}">
+                                <view class="select-options">
+                                    <view class="li"
+                                          bind:tap="onFilterBoxChange"
+                                          data-type="race"
+                                          wx:for="{{raceData}}"
+                                          wx:key="id"
+                                          wx:for-item="item"
+                                          wx:for-index="idx"
+                                          data-id="{{item.key}}"
+                                          data-name="{{item.name}}">
+                                        {{item.name}}
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="component-select {{qualityDefaultDataShow ? 'active': ''}} {{qualityIsActive ? 'selected' : ''}}">
+                            <view class="select-text"
+                                  data-type="quality"
+                                  bind:tap="openClose">
+                                {{qualityDefaultData.name}}
+                            </view>
+                            <view class="select-options-wrap" wx:if="{{qualityDefaultDataShow}}">
+                                <view class="select-options">
+                                    <view class="li"
+                                          bind:tap="onFilterBoxChange"
+                                          data-type="quality"
+                                          wx:for="{{qualityData}}"
+                                          wx:key="id"
+                                          wx:for-item="item"
+                                          wx:for-index="idx"
+                                          data-id="{{item.key}}"
+                                          data-name="{{item.name}}">
+                                        {{item.name}}
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
                     </view>
                     <block wx:if="{{data.length}}">
                         <view class="lineup-item"
@@ -174,9 +160,6 @@
                                 </block>
                             </view>
                         </view>
-                    </block>
-                    <block wx:else>
-                        <view class="filter-empty">尚无对应阵容</view>
                     </block>
                 </view>
             </view>
