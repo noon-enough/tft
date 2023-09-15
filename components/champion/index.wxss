@@ -14,7 +14,7 @@
     position: relative;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid #c1a25f;
+    border: 4rpx solid #c1a25f;
     margin: 0 auto;
     /*-webkit-transform: scale(1.24);*/
     /*-ms-transform: scale(1.24);*/
@@ -124,31 +124,31 @@
 }
 
 .component-champion.cost8 .champion-pic {
-    border: 4rpx solid #cca329;
+    border: 2rpx solid #cca329;
 }
 
 .component-champion.cost7 .champion-pic {
-    border: 4rpx solid #cc29cc;
+    border: 2rpx solid #cc29cc;
 }
 
 .component-champion.cost5 .champion-pic {
-    border: 4rpx solid #cca329;
+    border: 2rpx solid #cca329;
 }
 
 .component-champion.cost4 .champion-pic {
-    border: 4rpx solid #cc29cc;
+    border: 2rpx solid #cc29cc;
 }
 
 .component-champion.cost3 .champion-pic {
-    border: 4rpx solid #297acc;
+    border: 2rpx solid #297acc;
 }
 
 .component-champion.cost2 .champion-pic {
-    border: 4rpx solid #5fcc29;
+    border: 2rpx solid #5fcc29;
 }
 
 .component-champion.cost1 .champion-pic {
-    border: 4rpx solid #999;
+    border: 2rpx solid #999;
 }
 
 .component-champion.monster::after{

@@ -1,10 +1,10 @@
 page {
-    background: #0b1536;
+    background: #021523;
 }
 
 .champion-list {
-    /*width: 100%;*/
-    margin: 20rpx;
+    margin: 0 20rpx;
+    padding-top: 200rpx;
 }
 
 .champion-list .search {
@@ -143,7 +143,7 @@ page {
 }
 
 .champion-list .champion-item-big .champion-item-info {
-    background: #283661;
+    background: #002635;
     height: 60rpx;
     line-height: 60rpx;
     font-size: 26rpx;
@@ -166,6 +166,14 @@ page {
 
 .champion-list .champion-item-big:last-child {
     /*margin-bottom: 200rpx;*/
+}
+
+.header {
+    position: fixed;
+    z-index: 9999;
+    background: #002635;
+    padding-bottom: 20rpx;
+    width: 100%;
 }
 
 @import "/assets/style/filter-box.wxss";

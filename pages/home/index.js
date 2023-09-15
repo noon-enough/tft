@@ -7,6 +7,7 @@ import {DEFAULT_SESSION, DEFAULT_SESSION_NAME, SESSION, SESSION_SET, SESSION_SHO
 const app = getApp()
 Page({
     data: {
+        show_notice: true,
         show_new_session: false,
         selection: selection,
         list:tabbar,
@@ -89,12 +90,15 @@ Page({
     },
     onLoad: function() {
         let that = this
-        let newSession = wx.getStorageSync(SESSION_SET)
+        let newSession = wx.getStorageSync(SESSION_SET),
+            notice = wx.getStorageSync('__notice__')
         newSession = parseInt(newSession)
+        notice = parseInt(notice)
         that.setData({
             page: 1,
             data: [],
-            show_new_session: newSession !== 1,
+            show_new_session: newSession !== 2,
+            show_notice: notice !== 1
         })
 
         that.getStrategies()
@@ -206,7 +210,7 @@ Page({
             sessionName = DEFAULT_SESSION_NAME
 
         showToast(`新赛季切换成功`, {icon: "success"})
-        wx.setStorageSync(SESSION_SET, 1)
+        wx.setStorageSync(SESSION_SET, 2)
         wx.setStorageSync(SESSION, DEFAULT_SESSION)
 
         that.setData({
@@ -292,6 +296,17 @@ Page({
         console.log('onFilterBoxChange', 'data', data)
         that.setData(data)
         that.getStrategies()
+    },
+    onNotice(e) {
+        let that = this
+        console.log('onNotice', e)
+        const { trigger } = e.detail
+        if (trigger === "suffix-icon") {
+            that.setData({
+                show_notice: false,
+            })
+            wx.setStorageSync('__notice__', 1)
+        }
     }
 });
 

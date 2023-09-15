@@ -46,7 +46,11 @@ Component({
             value: false,
             type: Boolean
         },
-        session: String
+        session: String,
+        borderSize: {
+            value: 4,
+            type: Number,
+        }
     },
     data: {
         monster: "",

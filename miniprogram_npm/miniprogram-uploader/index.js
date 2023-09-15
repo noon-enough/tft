@@ -4,7 +4,7 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {}, _tempexport
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = __MODS__[modId].m; m._exports = m._tempexports; var desp = Object.getOwnPropertyDescriptor(m, "exports"); if (desp && desp.configurable) Object.defineProperty(m, "exports", { set: function (val) { if(typeof val === "object" && val !== m._exports) { m._exports.__proto__ = val.__proto__; Object.keys(val).forEach(function (k) { m._exports[k] = val[k]; }); } m._tempexports = val }, get: function () { return m._tempexports; } }); __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1691404939141, function(require, module, exports) {
+__DEFINE__(1693623330891, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UPLOAD = void 0;
@@ -22,8 +22,8 @@ Object.defineProperty(exports, "Uploader", { enumerable: true, get: function () 
 // tslint:disable-next-line: export-name
 exports.UPLOAD = new uploader_1.Uploader();
 //# sourceMappingURL=index.js.map
-}, function(modId) {var map = {"./uploader":1691404939142,"./transform":1691404939143}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1691404939142, function(require, module, exports) {
+}, function(modId) {var map = {"./uploader":1693623330892,"./transform":1693623330893}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1693623330892, function(require, module, exports) {
 
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
@@ -77,8 +77,8 @@ var Uploader = /** @class */ (function (_super) {
 }(miniprogram_network_life_cycle_1.LifeCycle));
 exports.Uploader = Uploader;
 //# sourceMappingURL=uploader.js.map
-}, function(modId) { var map = {"./transform":1691404939143}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1691404939143, function(require, module, exports) {
+}, function(modId) { var map = {"./transform":1693623330893}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1693623330893, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.transformUploadResponseOkData = exports.transformUploadSendDefault = void 0;
@@ -121,7 +121,7 @@ function transformUploadResponseOkData(res, options) {
 exports.transformUploadResponseOkData = transformUploadResponseOkData;
 //# sourceMappingURL=transform.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1691404939141);
+return __REQUIRE__(1693623330891);
 })()
 //miniprogram-npm-outsideDeps=["miniprogram-network-life-cycle","miniprogram-network-utils"]
 //# sourceMappingURL=index.js.map

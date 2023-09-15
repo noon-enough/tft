@@ -1,17 +1,18 @@
 import tabbar from '../../tabbar';
-import {equipments} from "../../utils/api";
+import {equipmentItem, equipments} from "../../utils/api";
 import {showToast} from "../../utils/util";
 Page({
     data: {
         list: tabbar,
+        activeKey: "basic",
         data: [],
         formation: {
-            type1: [],
-            type2: {},
-            type3: {},
             type4: {},
-            type5: {}
-        }
+            type5: {},
+            type6: {},
+        },
+        selectedEid: 0,
+        equipment: [],
     },
     onLoad: function (options) {
         let that = this
@@ -20,16 +21,15 @@ Page({
             if (data) {
                 that.setData({
                     data: data,
+                    selectedEid: data.type1[0].id,
                     formation: {
-                        type1: data.type1[0].formation,
-                        type2: data.type2[0],
-                        type3: data.type3[0],
                         type4: data.type4[0],
                         type5: data.type5[0]
                     }
                 })
 
-                console.log('data', data, this.data.formation)
+                console.log('data', data, 'type1', data.type1)
+                that.getEquipmentItem()
             } else {
                 return Promise.reject(res)
             }
@@ -37,38 +37,78 @@ Page({
             showToast("拉取数据失败，请稍候再试", {icon: "error"})
         })
     },
+    getEquipmentItem() {
+        let that = this,
+            selectedEid = that.data.selectedEid
+        equipmentItem(selectedEid).then(res => {
+            console.log('equipmentItem', res)
+            let data = res.data ?? []
+            if (data) {
+                that.setData({
+                    equipment: data,
+                })
+            } else {
+                return Promise.reject(res)
+            }
+        }).catch(err => {
+            showToast("拉取数据失败，请稍候再试", {icon: "error"})
+        })
+    },
+    getType(type = ""){
+        if (type === "basic") {
+            return "type1"
+        }
+        if (type === "normal") {
+            return "type2"
+        }
+        if (type === "race") {
+            return "type3"
+        }
+        if (type === "special") {
+            return "type4"
+        }
+        if (type === "halo") {
+            return "type5"
+        }
+        if (type === "support") {
+            return "type6"
+        }
+    },
     showFormation(e) {
         let dataset = e.currentTarget.dataset
         let type = dataset.type,
             idx = dataset.idx,
             that = this,
-            id = dataset.id
-
+            id = dataset.id,
+            data = {},
+            needUri = false
         console.log('change', type, idx, id)
-        if (type === "type1") {
-            that.setData({
-                ["formation.type1"]: that.data.data.type1[idx].formation
-            })
+        if (type === "type1" || type === "type2" || type === "type3") {
+            needUri = true
+            data.selectedEid = id
+        } else {
+            data = {
+                [`formation.${type}`]: that.data.data[type][idx],
+                selectedEid: id,
+            }
         }
-        if (type === "type2") {
-            that.setData({
-                ["formation.type2"]: that.data.data.type2[idx]
-            })
+        that.setData(data)
+        if (needUri) {
+            that.getEquipmentItem()
         }
-        if (type === "type3") {
-            that.setData({
-                ["formation.type3"]: that.data.data.type3[idx]
-            })
-        }
-        if (type === "type4") {
-            that.setData({
-                ["formation.type4"]: that.data.data.type4[idx]
-            })
-        }
-        if (type === "type5") {
-            that.setData({
-                ["formation.type5"]: that.data.data.type5[idx]
-            })
-        }
+    },
+    onTabTabBar(e) {
+        let that = this,
+            {activeKey, currentIndex} = e.detail,
+            type = that.getType(activeKey),
+            id = that.data.data[type][0].id
+        console.log('onTabTabBar', e, type, id)
+        that.setData({
+            activeKey: activeKey,
+            selectedEid: id,
+        })
+
+        // 重新加载数据？
+        that.getEquipmentItem()
     },
 });

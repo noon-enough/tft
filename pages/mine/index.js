@@ -1,5 +1,10 @@
 import tabbar from '../../tabbar';
-import {SESSION, SESSION_FOLDING_MID_PROPHASE, SESSION_SHOW_NICKNAME} from "../../utils/config";
+import {
+    SESSION,
+    SESSION_FOLDING_MID_PROPHASE, SESSION_LIST,
+    SESSION_SHOW_NICKNAME,
+    SESSION_SHOW_ORIGIN_SKIN
+} from "../../utils/config";
 import {getSessionName, getSession, gotoFeedback} from "../../utils/util";
 
 Page({
@@ -9,17 +14,31 @@ Page({
         sessions: ['符文大陆', '金铲铲市危机', '怪兽入侵', '隐秘之海', '时空裂痕'],
         show_nickname: false,
         is_folding_mid_prophase: false,
+        is_show_origin_skin: false,
     },
     onLoad: function (options) {
         let session = wx.getStorageSync(SESSION),
             show_nickname = !!wx.getStorageSync(SESSION_SHOW_NICKNAME),
+            sessions = wx.getStorageSync(SESSION_LIST),
             that = this,
-            is_folding_mid_prophase = !!wx.getStorageSync(SESSION_FOLDING_MID_PROPHASE)
+            is_folding_mid_prophase = !!wx.getStorageSync(SESSION_FOLDING_MID_PROPHASE),
+            is_show_origin_skin = !!wx.getStorageSync(SESSION_SHOW_ORIGIN_SKIN)
 
+        console.log('session', session, 'sessions', sessions)
+        let newSessions = []
+        sessions.forEach((item) => {
+            newSessions.push(item.name)
+            if (item.is_default === 1) {
+                session = item.version
+                wx.setStorageSync(SESSION, session)
+            }
+        })
         that.setData({
             session: getSessionName(session),
+            sessions: newSessions,
             show_nickname: show_nickname,
             is_folding_mid_prophase: is_folding_mid_prophase,
+            is_show_origin_skin: is_show_origin_skin,
         })
     },
     gotoFeedback(e) {
@@ -48,6 +67,11 @@ Page({
             that.setData({
                 is_folding_mid_prophase: checked,
             })
+        } else if (type === 'skin') {
+            wx.setStorageSync(SESSION_SHOW_ORIGIN_SKIN, checked)
+            that.setData({
+                is_show_origin_skin: checked,
+            })
         }
     },
     actionSheet(e){
@@ -61,18 +85,21 @@ Page({
                         session = ""
                     switch (idx){
                         case 0:
+                            session = "志逐天际"
+                            break
+                        case 1:
                             session = "符文大陆"
                             break;
-                        case 1:
+                        case 2:
                             session = "金铲铲市危机"
                             break;
-                        case 2:
+                        case 3:
                             session = "怪兽入侵"
                             break
-                        case 3:
+                        case 4:
                             session = "隐秘之海"
                             break
-                        case 4:
+                        case 5:
                             session = "时空裂痕"
                             break
                     }

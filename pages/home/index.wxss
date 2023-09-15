@@ -1,5 +1,5 @@
 .container {
-    background: #0b1536;
+    background: #002635;
     width: 100%;
     overflow-y:scroll;
     color: #fcf0f4;
@@ -18,8 +18,8 @@
     -o-transition: height .3s,border-color .3s;
     transition: height .3s,border-color .3s;
     /*background: #2c184e;*/
-    background: #283661;
-    border-color: #55407a;
+    background: #024b58;
+    border-color: #1f6d7b;
 }
 
 .lineup-item .lineup-name {
@@ -93,7 +93,7 @@
 /*    right: 0;*/
 /*    width: 16%;*/
 /*    height: 100%;*/
-/*    background-image: linear-gradient(to right,rgba(40,54,97,0) 0,rgba(40,54,97,.5) 16%,#0b1536 36%);*/
+/*    background-image: linear-gradient(to right,rgba(40,54,97,0) 0,rgba(40,54,97,.5) 16%,#002635 36%);*/
 /*    z-index: 1;*/
 /*    pointer-events: none;*/
 /*}*/
@@ -127,7 +127,6 @@
     -webkit-transition-property: -webkit-transform;
     transition-property: -webkit-transform;
     -o-transition-property: transform;
-    transition-property: transform;
     transition-property: transform,-webkit-transform;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
@@ -159,7 +158,6 @@
     -webkit-transition-property: -webkit-transform;
     transition-property: -webkit-transform;
     -o-transition-property: transform;
-    transition-property: transform;
     transition-property: transform,-webkit-transform;
 }
 
@@ -316,7 +314,7 @@
 .mask-content {
     width: 260rpx;
     height: 160rpx;
-    background: #0b1536;
+    background: #002635;
     border-radius: 12rpx;
     overflow: hidden;
     z-index: 99999999;
@@ -332,6 +330,11 @@
     margin-bottom: 10rpx;
 }
 
+.show-block .tips-tab {
+    width: 100rpx;
+    height: 100rpx;
+}
+
 .show-block .banner-wrap {
     position: relative;
     flex: 1;
@@ -339,7 +342,7 @@
 }
 
 .show-block .banner-wrap .left, .show-block .banner-wrap .right {
-    width: 380rpx;
+    width: 370rpx;
     height: 120rpx;
 }
 

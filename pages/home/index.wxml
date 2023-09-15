@@ -1,11 +1,11 @@
 <l-tab-bar
-    bg-color="#101c42"
+    bg-color="#002a3a"
     text-color="#8a8a8a"
     text-selected-color="#d7a75f"
     list="{{list}}"
 />
 <capsule-bar
-        bg-color="#101c42"
+        bg-color="#002a3a"
         title-color="#fcf0f4"
         capsule-color="white"
         disable-home="{{true}}"
@@ -17,12 +17,22 @@
         capsule-right-icon-height="38"
         title="阵容推荐">
     <view class="container">
+        <t-notice-bar
+                theme="warning"
+                visible="{{show_notice}}"
+                suffixIcon="close"
+                content="新赛季S9.5--志逐天际数据已更新，你可以从设置中切换数据。"
+                bind:click="onNotice"
+        ></t-notice-bar>
+<!--        <view class="show-block">-->
+<!--            <image class="tips-tab" src="/assets/icons/mine/trend-two.png" mode="aspectFill"></image>-->
+<!--        </view>-->
         <view class="show-block">
             <view class="banner-wrap" bind:tap="gotoGalaxy">
-                <image class="left" src="https://tft-images.qizue.com/btn-monsters.webp" mode="aspectFill"></image>
+                <image class="left" src="https://tft-images.qizue.com/btn-monsters.webp?t=1" mode="aspectFill"></image>
             </view>
             <view class="banner-wrap" bind:tap="gotoLegend">
-                <image class="right" src="https://tft-images.qizue.com/btn-hero-hex.webp" mode="aspectFill"></image>
+                <image class="right" src="https://tft-images.qizue.com/btn-hero-hex.webp?t=1" mode="aspectFill"></image>
             </view>
         </view>
         <l-loadmore
@@ -167,7 +177,7 @@
     </view>
     <l-mask show="{{show_new_session}}" bind:lintap="changeMask" center="{{false}}">
         <view class="mask-content" bind:tap="onNewSession">
-            <image mode="scaleToFill" style="width: 260rpx; height: 160rpx;" src="https://tft-images.qizue.com/logo-tft.webp"></image>
+            <image mode="scaleToFill" style="width: 260rpx; height: 160rpx;" src="https://tft-images.qizue.com/logo-tft.webp?t=1"></image>
         </view>
     </l-mask>
 </capsule-bar>

@@ -96,7 +96,11 @@ function galaxy() {
 function equipments(polymerize = 1) {
     let session = getSessionFromStorage()
 
-    return get(`/api/equipments?version=${session}&polymerize=${polymerize}`)
+    return get(`/api/equipments?version=${session}&polymerize=${polymerize}&is_new=1`)
+}
+
+function equipmentItem(id = 0) {
+    return get(`/api/equipments/${id}`)
 }
 
 /**
@@ -131,6 +135,13 @@ function legendDetail(id = "") {
     return get(`/api/legend/${id}?version=${session}`)
 }
 
+function rankDetail(id = "") {
+    let session = getSessionFromStorage()
+
+    return get(`/api/rank/${id}/detail?version=${session}`)
+}
+
 module.exports = {sessions, chess, hexes, synergies,
     races, jobs, hero, equipments, lineup, rank,
-    legend, galaxy, legendDetail, rankSort}
+    legend, galaxy, legendDetail, rankSort,
+    equipmentItem, rankDetail}

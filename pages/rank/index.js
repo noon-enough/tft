@@ -1,7 +1,8 @@
 import {SESSION, SESSION_SHOW_NICKNAME} from "../../utils/config";
 import {rank, rankSort} from "../../utils/api";
-import {heroDetail, showToast} from "../../utils/util";
+import {gotoHeroAnalysisRank, heroDetail, showToast} from "../../utils/util";
 
+const app = getApp()
 Page({
     data: {
         sortData: {
@@ -25,14 +26,14 @@ Page({
         hero: [],
         equipment: [],
         mb: [],
-        defaultAction: "hex",
+        defaultAction: "hero",
         is_show_equipment_mask: false,
         show_nickname: false,
         maskEquipment: {},
     },
     onLoad: function (options) {
         let that = this,
-            defaultAction = options.type ?? "hex",
+            defaultAction = options.type ?? "hero",
             show_nickname = !!wx.getStorageSync(SESSION_SHOW_NICKNAME)
 
         that.setData({
@@ -66,15 +67,9 @@ Page({
                     item.presence = (item.presence * 100).toFixed(1)
                     item.top = (item.top * 100).toFixed(1)
                     item.data = item.data.map((item) => {
-                        let raw = item.data,
-                            level = 1,
-                            count = item.count,
-                            rawLevel = {}
-
-                        rawLevel = JSON.parse(raw.level.replace(/\n/g, ""))
-                        let index = Object.keys(rawLevel).indexOf(count);
-                        level = index + 1
-                        item.level = level
+                        item.data.colors = JSON.parse(item.data.colors)
+                        let level = item.data.colors[item.count]
+                        item.level = parseInt(level)
                         return item
                     })
                     return item
@@ -223,5 +218,12 @@ Page({
         that.setData({
             activeSort: defaultSort,
         })
+    },
+    onAnalysis(e) {
+        let that = this,
+            id = e.currentTarget.dataset.id
+
+        console.log('onAnalysis', e)
+        gotoHeroAnalysisRank(id)
     },
 });

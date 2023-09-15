@@ -1,0 +1,186 @@
+<view class="page-rank-synergy">
+    <view class="synergy-info-wrap">
+        <view class="synergy-list">
+            <synergy wx:for="{{detail.info}}"
+                     wx:for-item="item"
+                     wx:key="h"
+                     wx:for-index="idx"
+                     count="{{item.count}}"
+                     name="{{item.info.name}}"
+                     level="{{item.level}}"
+                     iconSize="60"
+                     fontSize="24"
+                     size="60"
+                     isRank="{{true}}"
+                     avatar="{{item.info.image}}"/>
+        </view>
+        <view class="synergy-data">
+            <view class="data-item">
+                <view class="p data-txt">登场率</view>
+                <view class="p data-num">
+                    {{detail.presence}}%
+                </view>
+            </view>
+            <view class="data-item">
+                <view class="p data-txt">前四</view>
+                <view class="p data-num">
+                    {{detail.fourth}}%
+                </view>
+            </view>
+            <view class="data-item">
+                <view class="p data-txt">登顶</view>
+                <view class="p data-num">
+                    {{detail.top}}%
+                </view>
+            </view>
+        </view>
+    </view>
+    <l-tabs active-color="#b59758"
+            inactive-color="#959db9"
+            l-inactive-class="tab-inactive-item"
+            l-active-class="tab-active-item"
+            active-key="{{defaultAction}}"
+            bind:linchange="onTabChange"
+            hasLine="{{false}}">
+        <l-tabpanel tab="热门组合" key="hot" slot="hot">
+            <view class="hot-lineup">
+                <view class="rank-title">
+                    <view class="span">热门组合</view>
+                    <view class="sorter">
+                        <view class="item"
+                              data-action="mb"
+                              data-type="presence"
+                              bind:tap="rankSorter">
+                            <view class="sorter-txt {{activeSort === 'mb-presence' ? 'active' : ''}}">登场</view>
+                            <view class="sorter-arrow">
+                                <image src="/assets/icons/up{{activeSort === 'mb-presence' && sortData.mb.presence === false ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                                <image src="/assets/icons/down{{activeSort === 'mb-presence' && sortData.mb.presence === true ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                            </view>
+                        </view>
+                        <view class="item"
+                              data-action="mb"
+                              data-type="fourth"
+                              bind:tap="rankSorter">
+                            <view class="sorter-txt {{activeSort === 'mb-fourth' ? 'active' : ''}}">前四</view>
+                            <view class="sorter-arrow">
+                                <image src="/assets/icons/up{{activeSort === 'mb-fourth' && sortData.mb.fourth === false ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                                <image src="/assets/icons/down{{activeSort === 'mb-fourth' && sortData.mb.fourth === true ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                            </view>
+                        </view>
+                        <view class="item"
+                              data-action="mb"
+                              data-type="top"
+                              bind:tap="rankSorter">
+                            <view class="sorter-txt {{activeSort === 'mb-top' ? 'active' : ''}}">登顶</view>
+                            <view class="sorter-arrow">
+                                <image src="/assets/icons/up{{activeSort === 'mb-top' && sortData.mb.top === false ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                                <image src="/assets/icons/down{{activeSort === 'mb-top' && sortData.mb.top === true ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="hot-lineup-list">
+                    <view class="item"
+                          wx:for="{{detail.sub}}"
+                          wx:for-item="sub"
+                          wx:for-index="idx"
+                          wx:key="i">
+                        <view class="lineup-info">
+                            <view class="champion-list">
+                                <view
+                                        wx:for="{{sub.heroes}}"
+                                        wx:for-index="h"
+                                        wx:for-item="hero"
+                                        wx:key="id"
+                                        class="component-champion cost{{hero.prices}}">
+                                    <l-avatar
+                                            bind:tap="detail"
+                                            data-hero-session="{{hero.session}}"
+                                            data-hero-id="{{hero.id}}"
+                                            size="{{60}}"
+                                            l-class="champion-pic"
+                                            l-text-class="text"
+                                            src="{{hero.avatar}}"/>
+                                </view>
+                            </view>
+                            <view class="number-list">
+                                <view class="span active">{{sub.vp1}}%</view>
+                                <view class="span">{{sub.vp2}}%</view>
+                                <view class="span">{{sub.vp3}}%</view>
+                            </view>
+                        </view>
+                        <view class="synergy-list">
+                            <synergy wx:for="{{sub.synergy}}"
+                                     wx:for-item="synergy"
+                                     wx:key="h"
+                                     wx:for-index="idx"
+                                     count="{{synergy.count}}"
+                                     name="{{synergy.info.name}}"
+                                     level="{{synergy.level}}"
+                                     iconSize="50"
+                                     fontSize="24"
+                                     size="50"
+                                     isRank="{{true}}"
+                                     avatar="{{synergy.info.image}}"/>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </l-tabpanel>
+        <l-tabpanel tab="被克制" key="counter" slot="counter">
+            <view class="synergy-restraint">
+                <view class="rank-title">
+                    <view class="span">被克制</view>
+                    <view class="sorter">
+                        <view class="item"
+                              data-action="mb"
+                              data-type="presence"
+                              bind:tap="rankSorter">
+                            <view class="sorter-txt {{activeSort === 'mb-presence' ? 'active' : ''}}">对阵胜率</view>
+                            <view class="sorter-arrow">
+                                <image src="/assets/icons/up{{activeSort === 'mb-presence' && sortData.mb.presence === false ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                                <image src="/assets/icons/down{{activeSort === 'mb-presence' && sortData.mb.presence === true ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                            </view>
+                        </view>
+                        <view class="item"
+                              data-action="mb"
+                              data-type="fourth"
+                              bind:tap="rankSorter">
+                            <view class="sorter-txt {{activeSort === 'mb-fourth' ? 'active' : ''}}">对阵次数</view>
+                            <view class="sorter-arrow">
+                                <image src="/assets/icons/up{{activeSort === 'mb-fourth' && sortData.mb.fourth === false ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                                <image src="/assets/icons/down{{activeSort === 'mb-fourth' && sortData.mb.fourth === true ? '_active' : ''}}.png" mode="widthFix" class="icon"></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="synergy-restraint-list" wx:for="{{detail.counter.length}}">
+                    <view class="item" wx:for="{{detail.counter}}"
+                          wx:key="id"
+                          wx:for-item="counter"
+                          wx:for-index="idx"
+                    >
+                        <view class="synergy-list">
+                            <synergy wx:for="{{counter.data}}"
+                                     wx:for-item="item"
+                                     wx:key="h"
+                                     wx:for-index="idx"
+                                     count="{{item.count}}"
+                                     name="{{item.info.name}}"
+                                     level="{{item.level}}"
+                                     iconSize="50"
+                                     fontSize="24"
+                                     size="50"
+                                     isRank="{{true}}"
+                                     avatar="{{item.info.image}}"/>
+                        </view>
+                        <view class="number-list">
+                            <view class="win-rate" style="width: {{counter.win}}%;">{{counter.win}}%</view>
+                            <view class="win-times">{{counter.sum}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </l-tabpanel>
+    </l-tabs>
+</view>

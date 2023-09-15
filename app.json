@@ -14,7 +14,7 @@
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#101c42",
+    "navigationBarBackgroundColor": "#002a3a",
     "navigationBarTitleText": "TFT金铲铲助手",
     "navigationBarTextStyle": "white"
   },
@@ -83,7 +83,8 @@
     "tag": "./components/tag/index",
     "champion": "./components/champion/index",
     "synergy": "./components/synergy/index",
-    "location": "./components/location/index"
+    "location": "./components/location/index",
+    "table": "./components/table/index"
   },
   "sitemapLocation": "sitemap.json",
   "subpackages": [],

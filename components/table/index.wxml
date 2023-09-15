@@ -1,0 +1,90 @@
+<view style="width:100%;"  class="table table-border">
+    <!-- 表格头 start -->
+    <view
+        class="thead {{ border ? 'thead-border' : ''}} header-row-class-name"
+        style="width:{{ scrolWidth }}rpx; {{ border ? '' : 'border: unset;'}}"
+    >
+      <view
+        wx:for="{{ headers }}"
+        wx:key="i"
+        wx:for-item="item"
+        class="td sorter"
+        style="width:{{ item.width }}rpx; {{ border ? '' : 'border-right: unset;'}} display: flex;"
+      >
+          <view class="sorter-txt active">{{ item.label }}</view>
+          <view class="sorter-arrow" wx:if="{{item.orderby === true}}">
+              <image src="/assets/icon/up_active.png" mode="widthFix" class="icon"></image>
+              <image src="/assets/icon/down.png" mode="widthFix" class="icon"></image>
+          </view>
+      </view>
+    </view>
+    <!-- 表格头 end -->
+
+    <!-- 表格体 start -->
+    <view
+        class="tbody"
+        style="width:{{ scrolWidth }}rpx; height:{{ height ? height : 'auto' }}; {{ border ? '' : 'border: unset;'}}"
+    >
+      <block
+        wx:if="{{ data.length > 0 }}"
+        wx:for-item="it"
+        wx:for="{{ data }}"
+        wx:key="i"
+        wx:for-index="idx"
+      >
+        <view class="tbody-tr {{ stripe ? 'tbody-tr-stripe' : '' }} {{ border ? 'tbody-tr-border' : ''}} row-class-name {{highlight === it[primary] ? 'selected-active' : ''}}">
+          <view wx:for-item="head"
+            wx:for="{{ headers }}"
+            wx:key="j"
+            class="td cell-class-name"
+            data-it="{{it}}"
+            data-row="{{index}}"
+            data-column="{{idx+1}}"
+            style="width:{{ headers[index].width }}rpx;color:{{ headers[index].color }}; {{head['prop'] === 'hero' ? 'text-align: left;': ''}}"
+            bindtap="onRowClick"
+          >
+              <block wx:if="{{head['prop'] === 'ranking'}}">
+                  <view class="order">
+                      <view class="num">{{idx + 1}}</view>
+                      <view wx:if="{{it.order !== 0}}"
+                            class="order-ranking"
+                            style="color: {{it.order >= 1 ? 'green': 'red'}}">
+                          <block wx:if="{{it.order > 0}}">↑</block>
+                          <block wx:elif="{{it.order < 0}}">↓</block>
+                          <view class="order-abs">{{it.orderAbs}}</view>
+                      </view>
+                  </view>
+              </block>
+              <block wx:elif="{{head['prop'] === 'hero'}}">
+                  <view class="champion">
+                      <l-avatar
+                              bind:tap="detail"
+                              data-hero-id="{{it.hero_id}}"
+                              size="80"
+                              l-class="champion-pic"
+                              src="{{it.hero.avatar}}"/>
+                      <view class="name">
+                          <view class="nickname">{{isShowNickname ? it.hero.nickname : it.hero.title}}</view>
+                          <view class="pos">
+                              {{it.hero.positions}}
+                          </view>
+                      </view>
+                  </view>
+              </block>
+              <block wx:elif="{{head['prop'] === 'level'}}">
+                  <image src="/assets/images/level-{{it.level}}.png" class="level"></image>
+              </block>
+              <block wx:else>
+                  {{it[head["prop"]]}}
+              </block>
+          </view>
+        </view>
+      </block>
+      <!-- 列表无数据处理 -->
+      <block wx:if="{{ data.length === 0 }}">
+        <view class="no-data">{{ msg }}</view>
+      </block>
+    </view>
+    <!-- 表格体 end -->
+</view>
+

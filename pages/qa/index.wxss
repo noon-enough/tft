@@ -13,7 +13,7 @@
     color: #fcf0f4;
     font-weight: 700;
     margin-top: 20rpx;
-    margin-bottom: 20rpx;
+    /*margin-bottom: 20rpx;*/
 }
 
 .page .box .title:first-child {

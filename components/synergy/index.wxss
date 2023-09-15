@@ -10,7 +10,7 @@
 }
 
 .component-synergy .synergy-icon {
-    line-height: 3.4;
+    /*line-height: 3.4;*/
     position: relative;
     display: inline-block;
     vertical-align: middle;
@@ -54,9 +54,8 @@
 }
 
 .component-synergy .synergy-icon .icon-img.rank {
-    position: absolute;
-    top: -24rpx;
-    left: 4rpx;
+    position: relative;
+    top: 10rpx;
 }
 
 .component-synergy.active .synergy-icon .icon-img {

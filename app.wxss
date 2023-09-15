@@ -1,5 +1,5 @@
 page {
-    background: #0b1536;
+    background: #002635;
 }
 
 .ml20 {
@@ -14,6 +14,10 @@ page {
     margin-bottom: 20rpx;
 }
 
+.mr20 {
+    margin-right: 20rpx;
+}
+
 .text-align-left {
     text-align: left;
 }
@@ -21,7 +25,7 @@ page {
 
 .page {
     margin: 40rpx;
-    background: #101c42;
+    background: #002a3a;
 }
 
 .component-champion .text {
@@ -30,31 +34,31 @@ page {
 }
 
 .component-champion.cost8 .champion-pic {
-    border: 2px solid #cca329;
+    border: 2rpx solid #cca329;
 }
 
 .component-champion.cost7 .champion-pic {
-    border: 2px solid #cc29cc;
+    border: 2rpx solid #cc29cc;
 }
 
 .component-champion.cost5 .champion-pic {
-    border: 2px solid #cca329;
+    border: 2rpx solid #cca329;
 }
 
 .component-champion.cost4 .champion-pic {
-    border: 2px solid #cc29cc;
+    border: 2rpx solid #cc29cc;
 }
 
 .component-champion.cost3 .champion-pic {
-    border: 2px solid #297acc;
+    border: 2rpx solid #297acc;
 }
 
 .component-champion.cost2 .champion-pic {
-    border: 2px solid #5fcc29;
+    border: 2rpx solid #5fcc29;
 }
 
 .component-champion.cost1 .champion-pic {
-    border: 2px solid #999;
+    border: 2rpx solid #999;
 }
 
 .component-champion.monster::after{
@@ -113,13 +117,13 @@ page {
     z-index: 2;
     font-weight: 700;
     font-size: 24rpx;
-    background: #0c173c;
+    background: #002635;
 }
 
 .tab-inactive-item {
     text-align: center;
     font-size: 24rpx;
-    background: #0c173c;
+    background: #002635;
     color: #959db9;
 }
 

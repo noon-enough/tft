@@ -19,10 +19,10 @@
     display: block;
     height: 60rpx;
     line-height: 60rpx;
-    background: #0c173c;
+    background: #002635;
     font-size: 28rpx;
     color: #959db9;
-    border: 2rpx solid #394567;
+    border: 2rpx solid #1f6d7b;
     box-sizing: border-box;
     -webkit-transition: border-color .3s;
     -moz-transition: border-color .3s;
@@ -31,8 +31,8 @@
 }
 
 .component-select .select-text {
-    color: #6c7a95;
-    background: #041938;
+    color: white;
+    background: #024b58;
     border-color: #26426a;
 }
 
@@ -44,9 +44,9 @@
     max-height: 600rpx;
     /*height: 600rpx;*/
     height: auto;
-    /*background: #0b1536;*/
+    /*background: #002635;*/
     background: red;
-    border: 2rpx solid #0b1536;
+    border: 2rpx solid #002635;
     box-sizing: border-box;
     -webkit-transition: opacity .3s,border-color .3s;
     -moz-transition: opacity .3s,border-color .3s;
@@ -59,7 +59,7 @@
 
 
 .component-select .select-options-wrap {
-    background: #041938;
+    background: #024b58;
     border-color: #feaa51;
 }
 
@@ -93,7 +93,7 @@
 }
 
 .component-select .select-options .li {
-    color: #6c7a95;
+    color: white;
     border-top: 2rpx solid rgba(255,255,255,.05);
     box-sizing: border-box;
 }

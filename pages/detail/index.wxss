@@ -11,7 +11,7 @@
 
 .champion-detail-info>view {
     box-sizing: border-box;
-    background: #0b1536;
+    background: #002635;
 }
 
 .champion-detail-info>view:first-child {
@@ -203,7 +203,8 @@
 }
 
 .detail-info-title .avatar {
-    background: #fff9d7;
+    /*background: #fff9d7;*/
+    background: white;
 }
 
 

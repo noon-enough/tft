@@ -99,7 +99,7 @@ Page({
     if (e.scrollTop >= 300) {
       that.setData({
         title: title,
-        bgColor: "#101c42"
+        bgColor: "#002a3a"
       })
     } else {
       that.setData({

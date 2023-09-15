@@ -1,5 +1,5 @@
 <view class="component-synergy type-0 active level{{level}}">
-    <view class="synergy-icon" style="{{iconSize ? 'height: ' + iconSize + 'rpx; width: ' + iconSize + 'rpx;': ''}}">
+    <view class="synergy-icon" style="{{iconSize ? 'height: ' + (iconSize + 20) + 'rpx; width: ' + (iconSize + 20) + 'rpx;': ''}}">
         <l-avatar size="{{size}}" l-class="icon-img {{isRank ? 'rank' :  ''}}" src="{{avatar}}"></l-avatar>
     </view>
     <view class="synergy-txt" style="{{fontSize ? 'font-size: ' + fontSize + 'rpx;' : ''}}">{{count}} {{name}}</view>

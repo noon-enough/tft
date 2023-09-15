@@ -1,11 +1,13 @@
 <l-tab-bar
-        bg-color="#101c42"
+        bg-color="#002a3a"
         text-color="#8a8a8a"
         text-selected-color="#d7a75f"
         list="{{list}}"
 />
 <view class="page" style="margin-bottom: 200rpx;">
     <l-tabs hasLine="{{false}}"
+            bind:linchange="onTabTabBar"
+            active-key="{{activeKey}}"
             active-color="#b59758"
             inactive-color="#959db9"
             l-inactive-class="tab-inactive-item"
@@ -19,9 +21,9 @@
                                 data-idx="{{idx}}"
                                 data-id="{{item.id}}"
                                 bind:lintap="showFormation"
-                                l-class="component-equipment"
+                                l-class="component-equipment {{selectedEid === item.id ? 'selected': ''}}"
                                 shape="square"
-                                size="60"
+                                size="{{selectedEid === item.id ? '80': '60'}}"
                                 src="{{item.image}}"/>
                     </block>
                 </block>
@@ -30,11 +32,10 @@
                 <view class="equipment-combination-head">
                     <view style="width: 40%;" class="head-title-1">配方</view>
                     <view style="width: 60%;" class="head-title-1">合成</view>
-                    <!--                    <view style=""  class="head-title-3">适合英雄</view>-->
                 </view>
                 <view class="equipment-combination-body">
-                    <block wx:if="{{formation.type1.length}}">
-                        <block wx:for="{{formation.type1}}" wx:for-index="idx" wx:key="i" wx:for-item="item">
+                    <block wx:if="{{equipment.length}}">
+                        <block wx:for="{{equipment}}" wx:for-index="idx" wx:key="i" wx:for-item="item">
                             <view class="equipment-item">
                                 <view class="equip-formula" style="width: 40%;">
                                     <view class="equip-formula-flex">
@@ -61,6 +62,24 @@
                                     <view class="equip-txt">
                                         <view class="equip-name">{{item.name}}</view>
                                         <view class="equip-desc">{{item.effect}}</view>
+                                        <view class="equip-champion-list"
+                                              wx:if="{{item.recommend_hero.length}}">
+                                            <block
+                                                    wx:for="{{item.recommend_hero}}"
+                                                    wx:for-item="hero"
+                                                    wx:for-index="index"
+                                                    wx:key="index"
+                                            >
+                                                <champion
+                                                        session="{{hero.session}}"
+                                                        showName="{{false}}"
+                                                        cost="{{hero.prices}}"
+                                                        heroId="{{hero.id}}"
+                                                        size="50"
+                                                        class="mr20 mb20"
+                                                        avatar="{{hero.avatar}}"/>
+                                            </block>
+                                        </view>
                                     </view>
                                 </view>
                             </view>
@@ -78,9 +97,9 @@
                                 data-idx="{{idx}}"
                                 data-id="{{item.id}}"
                                 bind:lintap="showFormation"
-                                l-class="component-equipment"
+                                l-class="component-equipment {{selectedEid === item.id ? 'selected': ''}}"
                                 shape="square"
-                                size="60"
+                                size="{{selectedEid === item.id ? '80': '60'}}"
                                 src="{{item.image}}"/>
                     </block>
                 </block>
@@ -92,7 +111,7 @@
                     <!--                    <view style=""  class="head-title-3">适合英雄</view>-->
                 </view>
                 <view class="equipment-combination-body">
-                    <block wx:if="{{formation.type2}}">
+                    <block wx:if="{{equipment}}">
                         <view class="equipment-item">
                             <view class="equip-formula" style="width: 40%;">
                                 <view class="equip-formula-flex">
@@ -100,13 +119,13 @@
                                             l-class="component-equipment"
                                             shape="square"
                                             size="50"
-                                            src="{{formation.type2.formula_data[formation.type2.formula[0]].image}}"/>
+                                            src="{{equipment.formula_data[equipment.formula[0]].image}}"/>
                                     <view class="symbol">+</view>
                                     <l-avatar
                                             l-class="component-equipment"
                                             shape="square"
                                             size="50"
-                                            src="{{formation.type2.formula_data[formation.type2.formula[1]].image}}"/>
+                                            src="{{equipment.formula_data[equipment.formula[1]].image}}"/>
                                     <view class="symbol">=</view>
                                 </view>
                             </view>
@@ -115,10 +134,28 @@
                                         l-class="component-equipment"
                                         shape="square"
                                         size="70"
-                                        src="{{formation.type2.image}}"/>
+                                        src="{{equipment.image}}"/>
                                 <view class="equip-txt">
-                                    <view class="equip-name">{{formation.type2.name}}</view>
-                                    <view class="equip-desc">{{formation.type2.effect}}</view>
+                                    <view class="equip-name">{{equipment.name}}</view>
+                                    <view class="equip-desc">{{equipment.effect}}</view>
+                                    <view class="equip-champion-list"
+                                          wx:if="{{equipment.recommend_hero.length}}">
+                                        <block
+                                                wx:for="{{equipment.recommend_hero}}"
+                                                wx:for-item="hero"
+                                                wx:for-index="index"
+                                                wx:key="index"
+                                        >
+                                            <champion
+                                                    session="{{hero.session}}"
+                                                    showName="{{false}}"
+                                                    cost="{{hero.prices}}"
+                                                    heroId="{{hero.id}}"
+                                                    size="50"
+                                                    class="mr20 mb20"
+                                                    avatar="{{hero.avatar}}"/>
+                                        </block>
+                                    </view>
                                 </view>
                             </view>
                         </view>
@@ -135,9 +172,9 @@
                                 data-idx="{{idx}}"
                                 data-id="{{item.id}}"
                                 bind:lintap="showFormation"
-                                l-class="component-equipment"
+                                l-class="component-equipment {{selectedEid === item.id ? 'selected': ''}}"
                                 shape="square"
-                                size="60"
+                                size="{{selectedEid === item.id ? '80': '60'}}"
                                 src="{{item.image}}"/>
                     </block>
                 </block>
@@ -149,7 +186,7 @@
                     <!--                    <view style=""  class="head-title-3">适合英雄</view>-->
                 </view>
                 <view class="equipment-combination-body">
-                    <block wx:if="{{formation.type3}}">
+                    <block wx:if="{{equipment}}">
                         <view class="equipment-item">
                             <view class="equip-formula" style="width: 40%;">
                                 <view class="equip-formula-flex">
@@ -157,13 +194,13 @@
                                             l-class="component-equipment"
                                             shape="square"
                                             size="50"
-                                            src="{{formation.type3.formula_data[formation.type3.formula[0]].image}}"/>
+                                            src="{{equipment.formula_data[equipment.formula[0]].image}}"/>
                                     <view class="symbol">+</view>
                                     <l-avatar
                                             l-class="component-equipment"
                                             shape="square"
                                             size="50"
-                                            src="{{formation.type3.formula_data[formation.type3.formula[1]].image}}"/>
+                                            src="{{equipment.formula_data[equipment.formula[1]].image}}"/>
                                     <view class="symbol">=</view>
                                 </view>
                             </view>
@@ -172,10 +209,28 @@
                                         l-class="component-equipment"
                                         shape="square"
                                         size="70"
-                                        src="{{formation.type3.image}}"/>
+                                        src="{{equipment.image}}"/>
                                 <view class="equip-txt">
-                                    <view class="equip-name">{{formation.type3.name}}</view>
-                                    <view class="equip-desc">{{formation.type3.effect}}</view>
+                                    <view class="equip-name">{{equipment.name}}</view>
+                                    <view class="equip-desc">{{equipment.effect}}</view>
+                                    <view class="equip-champion-list"
+                                          wx:if="{{equipment.recommend_hero.length}}">
+                                        <block
+                                                wx:for="{{equipment.recommend_hero}}"
+                                                wx:for-item="hero"
+                                                wx:for-index="index"
+                                                wx:key="index"
+                                        >
+                                            <champion
+                                                    session="{{hero.session}}"
+                                                    showName="{{false}}"
+                                                    cost="{{hero.prices}}"
+                                                    heroId="{{hero.id}}"
+                                                    size="50"
+                                                    class="mr20 mb20"
+                                                    avatar="{{hero.avatar}}"/>
+                                        </block>
+                                    </view>
                                 </view>
                             </view>
                         </view>
@@ -183,7 +238,7 @@
                 </view>
             </view>
         </l-tabpanel>
-        <l-tabpanel tab="特殊" key="special" slot="special">
+        <l-tabpanel tab="奥恩神器" key="special" slot="special">
             <view class="normal-equip-list">
                 <block wx:if="{{data.type4.length}}">
                     <block wx:for="{{data.type4}}" wx:key="idx" wx:for-index="idx" wx:for-item="item">
@@ -192,9 +247,9 @@
                                 data-idx="{{idx}}"
                                 data-id="{{item.id}}"
                                 bind:lintap="showFormation"
-                                l-class="component-equipment"
+                                l-class="component-equipment {{selectedEid === item.id ? 'selected': ''}}"
                                 shape="square"
-                                size="60"
+                                size="{{selectedEid === item.id ? '80': '60'}}"
                                 src="{{item.image}}"/>
                     </block>
                 </block>
@@ -233,9 +288,9 @@
                                 data-idx="{{idx}}"
                                 data-id="{{item.id}}"
                                 bind:lintap="showFormation"
-                                l-class="component-equipment"
+                                l-class="component-equipment {{selectedEid === item.id ? 'selected': ''}}"
                                 shape="square"
-                                size="60"
+                                size="{{selectedEid === item.id ? '80': '60'}}"
                                 src="{{item.image}}"/>
                     </block>
                 </block>
@@ -260,6 +315,48 @@
                             </view>
                             <view class="equip-radiant-2">
                                 <text>{{formation.type5.effect}}</text>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </l-tabpanel>
+        <l-tabpanel tab="辅助" key="support" slot="support">
+            <view class="normal-equip-list">
+                <block wx:if="{{data.type6.length}}">
+                    <block wx:for="{{data.type6}}" wx:key="idx" wx:for-index="idx" wx:for-item="item">
+                        <l-avatar
+                                data-type="type6"
+                                data-idx="{{idx}}"
+                                data-id="{{item.id}}"
+                                bind:lintap="showFormation"
+                                l-class="component-equipment {{selectedEid === item.id ? 'selected': ''}}"
+                                shape="square"
+                                size="{{selectedEid === item.id ? '80': '60'}}"
+                                src="{{item.image}}"/>
+                    </block>
+                </block>
+            </view>
+            <view class="equipment-combination">
+                <view class="equipment-combination-head">
+                    <view style="width: 40%;" class="head-title-1">名称</view>
+                    <view style="width: 60%;" class="head-title-1">描述</view>
+                    <!--                    <view style=""  class="head-title-3">适合英雄</view>-->
+                </view>
+                <view class="equipment-combination-body">
+                    <block wx:if="{{formation.type6}}">
+                        <view class="equipment-item halo">
+                            <view class="equip-radiant-1" style="width: 40%;">
+                                <l-avatar
+                                        l-class="component-equipment"
+                                        shape="square"
+                                        size="60"
+                                        l-text-class="text"
+                                        text="{{formation.type6.name}}"
+                                        src="{{formation.type6.image}}"/>
+                            </view>
+                            <view class="equip-radiant-2">
+                                <text>{{formation.type6.effect}}</text>
                             </view>
                         </view>
                     </block>

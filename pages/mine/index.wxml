@@ -1,5 +1,5 @@
 <l-tab-bar
-        bg-color="#101c42"
+        bg-color="#002a3a"
         text-color="#8a8a8a"
         text-selected-color="#d7a75f"
         list="{{list}}"
@@ -18,6 +18,15 @@
             is-link="{{false}}">
         <view slot="right-section">
             <switch checked="{{show_nickname}}" data-type="hero" color="#3963bc" bindchange="onChange"/>
+        </view>
+    </l-list>
+    <l-list
+            l-class="l-class"
+            title="展示原始头像/皮肤"
+            image="/assets/icons/mine/hero.png"
+            is-link="{{false}}">
+        <view slot="right-section">
+            <switch checked="{{is_show_origin_skin}}" data-type="skin" color="#3963bc" bindchange="onChange"/>
         </view>
     </l-list>
     <l-list

@@ -1,5 +1,5 @@
 <l-tab-bar
-        bg-color="#101c42"
+        bg-color="#002a3a"
         text-color="#8a8a8a"
         text-selected-color="#d7a75f"
         list="{{list}}"
@@ -109,7 +109,7 @@
                                 bind:linconfirm="searchConfirm"
                                 bind:linclear="searchClear"
                                 bind:linchange="searchChange"
-                                bg-color="#101c42"
+                                bg-color="#002a3a"
                                 placeholder="搜索"
                                 show-cancel="{{false}}"/>
                         <view class="hex-list" wx:if="{{hexes.type1.length}}">
@@ -138,7 +138,7 @@
                                 bind:linconfirm="searchConfirm"
                                 bind:linclear="searchClear"
                                 bind:linchange="searchChange"
-                                bg-color="#101c42"
+                                bg-color="#002a3a"
                                 placeholder="搜索"
                                 show-cancel="{{false}}"/>
                         <view class="hex-list" wx:if="{{hexes.type2.length}}">
@@ -167,7 +167,7 @@
                                 bind:linconfirm="searchConfirm"
                                 bind:linclear="searchClear"
                                 bind:linchange="searchChange"
-                                bg-color="#101c42"
+                                bg-color="#002a3a"
                                 placeholder="搜索"
                                 show-cancel="{{false}}"/>
                         <view class="hex-list" wx:if="{{hexes.type3.length}}">
@@ -197,7 +197,7 @@
                                     bind:linconfirm="searchConfirm"
                                     bind:linclear="searchClear"
                                     bind:linchange="searchChange"
-                                    bg-color="#101c42"
+                                    bg-color="#002a3a"
                                     placeholder="搜索"
                                     show-cancel="{{false}}"/>
                             <view class="hex-list" wx:if="{{hexes.type4.length}}">
@@ -220,7 +220,7 @@
                         </view>
                     </l-tabpanel>
                 </block>
-                <l-tabpanel wx:if="{{session === 's9'}}" tab="英雄之力" key="legend" slot="legend">
+                <l-tabpanel wx:if="{{session === 's9' || session === 's9.5'}}" tab="英雄之力" key="legend" slot="legend">
                     <view class="tab-content play-bookby-group" wx:if="{{legend.length}}">
                         <block wx:for="{{legend}}" wx:for-item="item" wx:key="i" wx:for-index="index">
                             <view class="play-bookby-item"
@@ -239,7 +239,7 @@
                 </l-tabpanel>
             </l-tabs>
         </l-tabpanel>
-        <l-tabpanel tab="城邦" key="galaxy" slot="galaxy" wx:if="{{session === 's9'}}">
+        <l-tabpanel tab="城邦" key="galaxy" slot="galaxy" wx:if="{{session === 's9' || session === 's9.5'}}">
             <view class="tab-content galaxy-list" wx:if="{{galaxy.length}}">
                 <view class="galaxy-list-head">
                     <view>名称</view>

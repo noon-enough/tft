@@ -3,7 +3,7 @@
     height: auto;
     min-height: 200rpx;
     min-width: 500rpx;
-    background: #0b1536;
+    background: #002635;
     border-radius: 12rpx;
     border: #6c7a95 1rpx solid;
     overflow: hidden;

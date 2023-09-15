@@ -70,6 +70,9 @@ function getSessionName(session = "") {
 
     let name = "隐秘之海"
     switch (session) {
+        case "s9.5":
+            name = "志逐天际"
+            break;
         case "s9":
             name = "符文大陆"
             break;
@@ -99,6 +102,9 @@ function getSessionName(session = "") {
 function getSession(name) {
     let session = DEFAULT_SESSION
     switch (name) {
+        case "志逐天际":
+            session = "s9.5"
+            break
         case "符文大陆":
             session = "s9"
             break
@@ -162,6 +168,10 @@ function gotoLegend(id) {
     goto(`/pages/hex/legend/index?id=${id}`)
 }
 
+function gotoHeroAnalysisRank(id) {
+    goto(`/pages/rank/analysis/index?id=${id}`)
+}
+
 /**
  *
  * @type {{goto: goto, heroDetail: heroDetail, getSessionName: (function(string=): string), showToast: showToast, getSession: (function(*): string), gotoFeedback: gotoFeedback, getSessionFromStorage: (function(): *), lineupDetail: lineupDetail}}
@@ -169,4 +179,4 @@ function gotoLegend(id) {
 module.exports = {historyBack, goto, getSession, getSessionName,
     getSessionSet, gotoRank, gotoHex,
     heroDetail, gotoFeedback, showToast, lineupDetail,
-    getSessionFromStorage, gotoLegend}
+    getSessionFromStorage, gotoLegend, gotoHeroAnalysisRank}

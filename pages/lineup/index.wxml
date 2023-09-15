@@ -43,7 +43,7 @@
                                 avatar="{{hero.hero.avatar}}"/>
                     </block>
                 </view>
-                <view class="lineup-hex-priority mt20" wx:if="{{session === 's9'}}">
+                <view class="lineup-hex-priority mt20" wx:if="{{session === 's9' || session === 's9.5'}}">
                     <view class="lineup-hex-title">英雄传说之力</view>
                     <view class="lineup-hex-list">
                         <block wx:if="{{data.playbook_info.length}}">
@@ -68,7 +68,7 @@
                         </block>
                     </view>
                 </view>
-                <view class="lineup-hex-priority mt20" wx:if="{{session === 's9'}}">
+                <view class="lineup-hex-priority mt20" wx:if="{{session === 's9' || session === 's9.5'}}">
                     <view class="lineup-hex-title">地区传送门</view>
                     <view class="lineup-hex-list">
                         <block wx:if="{{data.galaxy_info.length}}">
@@ -94,7 +94,7 @@
                         </block>
                     </view>
                 </view>
-                <view class="lineup-hex-analyse" wx:if="{{session === 's9'}}">
+                <view class="lineup-hex-analyse" wx:if="{{session === 's9' || session === 's9.5'}}">
                     <view class="content-title">英雄传说之力及地区传送门分析</view>
                     <view class="content-desc">{{data.playbookAndGalaxyInfo}}</view>
                 </view>
@@ -152,11 +152,11 @@
                 </view>
             </view>
             <view class="lineup-detail-content">
-                <view class="content-title">早期过渡</view>
-                <view class="content-desc">{{data.early_info}}</view>
                 <view wx:if="{{is_folding_mid_prophase}}"
                       bind:tap="onShowHideMidProphase"
                       class="content-title mid_prophase">前中期阵容已折叠（<text>{{show_mid_prophase === true ? "收起" : "展开"}}</text>）</view>
+                <view class="content-title">早期过渡</view>
+                <view class="content-desc">{{data.early_info}}</view>
                 <block wx:if="{{show_mid_prophase}}">
                     <view class="lineup-stage" wx:if="{{data.early_heroes.length}}">
                         <view class="lineup-stage-name">前期</view>

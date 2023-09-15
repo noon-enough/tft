@@ -5,15 +5,21 @@
 .normal-equip-list {
     margin: 20rpx;
     text-align: center;
-    display: flow-root;
+    display: flex;
+    justify-content: start;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    height: auto;
+    flex-flow:row wrap;
 }
 
 .equipment-combination-head {
     display: flex;
     height: 40rpx;
     line-height: 40rpx;
-    background-color: #1e2a51;
-    border: 2rpx solid #243261;
+    background-color: #002635;
+    border: 2rpx solid #1f6d7b;
     padding: 20rpx;
     text-align: center;
 }
@@ -34,8 +40,8 @@
     display: flex;
     align-items: flex-start;
     margin-top: 10rpx;
-    padding: 10rpx 20rpx;
-    background: #0b1536;
+    padding: 20rpx;
+    background: #002635;
     height: auto;
 }
 
@@ -76,8 +82,8 @@ l-avatar .component-equipment {
     vertical-align: middle;
     width: 60px;
     height: 60px;
-    border: 1px solid #313537;
-    background: #000;
+    border: 2rpx solid #313537;
+    background: #002635;
     position: relative;
     cursor: pointer;
     -webkit-transition: border-color,.3s;
@@ -85,6 +91,12 @@ l-avatar .component-equipment {
     -o-transition: border-color,.3s;
     transition: border-color,.3s;
     z-index: 1;
+}
+
+.component-equipment.selected {
+    width: 80px;
+    height: 80px;
+    border: 2rpx solid #b59758;
 }
 
 .equipment-item .component-equipment {
@@ -101,9 +113,9 @@ l-avatar .component-equipment {
 
 .equipment-item .equip-txt {
     display: inline-block;
-    margin-left: 10rpx;
+    margin-left: 20rpx;
     vertical-align: top;
-    width: 80%;
+    width: 78%;
 }
 
 .equipment-item .equip-txt .equip-name {
@@ -156,4 +168,18 @@ l-avatar .component-equipment {
     vertical-align: middle;
     color: #72788e;
     font-size: 26rpx;
+}
+
+.equip-champion-list {
+    /* flex-shrink: 1; */
+    display: flex;
+    /* vertical-align: middle; */
+    padding: 20rpx 0 0;
+    line-height: 1;
+    width: 100%;
+    justify-content: start;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    flex-flow: wrap;
 }
