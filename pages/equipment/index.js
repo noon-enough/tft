@@ -7,6 +7,7 @@ Page({
         activeKey: "basic",
         data: [],
         formation: {
+            type3: {},
             type4: {},
             type5: {},
             type6: {},
@@ -23,8 +24,10 @@ Page({
                     data: data,
                     selectedEid: data.type1[0].id,
                     formation: {
+                        type3: data.type3[0],
                         type4: data.type4[0],
-                        type5: data.type5[0]
+                        type5: data.type5[0],
+                        type6: data.type6[0],
                     }
                 })
 
@@ -82,8 +85,8 @@ Page({
             id = dataset.id,
             data = {},
             needUri = false
-        console.log('change', type, idx, id)
-        if (type === "type1" || type === "type2" || type === "type3") {
+        console.log('change', type, idx, id, that.data.data[type])
+        if (type === "type1" || type === "type2") {
             needUri = true
             data.selectedEid = id
         } else {

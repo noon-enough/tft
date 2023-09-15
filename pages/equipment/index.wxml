@@ -181,57 +181,23 @@
             </view>
             <view class="equipment-combination">
                 <view class="equipment-combination-head">
-                    <view style="width: 40%;" class="head-title-1">配方</view>
-                    <view style="width: 60%;" class="head-title-1">合成</view>
-                    <!--                    <view style=""  class="head-title-3">适合英雄</view>-->
+                    <view style="width: 40%;" class="head-title-1">名称</view>
+                    <view style="width: 60%;" class="head-title-1">描述</view>
                 </view>
                 <view class="equipment-combination-body">
-                    <block wx:if="{{equipment}}">
-                        <view class="equipment-item">
-                            <view class="equip-formula" style="width: 40%;">
-                                <view class="equip-formula-flex">
-                                    <l-avatar
-                                            l-class="component-equipment"
-                                            shape="square"
-                                            size="50"
-                                            src="{{equipment.formula_data[equipment.formula[0]].image}}"/>
-                                    <view class="symbol">+</view>
-                                    <l-avatar
-                                            l-class="component-equipment"
-                                            shape="square"
-                                            size="50"
-                                            src="{{equipment.formula_data[equipment.formula[1]].image}}"/>
-                                    <view class="symbol">=</view>
-                                </view>
-                            </view>
-                            <view class="equip-after">
+                    <block wx:if="{{formation.type3}}">
+                        <view class="equipment-item halo">
+                            <view class="equip-radiant-1" style="width: 40%;">
                                 <l-avatar
                                         l-class="component-equipment"
                                         shape="square"
-                                        size="70"
-                                        src="{{equipment.image}}"/>
-                                <view class="equip-txt">
-                                    <view class="equip-name">{{equipment.name}}</view>
-                                    <view class="equip-desc">{{equipment.effect}}</view>
-                                    <view class="equip-champion-list"
-                                          wx:if="{{equipment.recommend_hero.length}}">
-                                        <block
-                                                wx:for="{{equipment.recommend_hero}}"
-                                                wx:for-item="hero"
-                                                wx:for-index="index"
-                                                wx:key="index"
-                                        >
-                                            <champion
-                                                    session="{{hero.session}}"
-                                                    showName="{{false}}"
-                                                    cost="{{hero.prices}}"
-                                                    heroId="{{hero.id}}"
-                                                    size="50"
-                                                    class="mr20 mb20"
-                                                    avatar="{{hero.avatar}}"/>
-                                        </block>
-                                    </view>
-                                </view>
+                                        size="60"
+                                        l-text-class="text"
+                                        text="{{formation.type3.name}}"
+                                        src="{{formation.type3.image}}"/>
+                            </view>
+                            <view class="equip-radiant-2">
+                                <text>{{formation.type3.effect}}</text>
                             </view>
                         </view>
                     </block>
