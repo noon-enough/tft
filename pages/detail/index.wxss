@@ -302,7 +302,7 @@
 .th {
     padding: 20rpx;
     font-weight: 800;           /* 字体加重 */
-    background-color: #283661;   /* 背景色 */
+    background-color: #024b58;   /* 背景色 */
     color: #fcf0f4;
 }
 

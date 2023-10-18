@@ -43,7 +43,7 @@ Page({
 
         rank().then(res => {
             let data = res.data ?? []
-            console.log('onLoad', data)
+            console.log('rank', data)
             if (data) {
                 let equipment = data.equipment.map((item) => {
                     item.average = (item.average * 100).toFixed(1)
@@ -67,8 +67,9 @@ Page({
                     item.presence = (item.presence * 100).toFixed(1)
                     item.top = (item.top * 100).toFixed(1)
                     item.data = item.data.map((item) => {
-                        item.data.colors = JSON.parse(item.data.colors)
-                        let level = item.data.colors[item.count]
+                        let colors = item.data.colors ?? "{}"
+                        colors = JSON.parse(colors)
+                        let level = colors[item.count] ?? 0
                         item.level = parseInt(level)
                         return item
                     })

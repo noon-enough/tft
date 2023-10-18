@@ -46,9 +46,17 @@ Page({
     getRaces: function () {
         let that = this
         races().then(res => {
-            console.log(res)
+            console.log('getRaces', res)
             let data = res.data ?? []
             if (data) {
+                data = data.map((item) => {
+                    item.colors = JSON.parse(item.colors)
+                    item.level = item.level.map((lvl) => {
+                        lvl.color = item.colors[lvl.level]
+                        return lvl
+                    })
+                    return item
+                })
                 that.setData({
                     races: data
                 })
@@ -63,9 +71,17 @@ Page({
     getJobs: function() {
         let that = this
         jobs().then(res => {
-            console.log(res)
+            console.log('getJobs', res)
             let data = res.data ?? []
             if (data) {
+                data = data.map((item) => {
+                    item.colors = JSON.parse(item.colors)
+                    item.level = item.level.map((lvl) => {
+                        lvl.color = item.colors[lvl.level]
+                        return lvl
+                    })
+                    return item
+                })
                 that.setData({
                     jobs: data,
                 })

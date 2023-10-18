@@ -43,7 +43,7 @@
                                     <text user-select>{{item.introduce}}</text>
                                     <block wx:if="{{item.level.length && item.id !== 8111}}">
                                         <block wx:for="{{item.level}}" wx:key="idx" wx:for-item="lvl">
-                                            <tag info="{{lvl.desc}}" level="{{lvl.level}}"></tag>
+                                            <tag info="{{lvl.desc}}" color="{{lvl.color}}" level="{{lvl.level}}"></tag>
                                         </block>
                                     </block>
                                 </view>
@@ -84,7 +84,7 @@
                                     <text user-select>{{item.introduce}}</text>
                                     <block wx:if="{{item.level.length}}">
                                         <block wx:for="{{item.level}}" wx:key="idx" wx:for-item="lvl">
-                                            <tag info="{{lvl.desc}}" level="{{lvl.level}}"></tag>
+                                            <tag info="{{lvl.desc}}" color="{{lvl.color}}" level="{{lvl.level}}"></tag>
                                         </block>
                                     </block>
                                 </view>

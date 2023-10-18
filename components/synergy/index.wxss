@@ -51,6 +51,7 @@
     background: none;
     color: white;
     overflow: visible;
+    line-height: 4;
 }
 
 .component-synergy .synergy-icon .icon-img.rank {
@@ -72,13 +73,13 @@
 .component-synergy.type-0 .synergy-txt {
     display: inline-block;
     vertical-align: middle;
-    background: #091334;
-    color: #64625a;
+    background: #00202c;
+    color: #6e9fb2;
     font-size: 26rpx;
     height: 50rpx;
     line-height: 50rpx;
     padding: 0 20rpx;
-    border: 1px solid #272e48;
+    border: 2rpx solid #06384c;
     margin-left: -10rpx;
 }
 

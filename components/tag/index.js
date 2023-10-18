@@ -7,6 +7,10 @@ Component({
         level: {
             value: 1,
             type: Number
+        },
+        color: {
+            value: 1,
+            type: Number
         }
     },
     data: {},

@@ -1,6 +1,6 @@
 import tabbar from '../../tabbar';
 import {equipmentItem, equipments} from "../../utils/api";
-import {showToast} from "../../utils/util";
+import {getSessionFromStorage, showToast} from "../../utils/util";
 Page({
     data: {
         list: tabbar,
@@ -16,20 +16,28 @@ Page({
         equipment: [],
     },
     onLoad: function (options) {
-        let that = this
+        let that = this,
+            session = getSessionFromStorage()
         equipments().then(res => {
-            let data = res.data ?? []
+            let data = res.data ?? [],
+                is_s95 = session === "s9.5",
+                setData = {}
             if (data) {
-                that.setData({
+                setData = {
+                    session: session,
                     data: data,
                     selectedEid: data.type1[0].id,
                     formation: {
                         type3: data.type3[0],
                         type4: data.type4[0],
                         type5: data.type5[0],
-                        type6: data.type6[0],
                     }
-                })
+                }
+
+                if (is_s95 === true) {
+                    setData.formation.type6 = data.type6[0]
+                }
+                that.setData(setData)
 
                 console.log('data', data, 'type1', data.type1)
                 that.getEquipmentItem()

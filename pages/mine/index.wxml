@@ -17,7 +17,7 @@
             image="/assets/icons/mine/hero.png"
             is-link="{{false}}">
         <view slot="right-section">
-            <switch checked="{{show_nickname}}" data-type="hero" color="#3963bc" bindchange="onChange"/>
+            <switch checked="{{show_nickname}}" data-type="hero" color="#024b58" bindchange="onChange"/>
         </view>
     </l-list>
     <l-list
@@ -26,7 +26,7 @@
             image="/assets/icons/mine/hero.png"
             is-link="{{false}}">
         <view slot="right-section">
-            <switch checked="{{is_show_origin_skin}}" data-type="skin" color="#3963bc" bindchange="onChange"/>
+            <switch checked="{{is_show_origin_skin}}" data-type="skin" color="#024b58" bindchange="onChange"/>
         </view>
     </l-list>
     <l-list
@@ -35,7 +35,7 @@
             image="/assets/icons/mine/newspaper-folding.png"
             is-link="{{false}}">
         <view slot="right-section">
-            <switch checked="{{is_folding_mid_prophase}}" data-type="mid_prophase" color="#3963bc" bindchange="onChange"/>
+            <switch checked="{{is_folding_mid_prophase}}" data-type="mid_prophase" color="#024b58" bindchange="onChange"/>
         </view>
     </l-list>
 <!--    <l-list-->
@@ -51,7 +51,8 @@
             l-class="l-class"
             image="/assets/icons/mine/trend-two.png"
             link-type="navigateTo"
-            tag-content="hot" tag-position="right"
+            tag-content="hot"
+            tag-position="right"
             is-link="{{false}}"
             url="/pages/rank/index"/>
     <l-list title="名词解释&新手指南"

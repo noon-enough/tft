@@ -38,8 +38,9 @@
 }
 
 .tag-num-level-4 {
-    border-color: #a7a399;
-    background: #818181;
+    border-color: #60dace;
+    background: #d4f6f1;
+    color: #1c1c1c;
 }
 
 .tag-num-level-5 {

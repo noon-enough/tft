@@ -1,32 +1,10 @@
-<l-tab-bar
-    bg-color="#002a3a"
-    text-color="#8a8a8a"
-    text-selected-color="#d7a75f"
-    list="{{list}}"
-/>
-<capsule-bar
-        bg-color="#002a3a"
-        title-color="#fcf0f4"
-        capsule-color="white"
-        disable-home="{{true}}"
-        disable-back="{{true}}"
-        l-title-class="capsule-bar-title"
-        capsule-left-icon-width="38"
-        capsule-left-icon-height="38"
-        capsule-right-icon-width="38"
-        capsule-right-icon-height="38"
-        title="阵容推荐">
+<l-tab-bar bg-color="#002a3a" text-color="#8a8a8a" text-selected-color="#d7a75f" list="{{list}}" />
+<capsule-bar bg-color="#002a3a" title-color="#fcf0f4" capsule-color="white" disable-home="{{true}}" disable-back="{{true}}" l-title-class="capsule-bar-title" capsule-left-icon-width="38" capsule-left-icon-height="38" capsule-right-icon-width="38" capsule-right-icon-height="38" title="阵容推荐">
     <view class="container">
-        <t-notice-bar
-                theme="warning"
-                visible="{{show_notice}}"
-                suffixIcon="close"
-                content="新赛季S9.5--志逐天际数据已更新，你可以从设置中切换数据。"
-                bind:click="onNotice"
-        ></t-notice-bar>
-<!--        <view class="show-block">-->
-<!--            <image class="tips-tab" src="/assets/icons/mine/trend-two.png" mode="aspectFill"></image>-->
-<!--        </view>-->
+        <t-notice-bar theme="warning" visible="{{show_notice}}" suffixIcon="close" content="新赛季S9.5--志逐天际数据已更新，你可以从设置中切换数据。" bind:click="onNotice"></t-notice-bar>
+        <!--        <view class="show-block">-->
+        <!--            <image class="tips-tab" src="/assets/icons/mine/trend-two.png" mode="aspectFill"></image>-->
+        <!--        </view>-->
         <view class="show-block">
             <view class="banner-wrap" bind:tap="gotoGalaxy">
                 <image class="left" src="https://tft-images.qizue.com/btn-monsters.webp?t=1" mode="aspectFill"></image>
@@ -35,72 +13,41 @@
                 <image class="right" src="https://tft-images.qizue.com/btn-hero-hex.webp?t=1" mode="aspectFill"></image>
             </view>
         </view>
-        <l-loadmore
-                show="{{loadmore}}">
+        <l-loadmore show="{{loadmore}}">
             <view slot="content">
                 <view class="lineup-list" style="margin-bottom: 180rpx;">
                     <view class="filter-box">
                         <view class="component-select {{jobsDefaultDataShow ? 'active': ''}} {{jobsIsActive ? 'selected' : ''}}">
-                            <view class="select-text"
-                                  data-type="job"
-                                  bind:tap="openClose">
+                            <view class="select-text" data-type="job" bind:tap="openClose">
                                 {{jobsDefaultData.name}}
                             </view>
                             <view class="select-options-wrap" wx:if="{{jobsDefaultDataShow}}">
                                 <view class="select-options">
-                                    <view class="li"
-                                          bind:tap="onFilterBoxChange"
-                                          data-type="job"
-                                          wx:for="{{jobsData}}"
-                                          wx:key="id"
-                                          wx:for-item="item"
-                                          wx:for-index="idx"
-                                          data-id="{{item.key}}"
-                                          data-name="{{item.name}}">
+                                    <view class="li" bind:tap="onFilterBoxChange" data-type="job" wx:for="{{jobsData}}" wx:key="id" wx:for-item="item" wx:for-index="idx" data-id="{{item.key}}" data-name="{{item.name}}">
                                         {{item.name}}
                                     </view>
                                 </view>
                             </view>
                         </view>
                         <view class="component-select {{raceDefaultDataShow ? 'active': ''}} {{raceIsActive ? 'selected' : ''}}">
-                            <view class="select-text"
-                                  data-type="race"
-                                  bind:tap="openClose">
+                            <view class="select-text" data-type="race" bind:tap="openClose">
                                 {{raceDefaultData.name}}
                             </view>
                             <view class="select-options-wrap" wx:if="{{raceDefaultDataShow}}">
                                 <view class="select-options">
-                                    <view class="li"
-                                          bind:tap="onFilterBoxChange"
-                                          data-type="race"
-                                          wx:for="{{raceData}}"
-                                          wx:key="id"
-                                          wx:for-item="item"
-                                          wx:for-index="idx"
-                                          data-id="{{item.key}}"
-                                          data-name="{{item.name}}">
+                                    <view class="li" bind:tap="onFilterBoxChange" data-type="race" wx:for="{{raceData}}" wx:key="id" wx:for-item="item" wx:for-index="idx" data-id="{{item.key}}" data-name="{{item.name}}">
                                         {{item.name}}
                                     </view>
                                 </view>
                             </view>
                         </view>
                         <view class="component-select {{qualityDefaultDataShow ? 'active': ''}} {{qualityIsActive ? 'selected' : ''}}">
-                            <view class="select-text"
-                                  data-type="quality"
-                                  bind:tap="openClose">
+                            <view class="select-text" data-type="quality" bind:tap="openClose">
                                 {{qualityDefaultData.name}}
                             </view>
                             <view class="select-options-wrap" wx:if="{{qualityDefaultDataShow}}">
                                 <view class="select-options">
-                                    <view class="li"
-                                          bind:tap="onFilterBoxChange"
-                                          data-type="quality"
-                                          wx:for="{{qualityData}}"
-                                          wx:key="id"
-                                          wx:for-item="item"
-                                          wx:for-index="idx"
-                                          data-id="{{item.key}}"
-                                          data-name="{{item.name}}">
+                                    <view class="li" bind:tap="onFilterBoxChange" data-type="quality" wx:for="{{qualityData}}" wx:key="id" wx:for-item="item" wx:for-index="idx" data-id="{{item.key}}" data-name="{{item.name}}">
                                         {{item.name}}
                                     </view>
                                 </view>
@@ -108,15 +55,8 @@
                         </view>
                     </view>
                     <block wx:if="{{data.length}}">
-                        <view class="lineup-item"
-                              wx:for="{{data}}"
-                              wx:key="id"
-                              wx:for-index="id"
-                              wx:for-item="item"
-                        >
-                            <view class="lineup-name"
-                                  data-id="{{item.id}}"
-                                  bind:tap="detail">
+                        <view class="lineup-item" wx:for="{{data}}" wx:key="id" wx:for-index="id" wx:for-item="item">
+                            <view class="lineup-name" data-id="{{item.id}}" bind:tap="detail">
                                 <view class="lineup-quality">{{item.quality}}</view>
                                 <view class="line-name">{{item.title}}</view>
                                 <view class="line-detail">
@@ -129,27 +69,14 @@
                                         <view class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
                                             <block wx:for="{{item.hero_location}}" wx:for-index="h" wx:key="hero_location" wx:for-item="chess">
                                                 <view wx:if="{{h <= 5}}" class="champion-wrap swiper-slide swiper-slide-active">
-                                                    <champion
-                                                            session="{{item.session}}"
-                                                            showName="{{show_champion_name}}"
-                                                            isMonster="{{chess.hero.is_monster}}"
-                                                            cost="{{chess.hero.prices}}"
-                                                            heroId="{{chess.id}}"
-                                                            equipments="{{chess.equipment_data}}"
-                                                            showStar="{{chess.is_three_stars}}"
-                                                            star="3"
-                                                            isCarry="{{chess.is_carry_hero}}"
-                                                            name="{{chess.hero.nickname === '' ? chess.hero.display_name : chess.hero.nickname}}"
-                                                            avatar="{{chess.hero.avatar}}"/>
+                                                    <champion session="{{item.session}}" showName="{{show_champion_name}}" isMonster="{{chess.hero.is_monster}}" cost="{{chess.hero.prices}}" heroId="{{chess.id}}" equipments="{{chess.equipment_data}}" showStar="{{chess.is_three_stars}}" star="3" isCarry="{{chess.is_carry_hero}}" name="{{chess.hero.nickname === '' ? chess.hero.display_name : chess.hero.nickname}}" avatar="{{chess.hero.avatar}}" />
                                                 </view>
                                             </block>
                                         </view>
                                     </view>
                                 </view>
                             </view>
-                            <view class="lineup-hex"
-                                  data-id="{{item.id}}"
-                                  bind:tap="detail">
+                            <view class="lineup-hex" data-id="{{item.id}}" bind:tap="detail">
                                 <view class="author"></view>
                                 <view wx:if="{{item.tag === 2}}" class="lineup-feature">高手进阶</view>
                                 <view wx:if="{{item.tag === 1}}" class="lineup-feature">新手推荐</view>
@@ -159,12 +86,8 @@
                                 <view class="lineup-tag-txt" wx:if="{{item.feature === 4}}">稳健运营</view>
                                 <block wx:if="{{item.hexes.recomm.length}}">
                                     <view class="lineup-races">
-                                        <block wx:for="{{item.hexes.recomm}}" wx:for-item="hex"
-                                               wx:for-index="i" wx:key="id">
-                                            <l-avatar
-                                                    l-class="avatar-default"
-                                                    size="50"
-                                                    src="{{hex.image}}"/>
+                                        <block wx:for="{{item.hexes.recomm}}" wx:for-item="hex" wx:for-index="i" wx:key="id">
+                                            <l-avatar l-class="avatar-default" size="50" src="{{hex.image}}" />
                                         </block>
                                     </view>
                                 </block>

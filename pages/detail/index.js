@@ -125,5 +125,5 @@ Page({
       envVersion: 'release', //打开小程序的版本（体验版trial；开发版develop；正式版release）
       success(res) {}
     })
-  }
+  },
 });

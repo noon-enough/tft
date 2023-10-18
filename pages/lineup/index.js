@@ -190,5 +190,19 @@ Page({
             show_mid_prophase: is_show
         })
 
-    }
+    },
+    onCopyCode: function(e) {
+        let that = this,
+            code = e.currentTarget.dataset.code ?? ''
+        if (code === '') {
+            showToast('阵容代码不能为空，复制失败', {icon: 'error'})
+            return
+        }
+        wx.setClipboardData({
+            data: code,
+            success (res) {
+                showToast('口令代码复制成功', {icon: 'success'})
+            }
+        })
+    },
 });
