@@ -60,7 +60,11 @@
                                             size="70"
                                             src="{{item.image}}"/>
                                     <view class="equip-txt">
-                                        <view class="equip-name">{{item.name}}</view>
+                                        <view class="equip-name">
+                                            <view class="equipment-up" wx:if="{{item.status == 1}}">【加强】</view>
+                                            <view class="equipment-down" wx:elif="{{item.status == 2}}">【削弱】</view>
+                                            <view class="equipment-redo" wx:elif="{{item.status == 3}}">【重做】</view>
+                                            {{item.name}}</view>
                                         <view class="equip-desc">{{item.effect}}</view>
                                         <view class="equip-champion-list"
                                               wx:if="{{item.recommend_hero.length}}">
@@ -136,7 +140,12 @@
                                         size="70"
                                         src="{{equipment.image}}"/>
                                 <view class="equip-txt">
-                                    <view class="equip-name">{{equipment.name}}</view>
+                                    <view class="equip-name">
+                                        <view class="equipment-up" wx:if="{{equipment.status == 1}}">【加强】</view>
+                                        <view class="equipment-down" wx:elif="{{equipment.status == 2}}">【削弱】</view>
+                                        <view class="equipment-redo" wx:elif="{{equipment.status == 3}}">【重做】</view>
+                                        {{equipment.name}}
+                                    </view>
                                     <view class="equip-desc">{{equipment.effect}}</view>
                                     <view class="equip-champion-list"
                                           wx:if="{{equipment.recommend_hero.length}}">
@@ -197,6 +206,9 @@
                                         src="{{formation.type3.image}}"/>
                             </view>
                             <view class="equip-radiant-2">
+                                <view class="equipment-up" wx:if="{{formation.type3.status == 1}}">【加强】</view>
+                                <view class="equipment-down" wx:elif="{{formation.type3.status == 2}}">【削弱】</view>
+                                <view class="equipment-redo" wx:elif="{{formation.type3.status == 3}}">【重做】</view>
                                 <text>{{formation.type3.effect}}</text>
                             </view>
                         </view>
@@ -238,6 +250,9 @@
                                         src="{{formation.type4.image}}"/>
                             </view>
                             <view class="equip-radiant-2">
+                                <view class="equipment-up" wx:if="{{formation.type4.status == 1}}">【加强】</view>
+                                <view class="equipment-down" wx:elif="{{formation.type4.status == 2}}">【削弱】</view>
+                                <view class="equipment-redo" wx:elif="{{formation.type4.status == 3}}">【重做】</view>
                                 <text>{{formation.type4.effect}}</text>
                             </view>
                         </view>
@@ -280,6 +295,9 @@
                                         src="{{formation.type5.image}}"/>
                             </view>
                             <view class="equip-radiant-2">
+                                <view class="equipment-up" wx:if="{{formation.type5.status == 1}}">【加强】</view>
+                                <view class="equipment-down" wx:elif="{{formation.type5.status == 2}}">【削弱】</view>
+                                <view class="equipment-redo" wx:elif="{{formation.type5.status == 3}}">【重做】</view>
                                 <text>{{formation.type5.effect}}</text>
                             </view>
                         </view>
@@ -322,6 +340,9 @@
                                         src="{{formation.type6.image}}"/>
                             </view>
                             <view class="equip-radiant-2">
+                                <view class="equipment-up" wx:if="{{formation.type6.status == 1}}">【加强】</view>
+                                <view class="equipment-down" wx:elif="{{formation.type6.status == 2}}">【削弱】</view>
+                                <view class="equipment-redo" wx:elif="{{formation.type6.status == 3}}">【重做】</view>
                                 <text>{{formation.type6.effect}}</text>
                             </view>
                         </view>

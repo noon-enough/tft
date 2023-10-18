@@ -183,3 +183,24 @@ l-avatar .component-equipment {
     align-items: center;
     flex-flow: wrap;
 }
+
+.equipment-up, .equipment-down, .equipment-redo {
+    font-size: 32rpx;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 8rpx;
+    margin-right: 8rpx;
+}
+
+
+.equipment-up {
+    color: red;
+}
+
+.equipment-down {
+    color: greenyellow;
+}
+
+.equipment-redo {
+    color: saddlebrown;
+}
