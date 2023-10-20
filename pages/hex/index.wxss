@@ -43,6 +43,10 @@
     font-size: 40rpx;
     background: none;
     color: #fcf0f4;
+    display: flex;
+    justify-content: start;
+    justify-items: center;
+    align-items: center;
 }
 
 .synergy-table-main .main-right .info {
@@ -95,6 +99,11 @@
     color: #72788e;
     margin: 0 0 10rpx 0;
     line-height: 2;
+    display: flex;
+    justify-content: start;
+    justify-items: start;
+    align-items: start;
+    flex-direction: column;
 }
 
 .hex-list-item .hex-list-title .hex-pic {

@@ -38,7 +38,12 @@
                                 </view>
                             </view>
                             <view class="main-right">
-                                <view class="title">{{item.name}}</view>
+                                <view class="title">
+                                    <view class="status-up" wx:if="{{item.status == 1}}">【加强】</view>
+                                    <view class="status-down" wx:elif="{{item.status == 2}}">【削弱】</view>
+                                    <view class="status-redo" wx:elif="{{item.status == 3}}">【重做】</view>
+                                    {{item.name}}
+                                </view>
                                 <view class="info">
                                     <text user-select>{{item.introduce}}</text>
                                     <block wx:if="{{item.level.length && item.id !== 8111}}">
@@ -79,7 +84,12 @@
                                 </view>
                             </view>
                             <view class="main-right">
-                                <view class="title">{{item.name}}</view>
+                                <view class="title">
+                                    <view class="status-up" wx:if="{{item.status == 1}}">【加强】</view>
+                                    <view class="status-down" wx:elif="{{item.status == 2}}">【削弱】</view>
+                                    <view class="status-redo" wx:elif="{{item.status == 3}}">【重做】</view>
+                                    {{item.name}}
+                                </view>
                                 <view class="info">
                                     <text user-select>{{item.introduce}}</text>
                                     <block wx:if="{{item.level.length}}">
@@ -125,7 +135,13 @@
                                                 text="{{item.name}}"
                                                 src="{{item.image}}"/>
                                     </view>
-                                    <view class="hex-list-desc">{{item.description}}</view>
+                                    <view class="hex-list-desc">
+                                        <view class="status-up" wx:if="{{item.status == 1}}">【加强】</view>
+                                        <view class="status-down" wx:elif="{{item.status == 2}}">【削弱】</view>
+                                        <view class="status-redo" wx:elif="{{item.status == 3}}">【重做】</view>
+                                        <view class="status-disable" wx:elif="{{item.status == 4}}">【禁用】</view>
+                                        <view class="desc">{{item.description}}</view>
+                                    </view>
                                 </view>
                             </block>
                         </view>
@@ -154,7 +170,13 @@
                                                 text="{{item.name}}"
                                                 src="{{item.image}}"/>
                                     </view>
-                                    <view class="hex-list-desc">{{item.description}}</view>
+                                    <view class="hex-list-desc">
+                                        <view class="status-up" wx:if="{{item.status == 1}}">【加强】</view>
+                                        <view class="status-down" wx:elif="{{item.status == 2}}">【削弱】</view>
+                                        <view class="status-redo" wx:elif="{{item.status == 3}}">【重做】</view>
+                                        <view class="status-disable" wx:elif="{{item.status == 4}}">【禁用】</view>
+                                        <view class="desc">{{item.description}}</view>
+                                    </view>
                                 </view>
                             </block>
                         </view>
@@ -183,7 +205,13 @@
                                                 text="{{item.name}}"
                                                 src="{{item.image}}"/>
                                     </view>
-                                    <view class="hex-list-desc">{{item.description}}</view>
+                                    <view class="hex-list-desc">
+                                        <view class="status-up" wx:if="{{item.status == 1}}">【加强】</view>
+                                        <view class="status-down" wx:elif="{{item.status == 2}}">【削弱】</view>
+                                        <view class="status-redo" wx:elif="{{item.status == 3}}">【重做】</view>
+                                        <view class="status-disable" wx:elif="{{item.status == 4}}">【禁用】</view>
+                                        <view class="desc">{{item.description}}</view>
+                                    </view>
                                 </view>
                             </block>
                         </view>

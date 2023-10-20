@@ -136,3 +136,28 @@ page {
     font-weight: 700;
     flex-grow: 1;
 }
+
+
+.equipment-up, .equipment-down, .equipment-redo, .status-up, .status-down, .status-redo, .status-disable {
+    font-size: 32rpx;
+    color: white;
+    font-weight: bold;
+    margin-right: 8rpx;
+}
+
+
+.equipment-up, .status-up{
+    color: red;
+}
+
+.equipment-down, .status-down {
+    color: greenyellow;
+}
+
+.equipment-redo, .status-redo {
+    color: saddlebrown;
+}
+
+.status-disable {
+    color: darkgray;
+}
