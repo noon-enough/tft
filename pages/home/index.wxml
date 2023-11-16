@@ -1,7 +1,7 @@
 <l-tab-bar bg-color="#002a3a" text-color="#8a8a8a" text-selected-color="#d7a75f" list="{{list}}" />
 <capsule-bar bg-color="#002a3a" title-color="#fcf0f4" capsule-color="white" disable-home="{{true}}" disable-back="{{true}}" l-title-class="capsule-bar-title" capsule-left-icon-width="38" capsule-left-icon-height="38" capsule-right-icon-width="38" capsule-right-icon-height="38" title="阵容推荐">
     <view class="container">
-        <t-notice-bar theme="warning" visible="{{show_notice}}" suffixIcon="close" content="新赛季S9.5--志逐天际数据已更新，你可以从设置中切换数据。" bind:click="onNotice"></t-notice-bar>
+        <t-notice-bar theme="warning" visible="{{show_notice}}" suffixIcon="close" content="S10赛季数据大剧透" bind:click="onSet10"></t-notice-bar>
         <!--        <view class="show-block">-->
         <!--            <image class="tips-tab" src="/assets/icons/mine/trend-two.png" mode="aspectFill"></image>-->
         <!--        </view>-->
@@ -103,4 +103,9 @@
             <image mode="scaleToFill" style="width: 260rpx; height: 160rpx;" src="https://tft-images.qizue.com/logo-tft.webp?t=1"></image>
         </view>
     </l-mask>
+
+    <view class="set10" bind:tap="onSet10">
+        <image class="image" src="https://tft-images.qizue.com/set10/floater.png" />
+        <view class="new">S10赛季剧透</view>
+    </view>
 </capsule-bar>

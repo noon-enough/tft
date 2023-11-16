@@ -307,6 +307,9 @@ Page({
             })
             wx.setStorageSync('__notice__', 1)
         }
+    },
+    onSet10(e) {
+        goto(`/pages/set10/index`)
     }
 });
 

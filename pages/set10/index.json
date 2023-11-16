@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#1C1533",
+  "navigationBarTitleText": "S10数据大剧透",
+  "usingComponents": {
+    "mp-html": "/miniprogram_npm/mp-html/index"
+  }
+}

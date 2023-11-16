@@ -141,7 +141,12 @@ function rankDetail(id = "") {
     return get(`/api/rank/${id}/detail?version=${session}`)
 }
 
+
+function getSet10() {
+    return get('/api/set10')
+}
+
 module.exports = {sessions, chess, hexes, synergies,
     races, jobs, hero, equipments, lineup, rank,
     legend, galaxy, legendDetail, rankSort,
-    equipmentItem, rankDetail}
+    equipmentItem, rankDetail, getSet10}

@@ -10,7 +10,8 @@
     "pages/equipment/index",
     "pages/hex/index",
     "pages/simulator/index",
-    "pages/hex/legend/index"
+    "pages/hex/legend/index",
+    "pages/set10/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -84,7 +85,8 @@
     "champion": "./components/champion/index",
     "synergy": "./components/synergy/index",
     "location": "./components/location/index",
-    "table": "./components/table/index"
+    "table": "./components/table/index",
+    "t-image": "/miniprogram_npm/tdesign-miniprogram/image/image"
   },
   "sitemapLocation": "sitemap.json",
   "subpackages": [],

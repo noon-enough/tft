@@ -1,0 +1,503 @@
+page {
+    background-color: #1C1533;
+}
+
+view {
+    box-sizing: border-box;
+}
+
+
+.impression-area {
+    /*width: 100%;*/
+    position: relative;
+}
+
+.impression-area .synergies {
+    background: #052242 url(https://s-tft-web.op.gg/images/preview/10/bg-synergy.png) no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    padding: 30rpx 20rpx;
+    gap: 80rpx;
+}
+
+.css-vbpq85 {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    /*width: 100%;*/
+    background: #1C1533;
+}
+.Synergies__title  {
+    color: #1af8ff;
+    text-align: center;
+    font-feature-settings: 'clig' off,'liga' off;
+    text-shadow: 4rpx 4rpx 2rpx #ff6d99;
+    font-size: 40rpx;
+    font-weight: 700;
+    line-height: 60rpx;
+}
+
+.css-vbpq85 .card-list {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320rpx, auto));
+    /* width: 100%; */
+    gap: 16rpx;
+    padding: 0 0rpx;
+}
+
+.css-brcse8 {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    overflow: hidden;
+    align-self: stretch;
+    background: rgba(5, 34, 66, 0.6);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+}
+
+.css-vbpq85 .TraitCard {
+    background: rgba(37, 26, 75, 0.6);
+}
+
+.css-brcse8 {
+    width: 100%;
+    min-width: 320rpx;
+}
+
+.css-em3wfb {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 16rpx;
+    width: 100%;
+    height: 60rpx;
+    background: rgb(15, 107, 164);
+    font-weight: 700;
+    letter-spacing: -0.8rpx;
+    color: rgb(255, 255, 255);
+}
+
+.css-em3wfb {
+     padding: 16rpx 24rpx;
+     font-size: 28rpx;
+ }
+
+.css-vbpq85 .TraitCard .TraitCard__head {
+    background: #372670;
+}
+
+.css-em3wfb .trait-icon {
+    width: 60rpx;
+    height: 60rpx;
+    margin-left: 20rpx;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.css-em3wfb .trait-icon .icon {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.css-13f0zss {
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    gap: 40rpx;
+    width: 100%;
+}
+
+.css-13f0zss {
+    padding: 32rpx 24rpx 24rpx;
+}
+
+.css-13f0zss > view {
+    display: flex;
+    flex-direction: column;
+    gap: 24rpx;
+}
+
+.css-13f0zss .champions-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8rpx;
+    margin-bottom: 8rpx;
+    margin-left: 8rpx;
+    margin-right: 8rpx;
+}
+
+.css-13f0zss .champions-list .champion-image--cost-1 {
+    --champion-border-color: #9AA4AF;
+}
+
+.css-13f0zss .champions-list .champion-image--cost-2 {
+    --champion-border-color: #00AE0A;
+}
+
+.css-13f0zss .champions-list .champion-image--cost-3 {
+    --champion-border-color: #0093FF;
+}
+
+.css-13f0zss .champions-list .champion-image--cost-4 {
+    --champion-border-color: #E537A2;
+}
+
+.css-13f0zss .champions-list .champion-image--cost-5 {
+    --champion-border-color: #EB9C00;
+}
+
+.css-1tdngz6 {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.css-13f0zss .champions-list .img-champion {
+    border-radius: 8px;
+    border: 2px solid var(--champion-border-color);
+}
+
+.css-13f0zss .champions-list .img-champion {
+    width: 32px;
+    height: 32px;
+}
+
+.css-13f0zss .desc {
+    width: 100%;
+    font-size: 12px;
+    letter-spacing: -0.2px;
+    color: rgb(255, 255, 255);
+    line-height: 16px;
+}
+
+.css-13f0zss .synergy-desc-level {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: -0.2px;
+    color: rgb(255, 255, 255);
+}
+
+.css-13f0zss .synergy-desc-level .synergy {
+    display: flex;
+}
+
+.css-13f0zss .count {
+    white-space: nowrap;
+}
+
+
+.css-13f0zss .desc {
+    width: 100%;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.2px;
+    color: rgb(255, 255, 255);
+}
+
+
+/*英雄开始*/
+.css-7rsdkz {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: #1C1533;
+}
+
+.css-7rsdkz {
+    padding: 60rpx 0 48rpx;
+    gap: 80rpx;
+}
+
+.css-7rsdkz .section {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 80rpx;
+}
+
+.css-7rsdkz .section {
+    margin: 0 auto;
+}
+
+.champions .Champions__Title {
+    color: #1af8ff;
+    text-align: center;
+    font-feature-settings: 'clig' off,'liga' off;
+    text-shadow: 4rpx 4rpx 2rpx #ff6d99;
+    font-size: 48rpx;
+    font-weight: 700;
+    line-height: 64rpx;
+}
+
+
+.css-7rsdkz .card-list {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320rpx, auto));
+    /*width: 100%;*/
+    gap: 16rpx;
+    padding: 0 32rpx;
+}
+
+.css-qzj9gr {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 24rpx;
+    align-self: stretch;
+    background: var(--champion-background-color);
+}
+
+.css-qzj9gr.champion-image--cost-1 {
+    --champion-border-color: #9AA4AF;
+    --champion-background-color: #34414D;
+    --champion-header-color: rgba(52, 65, 77, 0.6);
+    --champion-button-color: rgba(68, 81, 92, 0.7);
+    --champion-button-hover-color: rgba(68, 81, 92, 1);
+}
+
+.css-qzj9gr.champion-image--cost-2 {
+    --champion-border-color: #00AE0A;
+    --champion-background-color: #24662B;
+    --champion-header-color: rgba(36, 102, 43, 0.5);
+    --champion-button-color: rgba(19, 144, 32, 0.7);
+    --champion-button-hover-color: rgba(19, 144, 32, 1);
+}
+
+.css-qzj9gr.champion-image--cost-3 {
+    --champion-border-color: #0093FF;
+    --champion-background-color: #114882;
+    --champion-header-color: rgba(17, 72, 130, 0.5);
+    --champion-button-color: rgba(9, 91, 179, 0.7);
+    --champion-button-hover-color: rgba(9, 91, 179, 1);
+}
+
+.css-qzj9gr.champion-image--cost-4 {
+    --champion-border-color: #E537A2;
+    --champion-background-color: #5F225E;
+    --champion-header-color: rgba(95, 34, 94, 0.5);
+    --champion-button-color: rgba(143, 23, 141, 0.7);
+    --champion-button-hover-color: rgba(143, 23, 141, 1);
+}
+
+.css-qzj9gr.champion-image--cost-5 {
+    --champion-border-color: #EB9C00;
+    --champion-background-color: #76480F;
+    --champion-header-color: rgba(118, 72, 15, 0.5);
+    --champion-button-color: rgba(172, 99, 6, 0.7);
+    --champion-button-hover-color: rgba(172, 99, 6, 1);
+}
+
+.css-qzj9gr {
+     min-width: 320rpx;
+ }
+
+.css-13dn2wr {
+    height: 280rpx;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.css-13dn2wr .img-title {
+    object-fit: cover;
+    object-position: right center;
+    height: 340rpx;
+    width: 100%;
+}
+
+.css-13dn2wr .overview {
+    padding: 16rpx 24rpx;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    gap: 8rpx;
+    background: var(--champion-header-color);
+    backdrop-filter: blur(30rpx);
+    width: 100%;
+    height: 64rpx;
+}
+
+.css-13dn2wr .overview .champion-name {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: 16rpx;
+    font-weight: 700;
+    font-size: 26rpx;
+    line-height: 32rpx;
+    letter-spacing: -0.4rpx;
+    color: rgb(255, 255, 255);
+}
+
+.css-13dn2wr .overview .champion-name .img-center {
+    border: 1px solid var(--champion-border-color);
+    border-radius: 8px;
+    background: rgb(28, 28, 31);
+}
+
+.css-13dn2wr .overview .champion-name .img-center {
+    width: 40px;
+    height: 40px;
+}
+
+.css-13dn2wr .overview .champion-name .span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.css-13dn2wr .overview .gold {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.2px;
+    color: rgb(255, 189, 33);
+}
+
+.css-13dn2wr .traits {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 8rpx;
+}
+
+.css-13dn2wr .traits .li {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    background: var(--champion-header-color);
+    backdrop-filter: blur(15px);
+    border-radius: 6px;
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.css-13dn2wr .traits .li .li-image {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.css-vgfk59 {
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    gap: 32rpx;
+    width: 100%;
+}
+
+.css-vgfk59 {
+    padding: 24rpx;
+}
+
+.css-vgfk59 > view {
+    gap: 16rpx;
+}
+
+.css-vgfk59 > view {
+    display: flex;
+    flex-direction: column;
+}
+
+.css-vgfk59 .ability-name {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 16rpx;
+    font-weight: 700;
+    letter-spacing: -0.6rpx;
+    color: rgb(255, 255, 255);
+}
+
+.css-vgfk59 .ability-name {
+    font-size: 26rpx;
+    line-height: 32rpx;
+}
+
+.css-vgfk59 .img-ability {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 8px;
+}
+
+.css-vgfk59 .ability-desc {
+    letter-spacing: -0.2px;
+    color: rgb(255, 255, 255);
+}
+
+.css-vgfk59 .ability-desc {
+    font-size: 24rpx;
+    line-height: 32rpx;
+}
