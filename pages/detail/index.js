@@ -1,6 +1,5 @@
-import {SESSION} from "../../utils/config";
-import {chess, hero, hexes, jobs, races, synergies} from "../../utils/api";
-import {gotoRank, heroDetail, historyBack, showToast} from "../../utils/util";
+import {hero} from "../../utils/api";
+import {gotoRank, historyBack, rebuildHeroInfo, showToast} from "../../utils/util";
 
 const app = getApp()
 Page({
@@ -22,8 +21,6 @@ Page({
         session = options.session,
         capsuleBarHeight = app.globalData.system.navigationBarHeight
 
-    console.log("heroId", heroId, 'session', session, 'options', options)
-    console.log('capsuleBarHeight', capsuleBarHeight)
     that.setData({
       id: heroId,
       session: session,
@@ -52,19 +49,24 @@ Page({
       let data = res.data ?? []
       if (data) {
         console.log('getHeroDetail', data)
-        data.synergies = data.synergies === '' ? 0 : parseInt(data.synergies)
+
+        data = rebuildHeroInfo(data, true)
+
         that.setData({
           data: data,
           displayName: data.display_name,
           name: data.name,
           nickname: data.nickname,
         })
+
+        wx.hideLoading()
       }
     }).catch(err => {
       showToast("拉取数据失败", {icon: "error"})
+
+      wx.hideLoading()
     }).finally(e => {
     })
-    wx.hideLoading()
   },
   onShareAppMessage(options) {
     let that = this,
@@ -99,7 +101,7 @@ Page({
     if (e.scrollTop >= 300) {
       that.setData({
         title: title,
-        bgColor: "#002a3a"
+        bgColor: "#1C1533"
       })
     } else {
       that.setData({

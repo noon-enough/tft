@@ -46,61 +46,6 @@
                                 avatar="{{hero.hero.avatar}}"/>
                     </block>
                 </view>
-                <view class="lineup-hex-priority mt20" wx:if="{{session === 's9' || session === 's9.5'}}">
-                    <view class="lineup-hex-title">英雄传说之力</view>
-                    <view class="lineup-hex-list">
-                        <block wx:if="{{data.playbook_info.length}}">
-                            <view class="excellent">
-                                <block wx:for="{{data.playbook_info}}" wx:for-item="playbook"
-                                       wx:for-index="i"
-                                       wx:key="id">
-                                    <view class="component-hex"
-                                          bind:tap="showPlaybookMask"
-                                          data-type="playbook"
-                                          data-id="{{playbook.id}}"
-                                          data-picture="{{playbook.picture}}"
-                                          data-name="{{playbook.name}}"
-                                          data-subname="{{playbook.name2}}"
-                                          data-desc="{{playbook.desc}}">
-                                        <view class="payload_avatar">
-                                            <image mode="widthFix" src="{{playbook.picture}}"></image>
-                                        </view>
-                                    </view>
-                                </block>
-                            </view>
-                        </block>
-                    </view>
-                </view>
-                <view class="lineup-hex-priority mt20" wx:if="{{session === 's9' || session === 's9.5'}}">
-                    <view class="lineup-hex-title">地区传送门</view>
-                    <view class="lineup-hex-list">
-                        <block wx:if="{{data.galaxy_info.length}}">
-                            <view class="excellent">
-                                <block wx:for="{{data.galaxy_info}}" wx:for-item="galaxy"
-                                       wx:for-index="i"
-                                       wx:key="id">
-                                    <view class="component-hex"
-                                          bind:tap="showMask"
-                                          data-type="galaxy"
-                                          data-country="{{galaxy.country}}"
-                                          data-id="{{galaxy.id}}"
-                                          data-logo="{{galaxy.logo}}"
-                                          data-name="{{galaxy.name}}"
-                                          data-desc="{{galaxy.desc}}">
-                                        <l-avatar l-class="component-pic"
-                                                  l-avatar-image="l-avatar-image"
-                                                  size="80"
-                                                  src="{{galaxy.logo}}"/>
-                                    </view>
-                                </block>
-                            </view>
-                        </block>
-                    </view>
-                </view>
-                <view class="lineup-hex-analyse" wx:if="{{session === 's9' || session === 's9.5'}}">
-                    <view class="content-title">英雄传说之力及地区传送门分析</view>
-                    <view class="content-desc">{{data.playbookAndGalaxyInfo}}</view>
-                </view>
                 <view class="lineup-synergy"></view>
                 <view class="lineup-hex-priority">
                     <view class="lineup-hex-title">强化符文</view>

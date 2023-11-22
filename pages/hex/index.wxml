@@ -1,5 +1,5 @@
 <l-tab-bar
-        bg-color="#002a3a"
+        bg-color="#1C1533"
         text-color="#8a8a8a"
         text-selected-color="#d7a75f"
         list="{{list}}"
@@ -14,94 +14,94 @@
             l-active-class="tab-active-item">
         <l-tabpanel tab="种族" key="race" slot="race">
             <view class="tab-content">
-                <block wx:if="{{races.length}}">
-                    <block wx:for="{{races}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
-                        <view class="synergy-table-main">
-                            <view class="main-left">
-                                <l-avatar
-                                        l-class="synergy-pic"
-                                        shape="square"
-                                        size="100"
-                                        src="{{item.image}}"/>
-                                <view class="avatars">
-                                    <block wx:if="{{item.races.length}}">
-                                        <block wx:for="{{item.races}}" wx:for-item="race" wx:key="i">
-                                            <l-avatar
-                                                    data-hero-session="{{race.session}}"
-                                                    data-hero-id="{{race.id}}"
-                                                    bind:lintap="detail"
-                                                    shape="square"
-                                                    size="60"
-                                                    src="{{race.avatar}}"/>
-                                        </block>
-                                    </block>
+                <view class="impression-area">
+                    <view class="synergies css-vbpq85">
+                        <view class="card-list" wx:if="{{races.length}}">
+                            <view class="TraitCard css-brcse8"
+                                  wx:for="{{races}}" wx:key="key"
+                                  wx:for-item="item" wx:for-index="key">
+                                <view class="TraitCard__head css-em3wfb">
+                                    <view class="trait-icon">
+                                        <t-image class="icon light" src="{{item.image}}"></t-image>
+                                    </view>
+                                    <view>{{item.name}}</view>
                                 </view>
-                            </view>
-                            <view class="main-right">
-                                <view class="title">
-                                    <view class="status-up" wx:if="{{item.status == 1}}">【加强】</view>
-                                    <view class="status-down" wx:elif="{{item.status == 2}}">【削弱】</view>
-                                    <view class="status-redo" wx:elif="{{item.status == 3}}">【重做】</view>
-                                    {{item.name}}
-                                </view>
-                                <view class="info">
-                                    <text user-select>{{item.introduce}}</text>
-                                    <block wx:if="{{item.level.length && item.id !== 8111}}">
-                                        <block wx:for="{{item.level}}" wx:key="idx" wx:for-item="lvl">
-                                            <tag info="{{lvl.desc}}" color="{{lvl.color}}" level="{{lvl.level}}"></tag>
-                                        </block>
-                                    </block>
+                                <view class="css-13f0zss">
+                                    <view>
+                                        <view class="champions-list" wx:if="{{item.races.length}}">
+                                            <view wx:for="{{item.races}}"
+                                                  wx:for-index="idx" wx:key="idx"
+                                                  wx:for-item="champion"
+                                                  data-hero-session="{{champion.session}}"
+                                                  data-hero-id="{{champion.id}}"
+                                                  bind:tap="detail"
+                                                  class="champion-image--cost-{{champion.price}}">
+                                                <view class="tooltip css-1tdngz6">
+                                                    <t-image class="img-champion" src="{{champion.avatar}}"></t-image>
+                                                </view>
+                                            </view>
+                                        </view>
+                                        <view class="desc">
+                                            {{item.introduce}}
+                                        </view>
+                                        <view class="synergy-desc-level" wx:if="{{item.level.length}}">
+                                            <view class="synergy" wx:for="{{item.level}}"
+                                                  wx:for-item="level" wx:key="idx" wx:for-index="idx">
+                                                <tag info="{{level.desc}}" color="{{level.color}}" level="{{level.level}}"></tag>
+                                            </view>
+                                        </view>
+                                    </view>
                                 </view>
                             </view>
                         </view>
-                    </block>
-                </block>
+                    </view>
+                </view>
             </view>
         </l-tabpanel>
         <l-tabpanel tab="职业" key="job" slot="job">
             <view class="tab-content">
-                <block wx:if="{{jobs.length}}">
-                    <block wx:for="{{jobs}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
-                        <view class="synergy-table-main">
-                            <view class="main-left">
-                                <l-avatar
-                                        l-class="synergy-pic"
-                                        shape="square"
-                                        size="100"
-                                        src="{{item.image}}"/>
-                                <view class="avatars">
-                                    <block wx:if="{{item.jobs.length}}">
-                                        <block wx:for="{{item.jobs}}" wx:for-item="job" wx:key="i">
-                                            <l-avatar
-                                                    data-hero-session="{{job.session}}"
-                                                    data-hero-id="{{job.id}}"
-                                                    bind:lintap="detail"
-                                                    shape="square"
-                                                    size="60"
-                                                    src="{{job.avatar}}"/>
-                                        </block>
-                                    </block>
+                <view class="impression-area">
+                    <view class="synergies css-vbpq85">
+                        <view class="card-list" wx:if="{{jobs.length}}">
+                            <view class="TraitCard css-brcse8"
+                                  wx:for="{{jobs}}" wx:key="key"
+                                  wx:for-item="item" wx:for-index="key">
+                                <view class="TraitCard__head css-em3wfb">
+                                    <view class="trait-icon">
+                                        <t-image class="icon light" lazy src="{{item.image}}"></t-image>
+                                    </view>
+                                    <view>{{item.name}}</view>
                                 </view>
-                            </view>
-                            <view class="main-right">
-                                <view class="title">
-                                    <view class="status-up" wx:if="{{item.status == 1}}">【加强】</view>
-                                    <view class="status-down" wx:elif="{{item.status == 2}}">【削弱】</view>
-                                    <view class="status-redo" wx:elif="{{item.status == 3}}">【重做】</view>
-                                    {{item.name}}
-                                </view>
-                                <view class="info">
-                                    <text user-select>{{item.introduce}}</text>
-                                    <block wx:if="{{item.level.length}}">
-                                        <block wx:for="{{item.level}}" wx:key="idx" wx:for-item="lvl">
-                                            <tag info="{{lvl.desc}}" color="{{lvl.color}}" level="{{lvl.level}}"></tag>
-                                        </block>
-                                    </block>
+                                <view class="css-13f0zss">
+                                    <view>
+                                        <view class="champions-list" wx:if="{{item.jobs.length}}">
+                                            <view wx:for="{{item.jobs}}"
+                                                  wx:for-index="idx" wx:key="idx"
+                                                  wx:for-item="champion"
+                                                  data-hero-session="{{champion.session}}"
+                                                  data-hero-id="{{champion.id}}"
+                                                  bind:tap="detail"
+                                                  class="champion-image--cost-{{champion.price}}">
+                                                <view class="tooltip css-1tdngz6">
+                                                    <t-image lazy class="img-champion" src="{{champion.avatar}}"></t-image>
+                                                </view>
+                                            </view>
+                                        </view>
+                                        <view class="desc">
+                                            {{item.introduce}}
+                                        </view>
+                                        <view class="synergy-desc-level" wx:if="{{item.level.length}}">
+                                            <view class="synergy" wx:for="{{item.level}}"
+                                                  wx:for-item="level" wx:key="idx" wx:for-index="idx">
+                                                <tag info="{{level.desc}}" color="{{level.color}}" level="{{level.level}}"></tag>
+                                            </view>
+                                        </view>
+                                    </view>
                                 </view>
                             </view>
                         </view>
-                    </block>
-                </block>
+                    </view>
+                </view>
             </view>
         </l-tabpanel>
         <l-tabpanel tab="符文" key="hex" slot="hex">
@@ -119,7 +119,7 @@
                                 bind:linconfirm="searchConfirm"
                                 bind:linclear="searchClear"
                                 bind:linchange="searchChange"
-                                bg-color="#002a3a"
+                                bg-color="#1C1533"
                                 placeholder="搜索"
                                 show-cancel="{{false}}"/>
                         <view class="hex-list" wx:if="{{hexes.type1.length}}">
@@ -154,7 +154,7 @@
                                 bind:linconfirm="searchConfirm"
                                 bind:linclear="searchClear"
                                 bind:linchange="searchChange"
-                                bg-color="#002a3a"
+                                bg-color="#1C1533"
                                 placeholder="搜索"
                                 show-cancel="{{false}}"/>
                         <view class="hex-list" wx:if="{{hexes.type2.length}}">
@@ -189,7 +189,7 @@
                                 bind:linconfirm="searchConfirm"
                                 bind:linclear="searchClear"
                                 bind:linchange="searchChange"
-                                bg-color="#002a3a"
+                                bg-color="#1C1533"
                                 placeholder="搜索"
                                 show-cancel="{{false}}"/>
                         <view class="hex-list" wx:if="{{hexes.type3.length}}">
@@ -217,81 +217,7 @@
                         </view>
                     </view>
                 </l-tabpanel>
-                <block wx:if="{{session === 's8'}}">
-                    <l-tabpanel tab="英雄" key="hero" slot="hero">
-                        <view class="tab-content">
-                            <l-search-bar
-                                    data-type="hero"
-                                    bind:linconfirm="searchConfirm"
-                                    bind:linclear="searchClear"
-                                    bind:linchange="searchChange"
-                                    bg-color="#002a3a"
-                                    placeholder="搜索"
-                                    show-cancel="{{false}}"/>
-                            <view class="hex-list" wx:if="{{hexes.type4.length}}">
-                                <block wx:for="{{hexes.type4}}" wx:for-item="item" wx:for-index="idx">
-                                    <view class="hex-list-item">
-                                        <view class="hex-list-title">
-                                            <l-avatar
-                                                    size="80"
-                                                    shape="square"
-                                                    l-class="hex-pic"
-                                                    placement="right"
-                                                    l-text-class="text"
-                                                    text="{{item.name}}"
-                                                    src="{{item.image}}"/>
-                                        </view>
-                                        <view class="hex-list-desc">{{item.description}}</view>
-                                    </view>
-                                </block>
-                            </view>
-                        </view>
-                    </l-tabpanel>
-                </block>
-                <l-tabpanel wx:if="{{session === 's9' || session === 's9.5'}}" tab="英雄之力" key="legend" slot="legend">
-                    <view class="tab-content play-bookby-group" wx:if="{{legend.length}}">
-                        <block wx:for="{{legend}}" wx:for-item="item" wx:key="i" wx:for-index="index">
-                            <view class="play-bookby-item"
-                                  bind:tap="gotoLegend"
-                                  data-raw-data="{{item}}"
-                                  data-id="{{item.id}}">
-                                <view class="play-head">
-                                    <image mode="widthFix" style="width: 160rpx;"
-                                           src="{{item.picture}}"></image>
-                                </view>
-                                <view class="play-name">{{item.name}} : {{item.subname}}</view>
-                                <view class="play-desc">{{item.description}}</view>
-                            </view>
-                        </block>
-                    </view>
-                </l-tabpanel>
             </l-tabs>
-        </l-tabpanel>
-        <l-tabpanel tab="城邦" key="galaxy" slot="galaxy" wx:if="{{session === 's9' || session === 's9.5'}}">
-            <view class="tab-content galaxy-list" wx:if="{{galaxy.length}}">
-                <view class="galaxy-list-head">
-                    <view>名称</view>
-                    <view>强化</view>
-                </view>
-                <view class="galaxy-list-item" wx:for="{{galaxy}}" wx:key="i" wx:for-index="index" wx:for-item="item">
-                    <view class="galaxy-item-badge">
-                        <l-avatar placement="bottom"
-                                  text="{{item.country}}"
-                                  size="80"
-                                  l-class="avatar"
-                                  l-text-class="name"
-                                  src="{{item.logo}}" />
-                    </view>
-                    <view class="galaxy-item-info" wx:if="{{item.hex.length}}">
-                        <block wx:for="{{item.hex}}" wx:for-index="idx" wx:key="j" wx:for-item="value">
-                            <view class="item">
-                                <view class="info-title">{{value.name}}</view>
-                                <view class="info-desc">{{value.desc}}</view>
-                            </view>
-                        </block>
-                    </view>
-                </view>
-            </view>
         </l-tabpanel>
     </l-tabs>
 </view>

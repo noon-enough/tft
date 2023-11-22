@@ -39,7 +39,7 @@
                     {{data.name}} {{data.display_name}}
                     <block wx:if="{{data.nickname}}">({{data.nickname}})</block>
                 </view>
-                <view class="champion-rank-data" wx:if="{{data.rankData}}">
+                <view class="champion-rank-data" wx:if="{{data.rankData.length}}">
                     <view class="champion-data" bind:tap="gotoRank" data-type="hero">
                         <view class="data-item">
                             <view class="data-num strength">
@@ -88,25 +88,6 @@
                         <view class="skill-desc">{{data.skill_introduce}}</view>
                     </view>
                 </view>
-                <block wx:if="{{data.session === 's8'}}">
-                    <block wx:if="{{data.hero_hex.length > 0}}">
-                        <view class="champion-skill-list">
-                            <view class="skill-title">英雄加强符文</view>
-                            <block wx:for="{{data.hero_hex}}" wx:for-item="hero" wx:key="id" wx:for-index="idx">
-                                <view class="champion-skill">
-                                    <l-avatar shape="square"
-                                              size="60"
-                                              src="{{hero.image}}"
-                                              l-class="skill-pic"/>
-                                    <view class="skill-txt">
-                                        <text class="skill-name">{{hero.name}}</text>
-                                    </view>
-                                    <view class="skill-desc">{{hero.description}}</view>
-                                </view>
-                            </block>
-                        </view>
-                    </block>
-                </block>
             </view>
             <view class="detail-info-2">
                 <!--装备-->

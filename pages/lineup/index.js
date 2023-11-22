@@ -102,7 +102,7 @@ Page({
         if(e.scrollTop >= 150) {
             that.setData({
                 capsuleTitle: that.data.title,
-                bgColor: "#002a3a"
+                bgColor: "#1C1533"
             })
         } else {
             that.setData({

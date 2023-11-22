@@ -4,8 +4,8 @@
 }
 
 .page .l-class {
-    background-color: #002a3a;
+    background-color: var(--main);
     padding: 40rpx;
-    border-bottom: 1px solid #002635;
+    border-bottom: 1px solid var(--border);
     color: #fcf0f4;
 }

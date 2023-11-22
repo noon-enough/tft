@@ -1,16 +1,16 @@
 <l-tab-bar
-        bg-color="#002a3a"
+        bg-color="#1C1533"
         text-color="#8a8a8a"
         text-selected-color="#d7a75f"
         list="{{list}}"
 />
 <view class="page">
-    <l-list
-            l-class="l-class"
-            title="对弈赛季"
-            bind:lintap="actionSheet"
-            right-desc="{{session}}"
-            image="/assets/icons/sword-selected.png"></l-list>
+<!--    <l-list-->
+<!--            l-class="l-class"-->
+<!--            title="对弈赛季"-->
+<!--            bind:lintap="actionSheet"-->
+<!--            right-desc="{{session}}"-->
+<!--            image="/assets/icons/sword-selected.png"></l-list>-->
     <l-list
             l-class="l-class"
             title="英雄名/别名"

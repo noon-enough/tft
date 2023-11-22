@@ -15,7 +15,7 @@
 .page-lineup-detail .lineup-detail-content {
     position: relative;
     padding: 20rpx 30rpx;
-    background: #002635;
+    background: var(--background);
     overflow: hidden;
     /*margin: 1rpx 0 0;*/
 }

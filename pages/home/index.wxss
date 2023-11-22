@@ -1,5 +1,5 @@
 .container {
-    background: #002635;
+    background: var(--background) url('https://tft-images.qizue.com/set10/bg-synergy.png') no-repeat;
     width: 100%;
     overflow-y:scroll;
     color: #fcf0f4;
@@ -18,8 +18,8 @@
     -o-transition: height .3s,border-color .3s;
     transition: height .3s,border-color .3s;
     /*background: #2c184e;*/
-    background: #024b58;
-    border-color: #1f6d7b;
+    background: var(--main);
+    border-color: rgba(95, 34, 94, 0.5);
 }
 
 .lineup-item .lineup-name {

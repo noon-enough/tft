@@ -1,5 +1,5 @@
 <l-tab-bar
-        bg-color="#002a3a"
+        bg-color="#1C1533"
         text-color="#8a8a8a"
         text-selected-color="#d7a75f"
         list="{{list}}"
@@ -78,58 +78,65 @@
                       bind:linconfirm="searchConfirm"
                       bind:linclear="searchClear"
                       bind:linchange="searchChange"
-                      bg-color="#002a3a"
+                      bg-color="#1C1533"
                       show-cancel="{{false}}"/>
     </view>
 </view>
-<view class="champion-list" style="padding-bottom: 200rpx;" wx:if="{{data.length}}">
-    <block wx:for="{{data}}" wx:for-item="item" wx:for-index="i" wx:key="id">
-        <view class="champion-item-big" bind:tap="detail" data-hero-id="{{item.id}}" data-hero-session="{{item.session}}">
-            <view class="champion-item-pic" style="background-image: url('{{item.original_image}}');">
-<!--                    <view class="blur-img" style="background-image: url('{{item.original_image}}');"></view>-->
-                <view class="update-info">
-                    <view wx:if="{{item.synergies === 1}}" class="status plus">
-                        增强
-                    </view>
-                    <view wx:elif="{{item.synergies === -1}}" class="status minus">
-                        削弱
-                    </view>
-                </view>
-                <view class="race-job-wrap">
-                    <block wx:if="{{item.jobs_data.length}}">
-                        <block wx:for="{{item.jobs_data}}" wx:for-index="j" wx:for-item="job" wx:key="id">
-                            <view class="race-job">
-                                <view class="race-job-icon">
-                                    <l-avatar
-                                            size="30"
-                                            l-class="icon-img"
-                                            src="{{job.image}}"/>
+<view class="impression-area" style="padding-top: 200rpx; padding-bottom: 200rpx;">
+    <view class="champions css-7rsdkz">
+        <view class="section">
+            <view class="card-list" wx:if="{{data.length}}">
+                <block  wx:for="{{data}}" wx:for-index="idx" wx:for-item="champion" wx:key="idx">
+                    <view wx:if="{{champion.prices <= 5}}"
+                          bind:tap="detail"
+                          data-hero-id="{{champion.id}}"
+                          data-hero-session="{{champion.session}}"
+                          class="champion-image--cost-{{champion.prices}} css-qzj9gr">
+                        <view class="css-13dn2wr">
+                            <t-image class="img-title"
+                                     mode="aspectFill" lazy
+                                     src="{{champion.original_image}}"></t-image>
+                            <view class="overview">
+                                <view class="champion-name">
+                                    <t-image class="img-center" lazy
+                                             src="{{champion.avatar}}"></t-image>
+                                    <view class="span">{{champion.name}}</view>
                                 </view>
-                                <view class="race-job-name">{{job.name}}</view>
-                            </view>
-                        </block>
-                    </block>
-                    <block wx:if="{{item.races_data.length}}">
-                        <block wx:for="{{item.races_data}}" wx:for-index="r" wx:for-item="race" wx:key="id">
-                            <view class="race-job">
-                                <view class="race-job-icon">
-                                    <l-avatar
-                                            size="30"
-                                            l-class="icon-img"
-                                            src="{{race.image}}"/>
+                                <view class="gold">
+                                    <view style="color: rgb(255, 189, 33); width: 16px; height: 16px;">
+                                        <t-image class="gold-icon"
+                                                 src="https://tft-images.qizue.com/set10/stats/icon-gold.svg"></t-image>
+                                    </view>
+                                    <view class="">{{champion.prices}}</view>
                                 </view>
-                                <view class="race-job-name">{{race.name}}</view>
                             </view>
-                        </block>
-                    </block>
-                </view>
-            </view>
-            <view class="champion-item-info">
-                <view class="name">
-                    {{item.name}} {{item.display_name}}
-                </view>
-                <view class="price">{{item.prices}} 金币</view>
+                            <view class="traits" wx:if="{{champion.races_data.length}}">
+                                <view class="li" wx:for="{{champion.races_data}}"
+                                      wx:for-item="race" wx:for-index="i" wx:key="i">
+                                    <t-image class="li-image light" src="{{race.image}}"></t-image>
+                                </view>
+                            </view>
+                            <view class="traits" wx:if="{{champion.jobs_data.length}}">
+                                <view class="li" wx:for="{{champion.jobs_data}}"
+                                      wx:for-item="job" wx:for-index="i" wx:key="i">
+                                    <t-image class="li-image light" src="{{job.image}}"></t-image>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="css-vgfk59">
+                            <view>
+                                <view class="ability-name">
+                                    <t-image src="{{champion.skill_image}}" lazy class="img-ability"></t-image>
+                                    <view>{{champion.skill_name}}</view>
+                                </view>
+                                <view class="ability-desc">
+                                    {{champion.skill_introduce}}
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
             </view>
         </view>
-    </block>
+    </view>
 </view>

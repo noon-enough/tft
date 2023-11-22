@@ -1,5 +1,5 @@
 page {
-    background: #021523;
+    background: var(--background);
 }
 
 .champion-list {
@@ -171,9 +171,10 @@ page {
 .header {
     position: fixed;
     z-index: 9999;
-    background: #002635;
+    background: var(--background);
     padding-bottom: 20rpx;
     width: 100%;
 }
 
 @import "/assets/style/filter-box.wxss";
+@import "/assets/style/new-hero-race-job.wxss";

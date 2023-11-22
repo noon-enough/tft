@@ -1,4 +1,12 @@
-import {DEFAULT_SESSION, FEEDBACK_APPID, OBJECT, SESSION, SESSION_SET} from "./config";
+import {
+    DEFAULT_SESSION,
+    FEEDBACK_APPID,
+    OBJECT,
+    SESSION,
+    SESSION_SET,
+    SESSION_SHOW_NICKNAME,
+    SESSION_SHOW_ORIGIN_SKIN
+} from "./config";
 
 /**
  * 跳转
@@ -43,6 +51,7 @@ function lineupDetail(id) {
  * @returns {any|string}
  */
 function getSessionFromStorage() {
+    return "s10"
     let session = wx.getStorageSync(SESSION)
     return session ?? DEFAULT_SESSION
 }
@@ -172,6 +181,33 @@ function gotoHeroAnalysisRank(id) {
     goto(`/pages/rank/analysis/index?id=${id}`)
 }
 
+function rebuildHeroInfo(hero = {}, isDetail = false) {
+    if (isEmpty(hero)) {
+        return {}
+    }
+    let is_show_origin_skin = !!wx.getStorageSync(SESSION_SHOW_ORIGIN_SKIN),
+        show_nickname = !!wx.getStorageSync(SESSION_SHOW_NICKNAME)
+
+    console.log('is_show_origin_skin', is_show_origin_skin, 'show_nickname', show_nickname)
+    hero.synergies = hero.synergies === '' ? 0 : parseInt(hero.synergies)
+    hero.lol_info = hero.lol_info ?? {}
+    if (is_show_origin_skin && !isEmpty(hero.lol_info)) {
+        hero.avatar = hero.lol_info.avatar ?? hero.avatar
+        hero.original_image = hero.lol_info.guide_pic ?? hero.original_image
+    }
+    if (show_nickname && isDetail === false) {
+        // 获取 nickname
+        hero.name = hero.nickname ?? hero.display_name
+    }
+
+    delete hero.lol_info
+    return hero
+}
+
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
+
 /**
  *
  * @type {{goto: goto, heroDetail: heroDetail, getSessionName: (function(string=): string), showToast: showToast, getSession: (function(*): string), gotoFeedback: gotoFeedback, getSessionFromStorage: (function(): *), lineupDetail: lineupDetail}}
@@ -179,4 +215,4 @@ function gotoHeroAnalysisRank(id) {
 module.exports = {historyBack, goto, getSession, getSessionName,
     getSessionSet, gotoRank, gotoHex,
     heroDetail, gotoFeedback, showToast, lineupDetail,
-    getSessionFromStorage, gotoLegend, gotoHeroAnalysisRank}
+    getSessionFromStorage, gotoLegend, gotoHeroAnalysisRank, rebuildHeroInfo, isEmpty}

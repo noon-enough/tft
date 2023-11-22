@@ -9,13 +9,11 @@
     "pages/hero/index",
     "pages/equipment/index",
     "pages/hex/index",
-    "pages/simulator/index",
-    "pages/hex/legend/index",
-    "pages/set10/index"
+    "pages/simulator/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#002a3a",
+    "navigationBarBackgroundColor": "#1C1533",
     "navigationBarTitleText": "TFT金铲铲助手",
     "navigationBarTextStyle": "white"
   },

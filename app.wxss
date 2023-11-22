@@ -1,5 +1,11 @@
 page {
-    background: #002635;
+    --primary: #1C1533;
+    --main: #1C1533;
+    --background: #161325;
+    --border: rgba(95, 34, 94, 0.5);
+    --border-active: #feaa51;
+
+    background: var(--primary);
 }
 
 .ml20 {
@@ -25,7 +31,7 @@ page {
 
 .page {
     margin: 40rpx;
-    background: #002a3a;
+    background: var(--main);
 }
 
 .component-champion .text {
@@ -112,18 +118,18 @@ page {
 }
 
 .tab-active-item {
-    color: #b59758;
-    border: 1px solid #b59758;
+    color: var(--border-active);
+    border: 2rpx solid var(--border);
     z-index: 2;
     font-weight: 700;
     font-size: 24rpx;
-    background: #002635;
+    background: var(--background);
 }
 
 .tab-inactive-item {
     text-align: center;
     font-size: 24rpx;
-    background: #002635;
+    background: var(--background);
     color: #959db9;
 }
 
@@ -160,4 +166,9 @@ page {
 
 .status-disable {
     color: darkgray;
+}
+
+.light {
+    -webkit-filter: contrast(.1) brightness(10);
+    filter: contrast(.1) brightness(10);
 }

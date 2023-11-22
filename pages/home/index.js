@@ -1,6 +1,6 @@
 import tabbar from '../../tabbar';
 import selection from "../../selection";
-import {goto, gotoHex, heroDetail, lineupDetail, showToast} from "../../utils/util";
+import {goto, gotoHex, heroDetail, lineupDetail, rebuildHeroInfo, showToast} from "../../utils/util";
 import {jobs, races, synergies} from "../../utils/api";
 import {DEFAULT_SESSION, DEFAULT_SESSION_NAME, SESSION, SESSION_SET, SESSION_SHOW_NICKNAME} from "../../utils/config";
 
@@ -48,7 +48,6 @@ Page({
                 jobsDefaultData = {...item}
             }
         })
-        console.log('onLoadJob', jobData, 'jobsDefaultData', jobsDefaultData)
         that.setData({
             jobsData: jobData,
             jobsDefaultData: jobsDefaultData,
@@ -64,8 +63,6 @@ Page({
                 raceDefaultData = {...item}
             }
         })
-
-        console.log('onLoadRace', raceData, 'raceDefaultData', raceDefaultData)
         that.setData({
             raceData: raceData,
             raceDefaultData: raceDefaultData
@@ -81,8 +78,6 @@ Page({
                 qualityDefaultData = {...item}
             }
         })
-
-        console.log('onLoadQuality', qualityData, 'qualityDefaultData', qualityDefaultData)
         that.setData({
             qualityData: qualityData,
             qualityDefaultData: qualityDefaultData,
@@ -108,7 +103,7 @@ Page({
             that = this
         console.log('onShow', 'show_nickname', show_nickname)
         that.setData({
-            show_champion_name: show_nickname
+            show_champion_name: show_nickname,
         })
     },
     onShareAppMessage(options) {
@@ -136,11 +131,20 @@ Page({
             oldData = []
         }
 
+        wx.showLoading()
         console.log("getStrategies", query)
         synergies(query).then(res=> {
             let data = res.data ?? [],
                 totalPage = res.extra.totalPage ?? 1,
                 isLast = false
+
+            data = data.map((item) => {
+                item.hero_location = item.hero_location.map((location) => {
+                    location.hero = rebuildHeroInfo(location.hero)
+                    return location
+                })
+                return item
+            })
 
             data = oldData.concat(data)
             if (page > totalPage) {
@@ -153,13 +157,16 @@ Page({
                    loadmore: false
                })
                 console.log('data', data)
+                wx.hideLoading()
+                wx.stopPullDownRefresh()
             } else {
                 return Promise.reject(res)
             }
         }).catch(err => {
             showToast("数据拉取失败，请稍候再试", {icon: "error"})
+            wx.hideLoading()
+            wx.stopPullDownRefresh()
         })
-        wx.stopPullDownRefresh()
     },
     onPullDownRefresh: function() {
         let that = this

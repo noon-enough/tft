@@ -1,7 +1,7 @@
 import tabbar from '../../tabbar';
 import {SESSION} from "../../utils/config";
 import {chess} from "../../utils/api";
-import {heroDetail, showToast} from "../../utils/util";
+import {heroDetail, rebuildHeroInfo, showToast} from "../../utils/util";
 const app = getApp()
 Page({
     data: {
@@ -111,7 +111,7 @@ Page({
             console.log("data", res)
             let data = res.data ?? []
             data = data.map((item) => {
-                item.synergies = item.synergies === '' ? 0 : parseInt(item.synergies)
+                item = rebuildHeroInfo(item)
                 return item
             })
             if (data) {

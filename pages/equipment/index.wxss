@@ -18,8 +18,8 @@
     display: flex;
     height: 40rpx;
     line-height: 40rpx;
-    background-color: #002635;
-    border: 2rpx solid #1f6d7b;
+    background-color: var(--background);
+    border: 2rpx solid var(--border);
     padding: 20rpx;
     text-align: center;
 }
@@ -41,7 +41,7 @@
     align-items: flex-start;
     margin-top: 10rpx;
     padding: 20rpx;
-    background: #002635;
+    background: var(--background);
     height: auto;
 }
 
@@ -83,7 +83,7 @@ l-avatar .component-equipment {
     width: 60px;
     height: 60px;
     border: 2rpx solid #313537;
-    background: #002635;
+    background: var(--background);
     position: relative;
     cursor: pointer;
     -webkit-transition: border-color,.3s;
@@ -96,7 +96,7 @@ l-avatar .component-equipment {
 .component-equipment.selected {
     width: 80px;
     height: 80px;
-    border: 2rpx solid #b59758;
+    border: 2rpx solid var(--border-active);
 }
 
 .equipment-item .component-equipment {

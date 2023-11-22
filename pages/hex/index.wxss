@@ -267,3 +267,5 @@
     white-space: normal;
     flex: 1;
 }
+
+@import "/assets/style/new-hero-race-job.wxss";

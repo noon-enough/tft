@@ -1,19 +1,14 @@
-page {
-    background-color: #1C1533;
-}
-
-view {
-    box-sizing: border-box;
-}
-
-
 .impression-area {
     /*width: 100%;*/
     position: relative;
 }
 
+.impression-area view {
+    box-sizing: border-box;
+}
+
 .impression-area .synergies {
-    background: #052242 url(https://s-tft-web.op.gg/images/preview/10/bg-synergy.png) no-repeat;
+    background: var(--background) url(https://tft-images.qizue.com/set10/bg-synergy.png) no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
     padding: 30rpx 20rpx;
@@ -97,9 +92,9 @@ view {
 }
 
 .css-em3wfb {
-     padding: 16rpx 24rpx;
-     font-size: 28rpx;
- }
+    padding: 16rpx 24rpx;
+    font-size: 28rpx;
+}
 
 .css-vbpq85 .TraitCard .TraitCard__head {
     background: #372670;
@@ -258,6 +253,7 @@ view {
     -ms-flex-align: center;
     align-items: center;
     gap: 80rpx;
+    width: 100%;
 }
 
 .css-7rsdkz .section {
@@ -286,7 +282,7 @@ view {
     flex-wrap: wrap;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320rpx, auto));
-    /*width: 100%;*/
+    width: 100%;
     gap: 16rpx;
     padding: 0 32rpx;
 }
@@ -343,8 +339,8 @@ view {
 }
 
 .css-qzj9gr {
-     min-width: 320rpx;
- }
+    min-width: 320rpx;
+}
 
 .css-13dn2wr {
     height: 280rpx;
@@ -418,6 +414,11 @@ view {
     line-height: 16px;
     letter-spacing: -0.2px;
     color: rgb(255, 189, 33);
+}
+
+.css-13dn2wr .overview .gold .gold-icon {
+    width: 32rpx;
+    height: 32rpx;
 }
 
 .css-13dn2wr .traits {

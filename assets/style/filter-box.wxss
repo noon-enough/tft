@@ -19,7 +19,7 @@
     display: block;
     height: 60rpx;
     line-height: 60rpx;
-    background: #002635;
+    background: var(--background);
     font-size: 28rpx;
     color: #959db9;
     border: 2rpx solid #1f6d7b;
@@ -32,8 +32,8 @@
 
 .component-select .select-text {
     color: white;
-    background: #024b58;
-    border-color: #26426a;
+    background: var(--main);
+    border-color: var(--border);
 }
 
 .component-select .select-options-wrap {
@@ -59,23 +59,23 @@
 
 
 .component-select .select-options-wrap {
-    background: #024b58;
-    border-color: #feaa51;
+    background: var(--main);
+    border-color: var(--border);
 }
 
 .component-select.selected .select-text {
-    color: #feaa51;
+    border-color: var(--border-active);
 }
 
 .component-select.active .select-options-wrap {
     visibility: visible;
     opacity: 1;
     z-index: 999;
-    border-color: #b59758;
+    border-color: var(--border);
 }
 
 .component-select.active .select-options-wrap {
-    border-color: #feaa51;
+    border-color: var(--border);
 }
 
 .component-select .select-options {
