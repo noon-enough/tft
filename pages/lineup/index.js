@@ -1,6 +1,6 @@
 import {SESSION, SESSION_FOLDING_MID_PROPHASE, SESSION_SHOW_NICKNAME} from "../../utils/config";
 import {chess, hero, hexes, jobs, lineup, races, synergies} from "../../utils/api";
-import {heroDetail, historyBack, showToast} from "../../utils/util";
+import {heroDetail, historyBack, rebuildHeroInfo, showToast} from "../../utils/util";
 
 const app = getApp()
 Page({
@@ -27,8 +27,6 @@ Page({
             that = this,
             is_folding_mid_prophase =  !!wx.getStorageSync(SESSION_FOLDING_MID_PROPHASE)
 
-        console.log("lineup-id", id, 'navBarHeight', app.globalData.navBarHeight,
-            'is_folding_mid_prophase', is_folding_mid_prophase)
         wx.showLoading()
         that.setData({
             id: id,
@@ -64,6 +62,24 @@ Page({
         lineup(id).then(res => {
             console.log('lineup', res)
             let data = res.data ?? []
+            data.carry_hero = rebuildHeroInfo(data.carry_hero)
+            data.hero_location = data.hero_location.map((item) => {
+                item.hero = rebuildHeroInfo(item.hero)
+                return item
+            })
+            data.early_heroes = data.early_heroes.map((item) => {
+                item.hero = rebuildHeroInfo(item.hero)
+                return item
+            })
+            data.metaphase_heroes = data.metaphase_heroes.map((item) => {
+                item.hero = rebuildHeroInfo(item.hero)
+                return item
+            })
+            data.equipment_analysis.carry.hero = rebuildHeroInfo(data.equipment_analysis.carry.hero)
+            data.equipment_analysis.others = data.equipment_analysis.others.map((item) => {
+                item.hero = rebuildHeroInfo(item.hero)
+                return item
+            })
             if (data) {
                 that.setData({
                     data: data,

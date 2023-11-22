@@ -305,7 +305,7 @@
                 </view>
             </view>
         </l-tabpanel>
-        <l-tabpanel tab="辅助" wx:if="{{session === 's9.5'}}" key="support" slot="support">
+        <l-tabpanel tab="辅助" key="support" slot="support">
             <view class="normal-equip-list">
                 <block wx:if="{{data.type6.length}}">
                     <block wx:for="{{data.type6}}" wx:key="idx" wx:for-index="idx" wx:for-item="item">

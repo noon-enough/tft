@@ -27,7 +27,7 @@
                 <view class="lineup-feature" wx:if="{{item.feature === 4}}">稳健运营：前期尽量用强势棋子与羁绊打工，保证打工棋子2星，进而稳定血量健康，步入7与8阶段，7与8阶段低费打工卡向以4-5费棋子为核心阵容转型</view>
                 <view wx:if="{{data.tag === 2}}" style="right: {{data.code ?  '200rpx' : '20rpx'}};" class="lineup-tag">高手进阶</view>
                 <view wx:if="{{data.tag === 1}}" style="right: {{data.code ?  '200rpx' : '20rpx'}};" class="lineup-tag">新手推荐</view>
-                <view wx:if="{{data.type}}"
+                <view wx:if="{{data.type === 'jcc' && data.code !== ''}}"
                       style="color: #c29e54" bind:tap="onCopyCode" data-code="{{data.code}}"
                       class="lineup-tag">复制口令</view>
                 <view class="lineup-champions">
@@ -42,7 +42,7 @@
                                 isMonster="{{hero.hero.is_monster}}"
                                 isCarry="{{hero.is_carry_hero}}"
                                 showName="{{show_champion_name}}"
-                                name="{{hero.hero.nickname === '' ? hero.hero.display_name : hero.hero.nickname }}"
+                                name="{{hero.hero.name}}"
                                 avatar="{{hero.hero.avatar}}"/>
                     </block>
                 </view>
@@ -114,7 +114,7 @@
                                     <champion
                                             session="{{data.session}}"
                                             showName="{{show_champion_name}}"
-                                            name="{{early.hero.nickname === '' ? early.hero.display_name : early.hero.nickname }}"
+                                            name="{{early.hero.name}}"
                                             heroId="{{early.hero.id}}"
                                             cost="{{early.hero.prices}}"
                                             avatar="{{early.hero.avatar}}"/>
@@ -148,7 +148,7 @@
                                     <champion
                                             session="{{data.session}}"
                                             showName="{{show_champion_name}}"
-                                            name="{{metaphase.hero.nickname === '' ? metaphase.hero.display_name : metaphase.hero.nickname }}"
+                                            name="{{metaphase.hero.name}}"
                                             heroId="{{metaphase.hero.id}}"
                                             cost="{{metaphase.hero.prices}}"
                                             avatar="{{metaphase.hero.avatar}}"/>
@@ -205,7 +205,7 @@
                                     session="{{data.session}}"
                                     cost="{{data.equipment_analysis.carry.hero.prices}}"
                                     showName="{{true}}"
-                                    name="{{data.equipment_analysis.carry.hero.nickname === '' ? data.equipment_analysis.carry.hero.display_name : data.equipment_analysis.carry.hero.nickname }}"
+                                    name="{{data.equipment_analysis.carry.hero.name}}"
                                     heroId="{{data.equipment_analysis.carry.hero.id}}"
                                     avatar="{{data.equipment_analysis.carry.hero.avatar}}"/>
                         </view>
@@ -259,7 +259,7 @@
                                         <champion
                                                 session="{{data.session}}"
                                                 heroId="{{other.hero.id}}"
-                                                name="{{other.hero.nickname === '' ? other.hero.display_name : other.hero.nickname }}"
+                                                name="{{other.hero.name }}"
                                                 showName="{{show_champion_name}}"
                                                 cost="{{other.hero.prices}}"
                                                 avatar="{{other.hero.avatar}}"/>

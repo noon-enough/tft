@@ -82,6 +82,5 @@ Component({
         that.setData({
             monster: monster,
         })
-        console.log('chess showName', that.properties.showName)
     }
 });

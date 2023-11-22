@@ -100,7 +100,8 @@ function equipments(polymerize = 1) {
 }
 
 function equipmentItem(id = 0) {
-    return get(`/api/equipments/${id}`)
+    let session = getSessionFromStorage()
+    return get(`/api/equipments/${id}?version=${session}`)
 }
 
 /**

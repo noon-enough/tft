@@ -86,7 +86,7 @@ Page({
     onLoad: function() {
         let that = this
         let newSession = wx.getStorageSync(SESSION_SET),
-            notice = wx.getStorageSync('__notice__')
+            notice = wx.getStorageSync('__notice_s10__')
         newSession = parseInt(newSession)
         notice = parseInt(notice)
         that.setData({

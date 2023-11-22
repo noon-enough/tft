@@ -188,7 +188,6 @@ function rebuildHeroInfo(hero = {}, isDetail = false) {
     let is_show_origin_skin = !!wx.getStorageSync(SESSION_SHOW_ORIGIN_SKIN),
         show_nickname = !!wx.getStorageSync(SESSION_SHOW_NICKNAME)
 
-    console.log('is_show_origin_skin', is_show_origin_skin, 'show_nickname', show_nickname)
     hero.synergies = hero.synergies === '' ? 0 : parseInt(hero.synergies)
     hero.lol_info = hero.lol_info ?? {}
     if (is_show_origin_skin && !isEmpty(hero.lol_info)) {
@@ -197,7 +196,7 @@ function rebuildHeroInfo(hero = {}, isDetail = false) {
     }
     if (show_nickname && isDetail === false) {
         // 获取 nickname
-        hero.name = hero.nickname ?? hero.display_name
+        hero.name = hero.nickname ? hero.nickname : hero.display_name
     }
 
     delete hero.lol_info
