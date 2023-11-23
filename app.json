@@ -92,5 +92,11 @@
   "lazyCodeLoading": "requiredComponents",
   "navigateToMiniProgramAppIdList": [
     "wx70487acfdf04b312"
-  ]
+  ],
+  "plugins": {
+    "wxacommentplugin": {
+      "version": "latest",
+      "provider": "wx82e6ae1175f264fa"
+    }
+  }
 }

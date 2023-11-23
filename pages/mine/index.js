@@ -112,6 +112,17 @@ Page({
                 }
             }
         })
-    }
+    },
+    gotoDianping() {
+        const plugin = requirePlugin("wxacommentplugin")
+        plugin.openComment({
+            success: (res)=>{
+                console.log('plugin.openComment success', res)
+            },
+            fail: (res) =>{
+                console.log('plugin.openComment fail', res)
+            }
+        })
+    },
 });
 

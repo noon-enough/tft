@@ -63,5 +63,9 @@
     <l-list title="吐槽反馈"
             l-class="l-class"
             bind:lintap="gotoFeedback"
+            image="/assets/icons/mine/feedback.png" />
+    <l-list title="给我们助力评分"
+            l-class="l-class"
+            bind:lintap="gotoDianping"
             image="/assets/icons/mine/comment.png" />
 </view>
