@@ -146,6 +146,13 @@
     justify-content: flex-start;
 }
 
+.page-lineup-detail .lineup-hex-priority .lineup-hex-list.vanguard {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    flex: 1;
+}
+
 .page-lineup-detail .lineup-hex-priority .lineup-hex-list .excellent, .page-lineup-detail .lineup-hex-priority .lineup-hex-list .second-rate {
     display: flex;
     align-items: center;

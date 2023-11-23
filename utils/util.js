@@ -192,11 +192,11 @@ function rebuildHeroInfo(hero = {}, isDetail = false) {
     hero.lol_info = hero.lol_info ?? {}
     if (is_show_origin_skin && !isEmpty(hero.lol_info)) {
         hero.avatar = hero.lol_info.avatar ?? hero.avatar
-        hero.original_image = hero.lol_info.guide_pic ?? hero.original_image
+        hero.original_image = hero.lol_info.original_image ?? hero.original_image
     }
     if (show_nickname && isDetail === false) {
         // 获取 nickname
-        hero.name = hero.nickname ? hero.nickname : hero.display_name
+        hero.name = hero.lol_info.alias ? hero.lol_info.alias : (hero.nickname ? hero.nickname : hero.display_name)
     }
 
     delete hero.lol_info

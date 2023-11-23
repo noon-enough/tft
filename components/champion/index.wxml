@@ -14,6 +14,7 @@
             <l-avatar l-class="icon" size="30" src="/assets/images/star-fill.png"/>
         </view>
         <view wx:if="{{isCarry}}" class="icon-carry"></view>
+        <view wx:if="{{vanguard}}" class="icon-vanguard"></view>
         <view wx:if="{{showName}}" class="champion-name">{{name}}</view>
     </view>
     <view class="equipment-list" wx:if="{{equipments.length}}">

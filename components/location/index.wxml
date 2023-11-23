@@ -10,6 +10,7 @@
                           style="background-image: url('{{item.hero.avatar}}');"></view>
                     <block wx:if="{{detail}}">
                         <view wx:if="{{item.is_carry_hero}}" class="icon-carry"></view>
+                        <view wx:if="{{item.isChosenHero}}" class="icon-vanguard"></view>
                         <block wx:if="{{item.equipment_data.length}}">
                             <view class="equipment-list">
                                 <block wx:for="{{item.equipment_data}}" wx:key="id" wx:for-item="equipment" wx:for-index="e">

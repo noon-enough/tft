@@ -39,12 +39,73 @@
                                 equipments="{{hero.equipment_data}}"
                                 showStar="{{hero.is_three_stars}}"
                                 star="3"
+                                isVanguard="{{hero.isChosenHero}}"
                                 isMonster="{{hero.hero.is_monster}}"
                                 isCarry="{{hero.is_carry_hero}}"
                                 showName="{{show_champion_name}}"
                                 name="{{hero.hero.name}}"
                                 avatar="{{hero.hero.avatar}}"/>
                     </block>
+                </view>
+                <view class="lineup-synergy"></view>
+                <view class="lineup-hex-priority mb20">
+                    <view class="lineup-hex-title">赛季之星</view>
+                    <view class="lineup-hex-list vanguard">
+                        <view class="excellent mb30" wx:if="{{data.chosen.hero.recomm}}">
+                            <text>最终优选</text>
+                            <view class="component-champion cost{{data.chosen.hero.recomm.prices}}">
+                                <champion
+                                        isVanguard="{{true}}"
+                                        session="{{data.chosen.hero.recomm.session}}"
+                                        showName="{{show_champion_name}}"
+                                        name="{{data.chosen.hero.recomm.name}}"
+                                        heroId="{{data.chosen.hero.recomm.id}}"
+                                        cost="{{data.chosen.hero.recomm.prices}}"
+                                        avatar="{{data.chosen.hero.recomm.avatar}}"/>
+                            </view>
+                        </view>
+                        <view class="excellent mb30" wx:if="{{data.chosen.hero.replace}}">
+                            <text>最终备选</text>
+                            <view class="component-champion cost{{data.chosen.hero.replace.prices}}">
+                                <champion
+                                        isVanguard="{{true}}"
+                                        session="{{data.chosen.hero.replace.session}}"
+                                        showName="{{show_champion_name}}"
+                                        name="{{data.chosen.hero.replace.name}}"
+                                        heroId="{{data.chosen.hero.replace.id}}"
+                                        cost="{{data.chosen.hero.replace.prices}}"
+                                        avatar="{{data.chosen.hero.replace.avatar}}"/>
+                            </view>
+                        </view>
+                        <block wx:if="{{show_mid_prophase}}">
+                            <view class="excellent mb30" wx:if="{{data.chosen.hero.early}}">
+                                <text>早期优选</text>
+                                <view class="component-champion cost{{data.chosen.hero.early.prices}}">
+                                    <champion
+                                            isVanguard="{{true}}"
+                                            session="{{data.chosen.hero.early.session}}"
+                                            showName="{{show_champion_name}}"
+                                            name="{{data.chosen.hero.early.name}}"
+                                            heroId="{{data.chosen.hero.early.id}}"
+                                            cost="{{data.chosen.hero.early.prices}}"
+                                            avatar="{{data.chosen.hero.early.avatar}}"/>
+                                </view>
+                            </view>
+                            <view class="excellent mb30" wx:if="{{data.chosen.hero.middle}}">
+                                <text>中期优选</text>
+                                <view class="component-champion cost{{data.chosen.hero.middle.prices}}">
+                                    <champion
+                                            isVanguard="{{true}}"
+                                            session="{{data.chosen.hero.middle.session}}"
+                                            showName="{{show_champion_name}}"
+                                            name="{{data.chosen.hero.middle.name}}"
+                                            heroId="{{data.chosen.hero.middle.id}}"
+                                            cost="{{data.chosen.hero.middle.prices}}"
+                                            avatar="{{data.chosen.hero.middle.avatar}}"/>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
                 </view>
                 <view class="lineup-synergy"></view>
                 <view class="lineup-hex-priority">
@@ -102,7 +163,7 @@
             <view class="lineup-detail-content">
                 <view wx:if="{{is_folding_mid_prophase}}"
                       bind:tap="onShowHideMidProphase"
-                      class="content-title mid_prophase">前中期阵容已折叠（<text>{{show_mid_prophase === true ? "收起" : "展开"}}</text>）</view>
+                      class="content-title mid_prophase">前中期阵容（赛季之星）已折叠【<text>{{show_mid_prophase === true ? "收起" : "展开"}}</text>】</view>
                 <block wx:if="{{show_mid_prophase}}">
                     <view class="content-title">早期过渡</view>
                     <view class="content-desc">{{data.early_info}}</view>
@@ -112,6 +173,7 @@
                             <block wx:for="{{data.early_heroes}}" wx:for-item="early" wx:for-index="i" wx:key="early_heroes">
                                 <view class="component-champion cost{{early.hero.prices}}">
                                     <champion
+                                            isVanguard="{{early.isChosenHero}}"
                                             session="{{data.session}}"
                                             showName="{{show_champion_name}}"
                                             name="{{early.hero.name}}"
@@ -146,6 +208,7 @@
                                    wx:key="metaphase_heroes">
                                 <view class="component-champion cost{{metaphase.hero.prices}}">
                                     <champion
+                                            isVanguard="{{metaphase.isChosenHero}}"
                                             session="{{data.session}}"
                                             showName="{{show_champion_name}}"
                                             name="{{metaphase.hero.name}}"

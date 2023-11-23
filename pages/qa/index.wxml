@@ -94,14 +94,6 @@
                     <view class="td">40%</view>
                     <view class="td">25%</view>
                 </view>
-                <view class="tr">
-                    <view class="td">Lv11</view>
-                    <view class="td">1%</view>
-                    <view class="td">2%</view>
-                    <view class="td">12%</view>
-                    <view class="td">50%</view>
-                    <view class="td">35%</view>
-                </view>
             </view>
         </view>
     </view>
@@ -180,11 +172,15 @@
                     </view>
                     <view class="tr">
                         <view class="td" style="width: 60%;">Lv7 -> Lv8</view>
-                        <view class="td" style="width: 50%;">56 经验</view>
+                        <view class="td" style="width: 50%;">48 经验</view>
                     </view>
                     <view class="tr">
                         <view class="td" style="width: 60%;">Lv8 -> Lv9</view>
                         <view class="td" style="width: 50%;">80 经验</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td" style="width: 60%;">Lv9 -> Lv10</view>
+                        <view class="td" style="width: 50%;">84 经验</view>
                     </view>
                 </view>
             </view>

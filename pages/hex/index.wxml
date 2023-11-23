@@ -4,7 +4,7 @@
         text-selected-color="#d7a75f"
         list="{{list}}"
 />
-<view style="margin-bottom: 200rpx;">
+<view style="margin-bottom: 200rpx; padding-bottom: 200rpx;">
     <l-tabs hasLine="{{false}}"
             active-color="#b59758"
             inactive-color="#959db9"

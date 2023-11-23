@@ -76,6 +76,10 @@ Page({
                 return item
             })
             data.equipment_analysis.carry.hero = rebuildHeroInfo(data.equipment_analysis.carry.hero)
+            data.chosen.hero.recomm = rebuildHeroInfo(data.chosen.hero.recomm)
+            data.chosen.hero.replace = rebuildHeroInfo(data.chosen.hero.replace)
+            data.chosen.hero.middle = rebuildHeroInfo(data.chosen.hero.middle)
+            data.chosen.hero.early = rebuildHeroInfo(data.chosen.hero.early)
             data.equipment_analysis.others = data.equipment_analysis.others.map((item) => {
                 item.hero = rebuildHeroInfo(item.hero)
                 return item

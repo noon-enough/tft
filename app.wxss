@@ -20,6 +20,10 @@ page {
     margin-bottom: 20rpx;
 }
 
+.mb30 {
+    margin-bottom: 30rpx;
+}
+
 .mr20 {
     margin-right: 20rpx;
 }

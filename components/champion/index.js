@@ -40,11 +40,15 @@ Component({
         },
         isCarry: {
             value: false,
-            type: Boolean
+            type: Boolean,
         },
         isMonster: {
             value: false,
-            type: Boolean
+            type: Boolean,
+        },
+        isVanguard: {
+            value: false,
+            type: Boolean,
         },
         session: String,
         borderSize: {
@@ -54,6 +58,7 @@ Component({
     },
     data: {
         monster: "",
+        vanguard: "",
     },
     methods: {
         detail(e) {
@@ -75,12 +80,18 @@ Component({
     },
     attached() {
         let monster = "",
-            that = this
+            that = this,
+            vanguard = ""
         if (that.properties.isMonster === true) {
             monster = "monster"
         }
+        if (that.properties.isVanguard === true) {
+            vanguard = "vanguard"
+        }
         that.setData({
             monster: monster,
+            vanguard: vanguard,
         })
+        console.log('isVanguard', vanguard)
     }
 });
