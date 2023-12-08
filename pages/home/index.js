@@ -7,6 +7,10 @@ import {DEFAULT_SESSION, DEFAULT_SESSION_NAME, SESSION, SESSION_SET, SESSION_SHO
 const app = getApp()
 Page({
     data: {
+        isRefresh: false,
+        loadingProps: {
+            size: '50rpx',
+        },
         show_notice: true,
         show_new_session: false,
         selection: selection,
@@ -130,9 +134,6 @@ Page({
         if (page === 1) {
             oldData = []
         }
-
-        wx.showLoading()
-        console.log("getStrategies", query)
         synergies(query).then(res=> {
             let data = res.data ?? [],
                 totalPage = res.extra.totalPage ?? 1,
@@ -154,29 +155,29 @@ Page({
                that.setData({
                    isLast: isLast,
                    data: data,
-                   loadmore: false
+                   loadmore: false,
+                   isRefresh: false,
                })
                 console.log('data', data)
                 wx.hideLoading()
-                wx.stopPullDownRefresh()
             } else {
                 return Promise.reject(res)
             }
         }).catch(err => {
             showToast("数据拉取失败，请稍候再试", {icon: "error"})
             wx.hideLoading()
-            wx.stopPullDownRefresh()
         })
     },
     onPullDownRefresh: function() {
         let that = this
-        wx.startPullDownRefresh()
         that.setData({
             page: 1,
+            isDone: false,
+            isRefresh: true,
         })
         that.getStrategies()
-        wx.stopPullDownRefresh()
     },
+    onScroll(e) {},
     onReachBottom: function() {
         let that = this,
             page = that.data.page,
@@ -185,10 +186,14 @@ Page({
 
         if (isLast === true) {
             console.log('isLast', isLast, 'page', page)
+            that.setData({
+                isDone: true,
+            })
             return
         }
 
         that.setData({
+            isDone: false,
             page: nextPage
         })
         that.getStrategies()

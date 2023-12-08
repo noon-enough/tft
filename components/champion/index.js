@@ -92,6 +92,5 @@ Component({
             monster: monster,
             vanguard: vanguard,
         })
-        console.log('isVanguard', vanguard)
     }
 });

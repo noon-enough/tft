@@ -13,130 +13,140 @@
              capsule-right-icon-width="38"
              capsule-right-icon-height="38"
              title="阵容推荐">
-    <view class="container">
-        <t-notice-bar theme="warning" visible="{{show_notice}}" suffixIcon="close" bind:click="onNotice">
-            <view slot="content">
-                新赛季【强音争霸】来啦！
-                <text>\n</text>
-                新赛季版本我们移除历史赛季版本支持；
-                <text>\n</text>
-                新版本支持LOL原皮啦；
-                <text>\n</text>
-                新赛季可以人口可以突破10啦；
-            </view>
-        </t-notice-bar>
-<!--        <view class="show-block">-->
-<!--            <view class="banner-wrap" bind:tap="gotoGalaxy">-->
-<!--                <image class="left" src="https://tft-images.qizue.com/btn-monsters.webp?t=1" mode="aspectFill"></image>-->
-<!--            </view>-->
-<!--            <view class="banner-wrap" bind:tap="gotoLegend">-->
-<!--                <image class="right" src="https://tft-images.qizue.com/btn-hero-hex.webp?t=1" mode="aspectFill"></image>-->
-<!--            </view>-->
-<!--        </view>-->
-        <l-loadmore show="{{loadmore}}">
-            <view slot="content">
-                <view class="lineup-list" style="margin-bottom: 180rpx;">
-                    <view class="filter-box">
-                        <view class="component-select {{jobsDefaultDataShow ? 'active': ''}} {{jobsIsActive ? 'selected' : ''}}">
-                            <view class="select-text" data-type="job" bind:tap="openClose">
-                                {{jobsDefaultData.name}}
-                            </view>
-                            <view class="select-options-wrap" wx:if="{{jobsDefaultDataShow}}">
-                                <view class="select-options">
-                                    <view class="li" bind:tap="onFilterBoxChange" data-type="job" wx:for="{{jobsData}}" wx:key="id" wx:for-item="item" wx:for-index="idx" data-id="{{item.key}}" data-name="{{item.name}}">
-                                        {{item.name}}
-                                    </view>
+    <t-pull-down-refresh
+            value="{{isRefresh}}"
+            loadingProps="{{loadingProps}}"
+            loadingTexts="{{['下拉刷新', '松手刷新', '正在刷新', '刷新完成']}}"
+            bind:refresh="onPullDownRefresh"
+            bind:scroll="onScroll"
+            bind:scrolltolower="onScrollToBottom"
+            using-custom-navbar="{{true}}"
+    >
+        <view class="container">
+            <t-notice-bar theme="warning" visible="{{show_notice}}" suffixIcon="close" bind:click="onNotice">
+                <view slot="content">
+                    新赛季【强音争霸】来啦！
+                    <text>\n</text>
+                    新赛季版本我们移除历史赛季版本支持；
+                    <text>\n</text>
+                    新版本支持LOL原皮啦；
+                    <text>\n</text>
+                    新赛季可以人口可以突破10啦；
+                </view>
+            </t-notice-bar>
+            <!--        <view class="show-block">-->
+            <!--            <view class="banner-wrap" bind:tap="gotoGalaxy">-->
+            <!--                <image class="left" src="https://tft-images.qizue.com/btn-monsters.webp?t=1" mode="aspectFill"></image>-->
+            <!--            </view>-->
+            <!--            <view class="banner-wrap" bind:tap="gotoLegend">-->
+            <!--                <image class="right" src="https://tft-images.qizue.com/btn-hero-hex.webp?t=1" mode="aspectFill"></image>-->
+            <!--            </view>-->
+            <!--        </view>-->
+            <l-loadmore show="{{loadmore}}">
+                <view slot="content">
+                    <view class="lineup-list" style="margin-bottom: 180rpx;">
+                        <view class="filter-box">
+                            <view class="component-select {{jobsDefaultDataShow ? 'active': ''}} {{jobsIsActive ? 'selected' : ''}}">
+                                <view class="select-text" data-type="job" bind:tap="openClose">
+                                    {{jobsDefaultData.name}}
                                 </view>
-                            </view>
-                        </view>
-                        <view class="component-select {{raceDefaultDataShow ? 'active': ''}} {{raceIsActive ? 'selected' : ''}}">
-                            <view class="select-text" data-type="race" bind:tap="openClose">
-                                {{raceDefaultData.name}}
-                            </view>
-                            <view class="select-options-wrap" wx:if="{{raceDefaultDataShow}}">
-                                <view class="select-options">
-                                    <view class="li" bind:tap="onFilterBoxChange" data-type="race" wx:for="{{raceData}}" wx:key="id" wx:for-item="item" wx:for-index="idx" data-id="{{item.key}}" data-name="{{item.name}}">
-                                        {{item.name}}
-                                    </view>
-                                </view>
-                            </view>
-                        </view>
-                        <view class="component-select {{qualityDefaultDataShow ? 'active': ''}} {{qualityIsActive ? 'selected' : ''}}">
-                            <view class="select-text" data-type="quality" bind:tap="openClose">
-                                {{qualityDefaultData.name}}
-                            </view>
-                            <view class="select-options-wrap" wx:if="{{qualityDefaultDataShow}}">
-                                <view class="select-options">
-                                    <view class="li" bind:tap="onFilterBoxChange" data-type="quality" wx:for="{{qualityData}}" wx:key="id" wx:for-item="item" wx:for-index="idx" data-id="{{item.key}}" data-name="{{item.name}}">
-                                        {{item.name}}
-                                    </view>
-                                </view>
-                            </view>
-                        </view>
-                    </view>
-                    <block wx:if="{{data.length}}">
-                        <view class="lineup-item" wx:for="{{data}}" wx:key="id" wx:for-index="id" wx:for-item="item">
-                            <view class="lineup-name" data-id="{{item.id}}" bind:tap="detail">
-                                <view class="lineup-quality">{{item.quality}}</view>
-                                <view class="line-name">{{item.title}}</view>
-                                <view class="line-detail">
-                                    查看详情
-                                </view>
-                            </view>
-                            <view class="lineup-info">
-                                <view class="lineup-champions">
-                                    <view class="swiper-container swiper-container-horizontal swiper-container-free-mode">
-                                        <view class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
-                                            <block wx:for="{{item.hero_location}}" wx:for-index="h" wx:key="hero_location" wx:for-item="chess">
-                                                <view wx:if="{{h <= 5}}" class="champion-wrap swiper-slide swiper-slide-active">
-                                                    <champion session="{{item.session}}"
-                                                              showName="{{show_champion_name}}"
-                                                              isMonster="{{chess.hero.is_monster}}"
-                                                              cost="{{chess.hero.prices}}"
-                                                              heroId="{{chess.id}}"
-                                                              equipments="{{chess.equipment_data}}"
-                                                              showStar="{{chess.is_three_stars}}"
-                                                              star="3"
-                                                              isCarry="{{chess.is_carry_hero}}"
-                                                              isVanguard="{{chess.isChosenHero}}"
-                                                              name="{{chess.hero.name}}"
-                                                              avatar="{{chess.hero.avatar}}" />
-                                                </view>
-                                            </block>
+                                <view class="select-options-wrap" wx:if="{{jobsDefaultDataShow}}">
+                                    <view class="select-options">
+                                        <view class="li" bind:tap="onFilterBoxChange" data-type="job" wx:for="{{jobsData}}" wx:key="id" wx:for-item="item" wx:for-index="idx" data-id="{{item.key}}" data-name="{{item.name}}">
+                                            {{item.name}}
                                         </view>
                                     </view>
                                 </view>
                             </view>
-                            <view class="lineup-hex" data-id="{{item.id}}" bind:tap="detail">
-                                <view class="author"></view>
-                                <view wx:if="{{item.tag === 2}}" class="lineup-feature">高手进阶</view>
-                                <view wx:if="{{item.tag === 1}}" class="lineup-feature">新手推荐</view>
-                                <view class="lineup-tag-txt" wx:if="{{item.feature === 1}}">慢D三星</view>
-                                <view class="lineup-tag-txt" wx:if="{{item.feature === 2}}">稳运营</view>
-                                <view class="lineup-tag-txt" wx:if="{{item.feature === 3}}">趣味娱乐</view>
-                                <view class="lineup-tag-txt" wx:if="{{item.feature === 4}}">稳健运营</view>
-                                <block wx:if="{{item.hexes.recomm.length}}">
-                                    <view class="lineup-races">
-                                        <block wx:for="{{item.hexes.recomm}}" wx:for-item="hex" wx:for-index="i" wx:key="id">
-                                            <l-avatar l-class="avatar-default" size="50" src="{{hex.image}}" />
-                                        </block>
+                            <view class="component-select {{raceDefaultDataShow ? 'active': ''}} {{raceIsActive ? 'selected' : ''}}">
+                                <view class="select-text" data-type="race" bind:tap="openClose">
+                                    {{raceDefaultData.name}}
+                                </view>
+                                <view class="select-options-wrap" wx:if="{{raceDefaultDataShow}}">
+                                    <view class="select-options">
+                                        <view class="li" bind:tap="onFilterBoxChange" data-type="race" wx:for="{{raceData}}" wx:key="id" wx:for-item="item" wx:for-index="idx" data-id="{{item.key}}" data-name="{{item.name}}">
+                                            {{item.name}}
+                                        </view>
                                     </view>
-                                </block>
+                                </view>
+                            </view>
+                            <view class="component-select {{qualityDefaultDataShow ? 'active': ''}} {{qualityIsActive ? 'selected' : ''}}">
+                                <view class="select-text" data-type="quality" bind:tap="openClose">
+                                    {{qualityDefaultData.name}}
+                                </view>
+                                <view class="select-options-wrap" wx:if="{{qualityDefaultDataShow}}">
+                                    <view class="select-options">
+                                        <view class="li" bind:tap="onFilterBoxChange" data-type="quality" wx:for="{{qualityData}}" wx:key="id" wx:for-item="item" wx:for-index="idx" data-id="{{item.key}}" data-name="{{item.name}}">
+                                            {{item.name}}
+                                        </view>
+                                    </view>
+                                </view>
                             </view>
                         </view>
-                    </block>
+                        <block wx:if="{{data.length}}">
+                            <view class="lineup-item" wx:for="{{data}}" wx:key="id" wx:for-index="id" wx:for-item="item">
+                                <view class="lineup-name" data-id="{{item.id}}" bind:tap="detail">
+                                    <view class="lineup-quality">{{item.quality}}</view>
+                                    <view class="line-name">{{item.title}}</view>
+                                    <view class="line-detail">
+                                        查看详情
+                                    </view>
+                                </view>
+                                <view class="lineup-info">
+                                    <view class="lineup-champions">
+                                        <view class="swiper-container swiper-container-horizontal swiper-container-free-mode">
+                                            <view class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                                                <block wx:for="{{item.hero_location}}" wx:for-index="h" wx:key="hero_location" wx:for-item="chess">
+                                                    <view wx:if="{{h <= 5}}" class="champion-wrap swiper-slide swiper-slide-active">
+                                                        <champion session="{{item.session}}"
+                                                                  showName="{{show_champion_name}}"
+                                                                  isMonster="{{chess.hero.is_monster}}"
+                                                                  cost="{{chess.hero.prices}}"
+                                                                  heroId="{{chess.id}}"
+                                                                  equipments="{{chess.equipment_data}}"
+                                                                  showStar="{{chess.is_three_stars}}"
+                                                                  star="3"
+                                                                  isCarry="{{chess.is_carry_hero}}"
+                                                                  isVanguard="{{chess.isChosenHero}}"
+                                                                  name="{{chess.hero.name}}"
+                                                                  avatar="{{chess.hero.avatar}}" />
+                                                    </view>
+                                                </block>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="lineup-hex" data-id="{{item.id}}" bind:tap="detail">
+                                    <view class="author"></view>
+                                    <view wx:if="{{item.tag === 2}}" class="lineup-feature">高手进阶</view>
+                                    <view wx:if="{{item.tag === 1}}" class="lineup-feature">新手推荐</view>
+                                    <view class="lineup-tag-txt" wx:if="{{item.feature === 1}}">慢D三星</view>
+                                    <view class="lineup-tag-txt" wx:if="{{item.feature === 2}}">稳运营</view>
+                                    <view class="lineup-tag-txt" wx:if="{{item.feature === 3}}">趣味娱乐</view>
+                                    <view class="lineup-tag-txt" wx:if="{{item.feature === 4}}">稳健运营</view>
+                                    <block wx:if="{{item.hexes.recomm.length}}">
+                                        <view class="lineup-races">
+                                            <block wx:for="{{item.hexes.recomm}}" wx:for-item="hex" wx:for-index="i" wx:key="id">
+                                                <l-avatar l-class="avatar-default" size="50" src="{{hex.image}}" />
+                                            </block>
+                                        </view>
+                                    </block>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
                 </view>
-            </view>
-        </l-loadmore>
-    </view>
-<!--    <l-mask show="{{show_new_session}}" bind:lintap="changeMask" center="{{false}}">-->
-<!--        <view class="mask-content" bind:tap="onNewSession">-->
-<!--            <image mode="scaleToFill" style="width: 260rpx; height: 160rpx;" src="https://tft-images.qizue.com/logo-tft.webp?t=1"></image>-->
-<!--        </view>-->
-<!--    </l-mask>-->
+            </l-loadmore>
+        </view>
+    </t-pull-down-refresh>
+    <!--    <l-mask show="{{show_new_session}}" bind:lintap="changeMask" center="{{false}}">-->
+    <!--        <view class="mask-content" bind:tap="onNewSession">-->
+    <!--            <image mode="scaleToFill" style="width: 260rpx; height: 160rpx;" src="https://tft-images.qizue.com/logo-tft.webp?t=1"></image>-->
+    <!--        </view>-->
+    <!--    </l-mask>-->
 
-<!--    <view class="set10" bind:tap="onSet10">-->
-<!--        <image class="image" src="https://tft-images.qizue.com/set10/floater.png" />-->
-<!--        <view class="new">S10赛季剧透</view>-->
-<!--    </view>-->
+    <!--    <view class="set10" bind:tap="onSet10">-->
+    <!--        <image class="image" src="https://tft-images.qizue.com/set10/floater.png" />-->
+    <!--        <view class="new">S10赛季剧透</view>-->
+    <!--    </view>-->
 </capsule-bar>

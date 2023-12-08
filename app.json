@@ -84,7 +84,8 @@
     "synergy": "./components/synergy/index",
     "location": "./components/location/index",
     "table": "./components/table/index",
-    "t-image": "/miniprogram_npm/tdesign-miniprogram/image/image"
+    "t-image": "/miniprogram_npm/tdesign-miniprogram/image/image",
+    "t-pull-down-refresh" : "/miniprogram_npm/tdesign-miniprogram/pull-down-refresh/pull-down-refresh"
   },
   "sitemapLocation": "sitemap.json",
   "subpackages": [],

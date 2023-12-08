@@ -51,7 +51,7 @@
                 <view class="lineup-hex-priority mb20">
                     <view class="lineup-hex-title">赛季之星</view>
                     <view class="lineup-hex-list vanguard">
-                        <view class="excellent mb30" wx:if="{{data.chosen.hero.recomm}}">
+                        <view class="excellent mb30" wx:if="{{data.chosen.hero.recomm.id}}">
                             <text>最终优选</text>
                             <view class="component-champion cost{{data.chosen.hero.recomm.prices}}">
                                 <champion
@@ -64,7 +64,7 @@
                                         avatar="{{data.chosen.hero.recomm.avatar}}"/>
                             </view>
                         </view>
-                        <view class="excellent mb30" wx:if="{{data.chosen.hero.replace}}">
+                        <view class="excellent mb30" wx:if="{{data.chosen.hero.replace.id}}">
                             <text>最终备选</text>
                             <view class="component-champion cost{{data.chosen.hero.replace.prices}}">
                                 <champion
@@ -78,7 +78,7 @@
                             </view>
                         </view>
                         <block wx:if="{{show_mid_prophase}}">
-                            <view class="excellent mb30" wx:if="{{data.chosen.hero.early}}">
+                            <view class="excellent mb30" wx:if="{{data.chosen.hero.early.id}}">
                                 <text>早期优选</text>
                                 <view class="component-champion cost{{data.chosen.hero.early.prices}}">
                                     <champion
@@ -91,7 +91,7 @@
                                             avatar="{{data.chosen.hero.early.avatar}}"/>
                                 </view>
                             </view>
-                            <view class="excellent mb30" wx:if="{{data.chosen.hero.middle}}">
+                            <view class="excellent mb30" wx:if="{{data.chosen.hero.middle.id}}">
                                 <text>中期优选</text>
                                 <view class="component-champion cost{{data.chosen.hero.middle.prices}}">
                                     <champion

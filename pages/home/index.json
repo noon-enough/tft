@@ -3,6 +3,5 @@
   "navigationBarTitleText": "阵容推荐",
   "usingComponents":{
     "t-notice-bar": "/miniprogram_npm/tdesign-miniprogram/notice-bar/notice-bar"
-  },
-  "enablePullDownRefresh": true
+  }
 }
